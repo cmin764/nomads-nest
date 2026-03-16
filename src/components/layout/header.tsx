@@ -46,7 +46,7 @@ export default function Header() {
 
           {/* Center: logo */}
           <div className="flex justify-center">
-            <Link href="/guide">
+            <Link href="/">
               <Image
                 src="/images/logo-nn-gold-crop.webp"
                 alt="Nomad's Nest"
