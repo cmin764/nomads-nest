@@ -19,16 +19,16 @@ export default function CheckInPage() {
           Check-in Instructions
         </h1>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Follow these steps to reach the apartment at{" "}
+          Find us on{" "}
           <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
           >
-            63 Tefkrou Anthia, Ayia Napa
+            Google Maps
           </a>
-          .
+          : &ldquo;Nomad&apos;s Nest - Apartment for rent&rdquo;
         </p>
         <div className="mt-6 mx-auto w-16 h-0.5 bg-primary" />
       </div>
@@ -36,7 +36,10 @@ export default function CheckInPage() {
       {/* Content */}
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
         <DirectionsTabs />
-        <div className="mt-12 pt-8 border-t border-border flex justify-center">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col items-center gap-4 text-center">
+          <p className="text-muted-foreground text-sm">
+            Now that you checked in successfully, make sure you throw an eye over our home guide.
+          </p>
           <Button variant="gold" asChild>
             <Link href="/guide">
               <BookOpen size={16} />
