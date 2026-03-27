@@ -19,7 +19,7 @@ export default function GuideSection({ section }: GuideSectionProps) {
           {section.items.map((item, i) => {
             if (item.heading) {
               return (
-                <h3 key={i} className="text-sm font-semibold text-foreground pt-2 first:pt-0">
+                <h3 key={i} className="text-sm font-[500] tracking-[.04em] text-foreground pt-2 first:pt-0" style={{ fontFamily: "var(--font-heading)" }}>
                   {item.text}
                 </h3>
               );

@@ -509,6 +509,8 @@ src/data/
 
 ## 4. Page Specifications
 
+> **Source material:** The original Squarespace site was downloaded offline and lives at `/Users/cmin/Projects/NomadsNest/Site`. When content, copy, or page structure needs verification or gap-filling, read the `.htm` files there directly. This is the authoritative source for all original text, page layout, and image filenames.
+
 ### 4.1 Home (`/`)
 
 **Hero section** (above the fold):
@@ -899,23 +901,34 @@ public/
       unsplash-image-oUi2tvBLInY.jpg
 ```
 
-### 5.2 Downloading Missing Assets
+### 5.2 Media Asset Registry
 
-Most gallery images are not yet in the repo. They live on the Squarespace CDN. Full CDN URLs are documented in `nomadsnest-rebuild-spec.md` §6 (Asset Inventory).
+All media is tracked in **`config/media.yaml`**. Every image has a `status` field:
+- `present` — file exists in `public/images/` (no action needed)
+- `cdn` — not on disk; download from `url` using the script
+- `missing` — CDN URL unknown; must source manually, then set to `cdn`
 
-**Priority download order:**
-1. Homepage hero images (3 images — needed for Phase 1)
-2. Listing page images (6 images — needed for Phase 2)
-3. Gallery cover thumbnails (6 images — needed for Phase 2)
-4. Full gallery room photos (50+ images — needed for Phase 2, gallery sub-pages)
-5. Contact page image (1 image — needed for Phase 3)
+**Local sources already copied (Phase 1):**
+- `/Users/cmin/Pictures/Airbnb/Listing` — primary source for all B-bedroom, C-bathroom, D-kitchen, D-living, A-terrace files
+- `/Users/cmin/Projects/NomadsNest/Site` — CMN* files, listing page images, safety, landmarks, contact
+
+**Download script:** `bash scripts/download-media.sh [section]`
+- Reads `config/media.yaml`, skips `present` entries, fetches `cdn` entries
+- Section filter matches top-level YAML keys (e.g. `gallery-bedroom`, `home`)
+- Uses `python3` (no extra deps, available on macOS)
+
+**Still missing** (CDN URLs unknown — provide via Squarespace media library):
+- All CMN* bedroom gallery files (14 images)
 
 ### 5.3 Rules
 
-- **Compress to <500KB** before committing. Git is not an image store.
-- Always use `next/image` for runtime optimization.
-- For images not yet downloaded, use placeholder fills matching the design spec color tokens (`--surface-alt` for neutral, `--gold-lt` for warm, `--navy-lt` for cool).
-- `blurDataURL` placeholder on `next/image` once real images are added.
+- **Every JPEG must be under 500KB before committing.** Git is not an image store. Vercel serves `next/image` optimized output, but large originals still bloat the repo and slow cold builds.
+- **Compression tool:** `bash scripts/compress-images.sh` — uses macOS `sips` (no extra installs). Runs up to 3 passes (2048px/q75 → 1600px/q60 → 1280px/q55) until all files are under 500KB. Always run this after copying new images in.
+- After downloading new assets via `scripts/download-media.sh`, immediately run `scripts/compress-images.sh` before staging.
+- Always use `next/image` for runtime optimization in components.
+- For images not yet on disk, use placeholder fills: `--surface-alt` (neutral), `--gold-lt` (warm), `--navy-lt` (cool).
+- `blurDataURL` on `next/image` once real images are in place.
+- When marking an image as present after copying locally, update `config/media.yaml` status accordingly.
 
 ---
 
@@ -926,31 +939,29 @@ Most gallery images are not yet in the repo. They live on the Squarespace CDN. F
 - `/check-in` page (fully built)
 - `/guide` page (fully built)
 - Header and footer (built, placeholder links)
-- Design system (colors, fonts, components) — **diverged from spec, needs Phase 1 update**
 - Data layer pattern (`src/data/`)
 
 ---
 
-### Phase 1 — Theme & Foundation
+### Phase 1 — Done ✓
 
-**Goal:** Get the design system aligned with the blueprint spec. Build the home page. Everything else stays as-is.
+**Completed changes:**
+- `src/app/layout.tsx` — Cormorant + Raleway via `next/font/google`; FOUC prevention IIFE in `<head>` sets `data-theme` before paint
+- `src/app/globals.css` — full design token palette (navy/gold/cream); `[data-theme="dark"]` overrides; `.nn-link` and `.btn-navy` CSS helpers for server components
+- `src/components/ui/button.tsx` — pill `gold` and `navy` variants; dark mode navy handled via `.btn-navy` CSS class (Tailwind v4 does not support `[data-theme=dark_&]` arbitrary variant syntax)
+- `src/components/layout/header.tsx` — correct nav (The Space, Gallery, Contact); Cormorant italic text logo; system/light/dark theme toggle (Sun/Moon/Monitor icons)
+- `src/components/layout/footer.tsx` — 54px Cormorant logo; address + explore + legal columns; gold top border; server component (no event handlers — uses `.nn-link` CSS class)
+- `src/hooks/use-theme.ts` — `useTheme` hook; always initialises to `'system'` to prevent SSR/client hydration mismatch; syncs from `localStorage` in a separate `useEffect` after mount
+- `src/app/page.tsx` — home page: 3-image hero strip, memory section with overlay, no "Already a guest?" section (guide/check-in links are sent privately to booked guests only)
+- `config/media.yaml` — full media asset registry; all currently available images marked `present`
+- `scripts/download-media.sh` — rewritten to pure download logic; reads `config/media.yaml` via `python3`; supports section filter arg
+- All available images copied to `public/images/` from local sources
 
-**Files to touch:**
-- `src/app/layout.tsx` — swap fonts (Playfair → Cormorant, Inter → Raleway), add theme IIFE script
-- `src/app/globals.css` — replace all color tokens, update Tailwind `@theme inline` mapping
-- `src/components/ui/button.tsx` — pill button variants (gold, navy)
-- `src/components/layout/header.tsx` — new nav (The Space, Gallery, Contact, theme toggle, Book Now), remove Guide
-- `src/components/layout/footer.tsx` — dual footer (light/dark), new layout
-- `src/app/page.tsx` — render home page instead of redirect
-- `src/app/home/` (or inline in `page.tsx`) — hero strip, memory section, guest section
-- `src/data/` — no changes needed yet
-
-**Acceptance criteria:**
-- Dark theme active by default on all pages
-- Theme toggle persisted in localStorage
-- Check-in and Guide pages render correctly with updated theme
-- Home page visible at `/`
-- Nav has correct links (no Guide/Check-in)
+**Key implementation notes for future phases:**
+- Use `.nn-link` CSS class for hover-colour links in server components (not `onMouseEnter`/`onMouseLeave`)
+- Use `.btn-navy` for dark-mode navy button overrides (not Tailwind arbitrary variant)
+- `useTheme` must always start with `'system'` state — do not read `localStorage` in `useState` initialiser
+- Guide and Check-in links are **not** on the public site anywhere — the "Already a guest?" section was removed from the home page by design
 
 ---
 
