@@ -1,0 +1,34 @@
+Let's craft together a blueprint in the ./docs dir which we'd follow to build in iterations from high level to top-down leaf-detail the website Nomad's Nest, but this time with React/Next, deployed on Vercel and with a facelift and improved design from what we had already on Squarespace, which I downloaded offline all the pages and content, for you to ingest and understand the structure here: @/Users/cmin/Projects/Nomad's Nest/Site
+
+Your goal is to understand the current site layout, design, font, colors etc. and improve it further without losing the identity as in a locally saved persistent blueprint which we'd use as guidelines to approach the development further. Once you capture the existing design identity, let's apply a facelift to it, ask taste-relevant questions, come up with a solid plan on what we want to achieve, plan a few iterations of taking this in phases, from high-level to details, so in case we change something along the way, we won't need to rebuild already implemented stuff in detail, but do easy changes.
+
+Also, understand the current layout of the pages, and propose an even better menu for the Listing, Gallery, Contact, Home, Book Now etc. Make sure its sophistication lies in its simplicity, while remains intuitive enough. The important info should popup first, while giving the feeling that is really only one way and one obvious way to do it when you reach a piece of information about the listing, room, facilities etc.
+
+For more context, I invite you to check our public listings from here:
+- https://www.airbnb.com/rooms/1417953515842415053
+- https://www.booking.com/hotel/cy/nomads-nest-quiet-flat-with-terrace-in-ayia-napa.html
+- https://www.homeexchange.com/homes/view/2895395
+
+Below I'm attaching what we captured so far about this migration in a separate session, so use that in your discovery process to fill in the gaps and unknowns:
+
+[session briefing attached — see docs/blueprint.md §1 Vision & Identity for the distilled outcome]
+
+Remember the goals:
+- understand where we are and where we want to get
+- propose an improved structure, layout and design, without losing identity (and ask taste questions)
+- write down a complete living blueprint in docs which establishes the documentation base for the upcoming generated code to implement the site
+
+Feel free to pull media from the available downloaded images we already have in the `Nomad's Nest/Site` dir path referenced above (make sure you find the relevant content first). For the missing media/images, just put placeholders, as I'll provide myself later on in the process the missing pics/videos with the same filename as found in the remotely uploaded media previously on Squarespace, which now isn't available anymore remotely since I brought the website down. (but I still have, and maybe even be able to download the past media)
+
+Finally, save this prompt in a separate .txt file alongside the .md blueprint you'd create.
+
+---
+
+Follow-up decisions made during planning:
+
+1. Theme: Dark luxury (deep navy #08152A as default), light mode via toggle.
+2. Navigation: The Space, Gallery, Contact in nav + Book Now CTA. Guide and Check-in hidden (post-booking only).
+3. Gallery: 6 room categories only (Entrance, Bedroom, Bathroom, Kitchen, Living Area, Terrace). Safety in Guide, Landmarks future.
+4. Book page: Platform cards only (Airbnb, Booking.com, HomeExchange) + email fallback. No reservation form.
+5. Font stack: Cormorant + Raleway (converging on design spec direction, replacing Playfair + Inter in current build).
+6. Theme toggle: System/light/dark with system as default (updated from light/dark only).
