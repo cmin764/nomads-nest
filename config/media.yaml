@@ -8,24 +8,6 @@
 #   cdn     — not on disk; download from `url`
 #   missing — CDN URL unknown; must source manually (provide url, then set to cdn)
 
-# ── HOME ──────────────────────────────────────────────────────────────────────
-home:
-  - file: home/A-terrace-5.jpg
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/1742333672583-9S892NENGTJ9GION4P5R/A-terrace-5.jpg
-
-  - file: home/A-terrace-4.JPG
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/0b3fd61c-7edd-42f5-9127-75c1b69a6186/A-terrace-4.JPG
-
-  - file: home/B-bedroom-1.JPG
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/8cf31929-cb35-47f1-aad8-63fa88695675/B-bedroom-1.JPG
-
-  - file: home/D-kitchen-8.JPG
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/8a446fc3-fd27-41aa-bcd6-8770e26798b7/D-kitchen-8.JPG
-
 # ── LISTING ───────────────────────────────────────────────────────────────────
 listing:
   - file: listing/CMN01490.JPG
@@ -36,10 +18,6 @@ listing:
     status: present
     url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/3e72164e-cbf1-448b-a865-30953e847944/CMN01439.JPG
 
-  - file: listing/D-kitchen-7.JPG
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/2722c642-e8eb-4854-9494-ff47c3bf1797/D-kitchen-7.JPG
-
   - file: listing/CMN01580.JPG
     status: present
     url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/c9c1917c-8c47-4330-bb52-5a4587efedac/CMN01580.JPG
@@ -47,14 +25,6 @@ listing:
   - file: listing/CMN01874.JPG
     status: present
     url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/6d6bb3d1-64e2-407d-a708-23e0619aa0e0/CMN01874.JPG
-
-  - file: listing/A-terrace-8.JPG
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/610f6327-86d8-4c16-87a2-7a8dbbe77b1a/A-terrace-8.JPG
-
-  - file: listing/A-terrace-6.JPG
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/7e4c5d3f-23f2-4b09-bd97-5e16d0e79f91/A-terrace-6.JPG
 
 # ── GALLERY THUMBNAILS (index page) ──────────────────────────────────────────
 gallery-index:

@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Nomad's Nest — Ayia Napa, Cyprus",
   description:
-    "A thoughtfully designed apartment 10 minutes from the city centre and 20 minutes from the beach.",
+    "A thoughtfully designed apartment 10 minutes' walk from the city centre and 20 minutes' walk from the beach.",
 };
 
 export default function HomePage() {
@@ -23,7 +23,7 @@ export default function HomePage() {
             style={{ background: "var(--surface-alt)" }}
           >
             <Image
-              src="/images/home/A-terrace-5.jpg"
+              src="/images/gallery/terrace/A-terrace-5.JPG"
               alt="Terrace with sea view"
               fill
               className="object-cover"
@@ -36,7 +36,7 @@ export default function HomePage() {
             style={{ background: "var(--navy-lt)" }}
           >
             <Image
-              src="/images/home/B-bedroom-1.JPG"
+              src="/images/gallery/bedroom/B-bedroom-1.JPG"
               alt="Bedroom"
               fill
               className="object-cover"
@@ -48,7 +48,7 @@ export default function HomePage() {
             style={{ background: "var(--gold-lt)" }}
           >
             <Image
-              src="/images/home/D-kitchen-8.JPG"
+              src="/images/gallery/kitchen/D-kitchen-7.JPG"
               alt="Kitchen"
               fill
               className="object-cover"
@@ -79,7 +79,7 @@ export default function HomePage() {
             className="text-[16px] font-light leading-[1.8] mb-10 max-w-[560px] mx-auto"
             style={{ color: "var(--muted-text)" }}
           >
-            10 minutes from the city centre. 20 minutes from the beach.
+            10 minutes&apos; walk from the city centre. 20 minutes&apos; walk from the beach.
             A space designed to let you relax, work, and explore at your own pace.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
@@ -101,7 +101,7 @@ export default function HomePage() {
         {/* Background image (with dark overlay) */}
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/home/A-terrace-4.JPG"
+            src="/images/gallery/terrace/A-terrace-4.JPG"
             alt="Terrace at dusk"
             fill
             className="object-cover opacity-40"
