@@ -44,60 +44,83 @@ export default function FarewellChecklist() {
   };
 
   const doneCount = checked.filter(Boolean).length;
+  const allDone = mounted && doneCount === farewellChecklistItems.length;
 
   return (
     <section id="farewell-checklist" className="scroll-mt-24 mb-12">
       <FadeIn>
-        <h2 className="font-heading text-2xl text-foreground mb-5 flex items-center gap-3">
-          <span>✅</span>
-          <span>Farewell Checklist</span>
+        <h2 className="font-heading font-light text-[30px] text-foreground mb-2 flex items-center gap-3">
+          <span>Before you go.</span>
+          <span className="text-[22px] italic" style={{ color: "var(--gold)" }}>✦</span>
         </h2>
-        <p className="text-sm text-muted-foreground mb-6">
-          Before you leave, run through these quickly. Your progress is saved automatically.
-        </p>
 
-        <div className="space-y-3">
-          {farewellChecklistItems.map((item, i) => (
-            <label
-              key={i}
-              className={cn(
-                "flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors",
-                mounted && checked[i]
-                  ? "border-primary/40 bg-primary/5"
-                  : "border-border bg-card hover:border-primary/30"
-              )}
-            >
-              <input
-                type="checkbox"
-                checked={mounted ? checked[i] : false}
-                onChange={() => toggle(i)}
-                className="accent-primary w-4 h-4 shrink-0"
-              />
-              <span
+        <div>
+          {farewellChecklistItems.map((item, i) => {
+            const isLast = i === farewellChecklistItems.length - 1;
+            const isChecked = mounted && checked[i];
+            return (
+              <label
+                key={i}
                 className={cn(
-                  "text-sm transition-colors",
-                  mounted && checked[i]
-                    ? "line-through text-muted-foreground"
-                    : "text-foreground"
+                  "flex gap-[14px] items-start py-[14px] cursor-pointer group",
+                  !isLast && "border-b border-border"
                 )}
               >
-                {item}
-              </span>
-            </label>
-          ))}
+                {/* Custom round gold checkbox */}
+                <span
+                  className="shrink-0 mt-[2px] flex items-center justify-center w-[18px] h-[18px] rounded-full border-2 transition-all duration-150"
+                  style={{
+                    borderColor: isChecked ? "var(--gold)" : "var(--divider)",
+                    background: isChecked ? "var(--gold)" : "transparent",
+                  }}
+                >
+                  {isChecked && (
+                    <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
+                      <path d="M1 3.5L3.5 6L8 1" stroke="#F5F2EC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </span>
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={() => toggle(i)}
+                  className="sr-only"
+                />
+                <span
+                  className={cn(
+                    "text-[15px] font-light leading-[1.75] transition-colors duration-150",
+                    isChecked ? "line-through" : ""
+                  )}
+                  style={{ color: isChecked ? "var(--muted-text)" : "var(--text)" }}
+                >
+                  {item}
+                </span>
+              </label>
+            );
+          })}
         </div>
 
-        <div className="mt-6 flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
-            {mounted ? doneCount : 0} / {farewellChecklistItems.length} complete
-          </p>
-          <button
-            onClick={reset}
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+        {allDone ? (
+          <p
+            className="mt-6 font-heading font-light italic text-[17px]"
+            style={{ color: "var(--gold)" }}
           >
-            Reset
-          </button>
-        </div>
+            Safe travels. Come back soon. ✦
+          </p>
+        ) : (
+          <div className="mt-6 flex items-center justify-between">
+            <p className="text-[13px]" style={{ color: "var(--muted-text)" }}>
+              {mounted ? doneCount : 0} / {farewellChecklistItems.length} complete
+            </p>
+            <button
+              onClick={reset}
+              className="text-[12px] underline underline-offset-4 transition-colors"
+              style={{ color: "var(--muted-text)" }}
+            >
+              Reset
+            </button>
+          </div>
+        )}
       </FadeIn>
     </section>
   );

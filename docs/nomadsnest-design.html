@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nomad's Nest — Design System v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+/* ── LIGHT ── */
+:root{
+  --bg:#F5F2EC;
+  --surface:#FFFFFF;
+  --surface-alt:#EBF0F8;
+  --navy:#1B2A4A;
+  --navy-mid:#2E4A7A;
+  --navy-lt:#D4DFF0;
+  --gold:#B8924A;
+  --gold-dk:#9A7A3C;
+  --gold-lt:#F2E8D0;
+  --text:#1B2A4A;
+  --muted:#6A7D99;
+  --border:#D5DDE9;
+  --serif:'Cormorant',Georgia,serif;
+  --sans:'Raleway',system-ui,sans-serif;
+}
+
+/* ── DARK ── */
+[data-theme="dark"]{
+  --bg:#08152A;
+  --surface:#0D1F3C;
+  --surface-alt:#112448;
+  --navy-lt:#1A3A6A;
+  --gold-lt:#1E1408;
+  --text:#EDE8DC;
+  --muted:#7A8EAA;
+  --border:#18304E;
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.75;font-weight:300;transition:background 450ms,color 450ms;}
+.divider{height:1px;background:var(--border);transition:background 450ms;}
+.sec{padding:88px 72px;}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 72px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;transition:background 450ms,border-color 450ms;}
+.nav-left{display:flex;gap:36px;}
+.nav-right{display:flex;gap:16px;align-items:center;}
+.nav-link{font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 200ms;}
+.nav-link:hover{color:var(--text);}
+.logo-text{font-family:var(--serif);font-weight:300;font-style:italic;font-size:22px;letter-spacing:.06em;color:var(--text);}
+
+/* TOGGLE */
+.theme-toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 200ms;font-size:15px;color:var(--muted);}
+.theme-toggle:hover{border-color:var(--gold);color:var(--gold);}
+.icon-sun{display:block;}
+.icon-moon{display:none;}
+[data-theme="dark"] .icon-sun{display:none;}
+[data-theme="dark"] .icon-moon{display:block;}
+
+/* BUTTONS */
+.btn-gold{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;padding:13px 34px;border-radius:100px;background:var(--gold);color:#F5F2EC;border:none;cursor:pointer;transition:background 250ms,transform 150ms;white-space:nowrap;}
+.btn-gold:hover{background:var(--gold-dk);transform:scale(1.02);}
+.btn-navy{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;padding:12px 34px;border-radius:100px;background:transparent;border:1px solid var(--navy-mid);color:var(--navy-mid);cursor:pointer;transition:all 250ms;white-space:nowrap;}
+[data-theme="dark"] .btn-navy{border-color:rgba(237,232,220,.3);color:var(--text);}
+.btn-navy:hover{background:var(--navy-mid);color:#F5F2EC;}
+[data-theme="dark"] .btn-navy:hover{background:rgba(237,232,220,.1);border-color:rgba(237,232,220,.5);}
+
+/* HERO */
+.hero{padding:80px 72px 96px;text-align:center;}
+.hero-strip{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:12px;margin-bottom:72px;}
+.hero-img{border-radius:10px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:20px;height:460px;transition:background 450ms;}
+.hero-img-label{font-family:var(--serif);font-style:italic;font-weight:300;font-size:13px;color:var(--muted);opacity:.55;}
+.img-terrace{background:var(--surface-alt);}
+.img-bedroom{background:var(--gold-lt);}
+.img-kitchen{background:var(--navy-lt);}
+.hero-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.hero-h{font-family:var(--serif);font-weight:300;font-size:72px;line-height:1.05;letter-spacing:.01em;margin-bottom:12px;}
+.hero-h em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:17px;font-weight:300;color:var(--muted);max-width:500px;margin:0 auto 44px;line-height:1.85;}
+.gold-bar{width:44px;height:1px;background:var(--gold);margin:0 auto 40px;}
+.btn-row{display:flex;gap:14px;justify-content:center;}
+
+/* TOKENS */
+.tokens-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+.swatches{display:flex;flex-direction:column;gap:12px;}
+.swatch-row{display:flex;align-items:center;gap:20px;}
+.swatch-dot{width:44px;height:44px;border-radius:50%;flex-shrink:0;border:1px solid var(--border);}
+.swatch-name{font-size:14px;font-weight:400;color:var(--text);}
+.swatch-hex{font-size:11px;color:var(--muted);font-family:monospace;letter-spacing:.04em;}
+.type-rows{display:flex;flex-direction:column;}
+.type-row{display:flex;align-items:baseline;gap:28px;padding:22px 0;border-bottom:1px solid var(--border);}
+.type-row:last-child{border:none;}
+.type-meta{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;min-width:130px;flex-shrink:0;font-weight:400;}
+.t-display{font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.04;letter-spacing:.02em;}
+.t-h1{font-family:var(--serif);font-weight:300;font-size:40px;line-height:1.1;font-style:italic;}
+.t-h2{font-family:var(--serif);font-weight:300;font-size:28px;line-height:1.2;}
+.t-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:400;}
+.t-body{font-size:16px;line-height:1.8;color:var(--muted);font-weight:300;}
+.btn-preview{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding-top:48px;}
+.btn-note{font-size:12px;color:var(--muted);font-weight:300;font-style:italic;}
+
+/* SECTION LABEL */
+.section-label{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:var(--surface-alt);padding:6px 16px;border-radius:100px;margin-bottom:52px;font-weight:400;transition:background 450ms;}
+
+/* AMENITY CARDS */
+.amenity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.a-card{background:var(--surface);border-radius:14px;border:1px solid var(--border);padding:30px 26px;cursor:pointer;transition:border-color 300ms,transform 300ms,box-shadow 300ms,background 450ms;}
+.a-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 14px 40px rgba(27,42,74,.07);}
+[data-theme="dark"] .a-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.4);}
+.a-room{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:400;}
+.a-items{font-size:14px;font-weight:300;color:var(--muted);line-height:2.1;}
+
+/* GALLERY CARDS */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.g-card{border-radius:12px;overflow:hidden;cursor:pointer;border:1px solid var(--border);transition:transform 300ms,box-shadow 300ms,border-color 300ms;background:var(--surface);}
+.g-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(27,42,74,.09);border-color:var(--navy-mid);}
+[data-theme="dark"] .g-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.5);}
+.g-thumb{height:120px;display:flex;align-items:center;justify-content:center;transition:background 450ms;}
+.g-thumb.t1{background:var(--navy-lt);}
+.g-thumb.t2{background:var(--gold-lt);}
+.g-thumb.t3{background:var(--surface-alt);}
+.g-thumb-icon{font-size:26px;opacity:.45;}
+.g-cat{padding:14px 16px;}
+.g-cat-name{font-family:var(--serif);font-weight:300;font-size:16px;margin-bottom:3px;}
+.g-cat-count{font-size:11px;color:var(--muted);font-weight:300;}
+
+/* REVIEWS */
+.reviews-outer{position:relative;}
+.reviews-track{overflow:hidden;}
+.reviews-inner{display:flex;transition:transform 520ms cubic-bezier(.4,0,.2,1);}
+.r-card{min-width:100%;padding:0 96px;text-align:center;}
+.r-quote-mark{font-family:var(--serif);font-size:96px;line-height:.4;color:var(--gold);opacity:.2;margin-bottom:32px;display:block;}
+.r-quote{font-family:var(--serif);font-weight:300;font-style:italic;font-size:23px;line-height:1.75;color:var(--text);margin:0 auto 32px;max-width:640px;}
+.r-attr{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:400;}
+.reviews-nav{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:48px;}
+.r-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 200ms;font-size:16px;}
+.r-btn:hover{border-color:var(--gold);color:var(--gold);}
+.r-dots{display:flex;gap:8px;align-items:center;}
+.r-dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:all 300ms;}
+.r-dot.active{background:var(--gold);width:24px;border-radius:3px;}
+
+/* BOOK */
+.book-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.pricing-table{width:100%;border-collapse:collapse;}
+.pricing-table tr{border-bottom:1px solid var(--border);}
+.pricing-table tr:last-child{border:none;}
+.pricing-table td{padding:16px 0;font-size:15px;font-weight:300;}
+.pricing-table td:first-child{color:var(--muted);}
+.pricing-table td:last-child{text-align:right;font-family:var(--serif);font-size:20px;font-weight:300;}
+.pricing-table tr.closed td:last-child{font-family:var(--sans);font-size:13px;letter-spacing:.06em;color:var(--muted);}
+.pricing-note{margin-top:20px;font-size:13px;font-weight:300;color:var(--muted);line-height:1.95;}
+.platform-btns{display:flex;flex-direction:column;gap:12px;}
+.platform-btn{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:14px;border:1px solid var(--border);background:var(--surface);cursor:pointer;text-decoration:none;color:var(--text);transition:border-color 250ms,transform 250ms,background 450ms;}
+.platform-btn:hover{border-color:var(--gold);transform:translateX(4px);}
+.platform-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.p-airbnb{background:#FFEAE0;}
+.p-booking{background:#E8F0FF;}
+.p-exchange{background:#E8F5EB;}
+[data-theme="dark"] .p-airbnb{background:rgba(255,120,80,.15);}
+[data-theme="dark"] .p-booking{background:rgba(46,74,122,.4);}
+[data-theme="dark"] .p-exchange{background:rgba(60,120,60,.2);}
+.platform-name{font-size:14px;font-weight:400;margin-bottom:2px;}
+.platform-sub{font-size:12px;color:var(--muted);font-weight:300;}
+.platform-arrow{margin-left:auto;color:var(--muted);font-size:14px;transition:color 250ms;}
+.platform-btn:hover .platform-arrow{color:var(--gold);}
+
+/* GUIDE */
+.guide-layout{display:grid;grid-template-columns:200px 1fr;gap:60px;align-items:start;}
+.toc{border-left:1px solid var(--border);padding-left:24px;position:sticky;top:90px;}
+.toc-head{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:400;}
+.toc-item{font-size:13px;font-weight:300;color:var(--muted);padding:7px 0;cursor:pointer;transition:color 150ms;}
+.toc-item:hover,.toc-item.active{color:var(--gold);}
+.toc-item.active{font-weight:400;}
+.g-section{margin-bottom:48px;}
+.g-head{font-family:var(--serif);font-weight:300;font-size:30px;margin-bottom:8px;display:flex;align-items:center;gap:12px;}
+.g-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:19px;color:var(--muted);margin-bottom:16px;}
+.g-rule{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px;font-weight:300;color:var(--muted);display:flex;gap:14px;align-items:flex-start;}
+.g-rule:last-child{border:none;}
+.g-icon{color:var(--gold);flex-shrink:0;margin-top:3px;font-size:12px;}
+
+/* CHECK-IN */
+.tabs{display:flex;border:1px solid var(--border);border-radius:100px;width:fit-content;overflow:hidden;margin-bottom:40px;}
+.tab{padding:12px 36px;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--muted);border:none;transition:all 220ms;}
+.tab.active{background:var(--navy-mid);color:#EDE8DC;}
+.steps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.s-card{background:var(--surface);border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:transform 250ms,box-shadow 250ms,background 450ms;}
+.s-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(27,42,74,.09);}
+[data-theme="dark"] .s-card:hover{box-shadow:0 10px 32px rgba(0,0,0,.45);}
+.s-photo{height:155px;display:flex;align-items:center;justify-content:center;transition:background 450ms;}
+.s-photo.p1{background:var(--surface-alt);}
+.s-photo.p2{background:var(--gold-lt);}
+.s-photo.p3{background:var(--navy-lt);}
+.s-photo-label{font-family:var(--serif);font-style:italic;font-weight:300;font-size:13px;color:var(--muted);opacity:.6;}
+.s-body{padding:22px 24px;}
+.s-num{width:24px;height:24px;border-radius:50%;background:var(--gold);color:#F5F2EC;font-size:11px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.s-head{font-family:var(--serif);font-weight:300;font-size:19px;margin-bottom:7px;}
+.s-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;}
+
+/* CHECKLIST */
+.checklist{max-width:480px;}
+.cl-item{display:flex;align-items:center;gap:18px;padding:16px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity 200ms;}
+.cl-item:hover{opacity:.8;}
+.cl-box{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 250ms;}
+.cl-item.done .cl-box{background:var(--gold);border-color:var(--gold);}
+.cl-mark{width:9px;height:5px;border-left:1.5px solid #F5F2EC;border-bottom:1.5px solid #F5F2EC;transform:rotate(-45deg) translateY(-1px);opacity:0;transition:opacity 200ms;}
+.cl-item.done .cl-mark{opacity:1;}
+.cl-label{font-size:15px;font-weight:300;transition:color 200ms;}
+.cl-item.done .cl-label{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--border);}
+.cl-done-msg{display:none;margin-top:36px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:26px;color:var(--gold);}
+
+/* PARADISE PANEL — dark mode fix */
+.paradise-panel{border-radius:16px;height:440px;display:flex;align-items:center;justify-content:center;background:var(--navy-lt);transition:background 450ms;}
+.paradise-quote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:36px;line-height:1.3;margin-bottom:18px;color:var(--navy-mid);transition:color 450ms;}
+[data-theme="dark"] .paradise-quote{color:#A8C4E0;}
+.paradise-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:400;}
+
+/* ─────────────────────────────
+   FOOTER: TWO ENTIRELY DIFFERENT
+   DESIGNS PER THEME
+───────────────────────────── */
+
+/* LIGHT: airy colophon, feels like the page breathing out */
+.footer-light{
+  display:block;
+  background:var(--bg);
+  border-top:1px solid var(--gold);
+  padding:72px 72px 56px;
+  text-align:center;
+  transition:background 450ms;
+}
+[data-theme="dark"] .footer-light{display:none;}
+.fl-logo{font-family:var(--serif);font-weight:300;font-style:italic;font-size:54px;letter-spacing:.08em;color:var(--navy);margin-bottom:4px;line-height:1;}
+.fl-tagline{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:44px;font-weight:400;}
+.fl-cols{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;align-items:start;max-width:640px;margin:0 auto;}
+.fl-col{text-align:left;padding:0 40px;}
+.fl-col.right{text-align:right;}
+.fl-col-head{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:400;}
+.fl-line{font-size:13px;font-weight:300;color:var(--muted);line-height:2.3;display:block;}
+.fl-sep{background:var(--border);align-self:stretch;}
+.fl-bottom{margin-top:44px;padding-top:28px;border-top:1px solid var(--border);display:flex;justify-content:center;gap:32px;align-items:center;flex-wrap:wrap;}
+.fl-link{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400;cursor:pointer;transition:color 200ms;}
+.fl-link:hover{color:var(--navy);}
+.fl-copy{font-size:11px;color:var(--border);font-weight:300;}
+
+/* DARK: deep navy, signature gold logo */
+.footer-dark{
+  display:none;
+  background:#08152A;
+  padding:88px 72px 64px;
+  text-align:center;
+}
+[data-theme="dark"] .footer-dark{display:block;}
+.fd-logo{font-family:var(--serif);font-style:italic;font-weight:300;font-size:30px;letter-spacing:.1em;color:var(--gold);margin-bottom:32px;}
+.fd-bar{width:1px;height:44px;background:rgba(184,146,74,.2);margin:0 auto 28px;}
+.fd-addr{font-size:13px;font-weight:300;color:rgba(237,232,220,.35);line-height:2.5;}
+.fd-links{margin-top:32px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,232,220,.18);font-weight:400;}
+.fd-links span{margin:0 16px;cursor:pointer;transition:color 200ms;}
+.fd-links span:hover{color:var(--gold);}
+.fd-copy{margin-top:28px;font-size:11px;color:rgba(237,232,220,.1);font-weight:300;}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(22px);transition:opacity 800ms cubic-bezier(.25,.46,.45,.94),transform 800ms cubic-bezier(.25,.46,.45,.94);}
+.fi.visible{opacity:1;transform:none;}
+.fi.d1{transition-delay:0ms;}
+.fi.d2{transition-delay:130ms;}
+.fi.d3{transition-delay:260ms;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-link" href="#listing">Listing</a>
+    <a class="nav-link" href="#gallery">Gallery</a>
+    <a class="nav-link" href="#book">Book</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </div>
+  <div class="logo-text">Nomad's Nest</div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeBtn" title="Toggle theme">
+      <span class="icon-sun">☀</span>
+      <span class="icon-moon">☾</span>
+    </button>
+    <button class="btn-gold">Book Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-strip fi d1">
+    <div class="hero-img img-terrace"><span class="hero-img-label">terrace, morning light</span></div>
+    <div class="hero-img img-bedroom"><span class="hero-img-label">bedroom</span></div>
+    <div class="hero-img img-kitchen"><span class="hero-img-label">kitchen</span></div>
+  </div>
+  <div class="hero-eyebrow fi d2">Ayia Napa, Cyprus</div>
+  <h1 class="hero-h fi d2">Living well<br>in <em>Ayia Napa.</em></h1>
+  <div class="gold-bar fi d3"></div>
+  <p class="hero-sub fi d3">10 minutes from the city centre. 20 minutes from the beach. A space designed to let you relax, work, and explore at your own pace.</p>
+  <div class="btn-row fi d3">
+    <button class="btn-gold">Book Now</button>
+    <button class="btn-navy">About the Property</button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DESIGN TOKENS -->
+<section class="sec">
+  <div class="section-label fi">Design Tokens</div>
+  <div class="tokens-grid">
+    <div class="fi d1">
+      <div style="font-family:var(--serif);font-weight:300;font-size:22px;margin-bottom:28px;font-style:italic;">Colour — three families only</div>
+      <div class="swatches">
+        <div class="swatch-row"><div class="swatch-dot" style="background:#F5F2EC;"></div><div><div class="swatch-name">Cream / Background</div><div class="swatch-hex">#F5F2EC — linen white</div></div></div>
+        <div class="swatch-row"><div class="swatch-dot" style="background:#1B2A4A;"></div><div><div class="swatch-name">Navy / Text</div><div class="swatch-hex">#1B2A4A — deep marine</div></div></div>
+        <div class="swatch-row"><div class="swatch-dot" style="background:#2E4A7A;"></div><div><div class="swatch-name">Navy Mid / Secondary</div><div class="swatch-hex">#2E4A7A — regal blue</div></div></div>
+        <div class="swatch-row"><div class="swatch-dot" style="background:#D4DFF0;"></div><div><div class="swatch-name">Navy Light / Fills</div><div class="swatch-hex">#D4DFF0 — pale sea</div></div></div>
+        <div class="swatch-row"><div class="swatch-dot" style="background:#B8924A;"></div><div><div class="swatch-name">Gold / Primary CTA</div><div class="swatch-hex">#B8924A — afternoon honey</div></div></div>
+        <div class="swatch-row"><div class="swatch-dot" style="background:#F2E8D0;border-color:#ccc;"></div><div><div class="swatch-name">Gold Light / Warm Fill</div><div class="swatch-hex">#F2E8D0 — parchment</div></div></div>
+        <div class="swatch-row"><div class="swatch-dot" style="background:#08152A;"></div><div><div class="swatch-name">Footer Navy / Always Dark</div><div class="swatch-hex">#08152A — night sea</div></div></div>
+      </div>
+    </div>
+    <div class="fi d2">
+      <div style="font-family:var(--serif);font-weight:300;font-size:22px;margin-bottom:28px;font-style:italic;">Typography</div>
+      <div class="type-rows">
+        <div class="type-row"><div class="type-meta">Display / 54px</div><div class="t-display">Nomad's Nest</div></div>
+        <div class="type-row"><div class="type-meta">H1 italic / 40px</div><div class="t-h1">Living well in Ayia Napa.</div></div>
+        <div class="type-row"><div class="type-meta">H2 / 28px</div><div class="t-h2">A place to make memories.</div></div>
+        <div class="type-row"><div class="type-meta">Label / 11px</div><div class="t-label">Ayia Napa, Cyprus · Summer 2026</div></div>
+        <div class="type-row"><div class="type-meta">Body / 16px</div><div class="t-body">A blend of contemporary convenience and relaxed island vibes. The perfect place to unwind, explore, or work remotely.</div></div>
+      </div>
+      <div style="margin-top:48px;">
+        <div style="font-family:var(--serif);font-weight:300;font-size:20px;margin-bottom:8px;font-style:italic;">Buttons</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:300;margin-bottom:24px;">Gold pill for primary CTAs only. Navy outline for everything else.</div>
+        <div class="btn-preview">
+          <button class="btn-gold">Book Now</button>
+          <button class="btn-navy">About the Property</button>
+          <button class="btn-navy">View Gallery</button>
+          <button class="btn-navy">Get Directions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AMENITY CARDS -->
+<section class="sec" id="listing">
+  <div class="section-label fi">Amenity Cards — /listing</div>
+  <div class="amenity-grid">
+    <div class="a-card fi d1"><div class="a-room">Bedroom</div><div class="a-items">Double Bed<br>Generous Wardrobe<br>Adjustable Desk<br>Vanity Table · 2 Mirrors</div></div>
+    <div class="a-card fi d2"><div class="a-room">Terrace</div><div class="a-items">Wide Area (17 sqm)<br>Wooden Table & Chairs<br>Umbrella<br>Smoking Zone</div></div>
+    <div class="a-card fi d3"><div class="a-room">Kitchen</div><div class="a-items">Electric Stove & Fridge<br>Washing Machine<br>Espresso Machine<br>Cutlery & Utensils</div></div>
+    <div class="a-card fi d1"><div class="a-room">Living Area</div><div class="a-items">Sofa Bed<br>TV & HDMI Cable<br>Dining Table & Chairs<br>Fibre 300 Mbps</div></div>
+    <div class="a-card fi d2"><div class="a-room">Bathroom</div><div class="a-items">Shower Cabin<br>Storage Shelves<br>Laundry Basket<br>Smart Scale</div></div>
+    <div class="a-card fi d3"><div class="a-room">Safety</div><div class="a-items">CO Detector<br>Smoke Detector<br>Fire Extinguisher<br>First Aid Kit</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GALLERY CARDS -->
+<section class="sec" id="gallery">
+  <div class="section-label fi">Gallery Cards — /gallery</div>
+  <div class="gallery-grid fi d1">
+    <div class="g-card"><div class="g-thumb t1"><span class="g-thumb-icon">🚪</span></div><div class="g-cat"><div class="g-cat-name">Entrance</div><div class="g-cat-count">6 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t2"><span class="g-thumb-icon">🛏</span></div><div class="g-cat"><div class="g-cat-name">Bedroom</div><div class="g-cat-count">23 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t3"><span class="g-thumb-icon">🚿</span></div><div class="g-cat"><div class="g-cat-name">Bathroom</div><div class="g-cat-count">8 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t1"><span class="g-thumb-icon">🍳</span></div><div class="g-cat"><div class="g-cat-name">Kitchen</div><div class="g-cat-count">12 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t2"><span class="g-thumb-icon">🛋</span></div><div class="g-cat"><div class="g-cat-name">Living Area</div><div class="g-cat-count">10 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t3"><span class="g-thumb-icon">☀</span></div><div class="g-cat"><div class="g-cat-name">Terrace</div><div class="g-cat-count">14 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t1"><span class="g-thumb-icon">🔥</span></div><div class="g-cat"><div class="g-cat-name">Safety</div><div class="g-cat-count">5 photos</div></div></div>
+    <div class="g-card"><div class="g-thumb t2"><span class="g-thumb-icon">🌊</span></div><div class="g-cat"><div class="g-cat-name">Landmarks</div><div class="g-cat-count">18 photos</div></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVIEWS -->
+<section class="sec">
+  <div class="section-label fi">Review Carousel — /listing</div>
+  <div class="reviews-outer fi d2">
+    <div class="reviews-track">
+      <div class="reviews-inner" id="reviewsInner">
+        <div class="r-card"><span class="r-quote-mark">"</span><p class="r-quote">Clean, modern, very organised, and extremely well-equipped. The host really thought of everything — from beach towels and an umbrella to a fully stocked kitchen and even gym accessories.</p><div class="r-attr">— Ovidiu R.</div></div>
+        <div class="r-card"><span class="r-quote-mark">"</span><p class="r-quote">Everything was just perfect: great location, top-notch service, super clean and fully equipped. Honestly, I tried to find something I didn't like — but I couldn't.</p><div class="r-attr">— Yonatan H.K.</div></div>
+        <div class="r-card"><span class="r-quote-mark">"</span><p class="r-quote">Truly a convenient and pleasant place to stay. The location is ideal, everything is nearby. We had a great time and would recommend this place 100%, not hesitating to come back.</p><div class="r-attr">— Dallia E.</div></div>
+        <div class="r-card"><span class="r-quote-mark">"</span><p class="r-quote">Fully equipped apartment in a good location. Great communication with the owner. Very pleasant stay and outstanding value for the price.</p><div class="r-attr">— Jovan M.</div></div>
+        <div class="r-card"><span class="r-quote-mark">"</span><p class="r-quote">Great facilities, gorgeous and clean. We were very happy with our stay. Excellent communication with the owner throughout.</p><div class="r-attr">— Erika O.</div></div>
+        <div class="r-card"><span class="r-quote-mark">"</span><p class="r-quote">The apartment is perfect, clean and in a good location. The host is very responsive — we recommend this listing without reservation.</p><div class="r-attr">— Tom A.</div></div>
+      </div>
+    </div>
+    <div class="reviews-nav">
+      <button class="r-btn" id="rPrev">&#8592;</button>
+      <div class="r-dots" id="rDots"></div>
+      <button class="r-btn" id="rNext">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOOK -->
+<section class="sec" id="book">
+  <div class="section-label fi">Booking Page — /book</div>
+  <div class="book-layout">
+    <div class="fi d1">
+      <div style="font-family:var(--serif);font-weight:300;font-size:36px;line-height:1.1;margin-bottom:6px;">Your Vacay<br><em style="color:var(--gold);">Awaits.</em></div>
+      <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;font-weight:400;margin-top:8px;">Reservation Request</div>
+      <table class="pricing-table">
+        <tr><td>April – May</td><td>€75 / night</td></tr>
+        <tr><td>June – August</td><td>€85 / night</td></tr>
+        <tr><td>September – October</td><td>€75 / night</td></tr>
+        <tr><td>November, March</td><td>€65 / night</td></tr>
+        <tr class="closed"><td>December – February</td><td>closed</td></tr>
+      </table>
+      <div class="pricing-note">
+        Extra guests +€7 / person / night &nbsp;·&nbsp; €70 cleaning fee<br>
+        Weekly discount 5% &nbsp;·&nbsp; Monthly discount 30%<br>
+        4 persons max &nbsp;·&nbsp; 3 nights minimum
+      </div>
+    </div>
+    <div class="fi d2">
+      <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:400;">Book directly on</div>
+      <div class="platform-btns">
+        <a class="platform-btn" href="https://airbnb.com/h/nomadsnestcy" target="_blank">
+          <div class="platform-icon p-airbnb">🏠</div>
+          <div><div class="platform-name">Airbnb</div><div class="platform-sub">airbnb.com/h/nomadsnestcy</div></div>
+          <span class="platform-arrow">→</span>
+        </a>
+        <a class="platform-btn" href="https://www.booking.com/hotel/cy/nomads-nest-quiet-flat-with-terrace-in-ayia-napa.html" target="_blank">
+          <div class="platform-icon p-booking">🔵</div>
+          <div><div class="platform-name">Booking.com</div><div class="platform-sub">nomads-nest · ayia napa</div></div>
+          <span class="platform-arrow">→</span>
+        </a>
+        <a class="platform-btn" href="https://www.homeexchange.com/holiday-home/2895395" target="_blank">
+          <div class="platform-icon p-exchange">🔄</div>
+          <div><div class="platform-name">HomeExchange</div><div class="platform-sub">holiday-home/2895395</div></div>
+          <span class="platform-arrow">→</span>
+        </a>
+      </div>
+      <div style="margin-top:24px;font-size:14px;font-weight:300;color:var(--muted);">Have a question? <a href="mailto:book@nomadsnest.live" style="color:var(--gold);text-decoration:none;">book@nomadsnest.live</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GUIDE -->
+<section class="sec">
+  <div class="section-label fi">Guest Guide — /guide</div>
+  <div class="guide-layout">
+    <div class="toc fi d1">
+      <div class="toc-head">Contents</div>
+      <div class="toc-item active" onclick="setActive(this)">Getting In</div>
+      <div class="toc-item" onclick="setActive(this)">Comfort & Convenience</div>
+      <div class="toc-item" onclick="setActive(this)">Bathroom & Cleaning</div>
+      <div class="toc-item" onclick="setActive(this)">House Rules</div>
+      <div class="toc-item" onclick="setActive(this)">Handy Extras</div>
+      <div class="toc-item" onclick="setActive(this)">Farewell Checklist</div>
+    </div>
+    <div class="fi d2">
+      <div class="g-section">
+        <div class="g-head"><span>Getting In</span><span style="font-size:22px;">🔑</span></div>
+        <div class="g-sub">Self Check-In & Check-Out</div>
+        <div class="g-rule"><span class="g-icon">→</span><span><strong>Check-in</strong> after 3 PM &nbsp;·&nbsp; <strong>Check-out</strong> before 10 AM. Flexible if agreed beforehand.</span></div>
+        <div class="g-rule"><span class="g-icon">→</span><span>Lockbox on the right wall. Insert code, pull trigger, retrieve your key set.</span></div>
+        <div class="g-rule"><span class="g-icon">⚠</span><span>Big key = apartment door &nbsp;·&nbsp; Small key = terrace gate. Always take your keys — door locks automatically. €50 lost key fee.</span></div>
+      </div>
+      <div class="g-section">
+        <div class="g-head"><span>Comfort & Convenience</span><span style="font-size:22px;">🛋</span></div>
+        <div class="g-sub">Water & Energy</div>
+        <div class="g-rule"><span class="g-icon">→</span><span>Hot water: rooftop solar. Drag knob left, wait one minute. If cold, switch boiler on 30 min before showering — off after.</span></div>
+        <div class="g-rule"><span class="g-icon">→</span><span>Turn off AC when you leave. Close windows and doors while it runs.</span></div>
+        <div class="g-rule"><span class="g-icon">→</span><span>Wi-Fi password on the rounded table in the living area.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHECK-IN -->
+<section class="sec">
+  <div class="section-label fi">Step Guide — /check-in</div>
+  <div class="tabs fi">
+    <button class="tab active" onclick="switchTab('car',this)">By Car</button>
+    <button class="tab" onclick="switchTab('foot',this)">By Foot</button>
+  </div>
+  <div id="steps-car" class="steps-grid fi d2">
+    <div class="s-card"><div class="s-photo p1"><span class="s-photo-label">bird mural · complex entrance</span></div><div class="s-body"><div class="s-num">1</div><div class="s-head">Complex Entrance</div><div class="s-desc">Look for the bird mural leading to the car park. Opposite "Ocean View Diving, Cyprus". Drive to end of road.</div></div></div>
+    <div class="s-card"><div class="s-photo p2"><span class="s-photo-label">uncovered parking lot</span></div><div class="s-body"><div class="s-num">2</div><div class="s-head">Parking Lot</div><div class="s-desc">Uncovered area, 3 tourist spots. Park here only — or outside if full. Main entrance through covered lot, ground floor.</div></div></div>
+    <div class="s-card"><div class="s-photo p3"><span class="s-photo-label">main building entrance</span></div><div class="s-body"><div class="s-num">3</div><div class="s-head">Main Entrance</div><div class="s-desc">Two lockboxes on the wall — use the one on the right. PIN arrives via private message 1–2 days before arrival.</div></div></div>
+    <div class="s-card"><div class="s-photo p1"><span class="s-photo-label">right lockbox · close-up</span></div><div class="s-body"><div class="s-num">4</div><div class="s-head">Right Lockbox</div><div class="s-desc">Two keys: main door and terrace gate. Scramble the code after closing the lid at check-out.</div></div></div>
+  </div>
+  <div id="steps-foot" class="steps-grid" style="display:none;">
+    <div class="s-card"><div class="s-photo p3"><span class="s-photo-label">wooden fence · complex entry</span></div><div class="s-body"><div class="s-num">1</div><div class="s-head">Complex Entrance</div><div class="s-desc">Pass the Euroshop, keep straight. Brown wooden fence on your right — enter through the access point.</div></div></div>
+    <div class="s-card"><div class="s-photo p1"><span class="s-photo-label">complex alley · staircase</span></div><div class="s-body"><div class="s-num">2</div><div class="s-head">Complex Alley</div><div class="s-desc">Walk straight ahead, up the stairs, turn left toward the complex parking area.</div></div></div>
+    <div class="s-card"><div class="s-photo p2"><span class="s-photo-label">path toward terrace</span></div><div class="s-body"><div class="s-num">3</div><div class="s-head">Towards Parking</div><div class="s-desc">Outside area leading to our terrace. Continue on the stairs, then turn left.</div></div></div>
+    <div class="s-card"><div class="s-photo p3"><span class="s-photo-label">covered parking lot</span></div><div class="s-body"><div class="s-num">4</div><div class="s-head">Parking Lot</div><div class="s-desc">Covered lot reached. Ground floor, left side — apartment no. 5.</div></div></div>
+    <div class="s-card"><div class="s-photo p1"><span class="s-photo-label">two lockboxes on wall</span></div><div class="s-body"><div class="s-num">5</div><div class="s-head">Main Entrance</div><div class="s-desc">Two lockboxes — use the one on the right. PIN arrives 1–2 days before arrival.</div></div></div>
+    <div class="s-card"><div class="s-photo p2"><span class="s-photo-label">right lockbox · close-up</span></div><div class="s-body"><div class="s-num">6</div><div class="s-head">Right Lockbox</div><div class="s-desc">Two keys: main door and terrace gate. Scramble the code after closing the lid.</div></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAREWELL CHECKLIST -->
+<section class="sec" id="contact">
+  <div class="section-label fi">Farewell Checklist — /guide</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+    <div class="fi d1">
+      <div style="font-family:var(--serif);font-weight:300;font-size:40px;line-height:1.1;margin-bottom:12px;">Before<br><em style="color:var(--gold);">you go.</em></div>
+      <p style="font-size:15px;font-weight:300;color:var(--muted);margin-bottom:40px;line-height:1.85;">Tick these off before heading out. The apartment takes care of itself after that.</p>
+      <div class="checklist" id="checklist">
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">Windows & doors closed</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">AC, lights and appliances off</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">Water pump & oven wall switches left ON</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">Boiler switch OFF (bathroom entrance)</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">Dishes clean</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">Trash out</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">All keys back in the right lockbox</span></div>
+        <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box"><div class="cl-mark"></div></div><span class="cl-label">Scramble the cipher before you go</span></div>
+      </div>
+      <div class="cl-done-msg" id="cl-done">Safe travels. Come back soon. ✦</div>
+    </div>
+    <div class="fi d2 paradise-panel">
+      <div style="text-align:center;padding:48px;">
+        <div class="paradise-quote">"Paradise is<br>where we are."</div>
+        <div class="paradise-label">Nomad's Nest · Ayia Napa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-light">
+    <div class="fl-logo">Nomad's Nest</div>
+    <div class="fl-tagline">Ayia Napa, Cyprus</div>
+    <div class="fl-cols">
+      <div class="fl-col">
+        <div class="fl-col-head">Address</div>
+        <span class="fl-line">63 Tefkrou Anthia</span>
+        <span class="fl-line">Ayia Napa, Cyprus 5330</span>
+        <span class="fl-line" style="margin-top:8px;">+357 97 671058</span>
+        <span class="fl-line">book@nomadsnest.live</span>
+      </div>
+      <div class="fl-sep"></div>
+      <div class="fl-col right">
+        <div class="fl-col-head">Book With Us</div>
+        <span class="fl-line">Airbnb</span>
+        <span class="fl-line">Booking.com</span>
+        <span class="fl-line">HomeExchange</span>
+      </div>
+    </div>
+    <div class="fl-bottom">
+      <span class="fl-link">Privacy Policy</span>
+      <span class="fl-link">Terms & Conditions</span>
+      <span class="fl-link">Data Protection</span>
+      <span class="fl-copy">© 2026 Nomad's Nest</span>
+    </div>
+  </div>
+  <div class="footer-dark">
+    <div class="fd-logo">Nomad's Nest</div>
+    <div class="fd-bar"></div>
+    <div class="fd-addr">63 Tefkrou Anthia · Ayia Napa, Cyprus 5330<br>+357 97 671058 · book@nomadsnest.live</div>
+    <div class="fd-links">
+      <span>Privacy Policy</span><span>Terms & Conditions</span><span>Data Protection Notice</span>
+    </div>
+    <div class="fd-copy">© 2026 Nomad's Nest. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var saved = localStorage.getItem('nn-theme')||'light';
+  document.documentElement.setAttribute('data-theme',saved);
+})();
+
+document.getElementById('themeBtn').addEventListener('click',function(){
+  var h=document.documentElement;
+  var next=h.getAttribute('data-theme')==='dark'?'light':'dark';
+  h.setAttribute('data-theme',next);
+  localStorage.setItem('nn-theme',next);
+});
+
+function setActive(el){
+  document.querySelectorAll('.toc-item').forEach(function(t){t.classList.remove('active');});
+  el.classList.add('active');
+}
+
+function switchTab(which,btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('steps-car').style.display=which==='car'?'grid':'none';
+  document.getElementById('steps-foot').style.display=which==='foot'?'grid':'none';
+}
+
+function toggleCheck(item){
+  item.classList.toggle('done');
+  var total=document.querySelectorAll('.cl-item').length;
+  var done=document.querySelectorAll('.cl-item.done').length;
+  document.getElementById('cl-done').style.display=done===total?'block':'none';
+}
+
+var dotsEl=document.getElementById('rDots');
+var current=0;
+var rCards=document.querySelectorAll('.r-card');
+var total=rCards.length;
+rCards.forEach(function(_,i){
+  var d=document.createElement('div');
+  d.className='r-dot'+(i===0?' active':'');
+  d.addEventListener('click',function(){goTo(i);});
+  dotsEl.appendChild(d);
+});
+function goTo(n){
+  current=(n+total)%total;
+  document.getElementById('reviewsInner').style.transform='translateX(-'+(current*100)+'%)';
+  document.querySelectorAll('.r-dot').forEach(function(d,i){d.classList.toggle('active',i===current);});
+}
+document.getElementById('rPrev').addEventListener('click',function(){goTo(current-1);});
+document.getElementById('rNext').addEventListener('click',function(){goTo(current+1);});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowLeft')goTo(current-1);
+  if(e.key==='ArrowRight')goTo(current+1);
+});
+var autoTimer=setInterval(function(){goTo(current+1);},5500);
+var outer=document.querySelector('.reviews-outer');
+outer.addEventListener('mouseenter',function(){clearInterval(autoTimer);});
+outer.addEventListener('mouseleave',function(){autoTimer=setInterval(function(){goTo(current+1);},5500);});
+var touchX=null;
+outer.addEventListener('touchstart',function(e){touchX=e.touches[0].clientX;},{passive:true});
+outer.addEventListener('touchend',function(e){
+  if(touchX===null)return;
+  var dx=e.changedTouches[0].clientX-touchX;
+  if(Math.abs(dx)>40)goTo(dx<0?current+1:current-1);
+  touchX=null;
+},{passive:true});
+
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fi').forEach(function(el){observer.observe(el);});
+</script>
+</body>
+</html>

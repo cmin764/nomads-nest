@@ -17,7 +17,7 @@ export default function GuidePage() {
       {/* Hero */}
       <div className="relative bg-card border-b border-border py-16 px-4 text-center">
         <h1 className="font-heading text-4xl sm:text-5xl text-foreground mb-4">
-          Welcome to Your Ayia Napa Getaway!
+          Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway
         </h1>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Everything you need to know for a comfortable, carefree stay at Nomad&apos;s Nest.
@@ -48,7 +48,7 @@ export default function GuidePage() {
             ))}
             <FarewellChecklist />
             <div className="mt-8 pt-8 border-t border-border flex justify-center">
-              <Button variant="outline" asChild>
+              <Button variant="navy" asChild>
                 <Link href="/check-in">
                   <MapPin size={16} />
                   Check-in Instructions

@@ -7,25 +7,15 @@ import { byCar, byFoot } from "@/data/check-in-steps";
 export default function DirectionsTabs() {
   return (
     <Tabs defaultValue="car" className="w-full">
-      <TabsList className="mb-8 bg-card border border-border p-1 rounded-lg">
-        <TabsTrigger
-          value="car"
-          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground uppercase tracking-widest text-xs px-6 py-2"
-        >
-          By Car
-        </TabsTrigger>
-        <TabsTrigger
-          value="foot"
-          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground uppercase tracking-widest text-xs px-6 py-2"
-        >
-          By Foot
-        </TabsTrigger>
+      <TabsList className="mb-10 nn-tab-list">
+        <TabsTrigger value="car" className="nn-tab">By Car</TabsTrigger>
+        <TabsTrigger value="foot" className="nn-tab">By Foot</TabsTrigger>
       </TabsList>
 
       <TabsContent value="car">
         <div className="space-y-4">
           {byCar.map((step, i) => (
-            <StepCard key={i} step={step} index={i} />
+            <StepCard key={i} step={step} index={i} priority={i < 2} />
           ))}
         </div>
       </TabsContent>

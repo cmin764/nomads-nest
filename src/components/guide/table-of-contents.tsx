@@ -71,11 +71,12 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
             <button
               onClick={() => scrollTo(item.id)}
               className={cn(
-                "w-full text-left text-sm px-3 py-2 rounded-md transition-colors flex items-center gap-2",
+                "w-full text-left text-[13px] font-light px-3 py-[7px] transition-colors duration-[150ms] flex items-center gap-2",
                 activeId === item.id
-                  ? "text-primary font-medium bg-card"
-                  : "text-muted-foreground hover:text-foreground hover:bg-card"
+                  ? "font-[400]"
+                  : "text-muted-foreground hover:text-foreground"
               )}
+              style={activeId === item.id ? { color: "var(--gold)" } : undefined}
             >
               <span className="text-base shrink-0">{item.emoji}</span>
               <span className="leading-tight">{item.label}</span>

@@ -1,56 +1,141 @@
 @import "tailwindcss";
 
+/* ── Nomad's Nest design tokens ── */
 :root {
-  --background: #faf9f6;
-  --foreground: #1a1814;
-  --card: #ffffff;
-  --card-foreground: #1a1814;
-  --popover: #ffffff;
-  --popover-foreground: #1a1814;
-  --primary: #C9A84C;
-  --primary-foreground: #ffffff;
-  --secondary: #f0ece3;
-  --secondary-foreground: #1a1814;
-  --muted: #f0ece3;
-  --muted-foreground: #6b6358;
-  --accent: #f0ece3;
-  --accent-foreground: #1a1814;
-  --destructive: #dc2626;
+  /* Backgrounds */
+  --bg:          #F5F2EC;
+  --surface:     #FFFFFF;
+  --surface-alt: #EBF0F8;
+
+  /* Navy family */
+  --navy:        #1B2A4A;
+  --navy-mid:    #2E4A7A;
+  --navy-lt:     #D4DFF0;
+
+  /* Gold family */
+  --gold:        #B8924A;
+  --gold-dk:     #9A7A3C;
+  --gold-lt:     #F2E8D0;
+
+  /* Semantic */
+  --text:        #1B2A4A;
+  --muted-text:  #6A7D99;
+  --divider:     #D5DDE9;
+
+  /* shadcn compat layer */
+  --background:             var(--bg);
+  --foreground:             var(--text);
+  --card:                   var(--surface);
+  --card-foreground:        var(--text);
+  --popover:                var(--surface);
+  --popover-foreground:     var(--text);
+  --primary:                var(--gold);
+  --primary-foreground:     var(--bg);
+  --secondary:              var(--navy-lt);
+  --secondary-foreground:   var(--navy);
+  --muted:                  var(--surface-alt);
+  --muted-foreground:       var(--muted-text);
+  --accent:                 var(--surface-alt);
+  --accent-foreground:      var(--text);
+  --destructive:            #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #e5e0d8;
-  --input: #e5e0d8;
-  --ring: #C9A84C;
-  --radius: 0.5rem;
+  --border:                 var(--divider);
+  --input:                  var(--divider);
+  --ring:                   var(--gold);
+  --radius:                 0.875rem;
+}
+
+[data-theme="dark"] {
+  --bg:          #08152A;
+  --surface:     #0D1F3C;
+  --surface-alt: #112448;
+  --navy-lt:     #1A3A6A;
+  --gold-lt:     #1E1408;
+  --text:        #EDE8DC;
+  --muted-text:  #7A8EAA;
+  --divider:     #18304E;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
+  --color-background:             var(--background);
+  --color-foreground:             var(--foreground);
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-accent:                 var(--accent);
+  --color-accent-foreground:      var(--accent-foreground);
+  --color-destructive:            var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-heading-var), ui-serif, Georgia, serif;
+  --color-border:                 var(--border);
+  --color-input:                  var(--input);
+  --color-ring:                   var(--ring);
+  --font-sans:    var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading-var), Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
+  transition: background 450ms ease, color 450ms ease;
+}
+
+/* Hover-color link used in server components (footer, etc.) */
+.nn-link {
+  color: var(--muted-text);
+  transition: color 200ms;
+}
+.nn-link:hover { color: var(--text); }
+
+/* Pill tab — check-in directions tabs (overrides shadcn defaults cleanly) */
+.nn-tab-list {
+  background: transparent !important;
+  border: 1px solid var(--divider);
+  border-radius: 100px;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+}
+[data-theme="dark"] .nn-tab-list {
+  border-color: rgba(237, 232, 220, 0.2);
+}
+.nn-tab {
+  background: transparent !important;
+  color: var(--muted-text) !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  padding: 12px 36px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: all 220ms;
+}
+.nn-tab[data-state="active"] {
+  background: var(--navy-mid) !important;
+  color: #EDE8DC !important;
+  box-shadow: none !important;
+}
+.nn-tab:focus-visible {
+  outline: none !important;
+}
+
+/* Navy outline pill button — dark mode overrides */
+[data-theme="dark"] .btn-navy {
+  border-color: rgba(237, 232, 220, .3);
+  color: var(--text);
+}
+[data-theme="dark"] .btn-navy:hover {
+  background: rgba(237, 232, 220, .1);
+  border-color: rgba(237, 232, 220, .5);
+  color: var(--text);
 }

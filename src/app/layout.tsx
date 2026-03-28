@@ -1,25 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant, Raleway } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
-const inter = Inter({
+const raleway = Raleway({
   variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant({
   variable: "--font-heading-var",
   subsets: ["latin"],
+  weight: ["300", "400"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nomadsnest.live"),
   title: {
     template: "%s | Nomad's Nest",
-    default: "Nomad's Nest",
+    default: "Nomad's Nest — Ayia Napa, Cyprus",
   },
-  description: "Your home away from home in Ayia Napa, Cyprus. Stylish short-term rental with everything you need for an unforgettable stay.",
+  description: "A thoughtfully designed apartment 10 minutes from the city centre and 20 minutes from the beach.",
   openGraph: {
     images: ["/images/logo-nn-gold-crop.webp"],
   },
@@ -32,7 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('nn-theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var r=t==='light'?'light':t==='dark'?'dark':d?'dark':'light';document.documentElement.setAttribute('data-theme',r);})();` }} />
+      </head>
+      <body className={`${raleway.variable} ${cormorant.variable} antialiased font-sans`}>
         <Header />
         <main>{children}</main>
         <Footer />

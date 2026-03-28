@@ -8,49 +8,87 @@ interface GuideSectionProps {
 }
 
 export default function GuideSection({ section }: GuideSectionProps) {
+  const items = section.items;
   return (
     <section id={section.id} className="scroll-mt-24 mb-12">
       <FadeIn>
-        <h2 className="font-heading text-2xl text-foreground mb-5 flex items-center gap-3">
-          <span>{section.emoji}</span>
+        {/* Section heading — Cormorant 30px with emoji */}
+        <h2 className="font-heading font-light text-[30px] text-foreground mb-2 flex items-center gap-3">
           <span>{section.title}</span>
+          <span className="text-[22px]">{section.emoji}</span>
         </h2>
-        <div className="border-l-2 border-border pl-5 space-y-3">
-          {section.items.map((item, i) => {
+
+        {/* Items rendered as horizontal rule rows */}
+        <div>
+          {items.map((item, i) => {
+            // Sub-heading: Cormorant italic 19px muted — no icon, no border
             if (item.heading) {
               return (
-                <h3 key={i} className="text-sm font-semibold text-foreground pt-2 first:pt-0">
+                <div key={i} className="pt-5 pb-2 first:pt-3">
+                  <h3
+                    className="font-heading font-light italic text-[19px]"
+                    style={{ color: "var(--muted-text)" }}
+                  >
+                    {item.text}
+                  </h3>
+                </div>
+              );
+            }
+
+            const isLast = (() => {
+              // Last non-heading item in the section gets no border
+              for (let j = i + 1; j < items.length; j++) {
+                if (!items[j].heading) return false;
+              }
+              return true;
+            })();
+
+            const icon = item.highlight ? "⚠" : "→";
+            const iconColor = "var(--gold)";
+
+            const textNode = item.url ? (
+              item.url.startsWith("http") ? (
+                <a href={item.url} target="_blank" rel="noopener noreferrer"
+                   className="underline underline-offset-4 hover:opacity-70 transition-opacity">
                   {item.text}
-                </h3>
-              );
-            }
-
-            const textClass = cn(
-              "text-sm leading-relaxed",
-              item.highlight ? "text-primary font-medium" : item.note ? "text-muted-foreground italic" : "text-muted-foreground"
-            );
-
-            if (item.url) {
-              const isExternal = item.url.startsWith("http");
-              return isExternal ? (
-                <p key={i} className={textClass}>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-primary transition-colors">
-                    {item.text}
-                  </a>
-                </p>
+                </a>
               ) : (
-                <p key={i} className={textClass}>
-                  <Link href={item.url} className="underline underline-offset-4 hover:text-primary transition-colors">
-                    {item.text}
-                  </Link>
-                </p>
-              );
-            }
+                <Link href={item.url} className="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  {item.text}
+                </Link>
+              )
+            ) : item.text;
 
             return (
-              <p key={i} className={textClass}>
-                {item.text}
-              </p>
+              <div
+                key={i}
+                className={cn(
+                  "flex gap-[14px] items-start py-[14px] text-[15px] font-light leading-[1.75]",
+                  !isLast && "border-b border-border"
+                )}
+              >
+                <span
+                  className="shrink-0 mt-[3px] text-[12px]"
+                  style={{ color: iconColor }}
+                  aria-hidden
+                >
+                  {icon}
+                </span>
+                <span
+                  className={cn(
+                    item.highlight
+                      ? "font-[400]"
+                      : item.note
+                      ? "italic"
+                      : ""
+                  )}
+                  style={{
+                    color: item.highlight ? "var(--gold)" : "var(--muted-text)",
+                  }}
+                >
+                  {textNode}
+                </span>
+              </div>
             );
           })}
         </div>
