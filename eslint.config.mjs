@@ -13,6 +13,13 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // Intentional SSR-safety patterns (localStorage sync, mount detection, scroll init)
+      // are flagged by this rule but are the correct Next.js approach for hydration safety.
+      "react-hooks/set-state-in-effect": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

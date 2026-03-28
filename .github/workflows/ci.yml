@@ -2,9 +2,14 @@ name: CI
 
 on:
   push:
-    branches: [main, feature/**]
+    branches: [main]
   pull_request:
     branches: [main]
+
+# Cancel in-progress runs for the same ref so only the latest commit is checked.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
