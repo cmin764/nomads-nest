@@ -15,11 +15,16 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
-        {/* 3-image strip */}
-        <div className="grid grid-cols-[1.7fr_1fr_1fr] gap-3 mb-14" style={{ height: "420px" }}>
-          {/* Terrace — large left */}
+        {/* 3-image collage
+            Mobile:  2-col × 2-row grid — terrace + bedroom stacked left, kitchen tall right
+            Desktop: 3-col × 1-row strip — terrace (large) · bedroom · kitchen */}
+        <div className="grid gap-3 mb-14
+          grid-cols-2 grid-rows-2 h-[360px]
+          sm:grid-cols-[1.7fr_1fr_1fr] sm:grid-rows-1 sm:h-[420px]">
+          {/* Terrace — top-left on mobile, large left on desktop */}
           <div
-            className="relative rounded-[10px] overflow-hidden"
+            className="relative rounded-[10px] overflow-hidden
+              col-start-1 row-start-1"
             style={{ background: "var(--surface-alt)" }}
           >
             <Image
@@ -30,9 +35,11 @@ export default function HomePage() {
               priority
             />
           </div>
-          {/* Bedroom */}
+          {/* Bedroom — bottom-left on mobile, centre on desktop */}
           <div
-            className="relative rounded-[10px] overflow-hidden"
+            className="relative rounded-[10px] overflow-hidden
+              col-start-1 row-start-2
+              sm:col-start-2 sm:row-start-1 sm:row-span-1"
             style={{ background: "var(--navy-lt)" }}
           >
             <Image
@@ -42,9 +49,11 @@ export default function HomePage() {
               className="object-cover"
             />
           </div>
-          {/* Kitchen */}
+          {/* Kitchen — full-height right column on mobile, right on desktop */}
           <div
-            className="relative rounded-[10px] overflow-hidden"
+            className="relative rounded-[10px] overflow-hidden
+              col-start-2 row-start-1 row-span-2
+              sm:col-start-3 sm:row-span-1"
             style={{ background: "var(--gold-lt)" }}
           >
             <Image
