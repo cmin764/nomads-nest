@@ -31,6 +31,7 @@ export default function HomePage() {
               src="/images/gallery/terrace/A-terrace-5.JPG"
               alt="Terrace with sea view"
               fill
+              sizes="(min-width: 640px) 50vw, 50vw"
               className="object-cover"
               priority
             />
@@ -46,6 +47,7 @@ export default function HomePage() {
               src="/images/gallery/bedroom/B-bedroom-1.JPG"
               alt="Bedroom"
               fill
+              sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -60,6 +62,7 @@ export default function HomePage() {
               src="/images/gallery/kitchen/D-kitchen-7.JPG"
               alt="Kitchen"
               fill
+              sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -113,6 +116,7 @@ export default function HomePage() {
             src="/images/gallery/terrace/A-terrace-4.JPG"
             alt="Terrace at dusk"
             fill
+            sizes="100vw"
             className="object-cover opacity-40"
           />
         </div>

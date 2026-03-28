@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Claude Code local settings (tool permissions, not for version control)
+.claude/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

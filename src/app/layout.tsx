@@ -18,6 +18,7 @@ const cormorant = Cormorant({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nomadsnest.live"),
   title: {
     template: "%s | Nomad's Nest",
     default: "Nomad's Nest — Ayia Napa, Cyprus",
