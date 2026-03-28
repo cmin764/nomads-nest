@@ -15,7 +15,7 @@ export default function DirectionsTabs() {
       <TabsContent value="car">
         <div className="space-y-4">
           {byCar.map((step, i) => (
-            <StepCard key={i} step={step} index={i} />
+            <StepCard key={i} step={step} index={i} priority={i < 2} />
           ))}
         </div>
       </TabsContent>

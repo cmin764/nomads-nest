@@ -5,9 +5,10 @@ import { CheckInStep } from "@/data/check-in-steps";
 interface StepCardProps {
   step: CheckInStep;
   index: number;
+  priority?: boolean;
 }
 
-export default function StepCard({ step, index }: StepCardProps) {
+export default function StepCard({ step, index, priority }: StepCardProps) {
   return (
     <FadeIn delay={index * 0.08}>
       <div className="flex flex-col sm:flex-row gap-4 bg-card border border-border rounded-[14px] overflow-hidden transition-[transform,box-shadow] duration-[250ms] hover:-translate-y-[3px] hover:shadow-[0_10px_32px_rgba(27,42,74,.09)]">
@@ -18,6 +19,7 @@ export default function StepCard({ step, index }: StepCardProps) {
             fill
             className="object-cover"
             sizes="(max-width: 640px) 100vw, 224px"
+            priority={priority}
           />
         </div>
         <div className="flex items-start gap-4 p-[22px_24px]">

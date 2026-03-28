@@ -1,4 +1,4 @@
-Let's craft together a blueprint in the ./docs dir which we'd follow to build in iterations from high level to top-down leaf-detail the website Nomad's Nest, but this time with React/Next, deployed on Vercel and with a facelift and improved design from what we had already on Squarespace, which I downloaded offline all the pages and content, for you to ingest and understand the structure here: @/Users/cmin/Projects/Nomad's Nest/Site
+Let's craft together a blueprint in the ./docs dir which we'd follow to build in iterations from high level to top-down leaf-detail the website Nomad's Nest, but this time with React/Next, deployed on Vercel and with a facelift and improved design from what we had already on Squarespace, which I downloaded offline all the pages and content, for you to ingest and understand the structure here: @/Users/cmin/Projects/NomadsNest/Site
 
 Your goal is to understand the current site layout, design, font, colors etc. and improve it further without losing the identity as in a locally saved persistent blueprint which we'd use as guidelines to approach the development further. Once you capture the existing design identity, let's apply a facelift to it, ask taste-relevant questions, come up with a solid plan on what we want to achieve, plan a few iterations of taking this in phases, from high-level to details, so in case we change something along the way, we won't need to rebuild already implemented stuff in detail, but do easy changes.
 
@@ -18,7 +18,7 @@ Remember the goals:
 - propose an improved structure, layout and design, without losing identity (and ask taste questions)
 - write down a complete living blueprint in docs which establishes the documentation base for the upcoming generated code to implement the site
 
-Feel free to pull media from the available downloaded images we already have in the `Nomad's Nest/Site` dir path referenced above (make sure you find the relevant content first). For the missing media/images, just put placeholders, as I'll provide myself later on in the process the missing pics/videos with the same filename as found in the remotely uploaded media previously on Squarespace, which now isn't available anymore remotely since I brought the website down. (but I still have, and maybe even be able to download the past media)
+Feel free to pull media from the available downloaded images we already have in the `NomadsNest/Site` dir path referenced above (make sure you find the relevant content first). For the missing media/images, just put placeholders, as I'll provide myself later on in the process the missing pics/videos with the same filename as found in the remotely uploaded media previously on Squarespace, which now isn't available anymore remotely since I brought the website down. (but I still have, and maybe even be able to download the past media)
 
 Finally, save this prompt in a separate .txt file alongside the .md blueprint you'd create.
 
