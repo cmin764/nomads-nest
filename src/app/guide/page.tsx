@@ -17,7 +17,7 @@ export default function GuidePage() {
       {/* Hero */}
       <div className="relative bg-card border-b border-border py-16 px-4 text-center">
         <h1 className="font-heading text-4xl sm:text-5xl text-foreground mb-4">
-          Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway!
+          Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway
         </h1>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Everything you need to know for a comfortable, carefree stay at Nomad&apos;s Nest.

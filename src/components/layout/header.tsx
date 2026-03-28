@@ -71,8 +71,7 @@ export default function Header() {
             <button
               onClick={cycle}
               aria-label="Toggle theme"
-              className="p-2 rounded-full transition-colors hover:bg-[var(--surface-alt)]"
-              style={{ color: "var(--muted-text)" }}
+              className="p-2 rounded-full border border-transparent transition-[border-color,color] cursor-pointer text-[var(--muted-text)] hover:border-[var(--gold)] hover:text-[var(--gold)]"
               title={`Theme: ${theme}`}
             >
               <ThemeIcon theme={theme} />
@@ -87,8 +86,7 @@ export default function Header() {
             <button
               onClick={cycle}
               aria-label="Toggle theme"
-              className="p-2 rounded-full transition-colors hover:bg-[var(--surface-alt)]"
-              style={{ color: "var(--muted-text)" }}
+              className="p-2 rounded-full border border-transparent transition-[border-color,color] cursor-pointer text-[var(--muted-text)] hover:border-[var(--gold)] hover:text-[var(--gold)]"
             >
               <ThemeIcon theme={theme} />
             </button>

@@ -80,7 +80,7 @@ export default function HomePage() {
             className="font-heading italic font-light text-[clamp(48px,6vw,72px)] leading-[1.1] mb-6"
             style={{ color: "var(--text)" }}
           >
-            Living well<br />in Ayia Napa.
+            Living well<br />in <em className="italic text-primary">Ayia Napa</em>
           </h1>
           {/* Gold divider bar */}
           <div
