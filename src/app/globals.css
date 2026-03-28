@@ -103,6 +103,7 @@ body {
   border-radius: 100px;
   height: auto;
   padding: 0;
+  overflow: hidden;
 }
 [data-theme="dark"] .nn-tab-list {
   border-color: rgba(237, 232, 220, 0.2);
@@ -123,6 +124,9 @@ body {
   background: var(--navy-mid) !important;
   color: #EDE8DC !important;
   box-shadow: none !important;
+}
+.nn-tab:focus-visible {
+  outline: none !important;
 }
 
 /* Navy outline pill button — dark mode overrides */
