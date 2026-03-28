@@ -96,6 +96,35 @@ body {
 }
 .nn-link:hover { color: var(--text); }
 
+/* Pill tab — check-in directions tabs (overrides shadcn defaults cleanly) */
+.nn-tab-list {
+  background: transparent !important;
+  border: 1px solid var(--divider);
+  border-radius: 100px;
+  height: auto;
+  padding: 0;
+}
+[data-theme="dark"] .nn-tab-list {
+  border-color: rgba(237, 232, 220, 0.2);
+}
+.nn-tab {
+  background: transparent !important;
+  color: var(--muted-text) !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  padding: 12px 36px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: all 220ms;
+}
+.nn-tab[data-state="active"] {
+  background: var(--navy-mid) !important;
+  color: #EDE8DC !important;
+  box-shadow: none !important;
+}
+
 /* Navy outline pill button — dark mode overrides */
 [data-theme="dark"] .btn-navy {
   border-color: rgba(237, 232, 220, .3);
