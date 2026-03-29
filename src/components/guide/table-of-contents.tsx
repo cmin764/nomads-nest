@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GuideSection } from "@/data/guide-content";
@@ -14,7 +14,10 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
   const [activeId, setActiveId] = useState<string>("");
   const [collapsed, setCollapsed] = useState(true);
 
-  const allIds = [...sections.map((s) => s.id), farewellId];
+  const allIds = useMemo(
+    () => [...sections.map((s) => s.id), farewellId],
+    [sections, farewellId]
+  );
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY + 120;
