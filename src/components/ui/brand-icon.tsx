@@ -1,5 +1,3 @@
-import { Home } from "lucide-react";
-
 type Brand = "airbnb" | "booking" | "homeexchange";
 
 interface BrandIconProps {
@@ -18,7 +16,26 @@ const paths: Record<Exclude<Brand, "homeexchange">, string> = {
 
 export default function BrandIcon({ brand, size = 24, className }: BrandIconProps) {
   if (brand === "homeexchange") {
-    return <Home size={size} className={className} />;
+    // CSS mask lets the PNG shape inherit currentColor, identical behaviour to SVG fill="currentColor"
+    return (
+      <div
+        aria-hidden="true"
+        className={className}
+        style={{
+          width: size,
+          height: size,
+          backgroundColor: "currentColor",
+          WebkitMaskImage: "url(/images/homeexchange-icon.png)",
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "contain",
+          WebkitMaskPosition: "center",
+          maskImage: "url(/images/homeexchange-icon.png)",
+          maskRepeat: "no-repeat",
+          maskSize: "contain",
+          maskPosition: "center",
+        }}
+      />
+    );
   }
 
   return (

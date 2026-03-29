@@ -24,19 +24,19 @@ export const platformLinks: PlatformLink[] = [
     name: "Airbnb",
     brand: "airbnb",
     url: "https://airbnb.com/h/nomadsnestcy",
-    subtitle: "airbnb.com/h/nomadsnestcy",
+    subtitle: "Superhost · 4.83 ★ · Self check-in",
   },
   {
     name: "Booking.com",
     brand: "booking",
     url: "https://www.booking.com/hotel/cy/nomads-nest-quiet-flat-with-terrace-in-ayia-napa.html",
-    subtitle: "nomads-nest · ayia napa",
+    subtitle: "9.7 Exceptional · 10/10 value for money",
   },
   {
     name: "HomeExchange",
     brand: "homeexchange",
     url: "https://www.homeexchange.com/holiday-home/2895395",
-    subtitle: "holiday-home/2895395",
+    subtitle: "Swap homes or stay with GuestPoints",
   },
 ];
 

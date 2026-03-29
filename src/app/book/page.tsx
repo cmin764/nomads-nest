@@ -99,7 +99,7 @@ export default function BookPage() {
                 >
                   <div
                     className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: "var(--surface-alt)", color: "var(--navy)" }}
+                    style={{ background: "var(--surface-alt)", color: "var(--text)" }}
                   >
                     <BrandIcon brand={platform.brand} size={20} />
                   </div>
