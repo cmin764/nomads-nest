@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "The Space",
   description:
-    "48 sqm apartment with terrace, dedicated workspace, and fibre internet in Ayia Napa, Cyprus.",
+    "48 sqm apartment with terrace, dedicated workspace, and fiber optic internet in Ayia Napa, Cyprus.",
 };
 
 export default function ListingPage() {
@@ -35,17 +35,33 @@ export default function ListingPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.35)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.25)" }} />
+        {/* Full-height blur strip: transparent on left, frosted+dark on right */}
+        <div
+          className="absolute inset-y-0 right-0 w-[60%] sm:w-[52%]"
+          style={{
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            background: "linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.22))",
+            maskImage: "linear-gradient(to right, transparent 0%, black 45%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 45%)",
+          }}
+        />
         <div className="absolute inset-0 flex items-end justify-end">
-          <div className="px-8 pb-16 sm:px-16 sm:pb-20 text-right max-w-[480px]">
+          <div className="relative z-10 text-right mr-6 sm:mr-12 lg:mr-20 mb-12 sm:mb-16 lg:mb-20 max-w-[420px]">
             <h1
-              className="font-heading font-light text-[clamp(36px,5vw,64px)] leading-[1.1]"
+              className="font-heading font-light text-[clamp(32px,4.5vw,56px)] leading-[1.15]"
               style={{ color: "#EDE8DC" }}
             >
-              Island Charm<br />
-              Modern Comfort<br />
-              Work, Rest, Explore
+              <em className="italic">Island Charm</em><br />
+              <em className="italic">Modern Comfort</em>
             </h1>
+            <p
+              className="mt-3 text-[11px] sm:text-[13px] uppercase tracking-[.25em] font-[400]"
+              style={{ color: "rgba(237,232,220,0.75)" }}
+            >
+              Work, Rest, Explore
+            </p>
           </div>
         </div>
       </section>
@@ -100,7 +116,7 @@ export default function ListingPage() {
             {galleryStrip.map((img) => (
               <div
                 key={img.src}
-                className="relative aspect-[4/3] overflow-hidden rounded-xl"
+                className="relative aspect-[3/4] overflow-hidden rounded-xl"
                 style={{ background: "var(--surface-alt)" }}
               >
                 <Image
@@ -131,6 +147,28 @@ export default function ListingPage() {
               className="object-cover"
             />
           </div>
+        </FadeIn>
+      </section>
+
+      {/* ── Video ── */}
+      <section className="pb-20 mx-auto max-w-[900px] px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <iframe
+              src="https://www.youtube.com/embed/c3RH-2O--MQ"
+              title="Nomad's Nest video tour"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
+          <p
+            className="mt-3 text-center text-[12px] italic font-light"
+            style={{ color: "var(--muted-text)" }}
+          >
+            🎵 Klingande &ndash; Jubel
+          </p>
         </FadeIn>
       </section>
 

@@ -74,7 +74,7 @@ export default function HomePage() {
             className="text-[10px] uppercase tracking-[.20em] mb-6"
             style={{ color: "var(--muted-text)" }}
           >
-            Ayia Napa, Cyprus
+            Famagusta, Cyprus
           </p>
           <h1
             className="font-heading italic font-light text-[clamp(48px,6vw,72px)] leading-[1.1] mb-6"

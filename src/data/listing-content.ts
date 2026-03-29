@@ -19,7 +19,7 @@ export const stats = [
   "48 sqm interior",
   "AC & fan in every room",
   "Dedicated workspace",
-  "High-speed internet",
+  "Fiber optic internet",
 ];
 
 export const propertyIntro = {
@@ -41,8 +41,8 @@ export const fullWidthImage = {
 };
 
 export const ctaImage = {
-  src: "/images/gallery/terrace/A-terrace-6.JPG",
-  alt: "Terrace view",
+  src: "/images/listing/CMN01858.JPG",
+  alt: "Nomad's Nest apartment",
 };
 
 export const amenities: AmenityCard[] = [
@@ -68,7 +68,7 @@ export const amenities: AmenityCard[] = [
     room: "Living Area",
     slug: "living-area",
     galleryLink: "/gallery/living-area",
-    items: ["Sofa Bed", "Armchair & Table", "TV & HDMI Cable", "Dining Table & Chairs", "Fibre 300 Mbps"],
+    items: ["Sofa Bed", "Armchair & Table", "TV & HDMI Cable", "Dining Table & Chairs", "Fiber optic · 300 Mbps"],
   },
   {
     room: "Terrace",

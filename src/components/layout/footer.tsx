@@ -85,7 +85,7 @@ export default function Footer() {
             className="mt-10 pt-6 text-xs nn-link"
             style={{ borderTop: "1px solid var(--divider)" }}
           >
-            © {new Date().getFullYear()} Nomad&apos;s Nest. All rights reserved.
+            © {new Date().getFullYear()}{" "}Nomad&apos;s Nest. All rights reserved.
           </p>
         </div>
       </div>
