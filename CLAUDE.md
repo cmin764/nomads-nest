@@ -12,9 +12,14 @@ bun run lint     # ESLint
 
 ## Project context
 
-Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `nomadsnest.live`. The full site is ~6 main pages + gallery sub-pages + legal pages, but currently only two operational pages are live: `/check-in` and `/guide`. These are the pages guests actually need during a stay and were prioritised first.
+Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `nomadsnest.live`.
 
-The planned remaining pages: Home, Listing, Gallery (with room sub-pages), Book (links out to Airbnb/Booking.com/HomeExchange — no real backend), Contact (sends an email), and three legal pages. The booking form is just external platform links; the contact form will send an email via an API route.
+The complete site comprises:
+- **Marketing pages:** Home, Listing (property details + reviews), Gallery (index + per-room sub-pages), Book (links out to Airbnb / Booking.com / HomeExchange — no booking backend), Contact (sends an email via an API route)
+- **Guest pages:** Check-in (step-by-step arrival directions), Guide (in-stay house guide + farewell checklist)
+- **Legal pages:** Privacy Policy, Terms & Conditions, Cookie Policy
+
+There is no CMS and no database. All content is typed TypeScript constants in `src/data/`. The only server-side logic is the contact form email route.
 
 ## Stack
 
@@ -33,8 +38,11 @@ The planned remaining pages: Home, Listing, Gallery (with room sub-pages), Book 
 
 All page content is typed TypeScript constants — no CMS, no API calls. **Edit content here, not in components.**
 
-- `guide-content.ts`: exports `guideSections: GuideSection[]` and `farewellChecklistItems: string[]`. `GuideItem` supports four flags: `heading` (renders as h3), `highlight` (gold/bold — for rules, warnings, fees), `note` (italic/muted), and `url` (makes the item a link; external URLs open in new tab, internal use Next.js `Link`).
-- `check-in-steps.ts`: exports `byCar: CheckInStep[]` (4 steps) and `byFoot: CheckInStep[]` (6 steps), consumed directly by `DirectionsTabs`.
+- `check-in-steps.ts`: `byCar: CheckInStep[]` (4 steps) and `byFoot: CheckInStep[]` (6 steps), consumed by `DirectionsTabs`.
+- `guide-content.ts`: `guideSections: GuideSection[]` and `farewellChecklistItems: string[]`. `GuideItem` supports four flags: `heading` (h3), `highlight` (gold/bold — rules, warnings, fees), `note` (italic/muted), and `url` (link; external opens in new tab, internal uses Next.js `Link`).
+- `book-content.ts`: `pricingSeasons`, `platformLinks` (Airbnb / Booking.com / HomeExchange), `fees`, `discounts`, `limits`, `contactEmail`.
+- `listing-content.ts`: property stats, intro copy, amenity cards, reviews, and image references for the listing page.
+- `gallery-content.ts`: `allRooms: GalleryRoom[]` keyed by `GalleryCategory` slug, drives both the gallery index and per-room sub-pages.
 
 ### Theming
 
@@ -49,11 +57,18 @@ These are the only `"use client"` components; everything else is a server compon
 - `Header` — hamburger menu toggle state
 - `TableOfContents` — scroll listener for active section tracking; smooth-scrolls with a 96px offset to clear the sticky header
 - `FarewellChecklist` — checkbox state persisted to `localStorage` under key `nomads-nest-farewell-checklist`; uses a `mounted` flag to prevent hydration mismatch
-- `DirectionsTabs` — Radix UI Tabs wrapping the step cards
+- `DirectionsTabs` — Radix UI Tabs wrapping the check-in step cards
+- `PhotoGrid` — lightbox/zoom interaction on gallery pages
+- `ReviewsCarousel` — touch/drag carousel on the listing page
+- `FadeIn` — framer-motion scroll-triggered fade wrapper used across all pages
 
 ### Images
 
 All images live in `public/images/`. Check-in step photos are in `public/images/check-in/`. The logo is `public/images/logo-nn-gold-crop.webp`. Always use `next/image` for runtime optimisation. Compress photos to under 500KB before committing — Git is not an image store.
+
+### Custom commands
+
+`.claude/commands/review.md` — run `/project:review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
 
 ## Deployment
 
