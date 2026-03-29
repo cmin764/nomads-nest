@@ -129,6 +129,23 @@ body {
   outline: none !important;
 }
 
+/* Logo: transparent PNG, gold tint on hover */
+.logo-link { display: inline-flex; transition: opacity 300ms ease; }
+.logo-img  { transition: filter 300ms ease; }
+
+/* Light mode hover: subtle warm gold tint */
+.logo-link:hover .logo-img {
+  filter: sepia(0.5) saturate(1.8) hue-rotate(5deg) brightness(0.92);
+}
+
+/* Dark mode: invert so dark artwork becomes light on dark header */
+[data-theme="dark"] .logo-img {
+  filter: invert(1) brightness(0.9);
+}
+[data-theme="dark"] .logo-link:hover .logo-img {
+  filter: invert(1) sepia(0.5) saturate(1.8) hue-rotate(5deg) brightness(0.95);
+}
+
 /* Navy outline pill button — dark mode overrides */
 [data-theme="dark"] .btn-navy {
   border-color: rgba(237, 232, 220, .3);

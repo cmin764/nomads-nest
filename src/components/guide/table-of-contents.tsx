@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GuideSection } from "@/data/guide-content";
@@ -14,7 +14,10 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
   const [activeId, setActiveId] = useState<string>("");
   const [collapsed, setCollapsed] = useState(true);
 
-  const allIds = [...sections.map((s) => s.id), farewellId];
+  const allIds = useMemo(
+    () => [...sections.map((s) => s.id), farewellId],
+    [sections, farewellId]
+  );
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY + 120;
@@ -73,7 +76,7 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
               className={cn(
                 "w-full text-left text-[13px] font-light px-3 py-[7px] transition-colors duration-[150ms] flex items-center gap-2",
                 activeId === item.id
-                  ? "font-[400]"
+                  ? "font-normal"
                   : "text-muted-foreground hover:text-foreground"
               )}
               style={activeId === item.id ? { color: "var(--gold)" } : undefined}

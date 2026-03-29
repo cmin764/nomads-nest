@@ -1,7 +1,7 @@
 # Nomad's Nest — Site Blueprint
 > Single source of truth for all development. Supersedes `nomadsnest-design-spec.md` and `nomadsnest-rebuild-spec.md`. The design HTML (`nomadsnest-design.html`) remains as an interactive visual reference.
 >
-> Last updated: March 2026
+> Last updated: March 2026 (Phase 2 complete)
 
 ---
 
@@ -144,11 +144,11 @@ Implemented in `src/components/ui/button.tsx` as `variant="gold"` and `variant="
 
 ### 2.5 Cards
 
-`background: var(--surface)` · `border-radius: 14px` · `border: 1px solid var(--border)`. Hover: `border-color: var(--gold)`, `translateY(-4px)`, box-shadow `0 14px 40px rgba(27,42,74,.07)`. Dark mode hover shadow: `rgba(0,0,0,.4)`. Transition: 300ms on border/transform/shadow, 450ms on background.
+`background: var(--surface)` · `border-radius: 16px` (`rounded-2xl`) · `border: 1px solid var(--divider)`. Hover: `translateY(-4px)` + `shadow-lg`, transition 300ms. No gold border on hover — shadow depth communicates lift instead.
 
 ### 2.6 Section Label (Eyebrow Pill)
 
-Small uppercase label used above section headings ("Amenities", "Reviews", "Gallery"). Raleway 400, 10px, `letter-spacing: .16em`, `color: var(--muted)`, `background: var(--surface-alt)`, `padding: 6px 16px`, `border-radius: 100px`, `margin-bottom: 52px`.
+Small uppercase label used above section headings ("Amenities", "Reviews", "Gallery"). Raleway 400, 10px, `letter-spacing: .16em`, `color: var(--muted-text)`, `background: var(--surface-alt)`, `padding: 6px 16px` (`px-4 py-1.5`), `border-radius: 9999px`, `margin-bottom: 48px`. Implemented as `src/components/ui/section-label.tsx`.
 
 ### 2.7 Gold Divider Bar
 
@@ -160,13 +160,13 @@ Used under hero headlines to anchor them visually. `width: 44px`, `height: 1px`,
 
 ### 2.9 Animations
 
-Scroll fade-in: `opacity 0→1`, `translateY(22px→0)`, 800ms, `cubic-bezier(.25,.46,.45,.94)`. Stagger: 0ms / 130ms / 260ms per element. IntersectionObserver: `threshold: 0.08`, `rootMargin: '0px 0px -40px 0px'`.
+Scroll fade-in: `opacity 0→1`, `translateY(20px→0)`, 500ms. Stagger via `delay` prop (0 / 0.1 / 0.2s). Uses Framer Motion `whileInView` with `once: true`.
 
 Other transitions: card hover `translateY(-4px)` 300ms · button hover `scale(1.02)` 150ms · theme switch `background/color 450ms ease` on `body`.
 
 **Never:** bounce, spring physics, parallax, slide-in from sides.
 
-Implemented via the existing Framer Motion `FadeIn` wrapper (`src/components/fade-in.tsx`) with `y: 22`, `duration: 0.8`.
+Implemented via `src/components/fade-in.tsx` — accepts optional `delay` prop.
 
 ### 2.10 Theme Toggle
 
@@ -188,7 +188,7 @@ Sticky, `z-index: 100` · `background: var(--surface)` · `border-bottom: 1px so
 
 Nav links: Raleway 400, 11px, uppercase, `letter-spacing: .16em`, `color: var(--muted)`. Hover: `color: var(--text)`, 200ms. Implemented via `.nn-link` CSS class (not event handlers — safe for server components).
 
-Logo: Cormorant 300 italic, 22px, `letter-spacing: .06em`, `color: var(--text)`. Centered on desktop; left-aligned on mobile with hamburger on the right.
+Logo: `logo-nn-transparent.png` (200×200 transparent PNG) rendered at 58×58px via `next/image`. Centered on desktop; left-aligned on mobile with hamburger on the right. Light mode: no filter (dark tree on cream bg). Dark mode: `filter: invert(1) brightness(0.9)` via `[data-theme="dark"] .logo-img` CSS rule. Hover: gold tint via `filter: sepia(0.5) saturate(1.8) hue-rotate(5deg)`. Classes `logo-link` / `logo-img` defined in `globals.css`.
 
 ### 2.12 Review Carousel
 
@@ -201,18 +201,15 @@ Logo: Cormorant 300 italic, 22px, `letter-spacing: .06em`, `color: var(--text)`.
 
 ### 2.13 Pricing Table
 
-Row cells: Raleway 300, 15px, `padding: 16px 0`. Season label (left cell): `color: var(--muted)`. Price (right cell): right-aligned, Cormorant 300, 20px.
+Row cells: `px-6 py-4`. Season label (left cell): Raleway 300, 13px, `color: var(--muted-text)`. Price (right cell): right-aligned, Cormorant italic 300, 16px, `color: var(--text)`. Alternating row background: even rows `var(--surface)`, odd rows transparent. Outer container: `rounded-2xl`, `border: 1px solid var(--divider)`.
 
 ### 2.14 Platform Link Cards (Book page)
 
-Card: flex row · `gap: 18px` · `padding: 18px 22px` · `border-radius: 14px` · `border: 1px solid var(--border)` · `background: var(--surface)`. Hover: `border-color: var(--gold)`, `translateX(4px)`, arrow color → gold. Transition 250ms on border/transform.
+Card: flex row · `gap: 20px` (`gap-5`) · `padding: 24px` (`p-6`) · `border-radius: 16px` (`rounded-2xl`) · `border: 1px solid var(--divider)` · `background: var(--surface)`. Hover: `translateY(-2px)` + `shadow-md`, arrow color → gold. Transition 300ms on all.
 
-Platform icon container backgrounds (light / dark):
-- Airbnb: `#FFEAE0` / `rgba(255,120,80,.15)`
-- Booking.com: `#E8F0FF` / `rgba(46,74,122,.4)`
-- HomeExchange: `#E8F5EB` / `rgba(60,120,60,.2)`
+Platform icon container: 44×44px circle (`w-11 h-11`), `background: var(--surface-alt)`, `color: var(--text)` (adapts to dark mode automatically — no per-platform colors).
 
-**Platform logos:** Inline SVG paths from [simpleicons.org](https://simpleicons.org) — no extra package needed, just 3 static paths. Airbnb (`SiAirbnb` path) and Booking.com (`SiBookingdotcom` path) are available there. HomeExchange is not in Simple Icons — use lucide-react `Home` icon as a placeholder until an official SVG is sourced. SVG fills `currentColor` so it adapts to light/dark automatically. Component: `src/components/ui/brand-icon.tsx`, accepts `brand: "airbnb" | "booking" | "homeexchange"`, `size`, `className`.
+**Platform logos:** Inline SVG paths from simpleicons.org for Airbnb and Booking.com (fill `currentColor`, adapts to light/dark). HomeExchange uses a real brand mark PNG (`/images/homeexchange-icon.png`, background removed) rendered via CSS `mask-image` so it also inherits `currentColor`. Component: `src/components/ui/brand-icon.tsx`, accepts `brand: "airbnb" | "booking" | "homeexchange"`, `size`, `className`.
 
 ---
 
@@ -223,15 +220,15 @@ Platform icon container backgrounds (light / dark):
 | Route | Page Title | Audience | Status |
 |---|---|---|---|
 | `/` | Home | Public | Built (Phase 1) |
-| `/listing` | The Space | Public | Phase 2 |
-| `/gallery` | Gallery | Public | Phase 2 |
-| `/gallery/entrance` | Entrance | Public | Phase 2 |
-| `/gallery/bedroom` | Bedroom | Public | Phase 2 |
-| `/gallery/bathroom` | Bathroom | Public | Phase 2 |
-| `/gallery/kitchen` | Kitchen | Public | Phase 2 |
-| `/gallery/living-area` | Living Area | Public | Phase 2 |
-| `/gallery/terrace` | Terrace | Public | Phase 2 |
-| `/book` | Book | Public | Phase 2 |
+| `/listing` | The Space | Public | Built (Phase 2) |
+| `/gallery` | Gallery | Public | Built (Phase 2) |
+| `/gallery/entrance` | Entrance | Public | Built (Phase 2) |
+| `/gallery/bedroom` | Bedroom | Public | Built (Phase 2) |
+| `/gallery/bathroom` | Bathroom | Public | Built (Phase 2) |
+| `/gallery/kitchen` | Kitchen | Public | Built (Phase 2) |
+| `/gallery/living-area` | Living Area | Public | Built (Phase 2) |
+| `/gallery/terrace` | Terrace | Public | Built (Phase 2) |
+| `/book` | Book | Public | Built (Phase 2) |
 | `/contact` | Contact | Public | Phase 3 |
 | `/guide` | Guest Guide | Booked guests only | Built (Phase 0, rethemed Phase 1) |
 | `/check-in` | Check-in Instructions | Booked guests only | Built (Phase 0, rethemed Phase 1) |
@@ -270,9 +267,9 @@ All content is TypeScript constants in `src/data/`. No CMS. No API calls. One fi
 src/data/
   check-in-steps.ts       ← exists (byCar[], byFoot[])
   guide-content.ts        ← exists (guideSections[], farewellChecklistItems[])
-  listing-content.ts      ← to create (stats, description, amenities, reviews)
-  gallery-content.ts      ← to create (categories, room taglines, photo manifest)
-  book-content.ts         ← to create (pricing table, platform links, fees)
+  listing-content.ts      ← exists (stats, description, amenities, reviews, ctaImage)
+  gallery-content.ts      ← exists (categories, room taglines, photo manifest)
+  book-content.ts         ← exists (pricing table, platform links, fees, discounts, limits)
   contact-content.ts      ← to create (address, social links, map URLs)
   legal-content.ts        ← to create (privacy, terms, data protection text)
 ```
@@ -344,16 +341,20 @@ description: "A thoughtfully designed apartment 10 minutes from the city centre 
 
 **Hero:**
 - Full-width image: `CMN01490.JPG`
-- Headline (right-aligned, display size):
+- Headline overlay: right-aligned, bottom-right corner, frosted blur backdrop (gradient mask — transparent at right edge, `blur(6px)` blending in from the left so text is legible without a harsh box boundary)
+- Heading: Cormorant italic, `clamp(32px,4.5vw,56px)`, cream `#EDE8DC`:
   ```
-  Island Charm
-  Modern Comfort
-  Work, Rest, Explore
+  Island Charm      ← italic
+  Modern Comfort    ← italic
+  ```
+- Tagline below: Raleway 400, 11–13px, uppercase, `letter-spacing: .25em`, 80% opacity cream:
+  ```
+  WORK, REST, EXPLORE
   ```
 
 **Stats bar** (centered, 4 stats separated by `–`):
 ```
-48 sqm interior  –  AC & fan in every room  –  Dedicated workspace  –  High-speed internet
+48 sqm interior  –  AC & fan in every room  –  Dedicated workspace  –  Fiber optic internet
 ```
 
 **Property intro block:**
@@ -366,9 +367,11 @@ description: "A thoughtfully designed apartment 10 minutes from the city centre 
   just a stay — it's an experience waiting to be lived.
 ```
 
-**Image gallery strip** (horizontal, 4 images): `CMN01439.JPG`, `D-kitchen-7.JPG`, `CMN01580.JPG`, `CMN01874.JPG`
+**Image gallery strip** (horizontal, 4 images, portrait aspect `3/4`): `CMN01439.JPG`, `D-kitchen-7.JPG`, `CMN01580.JPG`, `CMN01874.JPG`
 
 **Full-width image:** `A-terrace-8.JPG`
+
+**YouTube embed** (between full-width image and amenities): `https://www.youtube.com/embed/c3RH-2O--MQ` — 16:9 responsive iframe, max-width 900px, caption "🎵 Klingande – Jubel"
 
 **Amenities section** (section label: "Amenities"):
 6 cards, 3 columns, each links to its gallery sub-page:
@@ -378,12 +381,12 @@ description: "A thoughtfully designed apartment 10 minutes from the city centre 
 | Bedroom | `/gallery/bedroom` | Double Bed, Generous Wardrobe, Adjustable Desk, Vanity Table, 2 Mirrors |
 | Bathroom | `/gallery/bathroom` | Shower Cabin, Towel Hangers, Storage Shelves, Laundry Basket, Smart Scale |
 | Kitchen | `/gallery/kitchen` | Electric Stove, Fridge, Washing Machine, Toaster/Kettle/Espresso Machine, Cutlery & Utensils |
-| Living Area | `/gallery/living-area` | Sofa Bed, Armchair & Table, TV & HDMI Cable, Dining Table & Chairs, Fibre 300 Mbps |
+| Living Area | `/gallery/living-area` | Sofa Bed, Armchair & Table, TV & HDMI Cable, Dining Table & Chairs, Fiber optic · 300 Mbps |
 | Terrace | `/gallery/terrace` | Wide Area (17 sqm), Wooden Table & Chairs, Umbrella, Smoking Zone, Pests Repeller |
 | Safety | `/gallery/safety` | CO Detector, Smoke Detector, Fire Extinguisher, Fire Blanket, First Aid Kit |
 
 **"Interested?" CTA section:**
-- Background image: `A-terrace-6.JPG`
+- Background image: `CMN01858.JPG` (listing/)
 - H2: "Interested?"
 - Button: "Book Now" → `/book`
 
@@ -405,7 +408,7 @@ Auto-advancing carousel. 6 reviews:
 **Metadata:**
 ```typescript
 title: "The Space"
-description: "48 sqm apartment with terrace, dedicated workspace, and fibre internet in Ayia Napa, Cyprus."
+description: "48 sqm apartment with terrace, dedicated workspace, and fiber optic internet in Ayia Napa, Cyprus."
 ```
 
 ---
@@ -415,7 +418,7 @@ description: "48 sqm apartment with terrace, dedicated workspace, and fibre inte
 **Intro text:**
 > "This stylish apartment combines comfort and elegance, featuring a serene marine-themed bedroom in soothing blue tones, a cozy living area, a fully equipped kitchen, and a spacious terrace where you can unwind and enjoy the fresh air."
 
-**6-card grid** (4 columns desktop, 2 mobile):
+**6-card grid** (3 columns desktop, 2 mobile — 2×3 layout):
 
 | Room | Tagline | Emoji | Route |
 |---|---|---|---|
@@ -477,9 +480,9 @@ description: `Photos of the ${categoryName} at Nomad's Nest, Ayia Napa.`
 **Left column:**
 ```
   Your Vacay
-  Awaits.                    ← H1 Cormorant, "Awaits." in gold italic
+  Awaits                     ← H1 Cormorant, "Awaits" in gold italic (no trailing period)
 
-  RESERVATION REQUEST         ← label, gold uppercase
+  PRICING                    ← label, gold uppercase
 
   ┌─────────────────────────────┐
   │ April – May       €75/night │
@@ -489,27 +492,27 @@ description: `Photos of the ${categoryName} at Nomad's Nest, Ayia Napa.`
   │ December – February  closed  │
   └─────────────────────────────┘
 
-  Extra guests +€7/person/night · €70 cleaning fee
-  Weekly discount 5% · Monthly discount 30%
-  4 persons max · 3 nights minimum
+  [Cleaning fee €70]  [Extra guests (3rd+) +€7/night]   ← chips on surface-alt bg
+  Weekly −5%  |  Monthly −30%                            ← gold italic chip
+  4 guests max · 3 nights min                            ← Cormorant italic fine-print
 ```
 
 **Right column:**
 ```
-  BOOK DIRECTLY ON             ← label, muted uppercase
+  BOOK DIRECTLY ON             ← label, muted uppercase (rendered as "Book Directly On")
 
-  ┌────────────────────────────────┐
-  │ 🏠 Airbnb                      │
-  │    airbnb.com/h/nomadsnestcy   │  →
-  └────────────────────────────────┘
-  ┌────────────────────────────────┐
-  │ 🔵 Booking.com                 │
-  │    nomads-nest · ayia napa     │  →
-  └────────────────────────────────┘
-  ┌────────────────────────────────┐
-  │ 🔄 HomeExchange                │
-  │    holiday-home/2895395        │  →
-  └────────────────────────────────┘
+  ┌────────────────────────────────────────────────────┐
+  │ Airbnb                                             │
+  │    Superhost · 4.83 ★ · Self check-in             │  →
+  └────────────────────────────────────────────────────┘
+  ┌────────────────────────────────────────────────────┐
+  │ Booking.com                                        │
+  │    9.7 Exceptional · 10/10 value for money        │  →
+  └────────────────────────────────────────────────────┘
+  ┌────────────────────────────────────────────────────┐
+  │ HomeExchange                                       │
+  │    Swap homes or stay with GuestPoints            │  →
+  └────────────────────────────────────────────────────┘
 
   Have a question?
   book@nomadsnest.live
@@ -631,13 +634,16 @@ Links from footer only. Not in main nav.
 ```
 public/
   images/
-    logo-nn-gold-crop.webp      ← exists
+    logo-nn-gold-crop.webp      ← exists (used as OpenGraph fallback image in layout.tsx)
+    logo-nn-transparent.png     ← exists (200×200 transparent PNG, active header logo)
+    homeexchange-icon.png       ← exists (real HomeExchange brand mark, bg removed)
     check-in/                   ← self-checkin-*.jpg, self-checkin-car-*.jpg
     listing/                    ← listing-exclusive shots (CMN hero/strip files only)
       CMN01490.JPG
       CMN01439.JPG
       CMN01580.JPG
       CMN01874.JPG
+      CMN01858.JPG              ← CTA section background (1800px wide, 436KB)
     gallery/                    ← canonical source for ALL room photos
       entrance/
         CMN02030.JPG
@@ -735,32 +741,22 @@ All media is tracked in **`config/media.yaml`**. Every image has a `status` fiel
 
 ---
 
-### Phase 2 — Core Pages
+### Phase 2 — Core Pages — Done ✓
 
 **Goal:** Build the primary discovery flow. A potential guest can land, browse, and book.
 
-**Order:**
-1. `src/app/listing/page.tsx` + `src/data/listing-content.ts`
-   - Stats bar component
-   - Amenity cards grid
-   - Review carousel (add `embla-carousel-react`)
-2. `src/app/gallery/page.tsx` + `src/data/gallery-content.ts`
-   - 6-card room grid
-3. `src/app/gallery/[category]/page.tsx`
-   - Dynamic route, photo grid
-   - Add `yet-another-react-lightbox`
-   - Prev/Next room navigation
-4. `src/app/book/page.tsx` + `src/data/book-content.ts`
-   - Pricing table
-   - Platform link cards
-   - `src/components/ui/brand-icon.tsx` — inline SVG brand logos; `brand: "airbnb" | "booking" | "homeexchange"`; Airbnb + Booking.com paths from simpleicons.org; HomeExchange uses lucide `Home` until official SVG is sourced
-5. Add nav links in `header.tsx` (The Space → `/listing`, Gallery → `/gallery`)
-
-**Acceptance criteria:**
-- Full discovery flow works: Home → The Space → Gallery → Book
-- Gallery lightbox opens and navigates correctly
-- Reviews carousel auto-advances, pauses on hover, supports keyboard/swipe
-- Book page shows correct pricing and links open correct platforms
+**Completed:**
+- `/listing` — hero with frosted blur overlay, stats bar, amenity cards, gallery strip (portrait `3/4`), full-width terrace image, YouTube embed, CTA section, reviews carousel
+- `/gallery` — 6-card grid (3 columns desktop / 2 mobile, 2×3 layout)
+- `/gallery/[category]` — dynamic route, photo grid, lightbox, prev/next room nav
+- `/book` — pricing table, platform cards (Airbnb, Booking.com, HomeExchange), fees/discounts/limits display
+- `src/components/ui/brand-icon.tsx` — SVG logos for Airbnb + Booking.com; HomeExchange via CSS `mask-image` PNG
+- `src/components/listing/reviews-carousel.tsx` — Embla, autoplay, keyboard, swipe
+- `src/components/gallery/photo-grid.tsx` — uniform grid + lightbox
+- `src/components/gallery/room-nav.tsx` — prev/next room navigation
+- Header: active link styling; logo swapped from text to `logo-nn-transparent.png`
+- Favicon: multi-size `.ico` (16–256px) + `icon.svg` for retina tabs
+- `src/components/ui/golden-divider.tsx` — shared 44px gold bar component
 
 ---
 

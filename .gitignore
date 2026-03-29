@@ -24,8 +24,9 @@
 .DS_Store
 *.pem
 
-# Claude Code local settings (tool permissions, not for version control)
-.claude/
+# Claude Code local settings — ignore everything except shared commands
+.claude/*
+!.claude/commands/
 
 # debug
 npm-debug.log*

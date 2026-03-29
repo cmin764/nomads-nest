@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
@@ -22,6 +24,7 @@ function ThemeIcon({ theme }: { theme: "system" | "light" | "dark" }) {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, cycle } = useTheme();
+  const pathname = usePathname();
 
   return (
     <header
@@ -29,19 +32,23 @@ export default function Header() {
       style={{ background: "var(--surface)", transition: "background 450ms ease, border-color 450ms ease" }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 items-center h-16">
+        <div className="grid grid-cols-3 items-center h-[72px]">
 
           {/* Left: nav links (desktop) */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[11px] font-[400] uppercase tracking-[.16em] nn-link"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-[11px] font-normal uppercase tracking-[.16em] nn-link transition-colors"
+                  style={isActive ? { color: "var(--text)" } : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile: hamburger */}
@@ -55,14 +62,17 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Center: logo (text-based, Cormorant italic) */}
+          {/* Center: logo */}
           <div className="flex justify-center">
-            <Link
-              href="/"
-              className="font-heading italic font-light text-[22px] tracking-[.06em] transition-opacity hover:opacity-80"
-              style={{ color: "var(--text)" }}
-            >
-              Nomad&apos;s Nest
+            <Link href="/" className="logo-link" aria-label="Nomad's Nest home">
+              <Image
+                src="/images/logo-nn-transparent.png"
+                alt="Nomad's Nest"
+                width={58}
+                height={58}
+                priority
+                className="logo-img"
+              />
             </Link>
           </div>
 
