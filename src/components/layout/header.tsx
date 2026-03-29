@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
@@ -22,6 +23,7 @@ function ThemeIcon({ theme }: { theme: "system" | "light" | "dark" }) {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, cycle } = useTheme();
+  const pathname = usePathname();
 
   return (
     <header
@@ -33,15 +35,19 @@ export default function Header() {
 
           {/* Left: nav links (desktop) */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[11px] font-[400] uppercase tracking-[.16em] nn-link"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-[11px] font-[400] uppercase tracking-[.16em] nn-link transition-colors"
+                  style={isActive ? { color: "var(--text)" } : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile: hamburger */}
