@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import FadeIn from "@/components/fade-in";
+import GoldenDivider from "@/components/ui/golden-divider";
 import PhotoGrid from "@/components/gallery/photo-grid";
 import RoomNav from "@/components/gallery/room-nav";
 import { allRooms, roomOrder } from "@/data/gallery-content";
@@ -46,10 +47,7 @@ export default async function GalleryCategoryPage({ params }: Props) {
           >
             {room.name}
           </h1>
-          <div
-            className="mx-auto"
-            style={{ width: "44px", height: "1px", background: "var(--gold)" }}
-          />
+          <GoldenDivider />
         </div>
       </FadeIn>
 

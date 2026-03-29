@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FadeIn from "@/components/fade-in";
+import GoldenDivider from "@/components/ui/golden-divider";
 import { galleryIndexRooms, introQuote } from "@/data/gallery-content";
 
 export const metadata: Metadata = {
@@ -23,10 +24,7 @@ export default function GalleryPage() {
           >
             &ldquo;{introQuote}&rdquo;
           </p>
-          <div
-            className="mx-auto"
-            style={{ width: "44px", height: "1px", background: "var(--gold)" }}
-          />
+          <GoldenDivider />
         </div>
       </FadeIn>
 
@@ -59,7 +57,7 @@ export default function GalleryPage() {
                   {room.name}
                 </p>
                 <p
-                  className="text-[11px] font-[400]"
+                  className="text-[11px] font-normal"
                   style={{ color: "var(--muted-text)" }}
                 >
                   {room.images.length} {room.images.length === 1 ? "photo" : "photos"}

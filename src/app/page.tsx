@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import GoldenDivider from "@/components/ui/golden-divider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -82,11 +83,9 @@ export default function HomePage() {
           >
             Living well<br />in <em className="italic text-primary">Ayia Napa</em>
           </h1>
-          {/* Gold divider bar */}
-          <div
-            className="mx-auto mb-8"
-            style={{ width: "44px", height: "1px", background: "var(--gold)" }}
-          />
+          <div className="mb-8">
+            <GoldenDivider />
+          </div>
           <p
             className="text-[16px] font-light leading-[1.8] mb-10 max-w-[560px] mx-auto"
             style={{ color: "var(--muted-text)" }}

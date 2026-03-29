@@ -26,10 +26,10 @@ export default function BookPage() {
             </h1>
 
             <p
-              className="text-[10px] font-[400] uppercase tracking-[.20em] mb-6"
+              className="text-[10px] font-normal uppercase tracking-[.20em] mb-6"
               style={{ color: "var(--gold)" }}
             >
-              Reservation Request
+              Pricing
             </p>
 
             {/* Pricing table */}
@@ -111,7 +111,7 @@ export default function BookPage() {
         <FadeIn delay={0.1}>
           <div>
             <p
-              className="text-[10px] font-[400] uppercase tracking-[.20em] mb-8"
+              className="text-[10px] font-normal uppercase tracking-[.20em] mb-8"
               style={{ color: "var(--muted-text)" }}
             >
               Book Directly On

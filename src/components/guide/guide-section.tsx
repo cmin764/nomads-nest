@@ -77,7 +77,7 @@ export default function GuideSection({ section }: GuideSectionProps) {
                 <span
                   className={cn(
                     item.highlight
-                      ? "font-[400]"
+                      ? "font-normal"
                       : item.note
                       ? "italic"
                       : ""

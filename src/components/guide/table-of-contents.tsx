@@ -76,7 +76,7 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
               className={cn(
                 "w-full text-left text-[13px] font-light px-3 py-[7px] transition-colors duration-[150ms] flex items-center gap-2",
                 activeId === item.id
-                  ? "font-[400]"
+                  ? "font-normal"
                   : "text-muted-foreground hover:text-foreground"
               )}
               style={activeId === item.id ? { color: "var(--gold)" } : undefined}

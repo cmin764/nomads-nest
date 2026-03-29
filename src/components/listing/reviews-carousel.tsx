@@ -36,10 +36,10 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") scrollPrev();
     if (e.key === "ArrowRight") scrollNext();
-  };
+  }, [scrollPrev, scrollNext]);
 
   return (
     <div
@@ -70,7 +70,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
                 {review.quote}
               </p>
               <p
-                className="text-[11px] font-[400] uppercase tracking-[.16em]"
+                className="text-[11px] font-normal uppercase tracking-[.16em]"
                 style={{ color: "var(--muted-text)" }}
               >
                 {review.author}

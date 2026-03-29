@@ -57,7 +57,7 @@ export default function ListingPage() {
               <em className="italic">Modern Comfort</em>
             </h1>
             <p
-              className="mt-3 text-[11px] sm:text-[13px] uppercase tracking-[.25em] font-[400]"
+              className="mt-3 text-[11px] sm:text-[13px] uppercase tracking-[.25em] font-normal"
               style={{ color: "rgba(237,232,220,0.75)" }}
             >
               Work, Rest, Explore

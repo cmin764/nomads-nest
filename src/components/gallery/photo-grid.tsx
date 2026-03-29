@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
@@ -16,7 +16,7 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const slides = images.map((img) => ({ src: img.src }));
+  const slides = useMemo(() => images.map((img) => ({ src: img.src })), [images]);
 
   return (
     <>

@@ -42,7 +42,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-[11px] font-[400] uppercase tracking-[.16em] nn-link transition-colors"
+                  className="text-[11px] font-normal uppercase tracking-[.16em] nn-link transition-colors"
                   style={isActive ? { color: "var(--text)" } : undefined}
                 >
                   {link.label}
