@@ -41,15 +41,15 @@ export const platformLinks: PlatformLink[] = [
 ];
 
 export const fees = [
-  "Extra guests +€7/person/night",
-  "€70 cleaning fee",
+  { label: "Extra guests (3rd+)", value: "+€7 / person / night" },
+  { label: "Cleaning fee", value: "€70 compulsory" },
 ];
 
-export const rules = [
-  "Weekly discount 5%",
-  "Monthly discount 30%",
-  "4 persons max",
-  "3 nights minimum",
+export const discounts = [
+  { period: "Weekly", pct: "5%" },
+  { period: "Monthly", pct: "30%" },
 ];
+
+export const limits = ["4 guests max", "3 nights min"];
 
 export const contactEmail = "book@nomadsnest.live";

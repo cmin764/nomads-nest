@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import FadeIn from "@/components/fade-in";
 import BrandIcon from "@/components/ui/brand-icon";
-import { pricingSeasons, platformLinks, fees, rules, contactEmail } from "@/data/book-content";
+import { pricingSeasons, platformLinks, fees, discounts, limits, contactEmail } from "@/data/book-content";
 
 export const metadata: Metadata = {
   title: "Book",
@@ -22,7 +22,7 @@ export default function BookPage() {
               style={{ color: "var(--text)" }}
             >
               Your Vacay<br />
-              <em className="italic text-primary">Awaits.</em>
+              <em className="italic text-primary">Awaits</em>
             </h1>
 
             <p
@@ -62,15 +62,48 @@ export default function BookPage() {
               ))}
             </div>
 
-            {/* Fees and rules */}
-            <div
-              className="text-[12px] font-light leading-[2] space-y-0"
-              style={{ color: "var(--muted-text)" }}
-            >
-              {[...fees, ...rules].map((line) => (
-                <p key={line}>{line}</p>
+            {/* Fees — two chips */}
+            <div className="flex gap-3 mb-5">
+              {fees.map((fee) => (
+                <div
+                  key={fee.label}
+                  className="flex-1 px-4 py-3 rounded-xl"
+                  style={{ background: "var(--surface-alt)" }}
+                >
+                  <p className="text-[10px] uppercase tracking-[.14em] mb-1" style={{ color: "var(--muted-text)" }}>
+                    {fee.label}
+                  </p>
+                  <p className="text-[13px] font-light" style={{ color: "var(--text)" }}>
+                    {fee.value}
+                  </p>
+                </div>
               ))}
             </div>
+
+            {/* Discounts — gold percentages */}
+            <div
+              className="flex gap-3 mb-5 px-4 py-3 rounded-xl"
+              style={{ background: "var(--surface-alt)" }}
+            >
+              {discounts.map((d, i) => (
+                <div key={d.period} className={`flex-1 flex items-center gap-3 ${i > 0 ? "border-l pl-3" : ""}`} style={{ borderColor: "var(--divider)" }}>
+                  <span className="text-[10px] uppercase tracking-[.14em] flex-1" style={{ color: "var(--muted-text)" }}>
+                    {d.period}
+                  </span>
+                  <span className="font-heading italic text-[18px] font-light" style={{ color: "var(--gold)" }}>
+                    −{d.pct}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Limits — policy fine print */}
+            <p
+              className="font-heading italic font-light text-[13px] text-center tracking-[.03em]"
+              style={{ color: "var(--muted-text)" }}
+            >
+              {limits.join(" · ")}
+            </p>
           </div>
         </FadeIn>
 
