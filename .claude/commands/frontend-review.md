@@ -1,4 +1,4 @@
-Perform a structured code review of all changes on the current branch versus `main`. Follow the steps below in order.
+Nomad's Nest — React/Next.js 16 App Router code review. Checks this project's specific stack (Tailwind v4, shadcn/ui, framer-motion, bun, no CMS) against React patterns, TypeScript correctness, caching, performance, security (CVE-2025-29927), accessibility, and project conventions. Follow the steps below in order.
 
 ---
 

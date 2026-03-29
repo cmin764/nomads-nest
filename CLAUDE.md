@@ -68,7 +68,7 @@ All images live in `public/images/`. Check-in step photos are in `public/images/
 
 ### Custom commands
 
-`.claude/commands/review.md` — run `/project:review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
+`.claude/commands/frontend-review.md` — run `/frontend-review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
 
 ## Deployment
 
