@@ -127,14 +127,11 @@ export default function HomePage() {
             A place to make memories.
           </h2>
           <p
-            className="text-[15px] font-light leading-[1.8] mb-10"
+            className="text-[15px] font-light leading-[1.8]"
             style={{ color: "rgba(237,232,220,.7)" }}
           >
             Designed to make every stay feel like home.
           </p>
-          <Button variant="gold" size="default" asChild>
-            <Link href="/book">Book Now</Link>
-          </Button>
         </div>
       </section>
 

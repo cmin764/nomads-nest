@@ -1,9 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import type { Metadata } from "next";
 import FadeIn from "@/components/fade-in";
 import BrandIcon from "@/components/ui/brand-icon";
 import DiscountAccordion from "@/components/discount-accordion";
-import { pricingSeasons, platformLinks, fees, discounts, limits, contactEmail, discountInquiry } from "@/data/book-content";
+import { pricingSeasons, platformLinks, fees, discounts, limits, contactEmail, contactWhatsApp, discountInquiry } from "@/data/book-content";
 
 export const metadata: Metadata = {
   title: "Book",
@@ -169,17 +169,31 @@ export default function BookPage() {
               style={{ borderColor: "var(--divider)" }}
             >
               <p
-                className="font-heading italic font-light text-[17px] mb-2"
+                className="font-heading italic font-light text-[17px] mb-4"
                 style={{ color: "var(--text)" }}
               >
                 Have a question?
               </p>
-              <a
-                href={`mailto:${contactEmail}`}
-                className="text-[13px] font-light transition-colors hover:text-[var(--gold)] nn-link"
-              >
-                {contactEmail}
-              </a>
+              <div className="flex flex-col gap-2.5">
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="flex items-center gap-2.5 text-[13px] font-light transition-colors hover:text-[var(--gold)] nn-link"
+                  style={{ color: "var(--muted-text)" }}
+                >
+                  <Mail size={14} className="flex-shrink-0" />
+                  {contactEmail}
+                </a>
+                <a
+                  href={contactWhatsApp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 text-[13px] font-light transition-colors hover:text-[var(--gold)]"
+                  style={{ color: "var(--muted-text)" }}
+                >
+                  <BrandIcon brand="whatsapp" size={14} className="flex-shrink-0" />
+                  {contactWhatsApp.display}
+                </a>
+              </div>
             </div>
           </div>
         </FadeIn>

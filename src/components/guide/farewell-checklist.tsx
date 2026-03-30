@@ -114,7 +114,7 @@ export default function FarewellChecklist() {
             </p>
             <button
               onClick={reset}
-              className="text-[12px] underline underline-offset-4 transition-colors"
+              className="cursor-pointer text-[12px] underline underline-offset-4 transition-colors"
               style={{ color: "var(--muted-text)" }}
             >
               Reset
