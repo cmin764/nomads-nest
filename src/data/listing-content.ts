@@ -30,13 +30,13 @@ export const propertyIntro = {
 
 export const galleryStrip = [
   { src: "/images/listing/CMN01439.JPG", alt: "Bedroom's table and mirrors" },
-  { src: "/images/gallery/kitchen/D-kitchen-7.JPG", alt: "Kitchen's espresso machine, tea and basics" },
+  { src: "/images/listing/D-kitchen-7.JPG", alt: "Kitchen's espresso machine, tea and basics" },
   { src: "/images/listing/CMN01580.JPG", alt: "Open-space living area" },
   { src: "/images/listing/CMN01874.JPG", alt: "Terrace with wine glasses and bottle" },
 ];
 
 export const fullWidthImage = {
-  src: "/images/gallery/terrace/A-terrace-8.JPG",
+  src: "/images/listing/A-terrace-8.JPG",
   alt: "Terrace with outdoor portable standing table for laptop",
 };
 

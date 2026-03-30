@@ -26,6 +26,10 @@ listing:
     status: present
     url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/6d6bb3d1-64e2-407d-a708-23e0619aa0e0/CMN01874.JPG
 
+  - { file: listing/CMN01858.JPG,   status: present, url: null }
+  - { file: listing/D-kitchen-7.JPG, status: present, url: null }
+  - { file: listing/A-terrace-8.JPG, status: present, url: null }
+
 # ── GALLERY THUMBNAILS (index page) ──────────────────────────────────────────
 gallery-index:
   - file: gallery/entrance/CMN02030.JPG
@@ -104,7 +108,6 @@ gallery-kitchen:
   - { file: gallery/kitchen/D-kitchen-5a.JPG, status: present, url: null }
   - { file: gallery/kitchen/D-kitchen-5b.JPG, status: present, url: null }
   - { file: gallery/kitchen/D-kitchen-6.JPG,  status: present, url: null }
-  - { file: gallery/kitchen/D-kitchen-7.JPG,  status: present, url: null }
   - { file: gallery/kitchen/D-kitchen-8.JPG,  status: present, url: null }
   - { file: gallery/kitchen/CMN01665.JPG,     status: present, url: null }
 
@@ -132,7 +135,6 @@ gallery-terrace:
   - { file: gallery/terrace/A-terrace-5.JPG,   status: present, url: null }
   - { file: gallery/terrace/A-terrace-6.JPG,   status: present, url: null }
   - { file: gallery/terrace/A-terrace-7.JPG,   status: present, url: null }
-  - { file: gallery/terrace/A-terrace-8.JPG,   status: present, url: null }
   - { file: gallery/terrace/Z-terrace-last.jpg, status: present, url: null }
 
 # ── GALLERY SAFETY ────────────────────────────────────────────────────────────
@@ -156,6 +158,18 @@ gallery-landmarks:
   - { file: gallery/landmarks/IMG_6479.JPG, status: present, url: null }
   - { file: gallery/landmarks/IMG_6498.JPG, status: present, url: null }
   - { file: gallery/landmarks/IMG_8384.JPG, status: present, url: null }
+
+# ── CHECK-IN ──────────────────────────────────────────────────────────────────
+check-in:
+  - { file: check-in/self-checkin-0.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-1.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-2.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-3.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-4.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-5.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-6.jpg,     status: present, url: null }
+  - { file: check-in/self-checkin-car-1.jpg, status: present, url: null }
+  - { file: check-in/self-checkin-car-2.jpg, status: present, url: null }
 
 # ── CONTACT ───────────────────────────────────────────────────────────────────
 contact:
