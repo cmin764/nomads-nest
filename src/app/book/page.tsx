@@ -199,7 +199,6 @@ export default function BookPage() {
         </FadeIn>
 
       </div>
-
     </div>
   );
 }

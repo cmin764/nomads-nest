@@ -17,6 +17,8 @@ export default function DiscountAccordion({ airbnbMessageUrl }: DiscountAccordio
     >
       <button
         onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls="discount-panel"
         className="w-full flex items-center justify-between px-6 py-3 transition-colors duration-200 hover:bg-[var(--surface-alt)]"
         style={{ background: "var(--surface)" }}
       >
@@ -35,6 +37,7 @@ export default function DiscountAccordion({ airbnbMessageUrl }: DiscountAccordio
 
       {open && (
         <div
+          id="discount-panel"
           className="px-6 pb-4 pt-1 flex flex-col sm:flex-row sm:items-center gap-4 border-t"
           style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
         >
