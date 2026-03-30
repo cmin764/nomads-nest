@@ -12,6 +12,7 @@ import {
   mapUrl,
   mapEmbedUrl,
   social,
+  hostBlurb,
   quote,
   contactImage,
 } from "@/data/contact-content";
@@ -131,6 +132,31 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
+        </div>
+      </FadeIn>
+
+      {/* ── Host blurb ── */}
+      <FadeIn delay={0.03}>
+        <div className="text-center max-w-2xl mx-auto">
+          <span
+            className="block font-heading leading-none select-none -mb-4"
+            style={{ color: "var(--gold)", opacity: 0.35, fontSize: "clamp(56px,7vw,80px)" }}
+            aria-hidden="true"
+          >
+            &ldquo;
+          </span>
+          <p
+            className="font-heading italic font-light text-[clamp(17px,2vw,22px)] leading-relaxed mb-5"
+            style={{ color: "var(--text)" }}
+          >
+            {hostBlurb.text}
+          </p>
+          <p
+            className="text-[10px] uppercase tracking-[.20em]"
+            style={{ color: "var(--gold)" }}
+          >
+            {hostBlurb.attribution}
+          </p>
         </div>
       </FadeIn>
 

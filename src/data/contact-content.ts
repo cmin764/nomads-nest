@@ -24,6 +24,11 @@ export const social = {
   facebook: "https://facebook.com/nomadsnest.live",
 };
 
+export const hostBlurb = {
+  text: "Passionate travelers turned happy hosts! I'm a travel enthusiast who's always chasing the sun, usually with my partner by my side. We fell in love with Ayia Napa and decided to create a cozy little space here, filled with love, care, and just the right amount of beachy vibes. We hope you'll feel right at home (or better)!",
+  attribution: "Georgiana, your host",
+};
+
 export const quote = {
   text: "Paradise is where we are.",
   attribution: "Nomad's Nest · Ayia Napa",
