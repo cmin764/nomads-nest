@@ -64,8 +64,6 @@ export const safetyMeasures: SafetyMeasure[] = [
       "A fully stocked first aid kit is available in the bathroom cabinet. Contents include bandages, antiseptic wipes, pain relief, burn gel, and tweezers.",
     image: { src: base("CMN01759.JPG"), alt: "Black first aid kit bag with red cross logo on bathroom shelf" },
   },
-];
-
   {
     title: "External CCTV Camera",
     description:

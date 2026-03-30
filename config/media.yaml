@@ -146,8 +146,9 @@ gallery-safety:
   - { file: gallery/safety/CMN02010.JPG, status: present, url: null }
   - { file: gallery/safety/CMN02014.JPG, status: present, url: null }
   - { file: gallery/safety/CMN02482.JPG, status: present, url: null }
-  - { file: gallery/safety/CMN02483.JPG, status: present, url: null }
-  - { file: gallery/safety/CMN02484.JPG, status: present, url: null }
+  - { file: gallery/safety/CMN02483.JPG,          status: present, url: null }
+  - { file: gallery/safety/CMN02484.JPG,          status: present, url: null }
+  - { file: gallery/safety/cctv-placeholder.svg,  status: present, url: null }
 
 # ── GALLERY LANDMARKS ─────────────────────────────────────────────────────────
 gallery-landmarks:
