@@ -35,18 +35,18 @@ export default async function GalleryCategoryPage({ params }: Props) {
       {/* ── Header ── */}
       <FadeIn>
         <div className="text-center mb-14">
-          <p
-            className="font-heading italic font-light text-[15px] mb-3"
-            style={{ color: "var(--muted-text)" }}
-          >
-            {room.emoji}&ensp;{room.tagline}
-          </p>
           <h1
-            className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-6"
+            className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-3"
             style={{ color: "var(--text)" }}
           >
             {room.name}
           </h1>
+          <p
+            className="font-heading italic font-light text-[15px] mb-6"
+            style={{ color: "var(--muted-text)" }}
+          >
+            {room.tagline}
+          </p>
           <GoldenDivider />
         </div>
       </FadeIn>

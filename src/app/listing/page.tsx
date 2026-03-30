@@ -97,7 +97,7 @@ export default function ListingPage() {
               className="font-heading italic font-light text-[18px] mb-5"
               style={{ color: "var(--gold)" }}
             >
-              📌 {propertyIntro.address}
+              {propertyIntro.address}
             </p>
             <p
               className="text-[16px] font-light leading-[1.85]"
@@ -167,7 +167,7 @@ export default function ListingPage() {
             className="mt-3 text-center text-[12px] italic font-light"
             style={{ color: "var(--muted-text)" }}
           >
-            🎵 Klingande &ndash; Jubel
+            Klingande &ndash; Jubel
           </p>
         </FadeIn>
       </section>

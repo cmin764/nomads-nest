@@ -136,11 +136,12 @@ export default function ContactPage() {
 
       {/* ── Full-width image with quote overlay ── */}
       <FadeIn delay={0.05}>
-        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl overflow-hidden">
           <Image
             src={contactImage}
             alt="Nomad's Nest — Ayia Napa"
             fill
+            priority
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 1100px"
           />
@@ -169,9 +170,9 @@ export default function ContactPage() {
               </a>
             </p>
           </div>
-          <div className="absolute inset-0 flex items-end justify-center pb-10 px-6 pointer-events-none">
+          <div className="absolute inset-0 flex items-end justify-center pb-8 px-6 pointer-events-none">
             <div
-              className="rounded-xl px-8 py-6 text-center max-w-lg pointer-events-auto"
+              className="rounded-xl px-5 py-4 sm:px-8 sm:py-6 text-center max-w-[85%] sm:max-w-lg pointer-events-auto"
               style={{
                 backdropFilter: "blur(14px) saturate(1.2)",
                 WebkitBackdropFilter: "blur(14px) saturate(1.2)",
@@ -180,7 +181,7 @@ export default function ContactPage() {
                 boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
               }}
             >
-              <p className="font-heading italic font-light text-[clamp(18px,2.4vw,30px)] leading-snug mb-3 text-white">
+              <p className="font-heading italic font-light text-[clamp(16px,2.4vw,30px)] leading-snug mb-2 sm:mb-3 text-white">
                 &ldquo;{quote.text}&rdquo;
               </p>
               <p className="text-[10px] uppercase tracking-[.20em] text-white/70">

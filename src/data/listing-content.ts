@@ -79,7 +79,7 @@ export const amenities: AmenityCard[] = [
   {
     room: "Safety",
     slug: "safety",
-    galleryLink: "/gallery/safety",
+    galleryLink: "/safety",
     items: ["CO Detector", "Smoke Detector", "Fire Extinguisher", "Fire Blanket", "First Aid Kit"],
   },
 ];

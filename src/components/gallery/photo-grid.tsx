@@ -17,27 +17,32 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
   const [index, setIndex] = useState(0);
 
   const slides = images.map((img) => ({ src: img.src }));
+  // Only apply hero sizing when there are enough photos for it to make sense
+  const hasHero = images.length >= 3;
 
   return (
     <>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        {images.map((img, i) => (
-          <button
-            key={i}
-            onClick={() => { setIndex(i); setOpen(true); }}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl cursor-pointer group"
-            style={{ background: "var(--surface-alt)" }}
-            aria-label={`Open photo ${i + 1}`}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width: 640px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </button>
-        ))}
+        {images.map((img, i) => {
+          const isHero = hasHero && i === 0;
+          return (
+            <button
+              key={i}
+              onClick={() => { setIndex(i); setOpen(true); }}
+              className={`relative overflow-hidden rounded-xl cursor-pointer group${isHero ? " col-span-2 sm:col-span-2 sm:row-span-2" : ""}`}
+              style={{ background: "var(--surface-alt)", aspectRatio: isHero ? "16/9" : "4/3" }}
+              aria-label={`Open photo ${i + 1}`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes={isHero ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </button>
+          );
+        })}
       </div>
 
       <Lightbox

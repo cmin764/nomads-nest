@@ -176,7 +176,7 @@ export default function BookPage() {
               <div className="flex flex-col gap-2.5">
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="flex items-center gap-2.5 text-[13px] font-light text-[var(--muted-text)] transition-colors hover:text-[var(--gold)] nn-link"
+                  className="flex items-center gap-2.5 text-[13px] font-light nn-link"
                 >
                   <Mail size={14} className="flex-shrink-0" />
                   {contactEmail}
@@ -185,7 +185,7 @@ export default function BookPage() {
                   href={contactWhatsApp.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-[13px] font-light text-[var(--muted-text)] transition-colors hover:text-[var(--gold)]"
+                  className="flex items-center gap-2.5 text-[13px] font-light nn-link"
                 >
                   <BrandIcon brand="whatsapp" size={14} className="flex-shrink-0" />
                   {contactWhatsApp.display}

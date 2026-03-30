@@ -29,8 +29,8 @@ export default function HomePage() {
             style={{ background: "var(--surface-alt)" }}
           >
             <Image
-              src="/images/gallery/terrace/A-terrace-5.JPG"
-              alt="Terrace with sea view"
+              src="/images/gallery/terrace/A-terrace-1.JPG"
+              alt="Terrace with dining table and palm tree"
               fill
               sizes="(min-width: 640px) 50vw, 50vw"
               className="object-cover"
@@ -60,8 +60,8 @@ export default function HomePage() {
             style={{ background: "var(--gold-lt)" }}
           >
             <Image
-              src="/images/gallery/kitchen/D-kitchen-7.JPG"
-              alt="Kitchen"
+              src="/images/gallery/kitchen/D-kitchen-1.JPG"
+              alt="Kitchen with dining area and appliances"
               fill
               sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
