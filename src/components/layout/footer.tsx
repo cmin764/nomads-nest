@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { address, contactEmail, contactWhatsApp } from "@/data/contact-content";
 
 export default function Footer() {
   return (
@@ -28,15 +29,15 @@ export default function Footer() {
                 className="not-italic text-sm leading-relaxed"
                 style={{ color: "var(--muted-text)" }}
               >
-                63 Tefkrou Anthia<br />
-                Ayia Napa, Cyprus 5330
+                {address.street}<br />
+                {address.city}, {address.country} {address.postcode}
               </address>
-              <a href="tel:+35797671058" className="mt-3 inline-block text-sm nn-link">
-                +357 97 671058
+              <a href={contactWhatsApp.url} className="mt-3 inline-block text-sm nn-link">
+                {contactWhatsApp.display}
               </a>
               <br />
-              <a href="mailto:book@nomadsnest.live" className="mt-1 inline-block text-sm nn-link">
-                book@nomadsnest.live
+              <a href={`mailto:${contactEmail}`} className="mt-1 inline-block text-sm nn-link">
+                {contactEmail}
               </a>
             </div>
 
