@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const [host1, host2] = hosts.split(" & ");
   return (
     <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20 space-y-20">
 
@@ -51,8 +52,8 @@ export default function ContactPage() {
               style={{ color: "var(--muted-text)" }}
             >
               <div>
-                <p style={{ color: "var(--text)" }}>{hosts.split(" & ")[0]}</p>
-                <p style={{ color: "var(--text)" }}>{hosts.split(" & ")[1]}</p>
+                <p style={{ color: "var(--text)" }}>{host1}</p>
+                <p style={{ color: "var(--text)" }}>{host2}</p>
               </div>
 
               <div>

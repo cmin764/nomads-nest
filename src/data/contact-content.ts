@@ -3,7 +3,6 @@ export const address = {
   city: "Ayia Napa",
   postcode: "5330",
   country: "Cyprus",
-  full: "63 Tefkrou Anthia, Ayia Napa, Cyprus 5330",
 };
 
 export const contactEmail = "book@nomadsnest.live";
@@ -21,8 +20,8 @@ export const mapEmbedUrl =
   "https://maps.google.com/maps?q=63+Tefkrou+Anthia,+Ayia+Napa,+Cyprus&output=embed&z=14";
 
 export const social = {
-  instagram: "http://instagram.com/nomadsnest.live",
-  facebook: "http://facebook.com/nomadsnest.live",
+  instagram: "https://instagram.com/nomadsnest.live",
+  facebook: "https://facebook.com/nomadsnest.live",
 };
 
 export const quote = {
