@@ -64,7 +64,40 @@ These are the only `"use client"` components; everything else is a server compon
 
 ### Images
 
-All images live in `public/images/`. Check-in step photos are in `public/images/check-in/`. The logo is `public/images/logo-nn-gold-crop.webp`. Always use `next/image` for runtime optimisation. Compress photos to under 500KB before committing — Git is not an image store.
+Always use `next/image`, never raw `<img>`. For every image change, follow this checklist in order:
+
+**1. Store the file**
+- Place it under `public/images/` in the appropriate subfolder (`gallery/{room}/`, `contact/`, `check-in/`, etc.)
+- `public/images/gallery/` is the canonical source — other pages reference images from there rather than duplicating files
+
+**2. Register it in `config/media.yaml`**
+- Add an entry under the matching section with one of three statuses:
+  - `present` — file is on disk (`url: null`)
+  - `cdn` — not on disk; download script will fetch from `url`
+  - `missing` — URL unknown; source it, then flip to `cdn`
+- When removing an image: delete the file, the `media.yaml` entry, and every reference in `src/`
+
+**3. Optimise before committing**
+- Hard limit: **500 KB per file** — Git is not an image store
+- Batch compress: `bash scripts/compress-images.sh`
+- Single file: `sips -Z 2000 path/to/file.jpg --setProperty formatOptions 80 --out path/to/file.jpg`
+
+**4. Use own photos only**
+- No third-party or stock images — they carry attribution and licensing obligations
+- If unavoidable, display credit in the UI and note it in `media.yaml`
+
+**5. Set alt text at the point of use**
+- Alt text belongs in `src/data/*.ts` or inline in the page component — not in `media.yaml`
+- Write specific descriptions (`"Terrace dining table with palm tree at dusk"`, not `"terrace"`)
+- Purely decorative/background images with no informational value use `alt=""`
+- Alt text is contextual: the same file in two places may need different descriptions
+
+**6. No duplication**
+- Each photo should appear in exactly one place on the site
+- When multiple flows share a step, define a single shared constant and reference it — never copy-paste image entries
+- Audit dead files: cross-reference `src/` references against `public/images/` (see `docs/image-management.md`)
+
+Full step-by-step scenarios (add, replace, reorder, remove) for every image placement: `docs/image-management.md`.
 
 ### Custom commands
 
