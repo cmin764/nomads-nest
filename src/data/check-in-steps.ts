@@ -5,6 +5,33 @@ export interface CheckInStep {
   description: string;
 }
 
+// Shown once above both tabs — applies to arrivals by car and on foot equally.
+export const overviewStep: CheckInStep = {
+  image: "/images/check-in/self-checkin-0.jpg",
+  alt: "Google Maps overhead screenshot showing routes to the apartment with white and red arrows",
+  heading: "Getting Here — Overview",
+  description:
+    "White arrows mark the route by car; red arrows show the approach on foot. Use the tabs below for step-by-step instructions.",
+};
+
+// Both routes converge at the same physical entrance — shared to avoid duplication.
+const sharedFinalSteps: CheckInStep[] = [
+  {
+    image: "/images/check-in/self-checkin-5.jpg",
+    alt: "Two lockboxes at the main entrance",
+    heading: "Main Entrance",
+    description:
+      "You'll see two lockboxes — please use the one on the right. You'll get the PIN in a private message 1–2 days prior to your arrival.",
+  },
+  {
+    image: "/images/check-in/self-checkin-6.jpg",
+    alt: "Right lockbox on the wall",
+    heading: "Right Lockbox",
+    description:
+      "You'll find two keys: one opens the main door, the other the patio's fence gate. ⚠️ Keep the keys with you at all times — the door automatically locks when you exit the flat! Make sure to put them back at check-out, then scramble the code after closing the lid.",
+  },
+];
+
 export const byCar: CheckInStep[] = [
   {
     image: "/images/check-in/self-checkin-car-1.jpg",
@@ -20,20 +47,7 @@ export const byCar: CheckInStep[] = [
     description:
       "This is the uncovered car parking area — usually 3 available spots reserved for tourists. Park here only, or outside the complex if full. Entering the flat is through the main entrance found in the covered parking lot (pointed by the white arrow), on the ground floor.",
   },
-  {
-    image: "/images/check-in/self-checkin-car-3.jpg",
-    alt: "Two lockboxes at the main entrance",
-    heading: "Main Entrance",
-    description:
-      "You'll see two lockboxes — please use the one on the right. You'll get the PIN in a private message 1–2 days prior to your arrival.",
-  },
-  {
-    image: "/images/check-in/self-checkin-6.jpg",
-    alt: "Right lockbox on the wall",
-    heading: "Right Lockbox",
-    description:
-      "You'll find two keys: one opens the main door, the other the patio's fence gate. ⚠️ Keep the keys with you at all times — the door automatically locks when you exit the flat! Make sure to put them back at check-out, then scramble the code after closing the lid.",
-  },
+  ...sharedFinalSteps,
 ];
 
 export const byFoot: CheckInStep[] = [
@@ -65,18 +79,5 @@ export const byFoot: CheckInStep[] = [
     description:
       "You have reached the complex parking area. Through the covered parking lot, on the ground floor to your left, you'll find apartment no. 5.",
   },
-  {
-    image: "/images/check-in/self-checkin-5.jpg",
-    alt: "Two lockboxes at the main entrance",
-    heading: "Main Entrance",
-    description:
-      "You'll see two lockboxes — please use the one on the right. You'll get the PIN in a private message 1–2 days prior to your arrival.",
-  },
-  {
-    image: "/images/check-in/self-checkin-6.jpg",
-    alt: "Right lockbox on the wall",
-    heading: "Right Lockbox",
-    description:
-      "You'll find two keys: one opens the main door, the other the patio's fence gate. ⚠️ Keep the keys with you at all times — the door automatically locks when you exit the flat! Make sure to put them back at check-out, then scramble the code after closing the lid.",
-  },
+  ...sharedFinalSteps,
 ];
