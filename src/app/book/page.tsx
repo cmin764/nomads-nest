@@ -153,8 +153,7 @@ export default function BookPage() {
                     </div>
                     <ArrowUpRight
                       size={16}
-                      className="flex-shrink-0 transition-colors duration-300 group-hover:text-[var(--gold)]"
-                      style={{ color: "var(--divider)" }}
+                      className="flex-shrink-0 text-[var(--divider)] transition-colors duration-300 group-hover:text-[var(--gold)]"
                     />
                   </a>
                   {platform.brand === "airbnb" && (
