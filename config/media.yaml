@@ -60,29 +60,24 @@ gallery-index:
 gallery-bedroom:
   - { file: gallery/bedroom/B-bedroom-1.JPG,  status: present, url: null }
   - { file: gallery/bedroom/B-bedroom-2.jpg,  status: present, url: null }
-  - { file: gallery/bedroom/B-bedroom-3.JPG,  status: present, url: null }
   - { file: gallery/bedroom/B-bedroom-4.JPG,  status: present, url: null }
   - { file: gallery/bedroom/B-bedroom-5.jpg,  status: present, url: null }
-  - { file: gallery/bedroom/B-bedroom-6.JPG,  status: present, url: null }
-  - { file: gallery/bedroom/B-bedroom-7.JPG,  status: present, url: null }
-  - { file: gallery/bedroom/B-bedroom-8.JPG,  status: present, url: null }
-  - { file: gallery/bedroom/B-bedroom-8a.JPG, status: present, url: null }
   - { file: gallery/bedroom/B-bedroom-8b.JPG, status: present, url: null }
   - { file: gallery/bedroom/CMN01457.JPG, status: present, url: null }
   # CMN files from bedroom — CDN URLs unknown
   - { file: gallery/bedroom/CMN01407.JPG, status: missing, url: null }
   - { file: gallery/bedroom/CMN01402.JPG, status: missing, url: null }
-  - { file: gallery/bedroom/CMN01430.JPG, status: missing, url: null }
+  - { file: gallery/bedroom/CMN01430.JPG, status: present, url: null }
   - { file: gallery/bedroom/CMN01483.JPG, status: missing, url: null }
   - { file: gallery/bedroom/CMN02478.JPG, status: missing, url: null }
   - { file: gallery/bedroom/CMN02477.JPG, status: missing, url: null }
   - { file: gallery/bedroom/CMN01448.JPG, status: missing, url: null }
   - { file: gallery/bedroom/CMN01453.JPG, status: missing, url: null }
-  - { file: gallery/bedroom/CMN01491.JPG, status: missing, url: null }
-  - { file: gallery/bedroom/CMN01461.JPG, status: missing, url: null }
+  - { file: gallery/bedroom/CMN01491.JPG, status: present, url: null }
+  - { file: gallery/bedroom/CMN01461.JPG, status: present, url: null }
   - { file: gallery/bedroom/CMN01463.JPG, status: missing, url: null }
-  - { file: gallery/bedroom/CMN01478.JPG, status: missing, url: null }
-  - { file: gallery/bedroom/CMN01493.JPG, status: missing, url: null }
+  - { file: gallery/bedroom/CMN01478.JPG, status: present, url: null }
+  - { file: gallery/bedroom/CMN01493.JPG, status: present, url: null }
   - { file: gallery/bedroom/CMN02012.JPG, status: missing, url: null }
 
 # ── GALLERY BATHROOM ──────────────────────────────────────────────────────────
