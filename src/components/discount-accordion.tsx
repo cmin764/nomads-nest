@@ -48,8 +48,7 @@ export default function DiscountAccordion({ airbnbMessageUrl }: DiscountAccordio
             href={airbnbMessageUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[12px] font-light transition-colors duration-200 hover:text-[var(--gold)] flex-shrink-0"
-            style={{ color: "var(--muted-text)" }}
+            className="flex items-center gap-1.5 text-[12px] font-light text-[var(--muted-text)] transition-colors duration-200 hover:text-[var(--gold)] flex-shrink-0"
           >
             Send inquiry
             <ArrowUpRight size={13} />
