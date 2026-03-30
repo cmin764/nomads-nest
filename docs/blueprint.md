@@ -1,7 +1,7 @@
 # Nomad's Nest — Site Blueprint
 > Single source of truth for all development. Supersedes `nomadsnest-design-spec.md` and `nomadsnest-rebuild-spec.md`. The design HTML (`nomadsnest-design.html`) remains as an interactive visual reference.
 >
-> Last updated: March 2026 (Phase 2 complete)
+> Last updated: March 2026 (Phase 3 complete)
 
 ---
 
@@ -156,6 +156,8 @@ Small uppercase label used above section headings ("Amenities", "Reviews", "Gall
 
 Used under hero headlines to anchor them visually. `width: 44px`, `height: 1px`, `background: var(--gold)`, `margin: 0 auto 40px`.
 
+Implemented as `src/components/ui/golden-divider.tsx`. Accepts an optional `className` prop (merged via `cn()`) for spacing overrides — e.g. `<GoldenDivider className="mb-12" />` on legal pages.
+
 ### 2.8 Step Number Badge (Check-in)
 
 24px circle · `background: var(--gold)` · `color: #F5F2EC` · Raleway 500, 11px · centered with flex.
@@ -231,12 +233,12 @@ Platform icon container: 44×44px circle (`w-11 h-11`), `background: var(--surfa
 | `/gallery/living-area` | Living Area | Public | Built (Phase 2) |
 | `/gallery/terrace` | Terrace | Public | Built (Phase 2) |
 | `/book` | Book | Public | Built (Phase 2) |
-| `/contact` | Contact | Public | Phase 3 |
+| `/contact` | Contact | Public | Built (Phase 3) |
 | `/guide` | Guest Guide | Booked guests only | Built (Phase 0, rethemed Phase 1) |
 | `/check-in` | Check-in Instructions | Booked guests only | Built (Phase 0, rethemed Phase 1) |
-| `/privacy-policy` | Privacy Policy | Both | Phase 3 |
-| `/terms` | Terms & Conditions | Both | Phase 3 |
-| `/data-protection` | Data Protection Notice | Both | Phase 3 |
+| `/privacy-policy` | Privacy Policy | Both | Built (Phase 3) |
+| `/terms` | Terms & Conditions | Both | Built (Phase 3) |
+| `/data-protection` | Data Protection Notice | Both | Built (Phase 3) |
 
 ### 3.2 Navigation Structure
 
@@ -271,9 +273,9 @@ src/data/
   guide-content.ts        ← exists (guideSections[], farewellChecklistItems[])
   listing-content.ts      ← exists (stats, description, amenities, reviews, ctaImage)
   gallery-content.ts      ← exists (categories, room taglines, photo manifest)
-  book-content.ts         ← exists (pricing table, platform links, fees, discounts, limits, contactWhatsApp, discountInquiry)
-  contact-content.ts      ← to create (address, social links, map URLs)
-  legal-content.ts        ← to create (privacy, terms, data protection text)
+  book-content.ts         ← exists (pricing table, platform links, fees, discounts, limits; contactEmail + contactWhatsApp re-exported from contact-content.ts)
+  contact-content.ts      ← exists (address, contactEmail, contactWhatsApp, hosts, mapUrl, mapEmbedUrl, social, quote, contactImage)
+  legal-content.ts        ← exists (LegalSection/LegalPage interfaces; privacyPolicy, termsAndConditions, dataProtection exports)
 ```
 
 ### 3.4 Key Third-Party Packages
@@ -284,7 +286,6 @@ src/data/
 | `yet-another-react-lightbox` | Gallery sub-page photo lightbox |
 | `framer-motion` | Scroll fade-in (already installed) |
 | `lucide-react` | Icons (already installed) |
-| Resend / Formspree | Contact form email (future, Phase 3) |
 
 ---
 
@@ -541,40 +542,40 @@ description: "Book your stay at Nomad's Nest on Airbnb, Booking.com, or HomeExch
 ### 4.6 Contact (`/contact`)
 
 **Layout:**
+Two-column grid on desktop (1100px max-width), stacked on mobile.
+
+Left column — contact info:
 ```
-  ┌──────────────────────────────────────────────┐
-  │                  Get in Touch                 │
-  │                                              │
-  │  63 Tefkrou Anthia                           │
-  │  Ayia Napa, Cyprus 5330                      │
-  │  +357 97 671058 (also on WhatsApp)           │
-  │  book@nomadsnest.live                        │
-  │  Georgiana Harnagea & Cosmin Poieana         │
-  │                                              │
-  │         [Get Directions →]                   │
-  └──────────────────────────────────────────────┘
+  GET IN TOUCH                               ← gold eyebrow label
+  We'd love to
+  hear from you                              ← H1 Cormorant italic
 
-  ┌──────────────────────────────────────────────┐
-  │                                              │  ← full-width image
-  │              [image panel]                   │     unsplash-image-oUi2tvBLInY.jpg
-  │                                              │
-  └──────────────────────────────────────────────┘
+  Georgiana Harnagea
+  Cosmin Poieana                             ← hosts, plain text
 
-  ┌──────────────────────────────────────────────┐
-  │                                              │  ← navy-lt background panel
-  │       "Paradise is where we are."            │  ← Cormorant italic, 36px
-  │          Nomad's Nest · Ayia Napa            │  ← label, muted uppercase
-  │                                              │
-  └──────────────────────────────────────────────┘
+  ◎  +357 97 671058 (also on WhatsApp)      ← BrandIcon whatsapp, links to wa.me
+  ✉  book@nomadsnest.live                   ← Mail icon
+  [Instagram]  [Facebook]                   ← social icons (placed after email)
 
-  [Instagram]  [Facebook]  [book@nomadsnest.live]    ← icon links
+  63 Tefkrou Anthia
+  Ayia Napa, Cyprus 5330                    ← address block
 
-                     [Book Now]
+  [Get Directions →]                        ← gold pill button → mapUrl
 ```
+
+Right column — map embed:
+- Google Maps iframe (`maps.google.com/?q=…&output=embed`), `minHeight: 360px`, `rounded-2xl`, `grayscale(1) contrast(0.9)` CSS filter
+
+Full-width section below the grid:
+- `aspect-[16/9]` image container, `rounded-2xl`, `overflow-hidden`
+- Image: `unsplash-image-oUi2tvBLInY.jpg` (photo by George Lemon, `@lsdforsociety` on Unsplash) — `next/image` fill + `object-cover`
+- Gradient underlay: `bg-gradient-to-t from-black/40 via-transparent to-transparent`
+- Frosted-glass quote card (centered, bottom of image): `backdrop-filter: blur(14px) saturate(1.2)`, `rgba(255,255,255,0.12)` background — displays `"Paradise is where we are."` (Cormorant italic) + `"Nomad's Nest · Ayia Napa"` attribution
+- Photo credit: bottom-right corner, `text-white/50 text-[10px]`, links to photographer's Unsplash profile and photo page
 
 **Map link:** `https://maps.app.goo.gl/He2MabrTTnF3TVjMA`
 **WhatsApp:** `https://wa.me/35797671058` (same number as phone, dual purpose). Render as "+357 97 671058 (also on WhatsApp)" with the number linking to the wa.me URL.
-**Social:** `http://instagram.com/nomadsnest.live`, `http://facebook.com/nomadsnest.live`
+**Social:** `https://instagram.com/nomadsnest.live`, `https://facebook.com/nomadsnest.live`
 
 **Metadata:**
 ```typescript
@@ -614,19 +615,23 @@ Design details:
 
 ### 4.9 Legal Pages (3 pages)
 
-All three are simple long-form text pages with the same layout:
+All three pages share a single layout rendered by `src/components/ui/legal-page-layout.tsx`. Each page file is ~8 lines — metadata export + `<LegalPageLayout content={…} />`.
+
+Layout:
 ```
-  ┌──────────────────────────────────────────────┐
-  │  [Page Title]                                 │
-  │  Last updated: [date]                         │
-  ├──────────────────────────────────────────────┤
-  │  [Long-form markdown-like content]            │
-  └──────────────────────────────────────────────┘
+  [Page Title]           ← Cormorant italic 300, clamp(40–56px)
+  Last updated: …        ← Raleway 300, 13px, muted
+  ────────────           ← GoldenDivider (44px)
+
+  Section heading        ← Cormorant 300, 22px
+  Paragraph text…        ← Raleway 300, 15px, muted, leading-relaxed
 ```
 
 Routes: `/privacy-policy`, `/terms`, `/data-protection`
 
-Content source: Squarespace pages (Privacy Policy — Nomad's Nest.htm, etc. in offline site directory). These pages were Squarespace template content — review before publishing to ensure they reflect actual practices.
+Content is authored in `src/data/legal-content.ts` as typed `LegalPage` constants. The three exports are `privacyPolicy`, `termsAndConditions`, and `dataProtection`.
+
+Page files: `src/app/privacy-policy/page.tsx`, `src/app/terms/page.tsx`, `src/app/data-protection/page.tsx`.
 
 Links from footer only. Not in main nav.
 
@@ -772,20 +777,23 @@ All media is tracked in **`config/media.yaml`**. Every image has a `status` fiel
 
 ---
 
-### Phase 3 — Supporting Pages
+### Phase 3 — Supporting Pages — Done ✓
 
 **Goal:** Complete the site. All routes return real pages.
 
-**Order:**
-1. `src/app/contact/page.tsx` + `src/data/contact-content.ts`
-   - Phone number links to `https://wa.me/35797671058` (dual-purpose WhatsApp line)
-   - Render as "+357 97 671058 (also on WhatsApp)"
-2. `src/app/privacy-policy/page.tsx`
-3. `src/app/terms/page.tsx`
-4. `src/app/data-protection/page.tsx`
-5. Footer links updated (legal pages, Contact)
-6. SEO: `generateMetadata()` on all pages with title, description, OpenGraph
-7. `public/og-image.jpg` — OpenGraph default image
+**Completed:**
+- `src/app/contact/page.tsx` + `src/data/contact-content.ts` — two-column contact info + map embed; full-width hero image with frosted-glass quote overlay
+- `src/app/privacy-policy/page.tsx`, `src/app/terms/page.tsx`, `src/app/data-protection/page.tsx` — legal pages
+- `src/components/ui/legal-page-layout.tsx` — shared layout component for all three legal pages; accepts `content: LegalPage`
+- `src/data/legal-content.ts` — `LegalSection` / `LegalPage` interfaces; `privacyPolicy`, `termsAndConditions`, `dataProtection` content
+- `src/components/layout/footer.tsx` — address, phone, email now sourced from `contact-content.ts` (no more hardcoded strings)
+- `src/components/ui/golden-divider.tsx` — optional `className` prop added
+- `src/data/book-content.ts` — `contactEmail` / `contactWhatsApp` now re-exported from `contact-content.ts` (single source of truth)
+- All pages have `metadata` exports (title + description)
+
+**Deferred to Phase 4:**
+- SEO: OpenGraph `og:image` per-page metadata
+- `public/og-image.jpg` — default OpenGraph image
 
 ---
 
@@ -813,8 +821,8 @@ WhatsApp:  https://wa.me/35797671058
 Email:     book@nomadsnest.live
 Hosts:     Georgiana Harnagea & Cosmin Poieana
 Map:       https://maps.app.goo.gl/He2MabrTTnF3TVjMA
-Facebook:  http://facebook.com/nomadsnest.live
-Instagram: http://instagram.com/nomadsnest.live
+Facebook:  https://facebook.com/nomadsnest.live
+Instagram: https://instagram.com/nomadsnest.live
 ```
 
 ### 7.2 Booking Platforms

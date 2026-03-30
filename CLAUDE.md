@@ -15,11 +15,11 @@ bun run lint     # ESLint
 Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `nomadsnest.live`.
 
 The complete site comprises:
-- **Marketing pages:** Home, Listing (property details + reviews), Gallery (index + per-room sub-pages), Book (links out to Airbnb / Booking.com / HomeExchange — no booking backend), Contact (sends an email via an API route)
+- **Marketing pages:** Home, Listing (property details + reviews), Gallery (index + per-room sub-pages), Book (links out to Airbnb / Booking.com / HomeExchange — no booking backend), Contact (static: address, email, WhatsApp, map — no form)
 - **Guest pages:** Check-in (step-by-step arrival directions), Guide (in-stay house guide + farewell checklist)
-- **Legal pages:** Privacy Policy, Terms & Conditions, Cookie Policy
+- **Legal pages:** Privacy Policy, Terms & Conditions, Data Protection Notice
 
-There is no CMS and no database. All content is typed TypeScript constants in `src/data/`. The only server-side logic is the contact form email route.
+There is no CMS, no database, and no server-side logic. All content is typed TypeScript constants in `src/data/`.
 
 ## Stack
 

@@ -52,11 +52,7 @@ export const discounts = [
 
 export const limits = ["4 guests max", "3 nights min"];
 
-export const contactEmail = "book@nomadsnest.live";
-export const contactWhatsApp = {
-  display: "+357 97 671058",
-  url: "https://wa.me/35797671058",
-};
+export { contactEmail, contactWhatsApp } from "./contact-content";
 
 export const discountInquiry = {
   airbnbMessageUrl: "https://www.airbnb.com/contact_host/1417953515842415053/send_message",
