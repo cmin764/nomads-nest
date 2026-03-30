@@ -21,6 +21,7 @@
   --text:        #1B2A4A;
   --muted-text:  #6A7D99;
   --divider:     #D5DDE9;
+  --cream:       #EDE8DC; /* always-light text for overlays on dark photos */
 
   /* shadcn compat layer */
   --background:             var(--bg);

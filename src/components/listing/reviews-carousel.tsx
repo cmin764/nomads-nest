@@ -43,6 +43,8 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
 
   return (
     <div
+      role="region"
+      aria-label="Reviews"
       className="relative outline-none"
       tabIndex={0}
       onKeyDown={handleKeyDown}
@@ -51,9 +53,9 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     >
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
-          {reviews.map((review, i) => (
+          {reviews.map((review) => (
             <div
-              key={i}
+              key={review.author}
               className="flex-[0_0_100%] flex flex-col items-center text-center px-4 py-8 sm:px-16"
             >
               <span

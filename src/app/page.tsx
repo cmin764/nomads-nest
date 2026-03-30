@@ -122,13 +122,13 @@ export default function HomePage() {
         <div className="relative z-10 max-w-[640px] mx-auto py-24">
           <h2
             className="font-heading font-light text-[clamp(32px,4vw,48px)] leading-[1.2] mb-5"
-            style={{ color: "#EDE8DC" }}
+            style={{ color: "var(--cream)" }}
           >
             A place to make memories.
           </h2>
           <p
             className="text-[15px] font-light leading-[1.8]"
-            style={{ color: "rgba(237,232,220,.7)" }}
+            style={{ color: "color-mix(in srgb, var(--cream) 70%, transparent)" }}
           >
             Designed to make every stay feel like home.
           </p>
