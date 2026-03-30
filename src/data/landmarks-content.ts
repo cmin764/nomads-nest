@@ -48,4 +48,4 @@ export const landmarks: Landmark[] = [
 ];
 
 // External Airbnb guidebook — update URL when available
-export const guidebookUrl = "https://www.airbnb.com/rooms/1399580908023882563/guidebooks";
+export const guidebookUrl = "https://www.airbnb.com/s/guidebooks?refinement_paths%5B%5D=%2Fguidebooks%2F6442701&s=67&unique_share_id=bd825aca-e9bd-4d45-a11a-d481d65fa7b5";
