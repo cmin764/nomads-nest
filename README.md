@@ -45,6 +45,8 @@ All page content is typed TypeScript constants in `src/data/` — no CMS, no API
 
 `public/images/gallery/` is the single canonical source for all room photos. Other pages reference images from there directly. See `config/media.yaml` for the full asset registry and `docs/blueprint.md §5` for the strategy.
 
+For a step-by-step guide on adding, replacing, reordering, or removing images — including home page collage, gallery covers, safety measures, and landmarks — see **[docs/image-management.md](docs/image-management.md)**.
+
 ```bash
 bash scripts/download-media.sh            # download all cdn-status entries
 bash scripts/download-media.sh gallery-bedroom   # filter by section
