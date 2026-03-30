@@ -46,13 +46,13 @@ export default function HomePage() {
           >
             <Image
               src="/images/gallery/bedroom/B-bedroom-1.JPG"
-              alt="Bedroom"
+              alt="Cozy minimalistic luminous bedroom"
               fill
               sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
             />
           </div>
-          {/* Kitchen — full-height right column on mobile, right on desktop */}
+          {/* Work — full-height right column on mobile, right on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden
               col-start-2 row-start-1 row-span-2
@@ -60,8 +60,8 @@ export default function HomePage() {
             style={{ background: "var(--gold-lt)" }}
           >
             <Image
-              src="/images/gallery/kitchen/D-kitchen-1.JPG"
-              alt="Kitchen with dining area and appliances"
+              src="/images/gallery/bedroom/CMN01457.JPG"
+              alt="Remote work ready from adjustable desk"
               fill
               sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
@@ -113,7 +113,7 @@ export default function HomePage() {
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/images/gallery/terrace/A-terrace-4.JPG"
-            alt="Terrace at dusk"
+            alt="Relaxing on the outside terrace in the afternoon"
             fill
             sizes="100vw"
             className="object-cover opacity-40"

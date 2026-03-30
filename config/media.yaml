@@ -64,6 +64,7 @@ gallery-bedroom:
   - { file: gallery/bedroom/B-bedroom-8.JPG,  status: present, url: null }
   - { file: gallery/bedroom/B-bedroom-8a.JPG, status: present, url: null }
   - { file: gallery/bedroom/B-bedroom-8b.JPG, status: present, url: null }
+  - { file: gallery/bedroom/CMN01457.JPG, status: present, url: null }
   # CMN files from bedroom — CDN URLs unknown
   - { file: gallery/bedroom/CMN01407.JPG, status: missing, url: null }
   - { file: gallery/bedroom/CMN01402.JPG, status: missing, url: null }

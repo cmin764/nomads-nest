@@ -12,7 +12,7 @@ export interface Review {
 
 export const heroImage = {
   src: "/images/listing/CMN01490.JPG",
-  alt: "Nomad's Nest apartment interior",
+  alt: "Nomad's Nest apartment bedroom interior",
 };
 
 export const stats = [
@@ -29,20 +29,20 @@ export const propertyIntro = {
 };
 
 export const galleryStrip = [
-  { src: "/images/listing/CMN01439.JPG", alt: "Living area" },
-  { src: "/images/gallery/kitchen/D-kitchen-7.JPG", alt: "Kitchen" },
-  { src: "/images/listing/CMN01580.JPG", alt: "Bedroom" },
-  { src: "/images/listing/CMN01874.JPG", alt: "Terrace" },
+  { src: "/images/listing/CMN01439.JPG", alt: "Bedroom's table and mirrors" },
+  { src: "/images/gallery/kitchen/D-kitchen-7.JPG", alt: "Kitchen's espresso machine, tea and basics" },
+  { src: "/images/listing/CMN01580.JPG", alt: "Open-space living area" },
+  { src: "/images/listing/CMN01874.JPG", alt: "Terrace with wine glasses and bottle" },
 ];
 
 export const fullWidthImage = {
   src: "/images/gallery/terrace/A-terrace-8.JPG",
-  alt: "Terrace with outdoor seating",
+  alt: "Terrace with outdoor portable standing table for laptop",
 };
 
 export const ctaImage = {
   src: "/images/listing/CMN01858.JPG",
-  alt: "Nomad's Nest apartment",
+  alt: "Nomad's Nest apartment terrace porch gate",
 };
 
 export const amenities: AmenityCard[] = [
