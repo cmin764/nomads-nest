@@ -32,7 +32,7 @@ export default function Footer() {
                 {address.street}<br />
                 {address.city}, {address.country} {address.postcode}
               </address>
-              <a href={contactWhatsApp.url} className="mt-3 inline-block text-sm nn-link">
+              <a href={contactWhatsApp.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm nn-link">
                 {contactWhatsApp.display}
               </a>
               <br />
@@ -71,7 +71,7 @@ export default function Footer() {
               </p>
               {[
                 { label: "Privacy Policy", href: "/privacy-policy" },
-                { label: "Terms of Service", href: "/terms" },
+                { label: "Terms & Conditions", href: "/terms" },
                 { label: "Data Protection", href: "/data-protection" },
               ].map((l) => (
                 <Link key={l.label} href={l.href} className="text-sm nn-link">
