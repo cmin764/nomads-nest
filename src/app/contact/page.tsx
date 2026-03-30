@@ -139,7 +139,7 @@ export default function ContactPage() {
         <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl overflow-hidden">
           <Image
             src={contactImage}
-            alt="Nomad's Nest — Ayia Napa"
+            alt="Aerial view of Ayia Napa coastline"
             fill
             priority
             className="object-cover"
@@ -147,29 +147,7 @@ export default function ContactPage() {
           />
           {/* Subtle gradient so the overlay has contrast without killing the photo */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-          {/* Photo credit — bottom-right, unobtrusive */}
-          <div className="absolute bottom-3 right-4">
-            <p className="text-[10px] text-white/50 leading-none">
-              Photo by{" "}
-              <a
-                href="https://unsplash.com/@lsdforsociety"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white/80 transition-colors"
-              >
-                George Lemon
-              </a>{" "}
-              on{" "}
-              <a
-                href="https://unsplash.com/photos/aerial-photography-of-seashore-oUi2tvBLInY"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white/80 transition-colors"
-              >
-                Unsplash
-              </a>
-            </p>
-          </div>
+
           <div className="absolute inset-0 flex items-end justify-center pb-8 px-6 pointer-events-none">
             <div
               className="rounded-xl px-5 py-4 sm:px-8 sm:py-6 text-center max-w-[85%] sm:max-w-lg pointer-events-auto"

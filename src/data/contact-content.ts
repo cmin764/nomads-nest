@@ -29,4 +29,4 @@ export const quote = {
   attribution: "Nomad's Nest · Ayia Napa",
 };
 
-export const contactImage = "/images/contact/unsplash-image-oUi2tvBLInY.jpg";
+export const contactImage = "/images/contact/DJI_0976.jpg";

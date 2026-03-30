@@ -159,6 +159,4 @@ gallery-landmarks:
 
 # ── CONTACT ───────────────────────────────────────────────────────────────────
 contact:
-  - file: contact/unsplash-image-oUi2tvBLInY.jpg
-    status: present
-    url: https://images.squarespace-cdn.com/content/v1/67d9d32c574702393cd7a4b9/1742502862602-ACQ492LNBTMJVNN9YPZU/unsplash-image-oUi2tvBLInY.jpg
+  - { file: contact/DJI_0976.jpg, status: present, url: null }
