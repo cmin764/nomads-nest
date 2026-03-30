@@ -24,27 +24,28 @@ export const privacyPolicy: LegalPage = {
       heading: "What Data We Collect",
       body: [
         "This website does not process payments, does not operate a booking system, and does not use analytics or tracking cookies. Bookings are made directly through Airbnb, Booking.com, or HomeExchange — their privacy policies govern any data you provide on those platforms.",
-        "The only data collected through this website is what you voluntarily submit via the contact form: your name, email address, and message. This data is used solely to respond to your enquiry.",
+        "This website has no contact form. If you reach out to us via email or WhatsApp using the details on the Contact page, we receive your name, contact details, and message through those channels. That data is handled by our email and messaging providers, not by this website.",
         "The website stores two values in your browser's localStorage — your theme preference (light/dark/system) and the state of the guest farewell checklist. These are client-side only, never transmitted to any server, and are not cookies.",
       ],
     },
     {
       heading: "Legal Basis for Processing",
       body: [
-        "We process contact form submissions on the basis of legitimate interest: responding to enquiries about the property is a reasonable expectation of both parties.",
+        "We process direct enquiries (email, WhatsApp) on the basis of legitimate interest: responding to enquiries about the property is a reasonable expectation of both parties.",
         "Where legal obligations apply — for example, tax or regulatory compliance under Cyprus law — processing is carried out on that basis.",
       ],
     },
     {
       heading: "How Long We Keep Your Data",
       body: [
-        "Contact enquiries are retained for up to two years and then deleted. You may request earlier deletion at any time by emailing book@nomadsnest.live.",
+        "Enquiries received by email or WhatsApp are retained for up to two years and then deleted. You may request earlier deletion at any time by emailing book@nomadsnest.live.",
       ],
     },
     {
       heading: "Third Parties",
       body: [
         "This website is hosted on Vercel. Vercel may process standard server access logs (IP address, browser type, request path) as part of normal hosting infrastructure. No personal data is shared with Vercel beyond what is inherent in serving web pages.",
+        "The Contact page embeds a Google Maps widget. When that page loads, your browser connects to Google's servers and Google may set cookies or collect data in accordance with its own privacy policy (policies.google.com/privacy). We have no access to any data Google collects through this widget.",
         "We do not sell, rent, or share your personal data with any other third party.",
       ],
     },
@@ -74,6 +75,7 @@ export const termsAndConditions: LegalPage = {
       body: [
         "This website is a brochure for Nomad's Nest, a short-term rental apartment at 63 Tefkrou Anthia, Ayia Napa, Cyprus (Registration License #0009512), operated by Georgiana Harnagea and Cosmin Poieana.",
         "Bookings are made through third-party platforms — Airbnb, Booking.com, or HomeExchange. The booking contract, payment terms, and cancellation policy for your stay are governed by the platform you book through, not by this website. Please read the relevant platform's terms before booking.",
+        "Guests must be at least 18 years of age to book or stay at the property.",
         "By using this website you agree to these terms.",
       ],
     },
@@ -86,15 +88,17 @@ export const termsAndConditions: LegalPage = {
         "No parties or gatherings beyond the registered guest occupancy.",
         "Maximum occupancy is 4 guests. Only registered guests are permitted to stay overnight.",
         "Guests are responsible for leaving the property in a clean and orderly condition.",
+        "Guests must comply with all applicable laws of the Republic of Cyprus during their stay.",
       ],
     },
     {
       heading: "Check-in and Check-out",
       body: [
         "Check-in is from 15:00. Check-out is by 10:00.",
-        "The property uses a self-check-in lockbox. The PIN code is shared with guests 24–48 hours before arrival.",
+        "The property uses a self-check-in lockbox. The PIN code is shared with guests 24–48 hours before arrival. The host reserves the right to verify guest identity before sharing the lockbox PIN and may withhold it if identity cannot be confirmed.",
         "Early check-in or late check-out may be possible subject to availability — contact us in advance.",
         "Two keys are provided (main door and terrace gate). Lost keys incur a replacement fee of €50.",
+        "On departure, please follow the farewell checklist on this website: take out rubbish, wash any used dishes and utensils, close and lock all windows and doors, and return both keys to the lockbox.",
       ],
     },
     {
@@ -116,7 +120,8 @@ export const termsAndConditions: LegalPage = {
       heading: "Liability",
       body: [
         "The property owners are not liable for loss, theft, or personal injury during your stay. Guests assume responsibility for their own belongings.",
-        "The property owners are not liable for service disruptions or circumstances beyond their reasonable control.",
+        "The property owners accept no responsibility for personal belongings left behind after check-out. Items left behind will be held for 14 days and then disposed of unless other arrangements are agreed in writing.",
+        "The property owners are not liable for service disruptions or circumstances beyond their reasonable control, including but not limited to natural disasters, utility failures, government orders, or pandemics. In such cases the host will make reasonable efforts to assist guests with alternative arrangements or platform-mediated remedies.",
         "Guests are liable for any damage to the property or its contents beyond normal wear and tear.",
       ],
     },
@@ -130,6 +135,7 @@ export const termsAndConditions: LegalPage = {
       heading: "Governing Law",
       body: [
         "These terms are governed by the laws of the Republic of Cyprus. Any disputes arising from use of this website or your stay at the property will be subject to the jurisdiction of the courts of Cyprus.",
+        "If any provision of these terms is found to be unenforceable, the remaining provisions continue in full force and effect.",
       ],
     },
     {
@@ -156,8 +162,9 @@ export const dataProtection: LegalPage = {
     {
       heading: "Cookies and Local Storage",
       body: [
-        "This website does not use HTTP cookies for tracking, analytics, or advertising. No cookie consent banner is displayed because none is required.",
+        "This website does not set first-party HTTP cookies for tracking, analytics, or advertising.",
         "The website uses your browser's localStorage API — a client-side storage mechanism distinct from cookies — to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the guest farewell checklist. This data never leaves your device.",
+        "The Contact page embeds a Google Maps widget. When that page loads, Google may set third-party cookies on your device in accordance with its own privacy policy. This is outside our control. If you prefer to avoid this, you can navigate directly to maps.google.com instead.",
         "Third-party platforms linked from this site (Airbnb, Booking.com, HomeExchange) operate their own cookie policies. When you navigate to those sites you are subject to their respective policies.",
       ],
     },
@@ -170,7 +177,7 @@ export const dataProtection: LegalPage = {
     {
       heading: "Data Minimisation",
       body: [
-        "We collect only what is necessary. The only personal data processed through this website is contact form submissions (name, email, message), used solely to respond to your enquiry. See the Privacy Policy for full details.",
+        "We collect only what is necessary. This website has no contact form and collects no personal data directly. If you contact us via email or WhatsApp, we receive only what you choose to send. See the Privacy Policy for full details.",
       ],
     },
     {
