@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import Lightbox from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -25,12 +26,17 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {images.map((img, i) => {
           const isHero = hasHero && i === 0;
+          // Side panels (i=1,2) fill their grid row height set by the hero, so no fixed aspect ratio at sm+.
+          const isSidePanel = hasHero && (i === 1 || i === 2);
           return (
             <button
-              key={i}
+              key={img.src}
               onClick={() => { setIndex(i); setOpen(true); }}
-              className={`relative overflow-hidden rounded-xl cursor-pointer group${isHero ? " col-span-2 sm:col-span-2 sm:row-span-2" : ""}`}
-              style={{ background: "var(--surface-alt)", aspectRatio: isHero ? "16/9" : "4/3" }}
+              className={cn(
+                "relative overflow-hidden rounded-xl cursor-pointer group",
+                isHero ? "aspect-video col-span-2 sm:col-span-2 sm:row-span-2" : isSidePanel ? "aspect-[4/3] sm:aspect-auto" : "aspect-[4/3]",
+              )}
+              style={{ background: "var(--surface-alt)" }}
               aria-label={`Open photo ${i + 1}`}
             >
               <Image
