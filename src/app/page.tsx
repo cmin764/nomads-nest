@@ -124,13 +124,13 @@ export default function HomePage() {
             className="font-heading font-light text-[clamp(32px,4vw,48px)] leading-[1.2] mb-5"
             style={{ color: "var(--cream)" }}
           >
-            A place to make memories.
+            A place to make memories
           </h2>
           <p
             className="text-[15px] font-light leading-[1.8]"
             style={{ color: "color-mix(in srgb, var(--cream) 70%, transparent)" }}
           >
-            Designed to make every stay feel like home.
+            Designed to make every stay feel like home
           </p>
         </div>
       </section>
