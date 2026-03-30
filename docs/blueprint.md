@@ -60,6 +60,7 @@ Three families only. No exceptions.
   --text:        #1B2A4A;   /* same as --navy */
   --muted:       #6A7D99;   /* secondary text, labels */
   --border:      #D5DDE9;   /* dividers, card borders */
+  --cream:       #EDE8DC;   /* fixed light token — overlay text on dark photos */
 
   /* Fonts */
   --serif:       'Cormorant', Georgia, serif;
@@ -90,6 +91,7 @@ Three families only. No exceptions.
 | `--navy` | #1B2A4A | unchanged | Primary text |
 | `--gold` | #B8924A | unchanged | CTAs, active |
 | `--muted` | #6A7D99 | #7A8EAA | Secondary text |
+| `--cream` | #EDE8DC | unchanged | Overlay text on dark photos |
 
 ### 2.2 Typography
 
@@ -209,7 +211,7 @@ Card: flex row · `gap: 20px` (`gap-5`) · `padding: 24px` (`p-6`) · `border-ra
 
 Platform icon container: 44×44px circle (`w-11 h-11`), `background: var(--surface-alt)`, `color: var(--text)` (adapts to dark mode automatically — no per-platform colors).
 
-**Platform logos:** Inline SVG paths from simpleicons.org for Airbnb and Booking.com (fill `currentColor`, adapts to light/dark). HomeExchange uses a real brand mark PNG (`/images/homeexchange-icon.png`, background removed) rendered via CSS `mask-image` so it also inherits `currentColor`. Component: `src/components/ui/brand-icon.tsx`, accepts `brand: "airbnb" | "booking" | "homeexchange"`, `size`, `className`.
+**Platform logos:** Inline SVG paths from simpleicons.org for Airbnb, Booking.com, and WhatsApp (fill `currentColor`, adapts to light/dark). HomeExchange uses a real brand mark PNG (`/images/homeexchange-icon.png`, background removed) rendered via CSS `mask-image` so it also inherits `currentColor`. Component: `src/components/ui/brand-icon.tsx`, accepts `brand: "airbnb" | "booking" | "homeexchange" | "whatsapp"`, `size`, `className`.
 
 ---
 
@@ -269,7 +271,7 @@ src/data/
   guide-content.ts        ← exists (guideSections[], farewellChecklistItems[])
   listing-content.ts      ← exists (stats, description, amenities, reviews, ctaImage)
   gallery-content.ts      ← exists (categories, room taglines, photo manifest)
-  book-content.ts         ← exists (pricing table, platform links, fees, discounts, limits)
+  book-content.ts         ← exists (pricing table, platform links, fees, discounts, limits, contactWhatsApp, discountInquiry)
   contact-content.ts      ← to create (address, social links, map URLs)
   legal-content.ts        ← to create (privacy, terms, data protection text)
 ```
@@ -504,6 +506,8 @@ description: `Photos of the ${categoryName} at Nomad's Nest, Ayia Napa.`
   ┌────────────────────────────────────────────────────┐
   │ Airbnb                                             │
   │    Superhost · 4.83 ★ · Self check-in             │  →
+  ├ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┤
+  │ Having a discount code?                        ⌄  │  ← collapsible accordion
   └────────────────────────────────────────────────────┘
   ┌────────────────────────────────────────────────────┐
   │ Booking.com                                        │
@@ -515,7 +519,8 @@ description: `Photos of the ${categoryName} at Nomad's Nest, Ayia Napa.`
   └────────────────────────────────────────────────────┘
 
   Have a question?
-  book@nomadsnest.live
+  ✉  book@nomadsnest.live
+  ◎  +357 97 671058            ← WhatsApp brand icon, links to wa.me/35797671058
 ```
 
 **Platform URLs:**
@@ -523,7 +528,7 @@ description: `Photos of the ${categoryName} at Nomad's Nest, Ayia Napa.`
 - Booking.com: `https://www.booking.com/hotel/cy/nomads-nest-quiet-flat-with-terrace-in-ayia-napa.html`
 - HomeExchange: `https://www.homeexchange.com/holiday-home/2895395`
 
-No reservation form — direct to platforms. If direct inquiries are needed in future, add a contact form via Resend/Formspree.
+Discount inquiries route through Airbnb: a collapsible accordion under the Airbnb card prompts guests with a code to send a message with dates, guest count, and the code. The host responds with a Special Offer. The code (`WANDERCODE`) is never shown here — it lives on wandercode.ltd only.
 
 **Metadata:**
 ```typescript
@@ -757,6 +762,13 @@ All media is tracked in **`config/media.yaml`**. Every image has a `status` fiel
 - Header: active link styling; logo swapped from text to `logo-nn-transparent.png`
 - Favicon: multi-size `.ico` (16–256px) + `icon.svg` for retina tabs
 - `src/components/ui/golden-divider.tsx` — shared 44px gold bar component
+- `src/components/discount-accordion.tsx` — client component; collapsible row attached under the Airbnb card on `/book`; prompts discount-code holders to send an Airbnb inquiry
+- `src/components/ui/brand-icon.tsx` — extended to support `"whatsapp"` brand
+- `book-content.ts` — `contactWhatsApp` (`display`, `url`) and `discountInquiry` (`airbnbMessageUrl`) added
+- `globals.css` — `--cream: #EDE8DC` added as a fixed (non-theme-dependent) overlay text token
+- `layout.tsx` — skip-to-content anchor added for keyboard accessibility; `<main>` given `id="main-content"`
+- `reviews-carousel.tsx` — `role="region"` + `aria-label="Reviews"` added; carousel items keyed by `review.author` instead of index
+- Home page memory section: "Book Now" CTA removed — hero + persistent header button are sufficient
 
 ---
 

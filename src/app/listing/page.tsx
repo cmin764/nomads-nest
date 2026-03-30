@@ -51,14 +51,14 @@ export default function ListingPage() {
           <div className="relative z-10 text-right mr-6 sm:mr-12 lg:mr-20 mb-12 sm:mb-16 lg:mb-20 max-w-[420px]">
             <h1
               className="font-heading font-light text-[clamp(32px,4.5vw,56px)] leading-[1.15]"
-              style={{ color: "#EDE8DC" }}
+              style={{ color: "var(--cream)" }}
             >
               <em className="italic">Island Charm</em><br />
               <em className="italic">Modern Comfort</em>
             </h1>
             <p
               className="mt-3 text-[11px] sm:text-[13px] uppercase tracking-[.25em] font-normal"
-              style={{ color: "rgba(237,232,220,0.75)" }}
+              style={{ color: "color-mix(in srgb, var(--cream) 75%, transparent)" }}
             >
               Work, Rest, Explore
             </p>
@@ -229,7 +229,7 @@ export default function ListingPage() {
           <div className="relative z-10 max-w-[560px] mx-auto py-20">
             <h2
               className="font-heading font-light text-[clamp(32px,4vw,52px)] leading-[1.2] mb-6"
-              style={{ color: "#EDE8DC" }}
+              style={{ color: "var(--cream)" }}
             >
               Interested?
             </h2>

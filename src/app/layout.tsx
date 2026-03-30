@@ -40,8 +40,14 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('nn-theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var r=t==='light'?'light':t==='dark'?'dark':d?'dark':'light';document.documentElement.setAttribute('data-theme',r);})();` }} />
       </head>
       <body className={`${raleway.variable} ${cormorant.variable} antialiased font-sans`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:px-4 focus:py-2 focus:top-4 focus:left-4 focus:rounded focus:bg-background focus:text-foreground"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
