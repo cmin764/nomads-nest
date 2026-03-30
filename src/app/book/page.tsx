@@ -2,7 +2,8 @@ import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import FadeIn from "@/components/fade-in";
 import BrandIcon from "@/components/ui/brand-icon";
-import { pricingSeasons, platformLinks, fees, discounts, limits, contactEmail } from "@/data/book-content";
+import DiscountAccordion from "@/components/discount-accordion";
+import { pricingSeasons, platformLinks, fees, discounts, limits, contactEmail, discountInquiry } from "@/data/book-content";
 
 export const metadata: Metadata = {
   title: "Book",
@@ -119,43 +120,47 @@ export default function BookPage() {
 
             <div className="space-y-4 mb-12">
               {platformLinks.map((platform) => (
-                <a
-                  key={platform.brand}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-5 p-6 rounded-2xl border transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md"
-                  style={{
-                    borderColor: "var(--divider)",
-                    background: "var(--surface)",
-                  }}
-                >
-                  <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: "var(--surface-alt)", color: "var(--text)" }}
+                <div key={platform.brand}>
+                  <a
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center gap-5 p-6 border transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md ${platform.brand === "airbnb" ? "rounded-t-2xl rounded-b-none border-b-0" : "rounded-2xl"}`}
+                    style={{
+                      borderColor: "var(--divider)",
+                      background: "var(--surface)",
+                    }}
                   >
-                    <BrandIcon brand={platform.brand} size={20} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p
-                      className="font-heading italic font-light text-[18px] mb-0.5"
-                      style={{ color: "var(--text)" }}
+                    <div
+                      className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: "var(--surface-alt)", color: "var(--text)" }}
                     >
-                      {platform.name}
-                    </p>
-                    <p
-                      className="text-[11px] font-light truncate"
-                      style={{ color: "var(--muted-text)" }}
-                    >
-                      {platform.subtitle}
-                    </p>
-                  </div>
-                  <ArrowUpRight
-                    size={16}
-                    className="flex-shrink-0 transition-colors duration-300 group-hover:text-[var(--gold)]"
-                    style={{ color: "var(--divider)" }}
-                  />
-                </a>
+                      <BrandIcon brand={platform.brand} size={20} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p
+                        className="font-heading italic font-light text-[18px] mb-0.5"
+                        style={{ color: "var(--text)" }}
+                      >
+                        {platform.name}
+                      </p>
+                      <p
+                        className="text-[11px] font-light truncate"
+                        style={{ color: "var(--muted-text)" }}
+                      >
+                        {platform.subtitle}
+                      </p>
+                    </div>
+                    <ArrowUpRight
+                      size={16}
+                      className="flex-shrink-0 transition-colors duration-300 group-hover:text-[var(--gold)]"
+                      style={{ color: "var(--divider)" }}
+                    />
+                  </a>
+                  {platform.brand === "airbnb" && (
+                    <DiscountAccordion airbnbMessageUrl={discountInquiry.airbnbMessageUrl} />
+                  )}
+                </div>
               ))}
             </div>
 
@@ -180,6 +185,7 @@ export default function BookPage() {
         </FadeIn>
 
       </div>
+
     </div>
   );
 }
