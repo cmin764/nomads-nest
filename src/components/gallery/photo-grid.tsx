@@ -11,50 +11,74 @@ import "yet-another-react-lightbox/styles.css";
 interface Photo {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 export default function PhotoGrid({ images }: { images: Photo[] }) {
   const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const slides = images.map((img) => ({ src: img.src }));
-  // Only apply hero sizing when there are enough photos for it to make sense
   const hasHero = images.length >= 3;
+  const heroPhotos = hasHero ? images.slice(0, 3) : images;
+  const restPhotos = hasHero ? images.slice(3) : [];
 
   return (
     <>
+      {/* Hero trio — photo 1 spans 2 columns + 2 rows; photos 2-3 fill the remaining height */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        {images.map((img, i) => {
-          const isHero = hasHero && i === 0;
-          // Side panels (i=1,2) fill their grid row height set by the hero, so no fixed aspect ratio at sm+.
-          const isSidePanel = hasHero && (i === 1 || i === 2);
-          return (
+        {heroPhotos.map((img, i) => (
+          <button
+            key={img.src}
+            onClick={() => { setLightboxIndex(i); setOpen(true); }}
+            className={cn(
+              "relative overflow-hidden rounded-xl cursor-pointer group",
+              i === 0
+                ? "aspect-video col-span-2 sm:col-span-2 sm:row-span-2"
+                : "aspect-[4/3] sm:aspect-auto",
+            )}
+            style={{ background: "var(--surface-alt)" }}
+            aria-label={`Open photo ${i + 1}`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes={i === 0 ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </button>
+        ))}
+      </div>
+
+      {/* Remaining photos — uniform 2-col (mobile) / 3-col (desktop) grid */}
+      {restPhotos.length > 0 && (
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
+          {restPhotos.map((img, i) => (
             <button
               key={img.src}
-              onClick={() => { setIndex(i); setOpen(true); }}
-              className={cn(
-                "relative overflow-hidden rounded-xl cursor-pointer group",
-                isHero ? "aspect-video col-span-2 sm:col-span-2 sm:row-span-2" : isSidePanel ? "aspect-[4/3] sm:aspect-auto" : "aspect-[4/3]",
-              )}
+              onClick={() => { setLightboxIndex(i + 3); setOpen(true); }}
+              className="relative aspect-[4/3] overflow-hidden rounded-xl cursor-pointer group"
               style={{ background: "var(--surface-alt)" }}
-              aria-label={`Open photo ${i + 1}`}
+              aria-label={`Open photo ${i + 4}`}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes={isHero ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
+                sizes="(max-width: 640px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </button>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
 
       <Lightbox
         open={open}
         close={() => setOpen(false)}
-        index={index}
+        index={lightboxIndex}
         slides={slides}
         plugins={[Fullscreen, Zoom]}
       />

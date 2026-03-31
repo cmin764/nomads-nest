@@ -70,17 +70,15 @@ Always use `next/image`, never raw `<img>`. For every image change, follow this 
 - Place it under `public/images/` in the appropriate subfolder (`gallery/{room}/`, `contact/`, `check-in/`, etc.)
 - `public/images/gallery/` is the canonical source — other pages reference images from there rather than duplicating files
 
-**2. Register it in `config/media.yaml`**
-- Add an entry under the matching section with one of three statuses:
-  - `present` — file is on disk (`url: null`)
-  - `cdn` — not on disk; download script will fetch from `url`
-  - `missing` — URL unknown; source it, then flip to `cdn`
-- When removing an image: delete the file, the `media.yaml` entry, and every reference in `src/`
-
-**3. Optimise before committing**
+**2. Optimise before committing**
 - Hard limit: **500 KB per file** — Git is not an image store
 - Batch compress: `bash scripts/compress-images.sh`
 - Single file: `sips -Z 2000 path/to/file.jpg --setProperty formatOptions 80 --out path/to/file.jpg`
+
+**3. Record dimensions in `src/data/gallery-content.ts`**
+- Add `width` and `height` (EXIF-corrected px) to each image entry
+- **Never use `sips`** for this — it ignores EXIF rotation tags and reports wrong dimensions for camera-rotated photos
+- Use Python/Pillow instead: `cd public/images && python3 -c "from PIL import Image, ImageOps; from pathlib import Path; [print(f, *ImageOps.exif_transpose(Image.open(f)).size) for f in sorted(Path('gallery').rglob('*.JPG'))]"`
 
 **4. Use own photos only**
 - No third-party or stock images — they carry attribution and licensing obligations
@@ -98,6 +96,8 @@ Always use `next/image`, never raw `<img>`. For every image change, follow this 
 - Audit dead files: cross-reference `src/` references against `public/images/` (see `docs/image-management.md`)
 
 Full step-by-step scenarios (add, replace, reorder, remove) for every image placement: `docs/image-management.md`.
+
+When removing an image: delete the file, and every reference in `src/`.
 
 ### Custom commands
 
