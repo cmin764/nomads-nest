@@ -8,6 +8,8 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
+const LIGHTBOX_PLUGINS = [Fullscreen, Zoom];
+
 interface Photo {
   src: string;
   alt: string;
@@ -26,7 +28,6 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
 
   return (
     <>
-      {/* Hero trio — photo 1 spans 2 columns + 2 rows; photos 2-3 fill the remaining height */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {heroPhotos.map((img, i) => (
           <button
@@ -35,7 +36,7 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
             className={cn(
               "relative overflow-hidden rounded-xl cursor-pointer group",
               i === 0
-                ? "aspect-video col-span-2 sm:col-span-2 sm:row-span-2"
+                ? "aspect-video col-span-2 sm:row-span-2"
                 : "aspect-[4/3] sm:aspect-auto",
             )}
             style={{ background: "var(--surface-alt)" }}
@@ -52,7 +53,6 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
         ))}
       </div>
 
-      {/* Remaining photos — uniform 2-col (mobile) / 3-col (desktop) grid */}
       {restPhotos.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
           {restPhotos.map((img, i) => (
@@ -80,7 +80,7 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
         close={() => setOpen(false)}
         index={lightboxIndex}
         slides={slides}
-        plugins={[Fullscreen, Zoom]}
+        plugins={LIGHTBOX_PLUGINS}
       />
     </>
   );
