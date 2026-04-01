@@ -123,10 +123,10 @@ export const allRooms: GalleryRoom[] = [
       { src: base("bathroom", "C-bathroom-3.JPG"), alt: "Shower cabin with glass door", width: 1066, height: 1600 },
       { src: base("bathroom", "C-bathroom-4.JPG"), alt: "Bathroom storage and towel rail", width: 1365, height: 2048 },
       { src: base("bathroom", "C-bathroom-5.JPG"), alt: "Bathroom with natural window light", width: 1600, height: 1066 },
-      { src: base("bathroom", "CMN01715.JPG"), alt: "Bathroom mirror and accessories", width: 1600, height: 1067 },
+
       { src: base("bathroom", "CMN01741.JPG"), alt: "Bathroom floor with mosaic tiles", width: 2048, height: 1366 },
-      { src: base("bathroom", "CMN01742.JPG"), alt: "Bathroom with laundry basket", width: 1365, height: 2048 },
-      { src: base("bathroom", "IMG_8757.jpg"), alt: "Bathroom overview — shower and toilet", width: 1535, height: 2048 },
+      { src: base("bathroom", "IMG_8759.jpg"), alt: "Bathroom overview — shower and toilet", width: 1500, height: 2000 },
+      { src: base("bathroom", "IMG_8765.jpg"), alt: "Bathroom detail", width: 1350, height: 1800 },
     ],
   },
   {
@@ -136,7 +136,9 @@ export const allRooms: GalleryRoom[] = [
     emoji: "🚪",
     coverImage: base("entrance", "CMN02030.JPG"),
     images: [
+      { src: base("entrance", "CMN02024.JPG"), alt: "Entrance detail", width: 1333, height: 2000 },
       { src: base("entrance", "CMN02030.JPG"), alt: "Apartment door number 5 with key lockbox", width: 1365, height: 2048 },
+      { src: base("entrance", "CMN02016.JPG"), alt: "Entrance detail", width: 1333, height: 2000 },
     ],
   },
 ];
