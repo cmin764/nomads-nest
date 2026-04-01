@@ -69,6 +69,7 @@ Always use `next/image`, never raw `<img>`. For every image change, follow this 
 **1. Store the file**
 - Place it under `public/images/` in the appropriate subfolder (`gallery/{room}/`, `contact/`, `check-in/`, etc.)
 - `public/images/gallery/` is the canonical source — other pages reference images from there rather than duplicating files
+- Source photos live in `/Users/cmin/Pictures/NomadsNest/` (subdirs: `Home/`, `Listing/`, `Around/`)
 
 **2. Optimise before committing**
 - Hard limit: **500 KB per file** — Git is not an image store
@@ -82,7 +83,7 @@ Always use `next/image`, never raw `<img>`. For every image change, follow this 
 
 **4. Use own photos only**
 - No third-party or stock images — they carry attribution and licensing obligations
-- If unavoidable, display credit in the UI and note it in `media.yaml`
+- If unavoidable, display credit in the UI
 
 **5. Set alt text at the point of use**
 - Alt text belongs in `src/data/*.ts` or inline in the page component — not in `media.yaml`

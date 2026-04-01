@@ -14,6 +14,8 @@ There is no image CMS. Every image reference goes through one place:
 
 The `public/images/` folder is the physical store. `next/image` serves files from there. If a file is in `public/images/` and referenced in a `src/data/` file, it will appear on the site.
 
+Source photos (originals before compression) live at `/Users/cmin/Pictures/NomadsNest/` in three subdirectories: `Home/`, `Listing/`, and `Around/`.
+
 ---
 
 ## Folder layout
