@@ -18,6 +18,12 @@ export const landmarks: Landmark[] = [
     mapsUrl: "https://maps.app.goo.gl/QXrwF8hafJABpqHu7",
   },
   {
+    name: "Glyki Nero Beach",
+    description: "A blue-flag sandy beach with crystal-clear water and sea caves you can swim to. Quiet enough to hear the waves, lively enough to spend the whole day. Sunbeds, a beach bar, and the Sculpture Park are all within walking distance.",
+    image: { src: base("CMN02655.jpg"), alt: "Seaside terrace overlooking Glyki Nero Beach with turquoise water" },
+    mapsUrl: "https://maps.app.goo.gl/8dwRPbU6sPHBoeSe7",
+  },
+  {
     name: "Sculpture Park",
     description: "Contemporary sculptures of mythical beasts & ancient gods in a landscaped park with sea views.",
     image: { src: base("IMG_6145.JPG"), alt: "Contemporary sculpture in a park overlooking the Mediterranean" },
