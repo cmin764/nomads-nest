@@ -23,7 +23,7 @@ export const stats = [
 ];
 
 export const propertyIntro = {
-  address: "63 Tefkrou Anthia",
+  title: "Nomad's Nest",
   description:
     "A blend of contemporary convenience and relaxed island vibes. The perfect place to unwind, explore, or work remotely. With a spacious terrace, high-speed internet, and a fully equipped interior, this is more than just a stay. It's an experience waiting to be lived.",
 };

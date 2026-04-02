@@ -93,12 +93,12 @@ export default function ListingPage() {
       <section className="py-20 mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="max-w-[680px] mx-auto text-center">
-            <p
-              className="font-heading italic font-light text-[18px] mb-5"
+            <h2
+              className="font-heading italic font-light text-[clamp(28px,4vw,42px)] leading-[1.2] mb-5"
               style={{ color: "var(--gold)" }}
             >
-              {propertyIntro.address}
-            </p>
+              {propertyIntro.title}
+            </h2>
             <p
               className="text-[16px] font-light leading-[1.85]"
               style={{ color: "var(--muted-text)" }}
