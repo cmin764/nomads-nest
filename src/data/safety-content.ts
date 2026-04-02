@@ -1,7 +1,7 @@
 export interface SafetyMeasure {
   title: string;
   description: string;
-  image: { src: string; alt: string };
+  image?: { src: string; alt: string };
 }
 
 const base = (filename: string) => `/images/gallery/safety/${filename}`;
@@ -68,9 +68,21 @@ export const safetyMeasures: SafetyMeasure[] = [
     title: "External CCTV Camera",
     description:
       "A security camera is mounted in the covered parking lot, pointing towards the apartment entrance door and kitchen window from a distance — for your security as you arrive and depart. No interior areas are recorded.",
-    image: { src: base("cctv-placeholder.svg"), alt: "" },
   },
 ];
 
-export const safetyNote =
-  "Emergency number in Cyprus: 112. Nearest hospital: Famagusta General Hospital, ~20 min drive.";
+export const emergencyNote = {
+  callout: "Emergency number in Cyprus: 112",
+  contacts: [
+    {
+      name: "Saveco Health Clinic",
+      detail: "Ayia Napa · non-emergencies · 9 am – 5 pm",
+      mapsUrl: "https://maps.app.goo.gl/zG5pERLkoYTmX9oT6",
+    },
+    {
+      name: "Amochostos General Hospital",
+      detail: "Paralimni · 24/7 emergencies · ~15 km",
+      mapsUrl: "https://maps.app.goo.gl/xmmq41tPum7DqPit6",
+    },
+  ],
+};

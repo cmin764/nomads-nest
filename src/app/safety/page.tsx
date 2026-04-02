@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ShieldCheck, Cctv } from "lucide-react";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
-import { safetyIntro, safetyMeasures, safetyNote } from "@/data/safety-content";
+import { safetyIntro, safetyMeasures, emergencyNote } from "@/data/safety-content";
 
 export const metadata: Metadata = {
   title: "Safety — Nomad's Nest",
@@ -49,9 +49,7 @@ export default function SafetyPage() {
                 className="relative aspect-[4/3] overflow-hidden flex-shrink-0 flex items-center justify-center"
                 style={{ background: "var(--surface-alt)" }}
               >
-                {measure.image.src.endsWith(".svg") ? (
-                  <Cctv size={64} strokeWidth={1} style={{ color: "var(--gold)" }} />
-                ) : (
+                {measure.image ? (
                   <Image
                     src={measure.image.src}
                     alt={measure.image.alt}
@@ -59,6 +57,8 @@ export default function SafetyPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
                   />
+                ) : (
+                  <Cctv size={64} strokeWidth={1} style={{ color: "var(--gold)" }} />
                 )}
               </div>
               <div className="px-6 py-5 flex-1">
@@ -87,11 +87,28 @@ export default function SafetyPage() {
           style={{ borderColor: "var(--divider)", background: "var(--surface-alt)" }}
         >
           <p
-            className="text-[13px] font-light leading-[1.75]"
+            className="text-[13px] font-light leading-[1.75] mb-3"
             style={{ color: "var(--muted-text)" }}
           >
-            {safetyNote}
+            {emergencyNote.callout}
           </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            {emergencyNote.contacts.map((c) => (
+              <a
+                key={c.mapsUrl}
+                href={c.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] font-light leading-[1.75] hover:underline"
+                style={{ color: "var(--gold)" }}
+              >
+                {c.name}
+                <span className="block text-[12px]" style={{ color: "var(--muted-text)" }}>
+                  {c.detail}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </FadeIn>
 
