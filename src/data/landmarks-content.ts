@@ -2,6 +2,7 @@ export interface Landmark {
   name: string;
   description: string;
   image: { src: string; alt: string };
+  mapsUrl: string;
 }
 
 const base = (filename: string) => `/images/gallery/landmarks/${filename}`;
@@ -11,39 +12,40 @@ export const landmarksIntro =
 
 export const landmarks: Landmark[] = [
   {
-    name: "Nissi Beach",
-    description: "One of Cyprus's most iconic beaches — crystal-clear water, white sand, and the famous rocky island just offshore. A 10-minute drive from the apartment.",
-    image: { src: base("DJI_0667.JPG"), alt: "Aerial view of Nissi Beach with turquoise water and sun beds" },
+    name: "Bridge of Love",
+    description: "For those looking for a romantic and scenic spot, look no further than the Love Bridge in Cyprus. This charming footbridge, which spans the Pedieos River, offers a breathtaking view of the surrounding countryside.",
+    image: { src: base("IMG_8384.JPG"), alt: "Bridge of Love natural rock arch over turquoise sea" },
+    mapsUrl: "https://maps.app.goo.gl/QXrwF8hafJABpqHu7",
   },
   {
     name: "Sculpture Park",
-    description: "An open-air sculpture park overlooking the sea, with over 200 works by international artists. A surreal and beautiful walk along the cliffs.",
-    image: { src: base("IMG_6145.JPG"), alt: "Stone sculpture on a hill above the Mediterranean sea" },
+    description: "Contemporary sculptures of mythical beasts & ancient gods in a landscaped park with sea views.",
+    image: { src: base("IMG_6145.JPG"), alt: "Contemporary sculpture in a park overlooking the Mediterranean" },
+    mapsUrl: "https://maps.app.goo.gl/PSQp57XUF8wGCd7H6",
   },
   {
-    name: "Cape Greco",
-    description: "A protected national forest park at the south-eastern tip of Cyprus. Sea caves, dramatic cliffs, and some of the clearest water on the island.",
-    image: { src: base("IMG_6334.JPG"), alt: "Cape Greco coastline with rocky cliffs and blue sea" },
+    name: "Salt Lake",
+    description: "Series of salt lakes featuring flamingos & other water birds, plus the Hala Sultan Tekke shrine.",
+    image: { src: base("IMG_6334.JPG"), alt: "Salt lake with flamingos and the Hala Sultan Tekke shrine" },
+    mapsUrl: "https://maps.app.goo.gl/AzU391LB2ZNUPnLh9",
   },
   {
-    name: "Ayia Napa Harbour",
-    description: "The old fishing harbour is the heart of Ayia Napa. Lined with cafés and seafood restaurants, it's the perfect spot for a slow morning or a sunset walk.",
-    image: { src: base("IMG_6379.JPG"), alt: "Ayia Napa harbour with boats and waterfront cafés" },
+    name: "Kykkos Monastery",
+    description: "The Holy Monastery of the Virgin of Kykkos was founded around the end of the 11th century by the Byzantine emperor Alexios I Komnenos.",
+    image: { src: base("IMG_6479.JPG"), alt: "Kykkos Monastery courtyard with ornate mosaics" },
+    mapsUrl: "https://maps.app.goo.gl/dTduWpMhdcSP1JqJ7",
   },
   {
-    name: "Konnos Bay",
-    description: "A sheltered, pine-fringed cove with calm, shallow water — ideal for snorkelling and families. 15 minutes from the apartment.",
-    image: { src: base("IMG_6479.JPG"), alt: "Konnos Bay with calm turquoise water surrounded by pine trees" },
+    name: "Pano Lefkara",
+    description: "Pano Lefkara is a village on the island of Cyprus famous for its lace, known as lefkaritika in and silver handicrafts. Leonardo da Vinci himself visited the village in 1481 and bought a lace altar cloth, which he donated to Milan cathedral.",
+    image: { src: base("IMG_6379.JPG"), alt: "Narrow cobblestone street in Pano Lefkara village" },
+    mapsUrl: "https://maps.app.goo.gl/Qzz9uZQFL7tpakeg6",
   },
   {
-    name: "Ayia Napa Monastery",
-    description: "A 16th-century Venetian monastery at the centre of the old town. One of the best-preserved monasteries in Cyprus, set around a shaded courtyard.",
-    image: { src: base("IMG_6498.JPG"), alt: "Ayia Napa monastery courtyard with stone archways" },
-  },
-  {
-    name: "The Coastline",
-    description: "The stretch between Nissi Beach and Cape Greco is one of the most scenic coastal walks in the Eastern Mediterranean. Pack water, wear sunscreen.",
-    image: { src: base("IMG_8384.JPG"), alt: "Rocky Mediterranean coastline near Ayia Napa" },
+    name: "Lofou Village",
+    description: "The leafy environs of this picturesque and traditional village are home to grapevines and almond trees, offering agrotourism in tranquil and scenic surroundings.",
+    image: { src: base("IMG_6498.JPG"), alt: "Traditional stone houses in Lofou village among grapevines" },
+    mapsUrl: "https://maps.app.goo.gl/Zc6LD5D6RnjDYP6U6",
   },
 ];
 

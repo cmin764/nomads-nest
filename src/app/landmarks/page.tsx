@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
@@ -10,7 +10,7 @@ import { landmarksIntro, landmarks, guidebookUrl } from "@/data/landmarks-conten
 export const metadata: Metadata = {
   title: "Landmarks — Nomad's Nest",
   description:
-    "Discover Ayia Napa — Nissi Beach, the Sculpture Park, Cape Greco, the harbour, and more.",
+    "Discover Cyprus — Bridge of Love, Sculpture Park, Salt Lake, Kykkos Monastery, Pano Lefkara, and Lofou Village.",
 };
 
 export default function LandmarksPage() {
@@ -78,11 +78,17 @@ export default function LandmarksPage() {
                     {landmark.name}
                   </h2>
                   <p
-                    className="text-[14px] font-light leading-[1.8]"
+                    className="text-[14px] font-light leading-[1.8] mb-6"
                     style={{ color: "var(--muted-text)" }}
                   >
                     {landmark.description}
                   </p>
+                  <Button variant="gold" size="sm" className="w-auto self-start" asChild>
+                    <a href={landmark.mapsUrl} target="_blank" rel="noopener noreferrer">
+                      Maps
+                      <MapPin size={14} className="ml-1.5" />
+                    </a>
+                  </Button>
                 </div>
               </div>
             </FadeIn>
