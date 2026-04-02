@@ -50,6 +50,7 @@ export default function GalleryPage() {
                   fill
                   sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  {...(i < 2 && { priority: true })}
                 />
               </div>
               <div className="px-5 py-4">

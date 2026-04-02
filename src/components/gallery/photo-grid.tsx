@@ -48,6 +48,7 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
               fill
               sizes={i === 0 ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
+              {...(i === 0 && { priority: true })}
             />
           </button>
         ))}
