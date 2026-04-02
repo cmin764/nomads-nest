@@ -50,6 +50,7 @@ export default function HomePage() {
               fill
               sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
+              priority
             />
           </div>
           {/* Work — full-height right column on mobile, right on desktop */}
@@ -65,6 +66,7 @@ export default function HomePage() {
               fill
               sizes="(min-width: 640px) 30vw, 50vw"
               className="object-cover"
+              priority
             />
           </div>
         </div>
