@@ -56,7 +56,7 @@ export default function SafetyPage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
-                    {...(i === 0 && { priority: true })}
+                    {...(i < 3 && { priority: true })}
                   />
                 ) : (
                   <Cctv size={64} strokeWidth={1} style={{ color: "var(--gold)" }} />
