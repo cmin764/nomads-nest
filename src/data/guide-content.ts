@@ -30,18 +30,18 @@ export const guideSections: GuideSection[] = [
       { text: "By car", heading: true },
       { text: "📍 Google Maps: search 'Nomad\u2019s Nest - Apartment for rent'", url: "https://maps.app.goo.gl/RJ2s8CroHHJgRpft6" },
       { text: "Make sure to park only in the uncovered area (adjacent to the covered parking space), where there are usually 3 empty spots reserved for tourists." },
-      { text: "Do not park in the covered area — that's only for residents. Make sure you won't block other cars." },
+      { text: "Do not park in the covered area. That's reserved for residents only. Make sure you won't block other cars." },
       { text: "Parking is first-come, first-served. If the lot is full, there's a municipal parking nearby, free of charge.", url: "https://maps.app.goo.gl/6VXXnnvy5t3ovxHF7" },
 
       { text: "By public transport", heading: true },
-      { text: "Option 1 (most convenient): Direct shuttle from the airport — Kapnos Airport Shuttle", url: "https://kapnosairportshuttle.com/" },
+      { text: "Option 1 (most convenient): Direct shuttle from the airport, Kapnos Airport Shuttle", url: "https://kapnosairportshuttle.com/" },
       { text: "Option 2 (cheapest): Bus from the airport to Larnaca, then Finikoudes (Larnaca Marina) to Ayia Napa via IntercityBuses or OSEA." },
       { text: "Option 3 (fastest): Taxi or ridesharing services like Bolt." },
 
       { text: "Entering the Apartment", heading: true },
-      { text: "Use the lockbox on the right wall — insert the code, pull the trigger down, and retrieve your key set." },
+      { text: "Use the lockbox on the right wall: insert the code, pull the trigger down, and retrieve your key set." },
       { text: "Big key = apartment door. Small key = terrace gate.", highlight: true },
-      { text: "⚠️ ALWAYS take the keys with you when leaving! The door locks automatically — getting locked out is no vacation fun 🚪🙅‍♀️", highlight: true },
+      { text: "⚠️ ALWAYS take the keys with you when leaving! The door locks automatically. Getting locked out is no vacation fun 🚪🙅‍♀️", highlight: true },
       { text: "€50 fee for losing the keys.", highlight: true },
     ],
   },
@@ -51,10 +51,10 @@ export const guideSections: GuideSection[] = [
     title: "Comfort & Convenience",
     items: [
       { text: "Water & Energy Wisdom", heading: true },
-      { text: "Hot Water: Rooftop solar heater works like magic ☀️ — drag the knob to the left, wait a minute, and you'll have steaming hot water." },
+      { text: "Hot Water: Rooftop solar heater works like magic ☀️. Drag the knob to the left, wait a minute, and you'll have steaming hot water." },
       { text: "If the water isn't hot, turn the boiler on 30 minutes before showering (bathroom wall switch). Make sure you turn it off after showering." },
-      { text: "Keep the water pump switch ON — no reason to touch that button." },
-      { text: "Electricity is precious on the island 💡 — turn off the AC when you're out. Close windows and doors when the AC is running.", highlight: true },
+      { text: "Keep the water pump switch ON. No reason to touch that button." },
+      { text: "Electricity is precious on the island 💡, so turn off the AC when you're out. Close windows and doors when the AC is running.", highlight: true },
 
       { text: "Connectivity & Entertainment 📺🌐", heading: true },
       { text: "Wi-Fi password: check the intro text on the living area rounded table." },
@@ -74,7 +74,7 @@ export const guideSections: GuideSection[] = [
 
       { text: "Cleaning Essentials", heading: true },
       { text: "Wash dishes before leaving." },
-      { text: "Clean the espresso machine after use. Use only bottled water when filling the recipient — this avoids limestone buildup. Discard any stuck coffee or milk from the utensils." },
+      { text: "Clean the espresso machine after use. Use only bottled water when filling the recipient, which avoids limestone buildup. Discard any stuck coffee or milk from the utensils." },
       { text: "Washing machine: firmly push the lid until the lock icon appears, otherwise it won't start. Press and hold the Start button for 3 seconds to begin the cycle. Detergent and fabric softener are under the sink." },
     ],
   },
@@ -104,7 +104,7 @@ export const guideSections: GuideSection[] = [
 
       { text: "Trash & Pest Control", heading: true },
       { text: "Take the trash out regularly (and before check-out) to the green dumpsters, outside the complex, on the main street 🗑️" },
-      { text: "⚠️ Do not leave trash outside in the complex unsupervised — animals tend to come by and tear apart bags.", highlight: true },
+      { text: "⚠️ Do not leave trash outside in the complex unsupervised. Animals will come by and tear the bags apart.", highlight: true },
       { text: "If you're troubled by cats (or allergies), feel free to turn on the pest repellent on the terrace." },
 
       { text: "Kitchen", heading: true },
@@ -113,8 +113,8 @@ export const guideSections: GuideSection[] = [
       { text: "Electric oven: make sure there's a time set (it resets when powered off), otherwise it won't start. Press and hold the central \u201cMENU\u201d button until you hear a beep, set the time with the arrows, then short-press the button again to confirm." },
 
       { text: "Living Area", heading: true },
-      { text: "Gym corner: yoga mat, kettlebell, power cords, jump rope, abs wheel, towel and a knees mat — found in-between the sofa and the wall." },
-      { text: "Games: backgammon, chess, 2 decks of playing cards and a Rubik's cube — top-right shelf of the TV table." },
+      { text: "Gym corner: yoga mat, kettlebell, power cords, jump rope, abs wheel, towel and a knees mat. All stored between the sofa and the wall." },
+      { text: "Games: backgammon, chess, 2 decks of playing cards and a Rubik's cube, on the top-right shelf of the TV table." },
 
       { text: "Bedroom", heading: true },
       { text: "Extra pillows and blankets: wardrobe's top shelves." },

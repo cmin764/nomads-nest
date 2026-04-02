@@ -9,7 +9,7 @@ export interface CheckInStep {
 export const overviewStep: CheckInStep = {
   image: "/images/check-in/self-checkin-0.jpg",
   alt: "Google Maps overhead screenshot showing routes to the apartment with white and red arrows",
-  heading: "Getting Here — Overview",
+  heading: "Getting Here: Overview",
   description:
     "White arrows mark the route by car; red arrows show the approach on foot. Use the tabs below for step-by-step instructions.",
 };
@@ -21,14 +21,14 @@ const sharedFinalSteps: CheckInStep[] = [
     alt: "Two lockboxes at the main entrance",
     heading: "Main Entrance",
     description:
-      "You'll see two lockboxes — please use the one on the right. You'll get the PIN in a private message 1–2 days prior to your arrival.",
+      "You'll see two lockboxes. Use the one on the right. You'll get the PIN in a private message 1–2 days prior to your arrival.",
   },
   {
     image: "/images/check-in/self-checkin-6.jpg",
     alt: "Right lockbox on the wall",
     heading: "Right Lockbox",
     description:
-      "You'll find two keys: one opens the main door, the other the patio's fence gate. ⚠️ Keep the keys with you at all times — the door automatically locks when you exit the flat! Make sure to put them back at check-out, then scramble the code after closing the lid.",
+      "You'll find two keys: one opens the main door, the other the patio's fence gate. ⚠️ Keep the keys with you at all times. The door locks automatically when you exit the flat! Make sure to put them back at check-out, then scramble the code after closing the lid.",
   },
 ];
 
@@ -45,7 +45,7 @@ export const byCar: CheckInStep[] = [
     alt: "Uncovered car parking area inside the complex",
     heading: "Parking Lot",
     description:
-      "This is the uncovered car parking area — usually 3 available spots reserved for tourists. Park here only, or outside the complex if full. Entering the flat is through the main entrance found in the covered parking lot (pointed by the white arrow), on the ground floor.",
+      "This is the uncovered car parking area, with usually 3 spots reserved for tourists. Park here only, or outside the complex if full. Entering the flat is through the main entrance found in the covered parking lot (pointed by the white arrow), on the ground floor.",
   },
   ...sharedFinalSteps,
 ];

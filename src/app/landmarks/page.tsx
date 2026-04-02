@@ -8,9 +8,9 @@ import GoldenDivider from "@/components/ui/golden-divider";
 import { landmarksIntro, landmarks, guidebookUrl } from "@/data/landmarks-content";
 
 export const metadata: Metadata = {
-  title: "Landmarks — Nomad's Nest",
+  title: "Landmarks near Nomad's Nest",
   description:
-    "Discover Cyprus — Bridge of Love, Sculpture Park, Salt Lake, Kykkos Monastery, Pano Lefkara, and Lofou Village.",
+    "Discover Cyprus: Bridge of Love, Sculpture Park, Salt Lake, Kykkos Monastery, Pano Lefkara, and Lofou Village.",
 };
 
 export default function LandmarksPage() {

@@ -2,6 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Copy & Voice
+
+Nomad's Nest is a warm, human-written property site. All content you write or edit must feel like it came from a person, not a language model.
+
+**Never use em dashes (—) in any content you control.** This includes page copy, data files (`src/data/`), alt text, metadata titles, and descriptions. Use instead:
+- Period + new sentence when two independent thoughts follow each other
+- Colon to introduce a list or instruction
+- Comma (or comma + "so"/"which") for closely related clauses
+- Parentheses for incidental asides or definitions
+
+Exception: verbatim third-party text (guest reviews, quoted messages) must not be altered.
+
+Avoid other AI-flavoured patterns too: no "seamlessly", no "nestled", no "perfect blend of X and Y", no trailing summaries restating what was just said. Write with the restraint the design uses — one clear thought per sentence, no filler.
+
 ## Commands
 
 ```bash

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const room = allRooms.find((r) => r.slug === category);
   if (!room) return {};
   return {
-    title: `${room.name} — Gallery`,
+    title: `${room.name}: Gallery`,
     description: `Photos of the ${room.name} at Nomad's Nest, Ayia Napa.`,
   };
 }

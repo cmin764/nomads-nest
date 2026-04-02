@@ -9,7 +9,7 @@ import { galleryIndexRooms, introQuote } from "@/data/gallery-content";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Explore every room of Nomad's Nest — terrace, bedroom, bathroom, kitchen, living area, and entrance.",
+    "Explore every room of Nomad's Nest: terrace, bedroom, bathroom, kitchen, living area, and entrance.",
 };
 
 export default function GalleryPage() {

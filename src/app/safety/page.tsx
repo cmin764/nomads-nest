@@ -6,7 +6,7 @@ import GoldenDivider from "@/components/ui/golden-divider";
 import { safetyIntro, safetyMeasures, emergencyNote } from "@/data/safety-content";
 
 export const metadata: Metadata = {
-  title: "Safety — Nomad's Nest",
+  title: "Safety at Nomad's Nest",
   description:
     "Every safety measure at Nomad's Nest: CO detector, smoke detector, fire extinguisher, first aid kit, and more.",
 };

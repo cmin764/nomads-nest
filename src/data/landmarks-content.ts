@@ -8,7 +8,7 @@ export interface Landmark {
 const base = (filename: string) => `/images/gallery/landmarks/${filename}`;
 
 export const landmarksIntro =
-  "Ayia Napa is more than a beach destination. Ancient monasteries, sculptured coastlines, turquoise waters, and the warm Mediterranean light — all within reach from your doorstep.";
+  "Ayia Napa is more than a beach destination. Ancient monasteries, sculptured coastlines, turquoise waters, and the warm Mediterranean light. All within reach from your doorstep.";
 
 export const landmarks: Landmark[] = [
   {

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nomadsnest.live"),
   title: {
     template: "%s | Nomad's Nest",
-    default: "Nomad's Nest — Ayia Napa, Cyprus",
+    default: "Nomad's Nest: Ayia Napa, Cyprus",
   },
   description: "A thoughtfully designed apartment 10 minutes from the city centre and 20 minutes from the beach.",
   openGraph: {

@@ -81,7 +81,7 @@ export const allRooms: GalleryRoom[] = [
       { src: base("living-area", "D-living-12.JPG"), alt: "Dining table with chairs in open-plan area", width: 1365, height: 2048 },
       { src: base("living-area", "D-living-13.jpg"), alt: "Living area with sofa and dining corner", width: 2048, height: 1536 },
       { src: base("living-area", "D-living-14.jpg"), alt: "Open-plan living area towards the kitchen", width: 1600, height: 1210 },
-      { src: base("living-area", "CMN01555.JPG"), alt: "Parrot painting — tropical artwork above the sofa", width: 2048, height: 1366 },
+      { src: base("living-area", "CMN01555.JPG"), alt: "Parrot painting, tropical artwork above the sofa", width: 2048, height: 1366 },
       { src: base("living-area", "CMN01769.JPG"), alt: "Living area detail", width: 1333, height: 2000 },
     ],
   },
@@ -125,7 +125,7 @@ export const allRooms: GalleryRoom[] = [
       { src: base("bathroom", "C-bathroom-5.JPG"), alt: "Bathroom with natural window light", width: 1600, height: 1066 },
 
       { src: base("bathroom", "CMN01741.JPG"), alt: "Bathroom floor with mosaic tiles", width: 2048, height: 1366 },
-      { src: base("bathroom", "IMG_8759.jpg"), alt: "Bathroom overview — shower and toilet", width: 1500, height: 2000 },
+      { src: base("bathroom", "IMG_8759.jpg"), alt: "Bathroom overview showing the shower and toilet", width: 1500, height: 2000 },
       { src: base("bathroom", "IMG_8765.jpg"), alt: "Bathroom detail", width: 1350, height: 1800 },
     ],
   },

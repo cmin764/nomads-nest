@@ -5,7 +5,7 @@ import GoldenDivider from "@/components/ui/golden-divider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nomad's Nest — Ayia Napa, Cyprus",
+  title: "Nomad's Nest: Ayia Napa, Cyprus",
   description:
     "A thoughtfully designed apartment 10 minutes' walk from the city centre and 20 minutes' walk from the beach.",
 };
