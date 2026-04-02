@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Cctv } from "lucide-react";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
 import { safetyIntro, safetyMeasures, safetyNote } from "@/data/safety-content";
@@ -46,16 +46,20 @@ export default function SafetyPage() {
               style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
             >
               <div
-                className="relative aspect-[4/3] overflow-hidden flex-shrink-0"
+                className="relative aspect-[4/3] overflow-hidden flex-shrink-0 flex items-center justify-center"
                 style={{ background: "var(--surface-alt)" }}
               >
-                <Image
-                  src={measure.image.src}
-                  alt={measure.image.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover"
-                />
+                {measure.image.src.endsWith(".svg") ? (
+                  <Cctv size={64} strokeWidth={1} style={{ color: "var(--gold)" }} />
+                ) : (
+                  <Image
+                    src={measure.image.src}
+                    alt={measure.image.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                )}
               </div>
               <div className="px-6 py-5 flex-1">
                 <h2
