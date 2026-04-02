@@ -123,7 +123,7 @@ export default function GalleryPage() {
             >
               <Image
                 src="/images/gallery/landmarks/DJI_0667.JPG"
-                alt="Nissi Beach aerial view"
+                alt="Aerial view of Nissi Beach cove with turquoise water, sunbeds, and Cape Greco headland"
                 fill
                 sizes="(max-width: 640px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

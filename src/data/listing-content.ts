@@ -12,7 +12,7 @@ export interface Review {
 
 export const heroImage = {
   src: "/images/listing/CMN01490.JPG",
-  alt: "Nomad's Nest apartment bedroom interior",
+  alt: "Blue upholstered bed with folded towels beside desk and blue chair",
 };
 
 export const stats = [
@@ -29,20 +29,20 @@ export const propertyIntro = {
 };
 
 export const galleryStrip = [
-  { src: "/images/listing/CMN01439.JPG", alt: "Bedroom's table and mirrors" },
-  { src: "/images/listing/D-kitchen-7.JPG", alt: "Kitchen's espresso machine, tea and basics" },
-  { src: "/images/listing/CMN01580.JPG", alt: "Open-space living area" },
-  { src: "/images/listing/CMN01874.JPG", alt: "Terrace with wine glasses and bottle" },
+  { src: "/images/listing/CMN01439.JPG", alt: "Glass vanity desk with Buddha head sculpture, tabletop mirror, and floor mirror" },
+  { src: "/images/listing/D-kitchen-7.JPG", alt: "Overhead view of black metal shelf with espresso machine, ceramic mugs, and green bottles" },
+  { src: "/images/listing/CMN01580.JPG", alt: "Glass coffee table with bananas and pineapple before yellow chair and kitchenette" },
+  { src: "/images/listing/CMN01874.JPG", alt: "Wine bottle, two stemless glasses, and rope umbrella base on black patio table" },
 ];
 
 export const fullWidthImage = {
   src: "/images/listing/A-terrace-8.JPG",
-  alt: "Terrace with outdoor portable standing table for laptop",
+  alt: "Round patio table with laptop stand, ashtray, and shuttered windows",
 };
 
 export const ctaImage = {
   src: "/images/listing/CMN01858.JPG",
-  alt: "Nomad's Nest apartment terrace porch gate",
+  alt: "",
 };
 
 export const amenities: AmenityCard[] = [

@@ -1,0 +1,104 @@
+# Alt Text Annotations
+# Format: filename TAB description
+# Status: pending review — apply to code once confirmed
+#
+# Sources:
+#   gallery/terrace/     → src/data/gallery-content.ts
+#   gallery/bedroom/     → src/data/gallery-content.ts
+#   gallery/bathroom/    → src/data/gallery-content.ts
+#   gallery/living-area/ → src/data/gallery-content.ts
+#   gallery/kitchen/     → src/data/gallery-content.ts
+#   gallery/entrance/    → src/data/gallery-content.ts
+#   gallery/safety/      → src/data/safety-content.ts
+#   gallery/landmarks/   → src/data/landmarks-content.ts
+#   listing/             → src/data/listing-content.ts
+#   check-in/            → src/data/check-in-steps.ts
+
+A-terrace-1.JPG	Dark wooden outdoor table and chairs with ashtray under green umbrella
+A-terrace-2.jpg	Palm-framed terrace with round dining table, four chairs, and wine glasses
+A-terrace-3.JPG	Rattan sunburst wall mirror reflecting palm leaves and courtyard
+A-terrace-4.JPG	Round wooden patio table with two wine glasses, bottle, and ashtray
+A-terrace-5.JPG	Patio table with wine bottle beneath palm fronds and rope-wrapped umbrella
+A-terrace-6.JPG	White slatted gate with black tree ornament and keys in lock
+A-terrace-7.JPG	White slatted fence with black tree ornament, palm fronds, and umbrella
+A-terrace-8.JPG	Round patio table with laptop stand, ashtray, and shuttered windows
+B-bedroom-1.JPG	Blue upholstered bed with folded towels, bedside cabinet, and wicker lamp
+B-bedroom-2.jpg	Glass vanity desk with blue stool, wall mirror, and full-length mirror
+B-bedroom-4.JPG	Three blue fish paintings above navy blue upholstered bed headboard
+B-bedroom-5.jpg	Blue upholstered bed with white pillows, towels, reading lamp, white wardrobes
+B-bedroom-8b.JPG	Gray curtains on aluminum sliding door with white shutters and palm trees
+C-bathroom-0.jpg	White pedestal sink, white toilet, glass shower screen, rope-edged round mirror
+C-bathroom-1.JPG	White sink with chrome faucet, black soap dispenser, black tumbler holder
+C-bathroom-2.JPG	Close-up rope-edged black round mirror on bathroom mosaic tile wall
+C-bathroom-3.JPG	Chrome handheld shower head on sliding rail beside wire corner caddy
+C-bathroom-4.JPG	Bamboo shelving unit with black trays beside white door and mosaic tiles
+C-bathroom-5.JPG	Rope-framed black round mirror on tiled wall above the sink
+CMN01430.JPG	Blue bed with folded towels, white wardrobes, and bedside shelf
+CMN01439.JPG	Glass vanity desk with Buddha head sculpture, tabletop mirror, and floor mirror
+CMN01457.JPG	Close-up black laptop keyboard beside desk lamp and white earbud case
+CMN01461.JPG	White desk with black laptop, black lamp, and white earbud case
+CMN01478.JPG	White desk with black laptop, black lamp, and blue chair
+CMN01490.JPG	Blue upholstered bed with folded towels beside desk and blue chair
+CMN01491.JPG	Blue bed with folded towels, wicker lamp, and two-drawer bedside cabinet
+CMN01493.JPG	Desk and laptop reflected in round tabletop mirror beside blue headboard
+CMN01537.JPG	Espresso machine pouring coffee into two double-walled glass cups
+CMN01547.JPG	Spice jars with red lids lined on black kitchen countertop
+CMN01555.JPG	Framed painting of two yellow parrots among dark blue leaves
+CMN01571.JPG	Yellow accent chair facing kitchenette with fridge, washer, and sink
+CMN01580.JPG	Glass coffee table with bananas and pineapple before yellow chair and kitchenette
+CMN01590.JPG	Stainless steel toaster on black countertop beside saucepan and stovetop
+CMN01603.JPG	Woven lamp beside green and brown tiki mugs with liquor bottle
+CMN01607.JPG	Cream coffee and sugar jars beside black pod carousel
+CMN01625.JPG	Black metal shelf with tea boxes, ceramic mug, green bottles, and tiki mug
+CMN01741.JPG	Reed diffuser with rattan sticks between two bamboo baskets with black lining
+CMN01759.JPG	Black first aid kit bag beside blue pillar candle on stand and teal mesh basket
+CMN01769.JPG	Overhead view of bedroom corner with white cube storage unit and wooden shelf
+CMN01874.JPG	Wine bottle, two stemless glasses, and rope umbrella base on black patio table
+CMN01991.JPG	Red 2 kg dry powder fire extinguisher standing on floor beside kitchen shelving
+CMN01998.JPG	Close-up label of red 2 kg ABC dry powder fire extinguisher showing gauge
+CMN02002.JPG	Red fire blanket pouch with bilingual pull instructions hung on white wall
+CMN02010.JPG	Virone carbon monoxide detector displaying 52% humidity and 19°C on digital screen
+CMN02014.JPG	Virone carbon monoxide detector close-up with 52% humidity and 19°C reading
+CMN02016.JPG	Overhanging dracaena plant in terracotta pot on white exterior wall ledge
+CMN02024.JPG	White apartment door number 5 from above with dracaena plant and wall lantern
+CMN02030.JPG	White apartment door number 5 with chrome handle and MasterLock combination lockbox
+CMN02482.JPG	White round smoke detector with ventilation grille mounted flush on white ceiling
+CMN02483.JPG	White dome smoke detector with central test button on grey ceiling
+CMN02484.JPG	White round smoke detector with central button and three ventilation slots on white ceiling
+CMN02655.jpg	Teak outdoor sofa with white cushions on cliff-top restaurant terrace above turquoise sea
+D-kitchen-1.JPG	Open-plan kitchen with silver fridge, washing machine, white cabinets, and marble dining table
+D-kitchen-2.JPG	White ceramic utensil holder with whisk and spatulas beside knife block and spice rack
+D-kitchen-3.JPG	Open kitchen drawer with stainless steel spoons and forks in black organiser tray
+D-kitchen-4.JPG	Overhead view of open cabinet with stacked plates, bowls, and glasses beside kettle
+D-kitchen-5.JPG	White marble dining table set with beige ceramic plate, bowl, water glass, and cutlery
+D-kitchen-5b.JPG	Close-up of beige ceramic plate and bowl on green placemat with glass and cutlery
+D-kitchen-6.JPG	Jumbo espresso machine brewing into two double-walled glass cups on wooden counter
+D-kitchen-7.JPG	Overhead view of black metal shelf with espresso machine, ceramic mugs, and green bottles
+D-kitchen-8.JPG	Black travel mug beside green plant in woven basket and glass hourglass on shelf
+D-living-10.JPG	Round gold coffee table with bananas and pineapple beside yellow velvet scoop chair
+D-living-11.JPG	Wooden ladder shelf with cork globe and book beside flat-screen TV and remote
+D-living-11b.JPG	Walnut wooden box with playing cards deck and Rubik's cube on white shelf
+D-living-12.JPG	White carved wooden tree sculpture beside Cyta WiFi router on white windowsill
+D-living-13.jpg	Flat-screen TV on white and oak media unit with ladder shelf and tower fan
+D-living-14.jpg	Open sliding glass door to terrace with TV unit and ladder shelf inside
+D-living-9.JPG	Blue three-seat sofa with two yellow cushions under parrot painting
+D-living-9a.jpg	Blue sofa with yellow cushions and parrot painting with open-plan kitchen behind
+DJI_0667.JPG	Aerial view of Nissi Beach cove with turquoise water, sunbeds, and Cape Greco headland
+IMG_6145.JPG	Stone serpent sculpture on plinth overlooking rocky coastline and Mediterranean sea
+IMG_6334.JPG	Flat white salt lake surface under cloudy sky with distant city skyline
+IMG_6379.JPG	Cobblestone alley with pink bougainvillea on stone buildings and ornate streetlamp
+IMG_6479.JPG	Kykkos Monastery courtyard with painted arched colonnade, bell tower, and forested hill
+IMG_6498.JPG	Cobblestone village alley at night with string lights and decorated shop fronts
+IMG_8384.JPG	Rocky coastal inlet with turquoise water viewed from limestone cliff edge
+IMG_8759.jpg	Bathroom with white toilet, pedestal sink, rope-framed round mirror, and mosaic tile walls
+IMG_8765.jpg	Bathroom with glass shower cabin, white toilet, pedestal sink, and mosaic tile walls
+Z-terrace-last.jpg	Brown tiki mug, green tiki mug, Plantation rum bottle, and tropical fruits on dark table
+self-checkin-0.jpg	Google Maps aerial screenshot with red dotted CAR and WALKING routes to apartment
+self-checkin-1.jpg	Brown wooden slatted gate in fence beside tall palm tree on pavement, red arrow marker
+self-checkin-2.jpg	Paved walkway between brown wooden fences with pink oleander and palm, red arrow
+self-checkin-3.jpg	Three small palms along white rendered wall beside paved courtyard, red arrow marker
+self-checkin-4.jpg	Low decorative stone wall beside sandy ground with large tree and white apartment buildings
+self-checkin-5.jpg	White door number 5 with Nomad's Nest wooden sign and dracaena pot, red arrow marker
+self-checkin-6.jpg	White door number 5 with chrome handle and MasterLock combination lockbox, red arrow
+self-checkin-car-1.jpg	White building facade with large bird mural and car entrance arrow annotation
+self-checkin-car-2.jpg	Paved parking area with three green-checkmark spaces and apartment building behind
