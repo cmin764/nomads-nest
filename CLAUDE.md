@@ -24,6 +24,10 @@ bun run build    # production build — always run this before committing to cat
 bun run lint     # ESLint
 ```
 
+Two non-obvious config details in `next.config.ts` — do not simplify either:
+- **LAN access:** `allowedDevOrigins` uses `os.networkInterfaces()` to enumerate local IPs dynamically. Wildcards and hardcoded IPs both silently fail.
+- **Image cache:** the correct key to raise the dev-mode image LRU limit is `images.maximumDiskCacheSize` (bytes). The key `experimental.imageCacheSizeLimit` does not exist in Next.js 16 and causes a build-time type error.
+
 ## Project context
 
 Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `nomadsnest.live`.
@@ -43,6 +47,34 @@ There is no CMS, no database, and no server-side logic. All content is typed Typ
 - **framer-motion** — used only through the `FadeIn` wrapper (`src/components/fade-in.tsx`)
 - **lucide-react** — icons
 - **Package manager**: bun only, never npm or yarn
+
+## Coding rules
+
+Applied during all development, not just at review time.
+
+**Rendering**
+- Server components are the default. Add `"use client"` only when a component genuinely needs browser APIs, event handlers, or stateful hooks. Push the directive to the smallest possible leaf — never put it on a parent that wraps server-renderable siblings.
+- `params` and `searchParams` in pages and layouts are `Promise<...>` in Next.js 15/16. Always `await` them. Synchronous destructuring is a type error and a runtime warning.
+- `notFound()` and `redirect()` work by throwing internally. Never wrap them in `try/catch` — the throw will be caught and both calls will silently do nothing.
+
+**Navigation and links**
+- `next/link` for all internal navigation. Never `<a href="...">` for same-origin paths.
+- External links that open in a new tab need `rel="noopener noreferrer"`.
+
+**Images**
+- Above-fold and hero images need the `priority` prop on `<Image>`. Omitting it lazy-loads the LCP image and tanks Core Web Vitals.
+
+**Styling**
+- When a component accepts a `className` prop or builds class strings conditionally, use `cn()` from `@/lib/utils`. Direct string concatenation silently drops a class when two utilities target the same CSS property.
+
+**UI components**
+- Before writing a custom UI primitive, check if an existing shadcn/ui component covers the need. Adding one is cheaper than maintaining a bespoke equivalent.
+
+**TypeScript & quality**
+- No `any`. If a type is genuinely unknown, use `unknown` and narrow it.
+- No `console.log`, commented-out code, or dead imports committed. These are noise in a codebase this size.
+
+---
 
 ## Architecture
 
@@ -65,6 +97,8 @@ All color tokens are CSS custom properties in `:root` inside `globals.css`, mapp
 
 Font CSS variables (`--font-body` for Inter, `--font-heading-var` for Playfair Display) are injected by `next/font/google` in `layout.tsx` and consumed in `@theme inline` as `--font-sans` and `--font-heading`.
 
+Hero `h1` headings use `<em className="italic text-primary">` to render accent words in gold italic (Playfair Display italic at `#C9A84C`). This maps directly to the design spec's `.hero-h em` rule. Example: `Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway!`
+
 ### Client components
 
 These are the only `"use client"` components; everything else is a server component:
@@ -79,7 +113,14 @@ These are the only `"use client"` components; everything else is a server compon
 
 ### Images
 
-Always use `next/image`, never raw `<img>`. For every image change, follow this checklist in order:
+Always use `next/image`, never raw `<img>`. For local files in `public/images/`, prefer static imports over string paths — Next.js then automatically provides width, height, and a blur placeholder, removing the need to record dimensions manually:
+
+```tsx
+import heroImg from "@/public/images/gallery/bedroom/photo.jpg";
+<Image src={heroImg} alt="..." />
+```
+
+For every image change, follow this checklist in order:
 
 **1. Store the file**
 - Place it under `public/images/` in the appropriate subfolder (`gallery/{room}/`, `contact/`, `check-in/`, etc.)

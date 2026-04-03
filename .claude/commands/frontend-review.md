@@ -33,6 +33,8 @@ For every file in the diff, check the categories below. Skip categories that don
 - `next/image` is used for every content image — never a raw `<img>` tag.
 - `next/link` is used for all internal navigation — never `<a href>` for same-origin links.
 - `error.tsx` must be a `"use client"` component — missing this directive causes a subtle runtime failure.
+- `loading.tsx` should exist for any route that does async data fetching — without it, the user sees a blank screen while the server streams the response.
+- `not-found.tsx` should exist at the `app/` root level and at any nested segment where a missing resource is possible. Calling `notFound()` without a boundary renders the global 404 fallback, which may leak layout context.
 - Don't call a Route Handler from a Server Component — that's a redundant network round-trip; call the data layer directly.
 - `notFound()` and `redirect()` throw internally — never wrap them in `try/catch` or the throw will be swallowed.
 - Missing `key` prop on lists rendered from Server Components can cause reconciliation bugs during client-side transitions.
@@ -56,6 +58,7 @@ For every file in the diff, check the categories below. Skip categories that don
 - Custom colors and fonts are consumed via `var(--token)` inline styles or `@theme inline` mapped utilities, not hardcoded hex values.
 - No Tailwind v3-style `theme()` function calls in CSS.
 - Dark mode is handled via `[data-theme="dark"]` selectors in `globals.css`, not Tailwind's `dark:` variant (not configured).
+- When a component accepts a `className` prop or builds class strings conditionally, use `cn()` from `@/lib/utils` (clsx + tailwind-merge). Direct string concatenation drops the last class when there's a conflict (e.g. both `text-sm` and `text-base` applied).
 
 ### Performance
 - The hero or first above-fold `<Image>` must have `priority` prop. Omitting it is the single most common LCP regression in Next.js — the image lazy-loads when it should preload.
@@ -78,6 +81,7 @@ For every file in the diff, check the categories below. Skip categories that don
 - Never trust privilege flags in `searchParams` (e.g. `?isAdmin=true`) — URL params are user-controlled.
 - External links use `rel="noopener noreferrer"` alongside `target="_blank"`.
 - No secrets, API keys, or credentials in source files or committed `.env` files.
+- `next.config.js` (or `next.config.ts`) should set security response headers for all routes: `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`. A Content-Security-Policy is optional for a fully static site but blocks inline script injection if ever added later. Vercel does not add these automatically.
 
 ### Accessibility
 - Custom interactive elements (`<div onClick>`, `<span onClick>`) need an explicit `role` and `onKeyDown` handler — without them they are invisible to screen readers and inaccessible via keyboard.
@@ -87,10 +91,16 @@ For every file in the diff, check the categories below. Skip categories that don
 - Form errors must use `aria-describedby` pointing to the error element ID so screen readers associate the message with the field.
 - Color contrast: the project's gold-on-cream pairing (`#C9A84C` on `#faf9f6`) often fails WCAG AA (4.5:1 minimum). Flag UI changes that use this combination and note it needs a contrast check.
 
+### Testing & CI
+- Complex utility functions, custom hooks, or non-trivial business logic should have unit tests. Flag new logic in `src/lib/` or `src/hooks/` with no test coverage.
+- Critical user flows (navigation Home → Gallery, check-in tab switching) warrant at least one E2E smoke test (Playwright or Cypress). Flag new interactive flows that lack coverage.
+- `bun run build` and `bun run lint` must pass. Flag any change that would break the CI pipeline.
+
 ### Project conventions (from `CLAUDE.md`)
 - Content changes belong in `src/data/`, not hardcoded in components.
 - `bun` is the package manager — no `package-lock.json` or `yarn.lock` introduced.
-- No new `"use client"` components unless strictly necessary; the existing client components are `Header`, `TableOfContents`, `FarewellChecklist`, `DirectionsTabs`.
+- No new `"use client"` components unless strictly necessary; the existing client components are `Header`, `TableOfContents`, `FarewellChecklist`, `DirectionsTabs`, `PhotoGrid`, `ReviewsCarousel`, `FadeIn`.
+- Before writing a custom UI primitive, check whether an existing shadcn/ui component covers the need. Adding a shadcn component is cheaper than maintaining a bespoke one.
 
 ### General quality
 - No dead code, commented-out blocks, or debug `console.log` statements.
