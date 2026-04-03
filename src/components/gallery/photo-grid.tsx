@@ -4,11 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Lightbox from "yet-another-react-lightbox";
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/styles.css";
-
-const LIGHTBOX_PLUGINS = [Fullscreen, Zoom];
+import { useLightbox, LIGHTBOX_PLUGINS } from "@/hooks/use-lightbox";
 
 interface Photo {
   src: string;
@@ -18,7 +14,7 @@ interface Photo {
 }
 
 export default function PhotoGrid({ images }: { images: Photo[] }) {
-  const [open, setOpen] = useState(false);
+  const { open, setOpen } = useLightbox();
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const slides = images.map((img) => ({ src: img.src }));

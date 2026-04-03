@@ -1,19 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Maximize2 } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/styles.css";
+import { useLightbox, LIGHTBOX_PLUGINS } from "@/hooks/use-lightbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import StepCard from "@/components/check-in/step-card";
 import TransportModal from "@/components/check-in/transport-modal";
 import { byCar, byFoot, overviewStep } from "@/data/check-in-steps";
 
 export default function DirectionsTabs() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const { open: lightboxOpen, setOpen: setLightboxOpen } = useLightbox();
 
   return (
     <>
@@ -48,7 +45,7 @@ export default function DirectionsTabs() {
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}
         slides={[{ src: overviewStep.image }]}
-        plugins={[Fullscreen, Zoom]}
+        plugins={LIGHTBOX_PLUGINS}
       />
 
     <Tabs defaultValue="car" className="w-full">
