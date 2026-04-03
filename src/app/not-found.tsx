@@ -31,11 +31,8 @@ export default function NotFound() {
           <Button variant="gold" asChild>
             <Link href="/check-in">Check-in</Link>
           </Button>
-          <Button variant="outline" asChild>
+          <Button variant="navy" asChild>
             <Link href="/guide">House Guide</Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/listing">The Space</Link>
           </Button>
         </div>
       </FadeIn>
