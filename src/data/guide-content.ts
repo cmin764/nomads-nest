@@ -25,18 +25,7 @@ export const guideSections: GuideSection[] = [
       { text: "Flexible times if possible and agreed beforehand", note: true },
 
       { text: "Reaching the place", heading: true },
-      { text: "Look for our detailed check-in instructions on the Check-in page.", url: "/check-in" },
-
-      { text: "By car", heading: true },
-      { text: "📍 Google Maps: search 'Nomad\u2019s Nest - Apartment for rent'", url: "https://maps.app.goo.gl/RJ2s8CroHHJgRpft6" },
-      { text: "Make sure to park only in the uncovered area (adjacent to the covered parking space), where there are usually 3 empty spots reserved for tourists." },
-      { text: "Do not park in the covered area. That's reserved for residents only. Make sure you won't block other cars." },
-      { text: "Parking is first-come, first-served. If the lot is full, there's a municipal parking nearby, free of charge.", url: "https://maps.app.goo.gl/6VXXnnvy5t3ovxHF7" },
-
-      { text: "By public transport", heading: true },
-      { text: "Option 1 (most convenient): Direct shuttle from the airport, Kapnos Airport Shuttle", url: "https://kapnosairportshuttle.com/" },
-      { text: "Option 2 (cheapest): Bus from the airport to Larnaca, then Finikoudes (Larnaca Marina) to Ayia Napa via IntercityBuses or OSEA." },
-      { text: "Option 3 (fastest): Taxi or ridesharing services like Bolt." },
+      { text: "Check-in directions, transport options, and bus routes are all on the Check-in page.", url: "/check-in" },
 
       { text: "Entering the Apartment", heading: true },
       { text: "Use the lockbox on the right wall: insert the code, pull the trigger down, and retrieve your key set." },
