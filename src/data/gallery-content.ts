@@ -147,3 +147,22 @@ export const galleryIndexRooms = allRooms;
 
 export const introQuote =
   "Every corner tells its own story. Walk through and see for yourself.";
+
+// Special cards appended to the bottom of the gallery index grid
+export const gallerySpecialCards = [
+  {
+    href: "/safety",
+    image: { src: "/images/gallery/safety/CMN01759.JPG", alt: "Safety measures" },
+    name: "Safety",
+    tagline: "Your peace of mind",
+  },
+  {
+    href: "/landmarks",
+    image: {
+      src: "/images/gallery/landmarks/DJI_0667.JPG",
+      alt: "Aerial view of Nissi Beach cove with turquoise water, sunbeds, and Cape Greco headland",
+    },
+    name: "Landmarks",
+    tagline: "Discover the neighbourhood",
+  },
+] as const;

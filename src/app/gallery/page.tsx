@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { MapPin, ShieldCheck } from "lucide-react";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
-import { galleryIndexRooms, introQuote } from "@/data/gallery-content";
+import { galleryIndexRooms, introQuote, gallerySpecialCards } from "@/data/gallery-content";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -74,7 +74,7 @@ export default function GalleryPage() {
         {/* Row 4 left: Safety — special card */}
         <FadeIn delay={0.42}>
           <Link
-            href="/safety"
+            href={gallerySpecialCards[0].href}
             className="group block rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
           >
@@ -83,8 +83,8 @@ export default function GalleryPage() {
               style={{ background: "var(--navy)" }}
             >
               <Image
-                src="/images/gallery/safety/CMN01759.JPG"
-                alt="Safety measures"
+                src={gallerySpecialCards[0].image.src}
+                alt={gallerySpecialCards[0].image.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, 33vw"
                 className="object-cover opacity-30 transition-transform duration-500 group-hover:scale-105"
@@ -98,13 +98,13 @@ export default function GalleryPage() {
                 className="font-heading italic font-light text-[17px] mb-1"
                 style={{ color: "var(--text)" }}
               >
-                Safety
+                {gallerySpecialCards[0].name}
               </p>
               <p
                 className="text-[11px] font-normal"
                 style={{ color: "var(--muted-text)" }}
               >
-                Your peace of mind
+                {gallerySpecialCards[0].tagline}
               </p>
             </div>
           </Link>
@@ -113,7 +113,7 @@ export default function GalleryPage() {
         {/* Row 4 right: Landmarks — special card */}
         <FadeIn delay={0.49}>
           <Link
-            href="/landmarks"
+            href={gallerySpecialCards[1].href}
             className="group block rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
           >
@@ -122,8 +122,8 @@ export default function GalleryPage() {
               style={{ background: "var(--surface-alt)" }}
             >
               <Image
-                src="/images/gallery/landmarks/DJI_0667.JPG"
-                alt="Aerial view of Nissi Beach cove with turquoise water, sunbeds, and Cape Greco headland"
+                src={gallerySpecialCards[1].image.src}
+                alt={gallerySpecialCards[1].image.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -139,13 +139,13 @@ export default function GalleryPage() {
                 className="font-heading italic font-light text-[17px] mb-1"
                 style={{ color: "var(--text)" }}
               >
-                Landmarks
+                {gallerySpecialCards[1].name}
               </p>
               <p
                 className="text-[11px] font-normal"
                 style={{ color: "var(--muted-text)" }}
               >
-                Discover the neighbourhood
+                {gallerySpecialCards[1].tagline}
               </p>
             </div>
           </Link>

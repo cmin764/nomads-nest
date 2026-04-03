@@ -5,6 +5,7 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
+import { cn } from "@/lib/utils";
 import { landmarksIntro, landmarks, guidebookUrl } from "@/data/landmarks-content";
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ export default function LandmarksPage() {
               >
                 {/* Image — alternates left/right on desktop */}
                 <div
-                  className={`relative aspect-[4/3] sm:aspect-auto sm:min-h-[280px] overflow-hidden${isEven ? " sm:order-1" : " sm:order-2"}`}
+                  className={cn("relative aspect-[4/3] sm:aspect-auto sm:min-h-[280px] overflow-hidden", isEven ? "sm:order-1" : "sm:order-2")}
                   style={{ background: "var(--surface-alt)" }}
                 >
                   <Image
@@ -69,7 +70,7 @@ export default function LandmarksPage() {
 
                 {/* Text */}
                 <div
-                  className={`flex flex-col justify-center px-8 py-8${isEven ? " sm:order-2" : " sm:order-1"}`}
+                  className={cn("flex flex-col justify-center px-8 py-8", isEven ? "sm:order-2" : "sm:order-1")}
                 >
                   <h2
                     className="font-heading font-light text-[clamp(22px,2.5vw,32px)] leading-[1.2] mb-4"

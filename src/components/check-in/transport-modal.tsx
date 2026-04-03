@@ -14,6 +14,9 @@ import {
   fromLarnacaAirport,
   fromPaphosAirport,
   localRoutes,
+  localRoutesTitle,
+  localRoutesFooter,
+  closestStopName,
   type TransportSection,
 } from "@/data/transport-content";
 
@@ -97,7 +100,7 @@ export default function TransportModal() {
           {/* Local OSEA routes */}
           <div>
             <h3 className="font-heading font-light text-[15px] text-foreground mb-3">
-              Moving Around Ayia Napa
+              {localRoutesTitle}
             </h3>
             <div className="rounded-[10px] bg-muted border border-border px-4 py-3 space-y-1.5">
               {localRoutes.map((r) => (
@@ -109,12 +112,12 @@ export default function TransportModal() {
               <p className="text-[12px] text-muted-foreground pt-1 border-t border-border mt-2">
                 Full timetables at{" "}
                 <Link
-                  href="https://osea.com.cy/en/bus-routes/"
+                  href={localRoutesFooter.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline"
                 >
-                  osea.com.cy
+                  {localRoutesFooter.label}
                 </Link>
               </p>
             </div>
@@ -122,7 +125,7 @@ export default function TransportModal() {
 
           {/* Closest stop note */}
           <p className="text-[12px] text-muted-foreground border-t border-border pt-4">
-            Closest InterCity stop to the apartment: <strong className="text-foreground">Ayia Napa Monastery</strong>, about a 10-minute walk.
+            Closest InterCity stop to the apartment: <strong className="text-foreground">{closestStopName}</strong>, about a 10-minute walk.
           </p>
         </div>
       </DialogContent>

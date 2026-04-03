@@ -82,3 +82,7 @@ export const localRoutes: LocalRoute[] = [
   { number: "101 / 102", description: "Coastal run: Waterpark, Cape Greco, Protaras, Paralimni" },
   { number: "711", description: "Ayia Napa to Larnaca via coast (two-way)" },
 ];
+
+export const localRoutesTitle = "Moving Around Ayia Napa";
+export const localRoutesFooter = { label: "osea.com.cy", url: "https://osea.com.cy/en/bus-routes/" };
+export const closestStopName = "Ayia Napa Monastery";
