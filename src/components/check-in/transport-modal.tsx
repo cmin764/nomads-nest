@@ -15,6 +15,7 @@ import {
   fromPaphosAirport,
   localRoutes,
   type TransportSection,
+  type TransportFooterLink,
 } from "@/data/transport-content";
 
 function Section({ section }: { section: TransportSection }) {
@@ -51,6 +52,24 @@ function Section({ section }: { section: TransportSection }) {
           </div>
         ))}
       </div>
+      {section.footer && (
+        <p className="text-[12px] text-muted-foreground mt-2">
+          Full timetables at{" "}
+          {section.footer.map((link: TransportFooterLink, i: number) => (
+            <span key={link.url}>
+              <Link
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                {link.label}
+              </Link>
+              {i < section.footer!.length - 1 && " and "}
+            </span>
+          ))}
+        </p>
+      )}
     </div>
   );
 }

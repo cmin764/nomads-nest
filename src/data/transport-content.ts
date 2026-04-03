@@ -5,10 +5,16 @@ export interface TransportOption {
   warning?: boolean; // renders in gold/amber tone
 }
 
+export interface TransportFooterLink {
+  label: string;
+  url: string;
+}
+
 export interface TransportSection {
   id: string;
   title: string;
   options: TransportOption[];
+  footer?: TransportFooterLink[];
 }
 
 export interface LocalRoute {
@@ -20,21 +26,25 @@ export interface LocalRoute {
 export const fromLarnacaAirport: TransportSection = {
   id: "lca",
   title: "From Larnaca Airport (LCA)",
+  footer: [
+    { label: "publictransport.com.cy", url: "https://www.publictransport.com.cy/routes/page/routes-and-timetables?agency=10" },
+    { label: "intercity-buses.com", url: "https://intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/" },
+  ],
   options: [
     {
       label: "Kapnos Airport Shuttle",
-      detail: "Direct to Ayia Napa. EUR 12. Book online at kapnosairportshuttle.com — seats fill up in summer.",
+      detail: "Direct to Ayia Napa. Around EUR 10-12 — check kapnosairportshuttle.com for the current fare. Seats fill up in summer, book ahead.",
       url: "https://kapnosairportshuttle.com/",
     },
     {
       label: "Pame Bus 425 + InterCity",
       detail:
-        "Bus 425 from the airport to Larnaca city (every 30 min, 06:30-midnight, ~25 min). Get off at Finikoudes / Arch. Makariou stop, then take an InterCity bus to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
+        "Bus 425 from the airport to Larnaca city (every 20-30 min, early morning to late evening, ~25 min). Get off at Finikoudes / Arch. Makariou, then take InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
       url: "https://intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/",
     },
     {
       label: "Taxi or Bolt",
-      detail: "Around EUR 80-100. Only makes sense if splitting with a group.",
+      detail: "Typically EUR 70-90, higher at night or in peak season.",
       warning: true,
     },
   ],
@@ -59,7 +69,7 @@ export const fromPaphosAirport: TransportSection = {
     },
     {
       label: "Taxi or Bolt",
-      detail: "EUR 120-150+ from Paphos. Not recommended.",
+      detail: "EUR 120-150+ from Paphos.",
       warning: true,
     },
   ],
