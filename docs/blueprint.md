@@ -58,7 +58,7 @@ Three families only. No exceptions.
 
   /* Text */
   --text:        #1B2A4A;   /* same as --navy */
-  --muted:       #6A7D99;   /* secondary text, labels */
+  --muted:       #4E6078;   /* secondary text, labels */
   --border:      #D5DDE9;   /* dividers, card borders */
   --cream:       #EDE8DC;   /* fixed light token — overlay text on dark photos */
 
@@ -74,7 +74,7 @@ Three families only. No exceptions.
   --navy-lt:     #1A3A6A;
   --gold-lt:     #1E1408;
   --text:        #EDE8DC;
-  --muted:       #7A8EAA;
+  --muted:       #8898B0;
   --border:      #18304E;
   /* --navy, --navy-mid, --gold, --gold-dk: unchanged */
 }
@@ -90,7 +90,7 @@ Three families only. No exceptions.
 | `--surface` | #FFFFFF | #0D1F3C | Cards, nav |
 | `--navy` | #1B2A4A | unchanged | Primary text |
 | `--gold` | #B8924A | unchanged | CTAs, active |
-| `--muted` | #6A7D99 | #7A8EAA | Secondary text |
+| `--muted` | #4E6078 | #8898B0 | Secondary text |
 | `--cream` | #EDE8DC | unchanged | Overlay text on dark photos |
 
 ### 2.2 Typography

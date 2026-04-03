@@ -19,7 +19,7 @@
 
   /* Semantic */
   --text:        #1B2A4A;
-  --muted-text:  #6A7D99;
+  --muted-text:  #4E6078;
   --divider:     #D5DDE9;
   --cream:       #EDE8DC; /* always-light text for overlays on dark photos */
 
@@ -53,7 +53,7 @@
   --navy-lt:     #1A3A6A;
   --gold-lt:     #1E1408;
   --text:        #EDE8DC;
-  --muted-text:  #7A8EAA;
+  --muted-text:  #8898B0;
   --divider:     #18304E;
 }
 
