@@ -30,12 +30,11 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
             key={img.src}
             onClick={() => { setLightboxIndex(i); setOpen(true); }}
             className={cn(
-              "relative overflow-hidden rounded-xl cursor-pointer group",
+              "relative overflow-hidden rounded-xl cursor-pointer group bg-surface-alt",
               i === 0
                 ? "aspect-video col-span-2 sm:row-span-2"
                 : "aspect-[4/3] sm:aspect-auto",
             )}
-            style={{ background: "var(--surface-alt)" }}
             aria-label={`Open photo ${i + 1}`}
           >
             <Image
@@ -56,8 +55,7 @@ export default function PhotoGrid({ images }: { images: Photo[] }) {
             <button
               key={img.src}
               onClick={() => { setLightboxIndex(i + 3); setOpen(true); }}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl cursor-pointer group"
-              style={{ background: "var(--surface-alt)" }}
+              className="relative aspect-[4/3] overflow-hidden rounded-xl cursor-pointer group bg-surface-alt"
               aria-label={`Open photo ${i + 4}`}
             >
               <Image

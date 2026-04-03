@@ -24,9 +24,8 @@ export default function HomePage() {
           sm:grid-cols-[1.7fr_1fr_1fr] sm:grid-rows-1 sm:h-[420px]">
           {/* Terrace — top-left on mobile, large left on desktop */}
           <div
-            className="relative rounded-[10px] overflow-hidden
+            className="relative rounded-[10px] overflow-hidden bg-surface-alt
               col-start-1 row-start-1"
-            style={{ background: "var(--surface-alt)" }}
           >
             <Image
               src="/images/gallery/terrace/A-terrace-1.JPG"
@@ -73,25 +72,16 @@ export default function HomePage() {
 
         {/* Headline block */}
         <div className="text-center max-w-[760px] mx-auto">
-          <p
-            className="text-[10px] uppercase tracking-[.20em] mb-6"
-            style={{ color: "var(--muted-text)" }}
-          >
+          <p className="text-[10px] uppercase tracking-[.20em] mb-6 text-nn-muted">
             Famagusta, Cyprus
           </p>
-          <h1
-            className="font-heading italic font-light text-[clamp(48px,6vw,72px)] leading-[1.1] mb-6"
-            style={{ color: "var(--text)" }}
-          >
+          <h1 className="font-heading italic font-light text-[clamp(48px,6vw,72px)] leading-[1.1] mb-6 text-nn-text">
             Living well<br />in <em className="italic text-primary">Ayia Napa</em>
           </h1>
           <div className="mb-8">
             <GoldenDivider />
           </div>
-          <p
-            className="text-[16px] font-light leading-[1.8] mb-10 max-w-[560px] mx-auto"
-            style={{ color: "var(--muted-text)" }}
-          >
+          <p className="text-[16px] font-light leading-[1.8] mb-10 max-w-[560px] mx-auto text-nn-muted">
             10 minutes&apos; walk from the city centre. 20 minutes&apos; walk from the beach.
             A space designed to let you relax, work, and explore at your own pace.
           </p>
@@ -108,8 +98,8 @@ export default function HomePage() {
 
       {/* ── Memory section ── */}
       <section
-        className="relative flex items-center justify-center text-center px-4"
-        style={{ minHeight: "60vh", background: "var(--navy)" }}
+        className="relative flex items-center justify-center text-center px-4 bg-navy"
+        style={{ minHeight: "60vh" }}
       >
         {/* Background image (with dark overlay) */}
         <div className="absolute inset-0 overflow-hidden">
@@ -122,10 +112,7 @@ export default function HomePage() {
           />
         </div>
         <div className="relative z-10 max-w-[640px] mx-auto py-24">
-          <h2
-            className="font-heading font-light text-[clamp(32px,4vw,48px)] leading-[1.2] mb-5"
-            style={{ color: "var(--cream)" }}
-          >
+          <h2 className="font-heading font-light text-[clamp(32px,4vw,48px)] leading-[1.2] mb-5 text-cream">
             A place to make memories
           </h2>
           <p

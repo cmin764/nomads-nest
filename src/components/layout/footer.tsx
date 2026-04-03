@@ -3,20 +3,14 @@ import { address, contactEmail, contactWhatsApp } from "@/data/contact-content";
 
 export default function Footer() {
   return (
-    <footer
-      className="mt-20"
-      style={{ borderTop: "1px solid var(--gold)" }}
-    >
-      <div
-        className="transition-colors duration-[450ms]"
-        style={{ background: "var(--surface)", color: "var(--text)" }}
-      >
+    <footer className="mt-20 border-t border-gold">
+      <div className="bg-surface text-nn-text transition-colors duration-[450ms]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
 
           {/* Logo */}
           <p
-            className="font-heading italic font-light leading-none tracking-[.04em] mb-10"
-            style={{ fontSize: "54px", color: "var(--text)" }}
+            className="font-heading italic font-light leading-none tracking-[.04em] mb-10 text-nn-text"
+            style={{ fontSize: "54px" }}
           >
             Nomad&apos;s Nest
           </p>
@@ -25,10 +19,7 @@ export default function Footer() {
 
             {/* Address + contact */}
             <div>
-              <address
-                className="not-italic text-sm leading-relaxed"
-                style={{ color: "var(--muted-text)" }}
-              >
+              <address className="not-italic text-sm leading-relaxed text-nn-muted">
                 {address.street}<br />
                 {address.city}, {address.country} {address.postcode}
               </address>
@@ -43,10 +34,7 @@ export default function Footer() {
 
             {/* Explore nav */}
             <div className="flex flex-col gap-2">
-              <p
-                className="text-[10px] uppercase tracking-[.16em] mb-1"
-                style={{ color: "var(--muted-text)" }}
-              >
+              <p className="text-[10px] uppercase tracking-[.16em] mb-1 text-nn-muted">
                 Explore
               </p>
               {[
@@ -63,10 +51,7 @@ export default function Footer() {
 
             {/* Legal */}
             <div className="flex flex-col gap-2">
-              <p
-                className="text-[10px] uppercase tracking-[.16em] mb-1"
-                style={{ color: "var(--muted-text)" }}
-              >
+              <p className="text-[10px] uppercase tracking-[.16em] mb-1 text-nn-muted">
                 Legal
               </p>
               {[
@@ -82,10 +67,7 @@ export default function Footer() {
 
           </div>
 
-          <p
-            className="mt-10 pt-6 text-xs nn-link"
-            style={{ borderTop: "1px solid var(--divider)" }}
-          >
+          <p className="mt-10 pt-6 text-xs nn-link border-t border-divider">
             © {new Date().getFullYear()}{" "}Nomad&apos;s Nest. All rights reserved.
           </p>
         </div>

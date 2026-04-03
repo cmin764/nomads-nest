@@ -65,8 +65,7 @@ export default function GalleryPage() {
             className="group block rounded-2xl overflow-hidden border border-divider bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
             <div
-              className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
-              style={{ background: "var(--navy)" }}
+              className="relative aspect-[4/3] overflow-hidden flex items-center justify-center bg-navy"
             >
               <Image
                 src={gallerySpecialCards[0].image.src}

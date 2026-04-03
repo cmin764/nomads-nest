@@ -81,6 +81,8 @@
   --color-gold:        var(--gold);
   --color-nn-text:     var(--text);
   --color-nn-muted:    var(--muted-text);
+  --color-cream:       var(--cream);
+  --color-navy:        var(--navy);
   --color-surface:     var(--surface);
   --color-surface-alt: var(--surface-alt);
   --color-divider:     var(--divider);

@@ -25,10 +25,7 @@ export default function GuideSection({ section }: GuideSectionProps) {
             if (item.heading) {
               return (
                 <div key={i} className="pt-5 pb-2 first:pt-3">
-                  <h3
-                    className="font-heading font-light italic text-[19px]"
-                    style={{ color: "var(--muted-text)" }}
-                  >
+                  <h3 className="font-heading font-light italic text-[19px] text-nn-muted">
                     {item.text}
                   </h3>
                 </div>
@@ -44,7 +41,6 @@ export default function GuideSection({ section }: GuideSectionProps) {
             })();
 
             const icon = item.highlight ? "⚠" : "→";
-            const iconColor = "var(--gold)";
 
             const textNode = item.url ? (
               item.url.startsWith("http") ? (
@@ -67,24 +63,13 @@ export default function GuideSection({ section }: GuideSectionProps) {
                   !isLast && "border-b border-border"
                 )}
               >
-                <span
-                  className="shrink-0 mt-[3px] text-[12px]"
-                  style={{ color: iconColor }}
-                  aria-hidden
-                >
+                <span className="shrink-0 mt-[3px] text-[12px] text-gold" aria-hidden>
                   {icon}
                 </span>
                 <span
                   className={cn(
-                    item.highlight
-                      ? "font-normal"
-                      : item.note
-                      ? "italic"
-                      : ""
+                    item.highlight ? "font-normal text-gold" : item.note ? "italic text-nn-muted" : "text-nn-muted"
                   )}
-                  style={{
-                    color: item.highlight ? "var(--gold)" : "var(--muted-text)",
-                  }}
                 >
                   {textNode}
                 </span>

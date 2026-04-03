@@ -4,8 +4,7 @@ export default function GoldenDivider({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={cn("mx-auto", className)}
-      style={{ width: "44px", height: "1px", background: "var(--gold)" }}
+      className={cn("mx-auto w-11 h-px bg-gold", className)}
     />
   );
 }

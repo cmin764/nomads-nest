@@ -33,28 +33,19 @@ export default function ContactPage() {
 
           {/* Left: contact info */}
           <div>
-            <p
-              className="text-[10px] font-normal uppercase tracking-[.20em] mb-6"
-              style={{ color: "var(--gold)" }}
-            >
+            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold">
               Get in Touch
             </p>
 
-            <h1
-              className="font-heading font-light text-[clamp(40px,5.5vw,64px)] leading-[1.05] mb-10"
-              style={{ color: "var(--text)" }}
-            >
+            <h1 className="font-heading font-light text-[clamp(40px,5.5vw,64px)] leading-[1.05] mb-10 text-nn-text">
               We&apos;d love to<br />
               <em className="italic text-primary">hear from you</em>
             </h1>
 
-            <div
-              className="space-y-5 text-[14px] font-light mb-10"
-              style={{ color: "var(--muted-text)" }}
-            >
+            <div className="space-y-5 text-[14px] font-light mb-10 text-nn-muted">
               <div>
-                <p style={{ color: "var(--text)" }}>{host1}</p>
-                <p style={{ color: "var(--text)" }}>{host2}</p>
+                <p className="text-nn-text">{host1}</p>
+                <p className="text-nn-text">{host2}</p>
               </div>
 
               <div>
@@ -139,22 +130,16 @@ export default function ContactPage() {
       <FadeIn delay={0.03}>
         <div className="text-center max-w-2xl mx-auto">
           <span
-            className="block font-heading leading-none select-none -mb-4"
-            style={{ color: "var(--gold)", opacity: 0.35, fontSize: "clamp(56px,7vw,80px)" }}
+            className="block font-heading leading-none select-none -mb-4 text-gold"
+            style={{ opacity: 0.35, fontSize: "clamp(56px,7vw,80px)" }}
             aria-hidden="true"
           >
             &ldquo;
           </span>
-          <p
-            className="font-heading italic font-light text-[clamp(17px,2vw,22px)] leading-relaxed mb-5"
-            style={{ color: "var(--text)" }}
-          >
+          <p className="font-heading italic font-light text-[clamp(17px,2vw,22px)] leading-relaxed mb-5 text-nn-text">
             {hostBlurb.text}
           </p>
-          <p
-            className="text-[10px] uppercase tracking-[.20em]"
-            style={{ color: "var(--gold)" }}
-          >
+          <p className="text-[10px] uppercase tracking-[.20em] text-gold">
             {hostBlurb.attribution}
           </p>
         </div>

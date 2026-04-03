@@ -66,6 +66,24 @@ Applied during all development, not just at review time.
 
 **Styling**
 - When a component accepts a `className` prop or builds class strings conditionally, use `cn()` from `@/lib/utils`. Direct string concatenation silently drops a class when two utilities target the same CSS property.
+- Prefer Tailwind utility classes over `style={{ ... }}` for design tokens. `globals.css` maps these custom tokens to Tailwind utilities via `@theme inline`:
+  - **Text:** `text-gold`, `text-nn-text`, `text-nn-muted`, `text-cream`, `text-divider`, `text-navy`
+  - **Background:** `bg-gold`, `bg-navy`, `bg-surface`, `bg-surface-alt`, `bg-divider`
+  - **Border:** `border-gold`, `border-divider`
+  - **Hover/conditional:** `hover:text-gold`, `hover:border-gold` etc. work because these map through `--color-*`
+  - **shadcn tokens** (`text-foreground`, `text-muted-foreground`, `bg-card`, `border-border`, etc.) are also mapped and available
+- Three situations where inline `style` is legitimate and should stay:
+  1. **Tint/opacity variants** with no utility: `--navy-lt`, `--gold-lt` (no `bg-navy-lt` class exists).
+  2. **CSS functions** that can't be static utilities: `color-mix(in srgb, var(--cream) 70%, transparent)`.
+  3. **Non-token CSS properties**: `opacity`, `font-size: clamp(...)`, `min-height`, `aspect-ratio`, `transition` timing strings, `backdrop-filter`, `box-shadow` with `rgba()`.
+- **Split style pattern**: when a `style` object mixes a token (convertible) and a non-token (keep), move the token to `className` and leave only the non-token in `style`:
+  ```tsx
+  // Before
+  style={{ color: "var(--gold)", opacity: 0.35, fontSize: "clamp(56px,7vw,80px)" }}
+  // After
+  className="text-gold"
+  style={{ opacity: 0.35, fontSize: "clamp(56px,7vw,80px)" }}
+  ```
 
 **UI components**
 - Before writing a custom UI primitive, check if an existing shadcn/ui component covers the need. Adding one is cheaper than maintaining a bespoke equivalent.

@@ -23,7 +23,7 @@ export default function StepCard({ step, index, priority }: StepCardProps) {
           />
         </div>
         <div className="flex items-start gap-4 p-[22px_24px]">
-          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-[500] shrink-0 mt-0.5" style={{ background: "var(--gold)", color: "#F5F2EC" }}>
+          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-[500] shrink-0 mt-0.5 bg-gold text-cream">
             {index + 1}
           </span>
           <div>
