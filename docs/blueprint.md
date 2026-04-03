@@ -1,7 +1,7 @@
 # Nomad's Nest — Site Blueprint
 > Single source of truth for all development. Supersedes `nomadsnest-design-spec.md` and `nomadsnest-rebuild-spec.md`. The design HTML (`nomadsnest-design.html`) remains as an interactive visual reference.
 >
-> Last updated: March 2026 (Phase 3 complete)
+> Last updated: April 2026 (Phase 4 complete)
 
 ---
 
@@ -239,6 +239,9 @@ Platform icon container: 44×44px circle (`w-11 h-11`), `background: var(--surfa
 | `/privacy-policy` | Privacy Policy | Both | Built (Phase 3) |
 | `/terms` | Terms & Conditions | Both | Built (Phase 3) |
 | `/data-protection` | Data Protection Notice | Both | Built (Phase 3) |
+| `/safety` | Safety | Public | Built (Phase 4) |
+| `/landmarks` | Landmarks | Public | Built (Phase 4) |
+| `*` (404) | Not Found | Both | Built (Phase 4) |
 
 ### 3.2 Navigation Structure
 
@@ -276,16 +279,21 @@ src/data/
   book-content.ts         ← exists (pricing table, platform links, fees, discounts, limits; contactEmail + contactWhatsApp re-exported from contact-content.ts)
   contact-content.ts      ← exists (address, contactEmail, contactWhatsApp, hosts, mapUrl, mapEmbedUrl, social, quote, contactImage)
   legal-content.ts        ← exists (LegalSection/LegalPage interfaces; privacyPolicy, termsAndConditions, dataProtection exports)
+  safety-content.ts       ← exists (safetyMeasures[], emergencyInfo)
+  landmarks-content.ts    ← exists (landmarks[])
+  transport-content.ts    ← exists (TransportSection[] for bus routes modal on /check-in)
 ```
 
 ### 3.4 Key Third-Party Packages
 
 | Package | Purpose |
 |---|---|
-| `embla-carousel-react` | Reviews carousel, homepage hero slideshow |
-| `yet-another-react-lightbox` | Gallery sub-page photo lightbox |
-| `framer-motion` | Scroll fade-in (already installed) |
-| `lucide-react` | Icons (already installed) |
+| `embla-carousel-react` | Reviews carousel on /listing |
+| `yet-another-react-lightbox` | Gallery photo lightbox (wrapped by `src/hooks/use-lightbox.ts`) |
+| `framer-motion` | Scroll fade-in via `FadeIn` wrapper |
+| `lucide-react` | Icons |
+| `shadcn/ui` | `button`, `tabs`, `dialog` components |
+| `@vercel/analytics` | Page-view analytics (injected in `layout.tsx`) |
 
 ---
 
@@ -421,19 +429,24 @@ description: "48 sqm apartment with terrace, dedicated workspace, and fiber opti
 **Intro text:**
 > "This stylish apartment combines comfort and elegance, featuring a serene marine-themed bedroom in soothing blue tones, a cozy living area, a fully equipped kitchen, and a spacious terrace where you can unwind and enjoy the fresh air."
 
-**6-card grid** (3 columns desktop, 2 mobile — 2×3 layout):
+**8-card grid** (2 columns × 4 rows):
 
-| Room | Tagline | Emoji | Route |
-|---|---|---|---|
-| Entrance | *Step inside* | 🚪 | `/gallery/entrance` |
-| Bedroom | *Feel the sea breeze* | 🛏 | `/gallery/bedroom` |
-| Bathroom | *Start fresh, end relaxed* | 🚿 | `/gallery/bathroom` |
-| Kitchen | *Savor the moment* | 🍳 | `/gallery/kitchen` |
-| Living Area | *Your cozy corner* | 🛋 | `/gallery/living-area` |
-| Terrace | *Sun, coffee & palm trees* | ☀ | `/gallery/terrace` |
+**Top 6 rows — standard room cards** (no emoji):
 
-Card layout: cover image (top) + room name (serif, 16px) + photo count (muted, 11px).
-Thumbnail image filenames from rebuild spec §4.3 (CDN URLs available there).
+| Room | Tagline | Route |
+|---|---|---|
+| Entrance | *Step inside* | `/gallery/entrance` |
+| Bedroom | *Feel the sea breeze* | `/gallery/bedroom` |
+| Bathroom | *Start fresh, end relaxed* | `/gallery/bathroom` |
+| Kitchen | *Savor the moment* | `/gallery/kitchen` |
+| Living Area | *Your cozy corner* | `/gallery/living-area` |
+| Terrace | *Sun, coffee & palm trees* | `/gallery/terrace` |
+
+Card layout: cover image (top) + room name (Playfair italic 17px) + photo count (muted 11px).
+
+**Bottom row — special cards:**
+- **Safety** (left): navy background, `ShieldCheck` icon overlay, links to `/safety`
+- **Landmarks** (right): cover image with `MapPin` + "Explore" gradient overlay, links to `/landmarks`
 
 **Metadata:**
 ```typescript
@@ -457,9 +470,9 @@ description: "Explore every room of Nomad's Nest — entrance, bedroom, bathroom
   ← Entrance            Living Area →      ← prev/next room nav
 ```
 
-**Photo grid:** Masonry or uniform grid, 3 columns desktop, 2 mobile. Click to open lightbox (`yet-another-react-lightbox`). Lightbox: fullscreen, prev/next arrows, keyboard navigation, swipe on mobile.
+**Photo grid:** 2-column grid (desktop). First image is hero-sized (col-span-2, row-span-2) on rooms with 3+ photos; remaining images are uniform `aspect-[4/3]`. Click to open lightbox (`yet-another-react-lightbox` via `src/hooks/use-lightbox.ts`). Lightbox: fullscreen, zoom, prev/next arrows, keyboard navigation, swipe on mobile.
 
-**Prev/Next navigation order:**
+**Prev/Next navigation order** (Safety and Landmarks are NOT in the cycle):
 ```
 Entrance → Bedroom → Bathroom → Kitchen → Living Area → Terrace → (wraps to Entrance)
 ```
@@ -637,6 +650,22 @@ Links from footer only. Not in main nav.
 
 ---
 
+### 4.10 Safety (`/safety`)
+
+Six safety measures in a 2-column card grid (1 column mobile), each with a photo, icon, heading, and description. Measures: CO detector, smoke detector, fire extinguisher, fire blanket, first aid kit, external CCTV. Emergency info block below (police 112, ambulance 112, nearest hospital with address). Linked from the Gallery index Safety card and from the Safety amenity card on `/listing`.
+
+Content: `src/data/safety-content.ts`
+
+---
+
+### 4.11 Landmarks (`/landmarks`)
+
+Seven Ayia Napa landmarks in an alternating image-left / image-right layout. Each card: landmark name (H2), short description, distance from the apartment. CTA at the bottom links to the Airbnb guidebook. Linked from the Gallery index Landmarks card.
+
+Content: `src/data/landmarks-content.ts`
+
+---
+
 ## 5. Image & Asset Strategy
 
 ### 5.1 Asset Organization
@@ -797,16 +826,22 @@ All media is tracked in **`config/media.yaml`**. Every image has a `status` fiel
 
 ---
 
-### Phase 4 — Polish
+### Phase 4 — Done ✓
 
-**Goal:** Production quality. Fast, accessible, refined.
-
-1. **Animation pass:** Verify IntersectionObserver fade-in on all sections. Check stagger timing.
-2. **Performance:** `bun run build` should pass. Lighthouse score ≥ 90 for Performance, Accessibility.
-3. **Mobile UX:** Test hamburger overlay on real device. Touch targets ≥ 44px. Gallery swipe.
-4. **Images:** Final compression pass. All images <500KB. Add `blurDataURL` on `next/image` components.
-5. **Accessibility:** All images have `alt` text. Color contrast meets WCAG AA. Focus states visible.
-6. **Dark mode flash prevention:** Verify IIFE in head script prevents unstyled flash on page load.
+- Gallery index rebuilt as 2×4 grid; Safety and Landmarks as special bottom-row cards
+- `/safety` page: 6 safety measures with photos + Cyprus emergency contacts
+- `/landmarks` page: 7 Ayia Napa landmarks, alternating layout, Airbnb guidebook CTA
+- Transport modal on `/check-in`: shadcn Dialog listing bus routes (OSEA, InterCity, Pame Bus 425) and airport transfers (Kapnos, taxi); routes documented in `docs/transport-routes.md`
+- Custom 404 page (`app/not-found.tsx`)
+- `useLightbox` hook extracted to `src/hooks/use-lightbox.ts`
+- CSS token sweep: all `style={{ color: "var(--token)" }}` replaced with Tailwind utility classes across entire codebase
+- Security response headers added to `next.config.ts`
+- Alt text audit: all images have descriptive alt text; decorative images use `alt=""`
+- Contrast improvements: muted text tokens raised to pass WCAG AA on both light and dark surfaces
+- Image optimisation pass: all images <500KB
+- Vercel Analytics added (`@vercel/analytics` in `layout.tsx`)
+- CLAUDE.md expanded with CSS token utility rules and split-style pattern
+- Security review conducted, all findings rejected (see GitHub issue #6)
 
 ---
 
@@ -853,14 +888,16 @@ Fees & rules:
 
 ### 7.4 Gallery Room Taglines
 
-| Room | Tagline | Emoji |
-|---|---|---|
-| Entrance | Step inside | 🚪 |
-| Bedroom | Feel the sea breeze | 🛏 🌊 |
-| Bathroom | Start fresh, end relaxed | 🚿 🫧 |
-| Kitchen | Savor the moment | 🍳 🍴 |
-| Living Area | Your cozy corner | 🛋 |
-| Terrace | Sun, coffee & palm trees | ☀ 🌴 |
+Emoji removed from all gallery pages in Phase 4.
+
+| Room | Tagline |
+|---|---|
+| Entrance | Step inside |
+| Bedroom | Feel the sea breeze |
+| Bathroom | Start fresh, end relaxed |
+| Kitchen | Savor the moment |
+| Living Area | Your cozy corner |
+| Terrace | Sun, coffee & palm trees |
 
 ### 7.5 Key Squarespace CDN URLs (for asset download)
 
@@ -907,11 +944,28 @@ Three states: system (default) / light / dark. See §2.10 for full spec. Key fil
 
 `src/components/ui/button.tsx` has `variant="gold"` (filled gold pill) and `variant="navy"` (outline navy pill). Both use `rounded-full` (100px radius) and Raleway 400, 11px uppercase. Dark-mode navy overrides via `.btn-navy` CSS class, not Tailwind arbitrary variants.
 
-### 8.5 Build Verification
+### 8.5 CSS Token Utilities
+
+All design tokens in `globals.css` `@theme inline` are mapped to Tailwind utility classes. Use these in `className`, not `style={{ color: "var(--token)" }}`:
+
+- **Text:** `text-gold`, `text-nn-text`, `text-nn-muted`, `text-cream`, `text-divider`, `text-navy`
+- **Background:** `bg-gold`, `bg-navy`, `bg-surface`, `bg-surface-alt`, `bg-divider`
+- **Border:** `border-gold`, `border-divider`
+
+Inline `style` is appropriate only for: tint variants without utilities (`--navy-lt`, `--gold-lt`), CSS functions (`color-mix(...)`), and non-token properties (`opacity`, `clamp(...)`, `min-height`, `backdrop-filter`). See CLAUDE.md §Styling for the split-style pattern.
+
+### 8.6 Security Headers
+
+`next.config.ts` sets three response headers on all routes:
+- `X-Frame-Options: DENY`
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+
+### 8.7 Build Verification
 
 After any phase: run `bun run build` before committing. TypeScript errors and missing images will surface here. Do not commit code that doesn't build.
 
-### 8.6 Deploy
+### 8.8 Deploy
 
 Vercel Hobby, auto-deploys on push to `main`. Domain `nomadsnest.live` with DNS on Squarespace (A record → `216.198.79.1`, www CNAME → `5fb214831078e66e.vercel-dns-017.com`).
 
@@ -924,7 +978,9 @@ Vercel Hobby, auto-deploys on push to `main`. Domain `nomadsnest.live` with DNS 
 | Font stack | Cormorant + Raleway | Design spec direction; lighter, more delicate than Playfair + Inter |
 | Default theme | System (follows OS preference) | Respects user's OS setting without forcing a choice; explicit light/dark override persisted to localStorage |
 | Theme toggle | System/light/dark, system default | Respects OS preference by default; user can override; persisted in localStorage |
-| Gallery scope | 6 rooms (no Safety/Landmarks) | Gallery = visual exploration of the apartment only; Safety in Guide, Landmarks future |
+| Gallery scope | 6 rooms + Safety/Landmarks special cards | Gallery = visual exploration of the apartment + trust/discovery signals; dedicated pages allow richer content than a card |
+| CSS token utilities | Tailwind classes over inline style vars | Avoids JIT cache misses; hover/focus variants work natively; rule enforced in CLAUDE.md |
+| Transport modal | shadcn Dialog on /check-in | All bus/transfer info in one dismissible overlay; keeps check-in flow clean without a separate page |
 | Book page | Platform cards only, no form | Bookings happen on platforms; avoids form maintenance and backend cost |
 | Guide/Check-in in nav | Hidden | Post-booking operational pages, not discovery pages |
 | Contact page | Separate page | Keeps Book page focused on pricing/platforms; Contact has its own personality |
