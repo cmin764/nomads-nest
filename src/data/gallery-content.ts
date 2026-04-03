@@ -12,6 +12,7 @@ export interface GalleryRoom {
   tagline: string;
   emoji: string;
   coverImage: string;
+  coverImagePosition?: string;
   images: { src: string; alt: string; width: number; height: number }[];
 }
 
@@ -134,6 +135,7 @@ export const allRooms: GalleryRoom[] = [
     tagline: "Step inside",
     emoji: "🚪",
     coverImage: base("entrance", "CMN02030.JPG"),
+    coverImagePosition: "center 20%",
     images: [
       { src: base("entrance", "CMN02024.JPG"), alt: "White apartment door number 5 from above with dracaena plant and wall lantern", width: 1333, height: 2000 },
       { src: base("entrance", "CMN02030.JPG"), alt: "White apartment door number 5 with chrome handle and MasterLock combination lockbox", width: 1365, height: 2048 },

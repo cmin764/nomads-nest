@@ -43,6 +43,7 @@ export default function GalleryPage() {
                   fill
                   sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={room.coverImagePosition ? { objectPosition: room.coverImagePosition } : undefined}
                   {...(i < 4 && { priority: true })}
                 />
               </div>
