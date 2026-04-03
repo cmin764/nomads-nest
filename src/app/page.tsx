@@ -22,10 +22,11 @@ export default function HomePage() {
         <div className="grid gap-3 mb-14
           grid-cols-2 grid-rows-2 h-[360px]
           sm:grid-cols-[1.7fr_1fr_1fr] sm:grid-rows-1 sm:h-[420px]">
-          {/* Terrace — top-left on mobile, large left on desktop */}
+          {/* Terrace — tall left column on mobile, large left on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden bg-surface-alt
-              col-start-1 row-start-1"
+              col-start-1 row-start-1 row-span-2
+              sm:row-span-1"
           >
             <Image
               src="/images/gallery/terrace/A-terrace-1.JPG"
@@ -36,10 +37,10 @@ export default function HomePage() {
               priority
             />
           </div>
-          {/* Bedroom — bottom-left on mobile, centre on desktop */}
+          {/* Bedroom — top-right on mobile, centre on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden
-              col-start-1 row-start-2
+              col-start-2 row-start-1
               sm:col-start-2 sm:row-start-1 sm:row-span-1"
             style={{ background: "var(--navy-lt)" }}
           >
@@ -52,10 +53,10 @@ export default function HomePage() {
               priority
             />
           </div>
-          {/* Work — full-height right column on mobile, right on desktop */}
+          {/* Work — bottom-right on mobile, right on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden
-              col-start-2 row-start-1 row-span-2
+              col-start-2 row-start-2
               sm:col-start-3 sm:row-span-1"
             style={{ background: "var(--gold-lt)" }}
           >
