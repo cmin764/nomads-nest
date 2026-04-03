@@ -33,7 +33,7 @@ export const fromLarnacaAirport: TransportSection = {
   options: [
     {
       label: "Kapnos Airport Shuttle",
-      detail: "Direct to Ayia Napa. Around EUR 10-12 — check kapnosairportshuttle.com for the current fare. Seats fill up in summer, book ahead.",
+      detail: "Direct to Ayia Napa. Around EUR 10-12 (check kapnosairportshuttle.com for the current fare). Seats fill up in summer, book ahead.",
       url: "https://kapnosairportshuttle.com/",
     },
     {
