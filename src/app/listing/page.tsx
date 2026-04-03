@@ -14,6 +14,7 @@ import {
   ctaImage,
   amenities,
   reviews,
+  videoTourUrl,
 } from "@/data/listing-content";
 
 export const metadata: Metadata = {
@@ -155,7 +156,7 @@ export default function ListingPage() {
         <FadeIn>
           <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
             <iframe
-              src="https://www.youtube.com/embed/c3RH-2O--MQ"
+              src={videoTourUrl}
               title="Nomad's Nest video tour"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"

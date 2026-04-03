@@ -55,7 +55,7 @@ function Section({ section }: { section: TransportSection }) {
       {section.footer && (
         <p className="text-[12px] text-muted-foreground mt-2">
           Full timetables at{" "}
-          {section.footer.map((link: TransportFooterLink, i: number) => (
+          {section.footer.map((link, i) => (
             <span key={link.url}>
               <Link
                 href={link.url}

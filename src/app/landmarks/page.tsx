@@ -49,7 +49,7 @@ export default function LandmarksPage() {
           return (
             <FadeIn key={landmark.name} delay={i * 0.06}>
               <div
-                className={`grid grid-cols-1 sm:grid-cols-2 rounded-2xl overflow-hidden border${isEven ? "" : ""}`}
+                className="grid grid-cols-1 sm:grid-cols-2 rounded-2xl overflow-hidden border"
                 style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
               >
                 {/* Image — alternates left/right on desktop */}

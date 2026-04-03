@@ -84,6 +84,8 @@ export const amenities: AmenityCard[] = [
   },
 ];
 
+export const videoTourUrl = "https://www.youtube.com/embed/c3RH-2O--MQ";
+
 export const reviews: Review[] = [
   {
     quote:

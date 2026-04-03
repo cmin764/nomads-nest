@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
 import FadeIn from "@/components/fade-in";
 import BrandIcon from "@/components/ui/brand-icon";
 import DiscountAccordion from "@/components/discount-accordion";
@@ -87,7 +88,7 @@ export default function BookPage() {
               style={{ background: "var(--surface-alt)" }}
             >
               {discounts.map((d, i) => (
-                <div key={d.period} className={`flex-1 flex items-center gap-3 ${i > 0 ? "border-l pl-3" : ""}`} style={{ borderColor: "var(--divider)" }}>
+                <div key={d.period} className={cn("flex-1 flex items-center gap-3", i > 0 && "border-l pl-3")} style={{ borderColor: "var(--divider)" }}>
                   <span className="text-[10px] uppercase tracking-[.14em] flex-1" style={{ color: "var(--muted-text)" }}>
                     {d.period}
                   </span>
