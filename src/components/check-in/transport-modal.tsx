@@ -15,7 +15,6 @@ import {
   fromPaphosAirport,
   localRoutes,
   type TransportSection,
-  type TransportFooterLink,
 } from "@/data/transport-content";
 
 function Section({ section }: { section: TransportSection }) {
