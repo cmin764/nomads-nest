@@ -77,6 +77,14 @@
   --color-border:                 var(--border);
   --color-input:                  var(--input);
   --color-ring:                   var(--ring);
+  /* NN design-token shortcuts — use these instead of inline style={{ color: "var(--...)" }} */
+  --color-gold:        var(--gold);
+  --color-nn-text:     var(--text);
+  --color-nn-muted:    var(--muted-text);
+  --color-surface:     var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-divider:     var(--divider);
+
   --font-sans:    var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-heading-var), Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);

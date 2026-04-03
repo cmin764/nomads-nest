@@ -19,18 +19,12 @@ export default function SafetyPage() {
       <FadeIn>
         <div className="text-center max-w-[680px] mx-auto mb-16">
           <div className="flex justify-center mb-6">
-            <ShieldCheck size={36} strokeWidth={1} style={{ color: "var(--gold)" }} />
+            <ShieldCheck size={36} strokeWidth={1} className="text-gold" />
           </div>
-          <h1
-            className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-3"
-            style={{ color: "var(--text)" }}
-          >
+          <h1 className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-3 text-nn-text">
             Your Peace of Mind
           </h1>
-          <p
-            className="font-heading italic font-light text-[16px] mb-8 leading-[1.7]"
-            style={{ color: "var(--muted-text)" }}
-          >
+          <p className="font-heading italic font-light text-[16px] mb-8 leading-[1.7] text-nn-muted">
             {safetyIntro}
           </p>
           <GoldenDivider />
@@ -41,14 +35,8 @@ export default function SafetyPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {safetyMeasures.map((measure, i) => (
           <FadeIn key={measure.title} delay={i * 0.07}>
-            <div
-              className="rounded-2xl overflow-hidden border h-full flex flex-col"
-              style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
-            >
-              <div
-                className="relative aspect-[4/3] overflow-hidden flex-shrink-0 flex items-center justify-center"
-                style={{ background: "var(--surface-alt)" }}
-              >
+            <div className="rounded-2xl overflow-hidden border border-divider bg-surface h-full flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0 flex items-center justify-center bg-surface-alt">
                 {measure.image ? (
                   <Image
                     src={measure.image.src}
@@ -59,20 +47,14 @@ export default function SafetyPage() {
                     {...(i < 3 && { priority: true })}
                   />
                 ) : (
-                  <Cctv size={64} strokeWidth={1} style={{ color: "var(--gold)" }} />
+                  <Cctv size={64} strokeWidth={1} className="text-gold" />
                 )}
               </div>
               <div className="px-6 py-5 flex-1">
-                <h2
-                  className="font-heading italic font-light text-[20px] mb-3"
-                  style={{ color: "var(--text)" }}
-                >
+                <h2 className="font-heading italic font-light text-[20px] mb-3 text-nn-text">
                   {measure.title}
                 </h2>
-                <p
-                  className="text-[13px] font-light leading-[1.75]"
-                  style={{ color: "var(--muted-text)" }}
-                >
+                <p className="text-[13px] font-light leading-[1.75] text-nn-muted">
                   {measure.description}
                 </p>
               </div>
@@ -83,14 +65,8 @@ export default function SafetyPage() {
 
       {/* ── Emergency note ── */}
       <FadeIn>
-        <div
-          className="rounded-2xl px-8 py-6 text-center border"
-          style={{ borderColor: "var(--divider)", background: "var(--surface-alt)" }}
-        >
-          <p
-            className="text-[13px] font-light leading-[1.75] mb-3"
-            style={{ color: "var(--muted-text)" }}
-          >
+        <div className="rounded-2xl px-8 py-6 text-center border border-divider bg-surface-alt">
+          <p className="text-[13px] font-light leading-[1.75] mb-3 text-nn-muted">
             {emergencyNote.callout}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -100,11 +76,10 @@ export default function SafetyPage() {
                 href={c.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13px] font-light leading-[1.75] hover:underline"
-                style={{ color: "var(--gold)" }}
+                className="text-[13px] font-light leading-[1.75] hover:underline text-gold"
               >
                 {c.name}
-                <span className="block text-[12px]" style={{ color: "var(--muted-text)" }}>
+                <span className="block text-[12px] text-nn-muted">
                   {c.detail}
                 </span>
               </a>

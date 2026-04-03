@@ -19,10 +19,7 @@ export default function GalleryPage() {
       {/* ── Intro ── */}
       <FadeIn>
         <div className="text-center max-w-[680px] mx-auto mb-16">
-          <p
-            className="font-heading italic font-light text-[clamp(18px,2.5vw,24px)] leading-[1.7] mb-8"
-            style={{ color: "var(--muted-text)" }}
-          >
+          <p className="font-heading italic font-light text-[clamp(18px,2.5vw,24px)] leading-[1.7] mb-8 text-nn-muted">
             &ldquo;{introQuote}&rdquo;
           </p>
           <GoldenDivider />
@@ -37,13 +34,9 @@ export default function GalleryPage() {
           <FadeIn key={room.slug} delay={i * 0.07}>
             <Link
               href={`/gallery/${room.slug}`}
-              className="group block rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
+              className="group block rounded-2xl overflow-hidden border border-divider bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div
-                className="relative aspect-[4/3] overflow-hidden"
-                style={{ background: "var(--surface-alt)" }}
-              >
+              <div className="relative aspect-[4/3] overflow-hidden bg-surface-alt">
                 <Image
                   src={room.coverImage}
                   alt={room.name}
@@ -54,16 +47,10 @@ export default function GalleryPage() {
                 />
               </div>
               <div className="px-5 py-4">
-                <p
-                  className="font-heading italic font-light text-[17px] mb-1"
-                  style={{ color: "var(--text)" }}
-                >
+                <p className="font-heading italic font-light text-[17px] mb-1 text-nn-text">
                   {room.name}
                 </p>
-                <p
-                  className="text-[11px] font-normal"
-                  style={{ color: "var(--muted-text)" }}
-                >
+                <p className="text-[11px] font-normal text-nn-muted">
                   {room.images.length} {room.images.length === 1 ? "photo" : "photos"}
                 </p>
               </div>
@@ -75,8 +62,7 @@ export default function GalleryPage() {
         <FadeIn delay={0.42}>
           <Link
             href={gallerySpecialCards[0].href}
-            className="group block rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
+            className="group block rounded-2xl overflow-hidden border border-divider bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
             <div
               className="relative aspect-[4/3] overflow-hidden flex items-center justify-center"
@@ -90,20 +76,14 @@ export default function GalleryPage() {
                 className="object-cover opacity-30 transition-transform duration-500 group-hover:scale-105"
               />
               <div className="relative z-10 flex flex-col items-center gap-3">
-                <ShieldCheck size={32} strokeWidth={1} style={{ color: "var(--gold)" }} />
+                <ShieldCheck size={32} strokeWidth={1} className="text-gold" />
               </div>
             </div>
             <div className="px-5 py-4">
-              <p
-                className="font-heading italic font-light text-[17px] mb-1"
-                style={{ color: "var(--text)" }}
-              >
+              <p className="font-heading italic font-light text-[17px] mb-1 text-nn-text">
                 {gallerySpecialCards[0].name}
               </p>
-              <p
-                className="text-[11px] font-normal"
-                style={{ color: "var(--muted-text)" }}
-              >
+              <p className="text-[11px] font-normal text-nn-muted">
                 {gallerySpecialCards[0].tagline}
               </p>
             </div>
@@ -114,13 +94,9 @@ export default function GalleryPage() {
         <FadeIn delay={0.49}>
           <Link
             href={gallerySpecialCards[1].href}
-            className="group block rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            style={{ borderColor: "var(--divider)", background: "var(--surface)" }}
+            className="group block rounded-2xl overflow-hidden border border-divider bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            <div
-              className="relative aspect-[4/3] overflow-hidden"
-              style={{ background: "var(--surface-alt)" }}
-            >
+            <div className="relative aspect-[4/3] overflow-hidden bg-surface-alt">
               <Image
                 src={gallerySpecialCards[1].image.src}
                 alt={gallerySpecialCards[1].image.alt}
@@ -130,21 +106,15 @@ export default function GalleryPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               <div className="absolute bottom-3 left-4 z-10 flex items-center gap-1.5">
-                <MapPin size={12} style={{ color: "var(--gold)" }} />
+                <MapPin size={12} className="text-gold" />
                 <span className="text-[10px] uppercase tracking-[.14em] text-white/80">Explore</span>
               </div>
             </div>
             <div className="px-5 py-4">
-              <p
-                className="font-heading italic font-light text-[17px] mb-1"
-                style={{ color: "var(--text)" }}
-              >
+              <p className="font-heading italic font-light text-[17px] mb-1 text-nn-text">
                 {gallerySpecialCards[1].name}
               </p>
-              <p
-                className="text-[11px] font-normal"
-                style={{ color: "var(--muted-text)" }}
-              >
+              <p className="text-[11px] font-normal text-nn-muted">
                 {gallerySpecialCards[1].tagline}
               </p>
             </div>
