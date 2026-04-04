@@ -1,37 +1,7 @@
-import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import { CheckInStep } from "@/data/check-in-steps";
-
-function renderWithLinks(
-  text: string,
-  links?: Array<{ text: string; url: string }>
-): React.ReactNode {
-  if (!links?.length) return text;
-  let parts: React.ReactNode[] = [text];
-  for (const { text: match, url } of links) {
-    parts = parts.flatMap((part) => {
-      if (typeof part !== "string") return [part];
-      const idx = part.indexOf(match);
-      if (idx === -1) return [part];
-      return [
-        part.slice(0, idx),
-        <Link
-          key={url}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
-        >
-          {match}
-        </Link>,
-        part.slice(idx + match.length),
-      ];
-    });
-  }
-  return parts;
-}
+import { renderWithLinks } from "@/lib/render-with-links";
 
 interface StepCardProps {
   step: CheckInStep;

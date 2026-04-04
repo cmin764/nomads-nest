@@ -1,7 +1,9 @@
+import { type InlineLink } from "@/lib/render-with-links";
+
 export interface TransportOption {
   label: string;
   detail: string;
-  detailLinks?: Array<{ text: string; url: string }>;
+  detailLinks?: InlineLink[];
   url?: string;
   warning?: boolean; // renders in gold/amber tone
 }

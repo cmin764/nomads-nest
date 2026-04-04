@@ -1,37 +1,7 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { Bus } from "lucide-react";
-
-function renderWithLinks(
-  text: string,
-  links?: Array<{ text: string; url: string }>
-): React.ReactNode {
-  if (!links?.length) return text;
-  let parts: React.ReactNode[] = [text];
-  for (const { text: match, url } of links) {
-    parts = parts.flatMap((part) => {
-      if (typeof part !== "string") return [part];
-      const idx = part.indexOf(match);
-      if (idx === -1) return [part];
-      return [
-        part.slice(0, idx),
-        <Link
-          key={url}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
-        >
-          {match}
-        </Link>,
-        part.slice(idx + match.length),
-      ];
-    });
-  }
-  return parts;
-}
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -49,6 +19,7 @@ import {
   closestStopName,
   type TransportSection,
 } from "@/data/transport-content";
+import { renderWithLinks } from "@/lib/render-with-links";
 
 function Section({ section }: { section: TransportSection }) {
   return (
@@ -71,7 +42,7 @@ function Section({ section }: { section: TransportSection }) {
                 href={opt.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
+                className="font-medium text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
               >
                 {opt.label}
               </Link>
@@ -93,7 +64,7 @@ function Section({ section }: { section: TransportSection }) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
+                className="text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
               >
                 {link.label}
               </Link>
@@ -145,7 +116,7 @@ export default function TransportModal() {
                   href={localRoutesFooter.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
+                  className="text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
                 >
                   {localRoutesFooter.label}
                 </Link>

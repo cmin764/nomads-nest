@@ -1,9 +1,11 @@
+import { type InlineLink } from "@/lib/render-with-links";
+
 export interface CheckInStep {
   image: string;
   alt: string;
   heading: string;
   description: string;
-  descriptionLinks?: Array<{ text: string; url: string }>;
+  descriptionLinks?: InlineLink[];
 }
 
 // Shown once above both tabs — applies to arrivals by car and on foot equally.
@@ -39,9 +41,9 @@ export const byCar: CheckInStep[] = [
     alt: "White building facade with large bird mural and car entrance arrow annotation",
     heading: "Complex Entrance",
     description:
-      "If coming by car, look for this bird mural, leading to the car park entrance. It's opposite to 'Ocean View Diving, Cyprus, Ayia Napa scuba diving'. Drive until the end of the road.",
+      "If coming by car, look for this bird mural, leading to the car park entrance. It's opposite to 'Ocean View Diving'. Drive until the end of the road.",
     descriptionLinks: [
-      { text: "Ocean View Diving, Cyprus, Ayia Napa scuba diving", url: "https://maps.app.goo.gl/NuY58ZUwenyVTrzH9" },
+      { text: "Ocean View Diving", url: "https://maps.app.goo.gl/NuY58ZUwenyVTrzH9" },
     ],
   },
   {
