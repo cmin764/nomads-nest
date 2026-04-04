@@ -1,6 +1,7 @@
 export interface TransportOption {
   label: string;
   detail: string;
+  detailLinks?: Array<{ text: string; url: string }>;
   url?: string;
   warning?: boolean; // renders in gold/amber tone
 }
@@ -39,7 +40,10 @@ export const fromLarnacaAirport: TransportSection = {
     {
       label: "Pame Bus 425 + InterCity",
       detail:
-        "Bus 425 from the airport to Larnaca city (every 20-30 min, early morning to late evening, ~25 min). Get off at Finikoudes / Arch. Makariou, then take InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
+        "Bus 425 from the airport to Larnaca Central Station (every 20-30 min, early morning to late evening, ~25 min). Walk ~3 min to Nicolaides Building on Archiep. Makariou Ave. (current InterCity stop — Finikoudes is temporarily under renovation) to catch InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
+      detailLinks: [
+        { text: "Larnaca Central Station", url: "https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7" },
+      ],
       url: "https://intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/",
     },
     {
@@ -64,7 +68,7 @@ export const fromPaphosAirport: TransportSection = {
     {
       label: "InterCity Bus from Paphos",
       detail:
-        "One bus per day departing Paphos Karavella at 07:30, arriving Ayia Napa Monastery. EUR 10. Only viable if you land very early.",
+        "One bus per day departing Paphos Karavella at 16:00, arriving Ayia Napa Monastery. EUR 10. Only viable if you land early enough in the afternoon.",
       url: "https://intercity-buses.com/en/routes/paralimni-ayia-napa-larnaca-paphos-paphos-larnaca-ayia-napa-paralimni/",
     },
     {

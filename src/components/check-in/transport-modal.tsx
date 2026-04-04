@@ -1,7 +1,37 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { Bus } from "lucide-react";
+
+function renderWithLinks(
+  text: string,
+  links?: Array<{ text: string; url: string }>
+): React.ReactNode {
+  if (!links?.length) return text;
+  let parts: React.ReactNode[] = [text];
+  for (const { text: match, url } of links) {
+    parts = parts.flatMap((part) => {
+      if (typeof part !== "string") return [part];
+      const idx = part.indexOf(match);
+      if (idx === -1) return [part];
+      return [
+        part.slice(0, idx),
+        <Link
+          key={url}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
+        >
+          {match}
+        </Link>,
+        part.slice(idx + match.length),
+      ];
+    });
+  }
+  return parts;
+}
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -41,7 +71,7 @@ function Section({ section }: { section: TransportSection }) {
                 href={opt.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-primary hover:underline"
+                className="font-medium text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
               >
                 {opt.label}
               </Link>
@@ -50,7 +80,7 @@ function Section({ section }: { section: TransportSection }) {
                 {opt.label}
               </span>
             )}
-            <p className="text-muted-foreground mt-0.5">{opt.detail}</p>
+            <p className="text-muted-foreground mt-0.5">{renderWithLinks(opt.detail, opt.detailLinks)}</p>
           </div>
         ))}
       </div>
@@ -63,7 +93,7 @@ function Section({ section }: { section: TransportSection }) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline"
+                className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
               >
                 {link.label}
               </Link>
@@ -86,7 +116,7 @@ export default function TransportModal() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="max-w-lg max-h-[85dvh] overflow-y-auto">
+      <DialogContent className="max-w-lg max-h-[85dvh] overflow-y-auto" aria-describedby={undefined}>
         <DialogHeader>
           <DialogTitle className="font-heading font-light text-[20px]">
             Getting Here by Public Transport
@@ -115,7 +145,7 @@ export default function TransportModal() {
                   href={localRoutesFooter.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
                 >
                   {localRoutesFooter.label}
                 </Link>

@@ -3,6 +3,7 @@ export interface CheckInStep {
   alt: string;
   heading: string;
   description: string;
+  descriptionLinks?: Array<{ text: string; url: string }>;
 }
 
 // Shown once above both tabs — applies to arrivals by car and on foot equally.
@@ -38,7 +39,10 @@ export const byCar: CheckInStep[] = [
     alt: "White building facade with large bird mural and car entrance arrow annotation",
     heading: "Complex Entrance",
     description:
-      "If coming by car, look for this bird mural, leading to the car park entrance. It's opposite to 'Ocean View Diving, Cyprus' (search on Google Maps). Drive until the end of the road.",
+      "If coming by car, look for this bird mural, leading to the car park entrance. It's opposite to 'Ocean View Diving, Cyprus, Ayia Napa scuba diving'. Drive until the end of the road.",
+    descriptionLinks: [
+      { text: "Ocean View Diving, Cyprus, Ayia Napa scuba diving", url: "https://maps.app.goo.gl/NuY58ZUwenyVTrzH9" },
+    ],
   },
   {
     image: "/images/check-in/self-checkin-car-2.jpg",
@@ -57,6 +61,9 @@ export const byFoot: CheckInStep[] = [
     heading: "Complex Entrance",
     description:
       "After passing the Euroshop store, keep walking straight. On your right side, you'll see a brown wooden fence. Enter through the access point, just like in the photo.",
+    descriptionLinks: [
+      { text: "Euroshop", url: "https://maps.app.goo.gl/FyeBJfKoLfWtL1aP7" },
+    ],
   },
   {
     image: "/images/check-in/self-checkin-2.jpg",
