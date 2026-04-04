@@ -176,28 +176,9 @@ When removing an image: delete the file, and every reference in `src/`.
 
 ### Transport data flow
 
-Bus routes and airport transfer info follows a three-layer pipeline:
+Three-layer pipeline: `docs/transport-routes.md` (authoritative research) → `src/data/transport-content.ts` (guest-facing typed constants) → `src/components/check-in/transport-modal.tsx` (Dialog UI, reads data only).
 
-**1. Source intel (`docs/transport-routes.md`)**
-The authoritative reference doc. Contains all researched route data: operators, stop names, frequencies, prices, PDF links, and source citations. Update this first whenever timetables change or new routes appear. Never hard-code specific departure times here — schedules drift seasonally. Instead record general frequency and link to official timetables.
-
-Primary sources to check when updating:
-- intercity-buses.com (InterCity — prices and route pages)
-- osea.com.cy/en/bus-routes/ (OSEA — seasonal PDF timetables)
-- publictransport.com.cy (Pame / Cyprus Public Transport — Bus 425)
-- kapnosairportshuttle.com (Kapnos — booking widget, no static timetable)
-- Moovit / CyprusByBus / Google Maps (cross-reference for unofficial/new routes like Line 43)
-
-**2. Guest-facing data (`src/data/transport-content.ts`)**
-Typed TypeScript constants consumed by the modal. Derives from the reference doc but simplified for guests: no raw timetable lists, only what a guest needs to make a decision (option name, key detail, booking link). Edit content here, not in the component. The `footer` array on each `TransportSection` renders "Full timetables at..." links below the option cards.
-
-**3. UI (`src/components/check-in/transport-modal.tsx`)**
-Client component rendering the Dialog. Reads from `transport-content.ts`. Do not put copy here — keep it in the data file.
-
-**Update checklist** (e.g. when a price changes or a new route appears):
-1. Update `docs/transport-routes.md` with the new info and source.
-2. Reflect the change in `src/data/transport-content.ts` if guest-facing copy is affected.
-3. Run `bun run build` to confirm no type errors.
+To update (e.g. price change): edit the doc first, reflect in the data file, run `bun run build`. Full source list and pipeline details are in `docs/transport-routes.md`.
 
 ### Custom commands
 

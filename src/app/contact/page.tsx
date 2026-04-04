@@ -150,7 +150,7 @@ export default function ContactPage() {
         <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl overflow-hidden">
           <Image
             src={contactImage}
-            alt="Aerial view of Ayia Napa coastline"
+            alt=""
             fill
             priority
             className="object-cover"
