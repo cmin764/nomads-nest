@@ -23,7 +23,8 @@ export const privacyPolicy: LegalPage = {
     {
       heading: "What Data We Collect",
       body: [
-        "This website does not process payments, does not operate a booking system, and does not use analytics or tracking cookies. Bookings are made directly through Airbnb, Booking.com, or HomeExchange. Their privacy policies govern any data you provide on those platforms.",
+        "This website does not process payments and does not operate a booking system. Bookings are made directly through Airbnb, Booking.com, or HomeExchange. Their privacy policies govern any data you provide on those platforms.",
+        "This website uses Vercel Analytics to collect anonymous, aggregated page-view and performance data. No cookies are set, no personal data is collected, and the data cannot be used to identify you. See the Analytics and Tracking section of our Data Protection Notice for details.",
         "This website has no contact form. If you reach out to us via email or WhatsApp using the details on the Contact page, we receive your name, contact details, and message through those channels. That data is handled by our email and messaging providers, not by this website.",
         "The website stores two values in your browser's localStorage: your theme preference (light/dark/system) and the state of the guest farewell checklist. These are client-side only, never transmitted to any server, and are not cookies.",
       ],
@@ -162,7 +163,7 @@ export const dataProtection: LegalPage = {
     {
       heading: "Cookies and Local Storage",
       body: [
-        "This website does not set first-party HTTP cookies for tracking, analytics, or advertising.",
+        "This website does not set first-party HTTP cookies. The analytics service described below (Vercel Analytics) collects anonymous data without cookies.",
         "The website uses your browser's localStorage API (a client-side storage mechanism distinct from cookies) to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the guest farewell checklist. This data never leaves your device.",
         "The Contact page embeds a Google Maps widget. When that page loads, Google may set third-party cookies on your device in accordance with its own privacy policy. This is outside our control. If you prefer to avoid this, you can navigate directly to maps.google.com instead.",
         "Third-party platforms linked from this site (Airbnb, Booking.com, HomeExchange) operate their own cookie policies. When you navigate to those sites you are subject to their respective policies.",
@@ -171,7 +172,9 @@ export const dataProtection: LegalPage = {
     {
       heading: "Analytics and Tracking",
       body: [
-        "This website does not use Google Analytics, Meta Pixel, or any other analytics or advertising tracking service. No data about your visit is collected by or shared with third-party analytics providers.",
+        "This website uses Vercel Analytics, a privacy-focused service provided by Vercel Inc. It collects anonymous, aggregated data including page views and Core Web Vitals (performance metrics). No cookies are set, no personal data (such as IP address or device fingerprint) is stored, and the data cannot be linked to an individual visitor.",
+        "This website does not use Google Analytics, Meta Pixel, or any advertising tracking service. No data about your visit is shared with advertisers.",
+        "For details on how Vercel handles analytics data, see their privacy documentation at vercel.com/docs/analytics/privacy-policy.",
       ],
     },
     {

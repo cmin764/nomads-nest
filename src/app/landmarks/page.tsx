@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,7 +40,7 @@ export default function LandmarksPage() {
           return (
             <FadeIn key={landmark.name} delay={i * 0.06}>
               <div className="grid grid-cols-1 sm:grid-cols-2 rounded-2xl overflow-hidden border border-divider bg-surface">
-                {/* Image — alternates left/right on desktop */}
+                {/* Image - alternates left/right on desktop */}
                 <div
                   className={cn(
                     "relative aspect-[4/3] sm:aspect-auto sm:min-h-[280px] overflow-hidden bg-surface-alt",
@@ -89,10 +88,10 @@ export default function LandmarksPage() {
             Our Airbnb guidebook covers favourite restaurants, hidden spots, and practical tips curated from years of hosting in Ayia Napa.
           </p>
           <Button variant="gold" asChild>
-            <Link href={guidebookUrl} target="_blank" rel="noopener noreferrer">
+            <a href={guidebookUrl} target="_blank" rel="noopener noreferrer">
               Open Guidebook
               <ArrowUpRight size={14} className="ml-1.5" />
-            </Link>
+            </a>
           </Button>
         </div>
       </FadeIn>

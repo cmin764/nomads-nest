@@ -18,12 +18,12 @@ export default function HomePage() {
       <section className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
         {/* 3-image collage
-            Mobile:  2-col × 2-row grid — terrace + bedroom stacked left, kitchen tall right
-            Desktop: 3-col × 1-row strip — terrace (large) · bedroom · kitchen */}
+            Mobile:  2-col × 2-row grid - terrace + bedroom stacked left, kitchen tall right
+            Desktop: 3-col × 1-row strip - terrace (large) · bedroom · kitchen */}
         <div className="grid gap-3 mb-14
           grid-cols-2 grid-rows-2 h-[360px]
           sm:grid-cols-[1.7fr_1fr_1fr] sm:grid-rows-1 sm:h-[420px]">
-          {/* Terrace — tall left column on mobile, large left on desktop */}
+          {/* Terrace - tall left column on mobile, large left on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden bg-surface-alt
               col-start-1 row-start-1 row-span-2
@@ -38,7 +38,7 @@ export default function HomePage() {
               priority
             />
           </div>
-          {/* Bedroom — top-right on mobile, centre on desktop */}
+          {/* Bedroom - top-right on mobile, centre on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden
               col-start-2 row-start-1
@@ -54,7 +54,7 @@ export default function HomePage() {
               priority
             />
           </div>
-          {/* Work — bottom-right on mobile, right on desktop */}
+          {/* Work - bottom-right on mobile, right on desktop */}
           <div
             className="relative rounded-[10px] overflow-hidden
               col-start-2 row-start-2

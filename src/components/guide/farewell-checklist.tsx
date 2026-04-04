@@ -99,7 +99,7 @@ export default function FarewellChecklist() {
         </div>
 
         {allDone ? (
-          <p className="mt-6 font-heading font-light italic text-[17px] text-gold">
+          <p className="mt-6 font-heading font-light italic text-[17px] text-[var(--gold-dk)]">
             Safe travels. Come back soon. ✦
           </p>
         ) : (

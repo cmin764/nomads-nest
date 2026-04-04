@@ -14,7 +14,7 @@ export default function DirectionsTabs() {
 
   return (
     <>
-      {/* Overview card — shared by both routes */}
+      {/* Overview card - shared by both routes */}
       <div className="flex flex-col sm:flex-row gap-4 bg-card border border-border rounded-[14px] overflow-hidden mb-10">
         <button
           onClick={() => setLightboxOpen(true)}

@@ -1,8 +1,8 @@
 export interface GuideItem {
   text: string;
-  highlight?: boolean; // gold/bold — for warnings, fees, key rules
+  highlight?: boolean; // gold/bold - for warnings, fees, key rules
   heading?: boolean;   // renders as subsection h3
-  note?: boolean;      // italic/muted — for soft notes
+  note?: boolean;      // italic/muted - for soft notes
   url?: string;        // makes the whole item a link
 }
 

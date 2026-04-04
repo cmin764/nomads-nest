@@ -49,7 +49,7 @@ export default function BookPage() {
               ))}
             </div>
 
-            {/* Fees — two chips */}
+            {/* Fees - two chips */}
             <div className="flex gap-3 mb-5">
               {fees.map((fee) => (
                 <div key={fee.label} className="flex-1 px-4 py-3 rounded-xl bg-surface-alt">
@@ -63,7 +63,7 @@ export default function BookPage() {
               ))}
             </div>
 
-            {/* Discounts — gold percentages */}
+            {/* Discounts - gold percentages */}
             <div className="flex gap-3 mb-5 px-4 py-3 rounded-xl bg-surface-alt">
               {discounts.map((d, i) => (
                 <div key={d.period} className={cn("flex-1 flex items-center gap-3", i > 0 && "border-l border-divider pl-3")}>
@@ -77,7 +77,7 @@ export default function BookPage() {
               ))}
             </div>
 
-            {/* Limits — policy fine print */}
+            {/* Limits - policy fine print */}
             <p className="font-heading italic font-light text-[13px] text-center tracking-[.03em] text-nn-muted">
               {limits.join(" · ")}
             </p>

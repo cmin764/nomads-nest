@@ -20,6 +20,23 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              // 'unsafe-inline' required for the inline theme-init script in layout.tsx
+              "script-src 'self' 'unsafe-inline' va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline'",
+              // data: for next/image blur placeholders; maps.googleapis.com for contact page embed
+              "img-src 'self' data: maps.googleapis.com maps.gstatic.com",
+              "font-src 'self'",
+              // va.vercel-scripts.com beacon; maps.googleapis.com for Google Maps widget
+              "connect-src 'self' va.vercel-scripts.com",
+              // Google Maps iframe on contact page
+              "frame-src maps.google.com www.google.com",
+              "frame-ancestors 'none'",
+            ].join("; "),
+          },
         ],
       },
     ];
