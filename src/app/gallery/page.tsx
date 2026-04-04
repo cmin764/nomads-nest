@@ -59,7 +59,7 @@ export default function GalleryPage() {
           </FadeIn>
         ))}
 
-        {/* Row 4 left: Safety — special card */}
+        {/* Row 4 left: Safety - special card */}
         <FadeIn delay={0.42}>
           <Link
             href={gallerySpecialCards[0].href}
@@ -94,7 +94,7 @@ export default function GalleryPage() {
           </Link>
         </FadeIn>
 
-        {/* Row 4 right: Landmarks — special card */}
+        {/* Row 4 right: Landmarks - special card */}
         <FadeIn delay={0.49}>
           <Link
             href={gallerySpecialCards[1].href}

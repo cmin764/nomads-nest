@@ -25,7 +25,7 @@ export interface LocalRoute {
   description: string;
 }
 
-// Airport transfer options — from Larnaca Airport (LCA)
+// Airport transfer options - from Larnaca Airport (LCA)
 export const fromLarnacaAirport: TransportSection = {
   id: "lca",
   title: "From Larnaca Airport (LCA)",
@@ -38,7 +38,7 @@ export const fromLarnacaAirport: TransportSection = {
     {
       label: "Pame Bus 425 + InterCity",
       detail:
-        "Bus 425 from the airport to Larnaca Central Station (every 20-30 min, early morning to late evening, ~25 min). Walk ~3 min to Nicolaides Building on Archiep. Makariou Ave. (current InterCity stop — Finikoudes is temporarily under renovation) to catch InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
+        "Bus 425 from the airport to Larnaca Central Station (every 20-30 min, early morning to late evening, ~25 min). Walk ~3 min to Nicolaides Building on Archiep. Makariou Ave. (current InterCity stop, as Finikoudes is temporarily under renovation) to catch InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
       detailLinks: [
         { text: "Larnaca Central Station", url: "https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7" },
       ],
@@ -56,7 +56,7 @@ export const fromLarnacaAirport: TransportSection = {
   ],
 };
 
-// Airport transfer options — from Paphos Airport (PFO)
+// Airport transfer options - from Paphos Airport (PFO)
 export const fromPaphosAirport: TransportSection = {
   id: "pfo",
   title: "From Paphos Airport (PFO)",

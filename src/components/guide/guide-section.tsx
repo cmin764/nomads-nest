@@ -13,7 +13,7 @@ export default function GuideSection({ section }: GuideSectionProps) {
   return (
     <section id={section.id} className="scroll-mt-24 mb-12">
       <FadeIn>
-        {/* Section heading — Cormorant 30px with emoji */}
+        {/* Section heading - Cormorant 30px with emoji */}
         <h2 className="font-heading font-light text-[30px] text-foreground mb-2 flex items-center gap-3">
           <span>{section.title}</span>
           <span className="text-[22px]">{section.emoji}</span>
@@ -22,7 +22,7 @@ export default function GuideSection({ section }: GuideSectionProps) {
         {/* Items rendered as horizontal rule rows */}
         <div>
           {items.map((item, i) => {
-            // Sub-heading: Cormorant italic 19px muted — no icon, no border
+            // Sub-heading: Cormorant italic 19px muted - no icon, no border
             if (item.heading) {
               return (
                 <div key={i} className="pt-5 pb-2 first:pt-3">
@@ -64,12 +64,12 @@ export default function GuideSection({ section }: GuideSectionProps) {
                   !isLast && "border-b border-border"
                 )}
               >
-                <span className="shrink-0 mt-[3px] text-[12px] text-gold" aria-hidden>
+                <span className="shrink-0 mt-[3px] text-[12px] text-[var(--gold-dk)]" aria-hidden>
                   {icon}
                 </span>
                 <span
                   className={cn(
-                    item.highlight ? "font-normal text-gold" : item.note ? "italic text-nn-muted" : "text-nn-muted"
+                    item.highlight ? "font-normal text-[var(--gold-dk)]" : item.note ? "italic text-nn-muted" : "text-nn-muted"
                   )}
                 >
                   {textNode}
