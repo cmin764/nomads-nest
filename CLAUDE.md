@@ -113,9 +113,9 @@ All page content is typed TypeScript constants — no CMS, no API calls. **Edit 
 
 All color tokens are CSS custom properties in `:root` inside `globals.css`, mapped to Tailwind utility classes via `@theme inline`. The palette is warm light (cream `#faf9f6` background, gold `#C9A84C` primary, dark charcoal text). The `gold` button variant is a custom addition to `src/components/ui/button.tsx` — not part of the shadcn default set.
 
-Font CSS variables (`--font-body` for Inter, `--font-heading-var` for Playfair Display) are injected by `next/font/google` in `layout.tsx` and consumed in `@theme inline` as `--font-sans` and `--font-heading`.
+Font CSS variables (`--font-body` for Raleway, `--font-heading-var` for Cormorant) are injected by `next/font/google` in `layout.tsx` and consumed in `@theme inline` as `--font-sans` and `--font-heading`.
 
-Hero `h1` headings use `<em className="italic text-primary">` to render accent words in gold italic (Playfair Display italic at `#C9A84C`). This maps directly to the design spec's `.hero-h em` rule. Example: `Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway!`
+Hero `h1` headings use `<em className="italic text-primary">` to render accent words in gold italic (Cormorant italic at `#C9A84C`). This maps directly to the design spec's `.hero-h em` rule. Example: `Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway!`
 
 ### Client components
 

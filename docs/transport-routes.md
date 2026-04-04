@@ -19,13 +19,12 @@ Prices and timetables change seasonally. Always link guests to official sources 
 - Note: Seats sell out in peak season. Book in advance.
 
 **Option 2: Pame Bus 425 + InterCity (cheapest)**
-- Step 1: **Pame Bus 425** from Larnaca Airport to Larnaca city. Runs roughly every 20-30 min from early morning to late evening. About 25 min to Finikoudes / Arch. Makariou stop. Fare: approx. EUR 1.50-2.
+- Step 1: **Pame Bus 425** from Larnaca Airport to Larnaca Central Station. Runs roughly every 20-30 min from early morning to late evening. About 25 min. Fare: approx. EUR 1.50-2.
   - Board at the airport bus stop (ground floor arrivals exit).
-  - Get off at "Grigori Afxentiou Ave. - Foinikoudes 2" or "Archiep. Makariou C´ Ave. - Filiou Tsigaridi 1".
-  - Reference stop (Google Maps): https://maps.app.goo.gl/B94PCqvWHtefwnd9A
+  - Get off at Larnaca Central Station (Google Maps: https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7).
   - Does not run overnight. For early morning or late night flights, use Kapnos or taxi.
-- Step 2: **InterCity Bus Line 43** (or regular Larnaca--Ayia Napa service) from Arch. Makariou / Filiou Tsigaridi to Ayia Napa. EUR 5, ~55 min.
-  - Line 43 is the main Larnaca--Ayia Napa--Paralimni InterCity service, departing from Arch. Makariou C´ Ave. - Filiou Tsigaridi. Arrives near Nisi Ave. (Ayia Napa).
+- Step 2: Walk ~3 min to the **Nicolaides Building on Archiep. Makariou Ave.** (current InterCity stop; Finikoudes is temporarily under renovation). Take **InterCity Bus Line 43** to Ayia Napa Monastery. EUR 5, ~55 min.
+  - Line 43 is the main Larnaca--Ayia Napa--Paralimni InterCity service. Arrives near Nisi Ave. (Ayia Napa).
   - Service runs roughly every 30-60 min, from around 06:00 to 22:00. See live timetable: intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/
 - Total: approx. EUR 6-7. Total time: ~1.5-2 hrs depending on wait.
 
@@ -37,10 +36,10 @@ Prices and timetables change seasonally. Always link guests to official sources 
 ### Paphos Airport (PFO)
 
 **Option 1: Kapnos Airport Shuttle**
-- Kapnos covers PFO: approx. EUR 16-18 to Larnaca Airport, then EUR 10-12 to Ayia Napa (EUR 28-30 total). Check kapnosairportshuttle.com for current prices and for direct PFO--Ayia Napa availability.
+- Kapnos covers PFO: EUR 18 to Larnaca Airport, then EUR 12 to Ayia Napa (EUR 30 total). Check kapnosairportshuttle.com for current prices and for direct PFO--Ayia Napa availability.
 
 **Option 2: InterCity Bus from Paphos (very inflexible)**
-- Very limited service (often one departure per day in each direction). Paphos Karavella → Paralimni (via Larnaca, stops at Ayia Napa Monastery): EUR 10. Only practical if arriving very early in the day. Always check the current schedule at intercity-buses.com.
+- One bus per day departing Paphos Karavella at 16:00, arriving Ayia Napa Monastery (via Larnaca): EUR 10. Only viable if you land early enough in the afternoon. Always check the current schedule at intercity-buses.com.
 
 **Warning: Taxi / Bolt**
 - Paphos Airport to Ayia Napa: EUR 120-150+.
@@ -55,7 +54,7 @@ Prices: confirmed from official fare table, updated Apr 2025.
 
 ### Line 43 / Larnaca -- Ayia Napa -- Paralimni
 - The main InterCity service between Larnaca and the Famagusta district. Fully official line listed in Moovit, CyprusByBus, and third-party planners.
-- **Larnaca departure stop:** Arch. Makariou C´ Ave. - Filiou Tsigaridi (same building as other InterCity departures). Also: "Bus Stop Finikoudes CPT Larnaka / Intercity Bustop" (https://maps.app.goo.gl/B94PCqvWHtefwnd9A).
+- **Larnaca departure stop:** Nicolaides Building on Archiep. Makariou Ave. (current stop; Finikoudes is temporarily under renovation). ~3 min walk from Larnaca Central Station (https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7). Historical Finikoudes stop: https://maps.app.goo.gl/B94PCqvWHtefwnd9A
 - **Ayia Napa arrival:** Nisi Ave. - Katalymmata area, then continues to Ayia Napa Monastery and Paralimni.
 - **Reverse departure:** Nisi Ave. - Vatheias Gonias area.
 - **Price:** EUR 5 one-way, EUR 9 return, EUR 40 weekly.
@@ -73,7 +72,7 @@ Prices: confirmed from official fare table, updated Apr 2025.
 ### Paphos -- Larnaca -- Ayia Napa -- Paralimni
 - **Price:** EUR 10 one-way (full route), EUR 19 return.
 - **Duration:** approx. 2 hrs from Larnaca.
-- **Very limited service** (often one departure each direction per day; seasonal variation possible). Check current schedule: intercity-buses.com/en/routes/paralimni-ayia-napa-larnaca-paphos-paphos-larnaca-ayia-napa-paralimni/
+- **One bus per day** departing Paphos Karavella at 16:00 (seasonal variation possible). Check current schedule: intercity-buses.com/en/routes/paralimni-ayia-napa-larnaca-paphos-paphos-larnaca-ayia-napa-paralimni/
 - Stops same as Larnaca route on the Larnaca-Ayia Napa leg.
 
 ---
@@ -85,8 +84,7 @@ Route: Dekeleia -- beach hotels -- Larnaca Station -- Finikoudes -- Makenzy -- A
 
 - Runs roughly every 20-30 min during the day, in both directions.
 - First/last bus: early morning to late evening (approx. 06:05 - 22:55). Does not run overnight.
-- Airport → Finikoudes ("Grigori Afxentiou Ave. - Foinikoudes 2"): ~24 min.
-- Airport → Arch. Makariou stop ("Archiep. Makariou C´ Ave. - Filiou Tsigaridi 1"): ~25 min.
+- Airport → Larnaca Central Station: ~24 min. Then walk ~3 min to the Nicolaides Building on Archiep. Makariou Ave. for InterCity pickup (Finikoudes is temporarily under renovation).
 - For early morning or very late night flights, do not rely on 425. Use Kapnos or taxi.
 - Live timetable: publictransport.com.cy (agency: Pame, route 425) or Moovit.
 
@@ -133,12 +131,14 @@ Timetable PDFs at osea.com.cy/en/bus-routes/ (updated seasonally).
 ## Notes for Page Copy
 
 - Kapnos is EUR 10-12 from LCA. Book in advance in summer. Check site for current price.
-- From PFO, Kapnos total is approx. EUR 28-30. InterCity from Paphos Karavella (EUR 10) is cheaper but very limited -- one bus at ~07:30.
+- From PFO, Kapnos total is EUR 30. InterCity from Paphos Karavella (EUR 10) is cheaper but very limited -- one bus at ~16:00.
 - Bus 425 is frequent during the day (every 20-30 min, both directions). Does not run overnight. Do not quote specific departure times to guests -- link to Pame / publictransport.com.cy instead.
 - InterCity Line 43 is the main Larnaca--Ayia Napa service. Fully official. Runs every 30-60 min, roughly 06:00-22:00. Always link to the live timetable.
+- Current InterCity pickup in Larnaca: Nicolaides Building on Archiep. Makariou Ave. (Finikoudes temporarily under renovation). Walk ~3 min from Larnaca Central Station.
 - Closest InterCity stop: Ayia Napa Monastery. ~10 min walk to apartment.
 - Taxi from LCA: typically EUR 70-90. Higher at night/peak.
-- Reference bus stop map: https://maps.app.goo.gl/B94PCqvWHtefwnd9A
+- Larnaca Central Station map: https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7
+- Historical Finikoudes stop map: https://maps.app.goo.gl/B94PCqvWHtefwnd9A
 - InterCity timetable: intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/
 - OSEA timetables: osea.com.cy/en/bus-routes/
 - Kapnos booking: kapnosairportshuttle.com

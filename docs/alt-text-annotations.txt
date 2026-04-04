@@ -1,6 +1,6 @@
 # Alt Text Annotations
 # Format: filename TAB description
-# Status: pending review — apply to code once confirmed
+# Status: applied to code (reference archive)
 #
 # Sources:
 #   gallery/terrace/     → src/data/gallery-content.ts
