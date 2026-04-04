@@ -6,8 +6,12 @@ export interface InlineLink {
   url: string;
 }
 
-const LINK_CLASS =
+export const LINK_CLASS =
   "text-primary underline underline-offset-4 hover:opacity-70 transition-opacity";
+
+// Use when surrounding context already sets the text colour.
+export const LINK_CLASS_BARE =
+  "underline underline-offset-4 hover:opacity-70 transition-opacity";
 
 export function renderWithLinks(text: string, links?: InlineLink[]): ReactNode {
   if (!links?.length) return text;

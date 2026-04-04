@@ -31,7 +31,7 @@ export const fromLarnacaAirport: TransportSection = {
   title: "From Larnaca Airport (LCA)",
   footer: [
     { label: "publictransport.com.cy", url: "https://www.publictransport.com.cy/routes/page/routes-and-timetables?agency=10" },
-    { label: "intercity-buses.com", url: "https://intercity-buses.com/en/routes/larnaca-ayia-napa-paralimni-paralimni-ayia-napa-larnaca/" },
+    { label: "intercity-buses.com", url: "https://intercity-buses.com/en/routes/" },
   ],
   options: [
     {

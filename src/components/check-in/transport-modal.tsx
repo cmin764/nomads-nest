@@ -19,7 +19,7 @@ import {
   closestStopName,
   type TransportSection,
 } from "@/data/transport-content";
-import { renderWithLinks } from "@/lib/render-with-links";
+import { renderWithLinks, LINK_CLASS } from "@/lib/render-with-links";
 
 function Section({ section }: { section: TransportSection }) {
   return (
@@ -42,7 +42,7 @@ function Section({ section }: { section: TransportSection }) {
                 href={opt.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
+                className={`font-medium ${LINK_CLASS}`}
               >
                 {opt.label}
               </Link>
@@ -64,7 +64,7 @@ function Section({ section }: { section: TransportSection }) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
+                className={LINK_CLASS}
               >
                 {link.label}
               </Link>
@@ -116,7 +116,7 @@ export default function TransportModal() {
                   href={localRoutesFooter.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
+                  className={LINK_CLASS}
                 >
                   {localRoutesFooter.label}
                 </Link>

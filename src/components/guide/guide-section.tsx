@@ -2,6 +2,7 @@ import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import { GuideSection as GuideSectionType } from "@/data/guide-content";
 import { cn } from "@/lib/utils";
+import { LINK_CLASS_BARE } from "@/lib/render-with-links";
 
 interface GuideSectionProps {
   section: GuideSectionType;
@@ -45,11 +46,11 @@ export default function GuideSection({ section }: GuideSectionProps) {
             const textNode = item.url ? (
               item.url.startsWith("http") ? (
                 <a href={item.url} target="_blank" rel="noopener noreferrer"
-                   className="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                   className={LINK_CLASS_BARE}>
                   {item.text}
                 </a>
               ) : (
-                <Link href={item.url} className="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                <Link href={item.url} className={LINK_CLASS_BARE}>
                   {item.text}
                 </Link>
               )
