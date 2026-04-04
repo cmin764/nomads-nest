@@ -36,8 +36,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' vercel.live",
               // va.vercel-scripts.com beacon; maps.googleapis.com for Google Maps widget; vercel.live toolbar WS
               "connect-src 'self' va.vercel-scripts.com vercel.live wss://ws-us3.pusher.com",
-              // Google Maps iframe on contact page
-              // Google Maps iframe on contact page; YouTube injected by Vercel preview toolbar
+              // Google Maps iframe on contact page; YouTube for listing page video tour
               "frame-src maps.google.com www.google.com www.youtube.com",
               "frame-ancestors 'none'",
             ].join("; "),
