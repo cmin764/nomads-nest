@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -38,41 +37,41 @@ function Section({ section }: { section: TransportSection }) {
             }`}
           >
             {opt.url ? (
-              <Link
+              <a
                 href={opt.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`font-medium ${LINK_CLASS}`}
               >
                 {opt.label}
-              </Link>
+              </a>
             ) : (
               <span className={`font-medium ${opt.warning ? "text-[var(--gold-dk)]" : "text-foreground"}`}>
                 {opt.label}
               </span>
             )}
             <p className="text-muted-foreground mt-0.5">{renderWithLinks(opt.detail, opt.detailLinks)}</p>
+            {opt.footer && (
+              <p className="text-[12px] text-muted-foreground pt-1.5 border-t border-border mt-2">
+                Full timetables at{" "}
+                {opt.footer.map((link, i) => (
+                  <span key={link.url}>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={LINK_CLASS}
+                    >
+                      {link.label}
+                    </a>
+                    {i < opt.footer!.length - 1 && " and "}
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
         ))}
       </div>
-      {section.footer && (
-        <p className="text-[12px] text-muted-foreground mt-2">
-          Full timetables at{" "}
-          {section.footer.map((link, i) => (
-            <span key={link.url}>
-              <Link
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={LINK_CLASS}
-              >
-                {link.label}
-              </Link>
-              {i < section.footer!.length - 1 && " and "}
-            </span>
-          ))}
-        </p>
-      )}
     </div>
   );
 }
@@ -112,14 +111,14 @@ export default function TransportModal() {
               ))}
               <p className="text-[12px] text-muted-foreground pt-1 border-t border-border mt-2">
                 Full timetables at{" "}
-                <Link
+                <a
                   href={localRoutesFooter.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={LINK_CLASS}
                 >
                   {localRoutesFooter.label}
-                </Link>
+                </a>
               </p>
             </div>
           </div>
