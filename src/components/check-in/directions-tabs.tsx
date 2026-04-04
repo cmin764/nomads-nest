@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Maximize2 } from "lucide-react";
+import { Car, Footprints, Maximize2 } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import { useLightbox, LIGHTBOX_PLUGINS } from "@/hooks/use-lightbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -49,12 +49,22 @@ export default function DirectionsTabs() {
       />
 
     <Tabs defaultValue="car" className="w-full">
-      <div className="flex items-center mb-10">
+      {/* Mobile: Bus Routes centered above tabs; Desktop: tabs left, Bus Routes right */}
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center mb-10">
+        <div className="sm:hidden">
+          <TransportModal />
+        </div>
         <TabsList className="nn-tab-list">
-          <TabsTrigger value="car" className="nn-tab">By Car</TabsTrigger>
-          <TabsTrigger value="foot" className="nn-tab">By Foot</TabsTrigger>
+          <TabsTrigger value="car" className="nn-tab">
+            <Car size={14} />
+            By Car
+          </TabsTrigger>
+          <TabsTrigger value="foot" className="nn-tab">
+            <Footprints size={14} />
+            By Foot
+          </TabsTrigger>
         </TabsList>
-        <div className="ml-auto">
+        <div className="hidden sm:block sm:ml-auto">
           <TransportModal />
         </div>
       </div>
