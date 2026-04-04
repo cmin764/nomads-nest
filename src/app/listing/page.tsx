@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fade-in";
 import SectionLabel from "@/components/ui/section-label";
 import ReviewsCarousel from "@/components/listing/reviews-carousel";
+import PhotoSection from "@/components/photo-section";
 import {
   heroImage,
   stats,
@@ -189,30 +190,22 @@ export default function ListingPage() {
       </section>
 
       {/* ── "Interested?" CTA ── */}
-      <section
-        className="relative flex items-center justify-center text-center px-4 bg-navy"
-        style={{ minHeight: "50vh" }}
+      <PhotoSection
+        src={ctaImage.src}
+        alt={ctaImage.alt}
+        minHeight="50vh"
+        maxWidth="560px"
+        contentPy="py-20"
       >
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src={ctaImage.src}
-            alt={ctaImage.alt}
-            fill
-            sizes="100vw"
-            className="object-cover opacity-35"
-          />
-        </div>
         <FadeIn>
-          <div className="relative z-10 max-w-[560px] mx-auto py-20">
-            <h2 className="font-heading font-light text-[clamp(32px,4vw,52px)] leading-[1.2] mb-6 text-cream">
-              Interested?
-            </h2>
-            <Button variant="gold" size="default" asChild>
-              <Link href="/book">Book Now</Link>
-            </Button>
-          </div>
+          <h2 className="font-heading font-light text-[clamp(32px,4vw,52px)] leading-[1.2] mb-6 text-cream">
+            Interested?
+          </h2>
+          <Button variant="gold" size="default" asChild>
+            <Link href="/book">Book Now</Link>
+          </Button>
         </FadeIn>
-      </section>
+      </PhotoSection>
 
       {/* ── Reviews ── */}
       <section className="py-24 mx-auto max-w-[900px] px-4 sm:px-6 lg:px-8 text-center">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import GoldenDivider from "@/components/ui/golden-divider";
+import PhotoSection from "@/components/photo-section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -98,39 +99,20 @@ export default function HomePage() {
       </section>
 
       {/* ── Memory section ── */}
-      <section
-        className="relative flex items-center justify-center text-center px-4 bg-background"
-        style={{ minHeight: "60vh" }}
+      <PhotoSection
+        src="/images/gallery/terrace/A-terrace-4.JPG"
+        alt="Relaxing on the outside terrace in the afternoon"
       >
-        {/* Background image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/images/gallery/terrace/A-terrace-4.JPG"
-            alt="Relaxing on the outside terrace in the afternoon"
-            fill
-            sizes="100vw"
-            className="object-cover opacity-90"
-          />
-        </div>
-        {/* Uniform dim — tones down brightness in light mode */}
-        <div className="absolute inset-0" style={{ backgroundColor: "var(--hero-dim)" }} />
-        {/* Theme-aware colour overlay — radial fade keeps centre clear for text */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse 55% 65% at center, transparent 0%, var(--hero-overlay) 100%)" }}
-        />
-        <div className="relative z-10 max-w-[640px] mx-auto py-24">
-          <h2 className="font-heading font-light text-[clamp(32px,4vw,48px)] leading-[1.2] mb-5 text-cream">
-            A place to make memories
-          </h2>
-          <p
-            className="text-[15px] font-light leading-[1.8]"
-            style={{ color: "color-mix(in srgb, var(--cream) 80%, transparent)" }}
-          >
-            Designed to make every stay feel like home
-          </p>
-        </div>
-      </section>
+        <h2 className="font-heading font-light text-[clamp(32px,4vw,48px)] leading-[1.2] mb-5 text-cream">
+          A place to make memories
+        </h2>
+        <p
+          className="text-[15px] font-light leading-[1.8]"
+          style={{ color: "color-mix(in srgb, var(--cream) 80%, transparent)" }}
+        >
+          Designed to make every stay feel like home
+        </p>
+      </PhotoSection>
 
     </>
   );
