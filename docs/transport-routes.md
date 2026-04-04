@@ -54,7 +54,7 @@ Prices: confirmed from official fare table, updated Apr 2025.
 
 ### Line 43 / Larnaca -- Ayia Napa -- Paralimni
 - The main InterCity service between Larnaca and the Famagusta district. Fully official line listed in Moovit, CyprusByBus, and third-party planners.
-- **Larnaca departure stop:** Nicolaides Building on Archiep. Makariou Ave. (current stop; Finikoudes is temporarily under renovation). ~3 min walk from Larnaca Central Station (https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7). Historical Finikoudes stop: https://maps.app.goo.gl/B94PCqvWHtefwnd9A
+- **Larnaca departure stop:** Nicolaides Building on Archiep. Makariou Ave. (current stop; Finikoudes is temporarily under renovation). ~3 min walk from [Larnaca Central Station](https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7). Historical Finikoudes stop: [map](https://maps.app.goo.gl/B94PCqvWHtefwnd9A)
 - **Ayia Napa arrival:** Nisi Ave. - Katalymmata area, then continues to Ayia Napa Monastery and Paralimni.
 - **Reverse departure:** Nisi Ave. - Vatheias Gonias area.
 - **Price:** EUR 5 one-way, EUR 9 return, EUR 40 weekly.

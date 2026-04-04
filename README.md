@@ -22,7 +22,7 @@ bun run lint
 
 ## Site structure
 
-All page content is typed TypeScript constants in `src/data/` — no CMS, no API calls. Images live in `public/images/`; `gallery/` is the canonical source shared by the gallery, listing, safety, and landmarks pages. The home page hero references gallery images directly.
+All page content is typed TypeScript constants in `src/data/` (no CMS, no API calls). Images live in `public/images/`; `gallery/` is the canonical source shared by the gallery, listing, safety, and landmarks pages. The home page hero references gallery images directly.
 
 ```mermaid
 flowchart LR
