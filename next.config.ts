@@ -25,13 +25,14 @@ const nextConfig: NextConfig = {
             value: [
               "default-src 'self'",
               // 'unsafe-inline' required for the inline theme-init script in layout.tsx
-              "script-src 'self' 'unsafe-inline' va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline'",
+              // vercel.live is the Vercel toolbar/feedback widget injected on preview deployments
+              "script-src 'self' 'unsafe-inline' va.vercel-scripts.com vercel.live",
+              "style-src 'self' 'unsafe-inline' vercel.live",
               // data: for next/image blur placeholders; maps.googleapis.com for contact page embed
-              "img-src 'self' data: maps.googleapis.com maps.gstatic.com",
-              "font-src 'self'",
-              // va.vercel-scripts.com beacon; maps.googleapis.com for Google Maps widget
-              "connect-src 'self' va.vercel-scripts.com",
+              "img-src 'self' data: maps.googleapis.com maps.gstatic.com vercel.live",
+              "font-src 'self' vercel.live",
+              // va.vercel-scripts.com beacon; maps.googleapis.com for Google Maps widget; vercel.live toolbar WS
+              "connect-src 'self' va.vercel-scripts.com vercel.live wss://ws-us3.pusher.com",
               // Google Maps iframe on contact page
               "frame-src maps.google.com www.google.com",
               "frame-ancestors 'none'",
