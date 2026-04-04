@@ -29,7 +29,7 @@ export default function DirectionsTabs() {
             sizes="(max-width: 640px) 100vw, 224px"
             priority
           />
-          <span className="absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <span className="absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-full bg-black/40 text-white opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
             <Maximize2 size={13} />
           </span>
         </button>
