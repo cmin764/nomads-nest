@@ -161,8 +161,8 @@ export const gallerySpecialCards = [
   {
     href: "/landmarks",
     image: {
-      src: "/images/gallery/landmarks/DJI_0667.JPG",
-      alt: "Aerial view of Nissi Beach cove with turquoise water, sunbeds, and Cape Greco headland",
+      src: "/images/gallery/landmarks/CMN02493.jpg",
+      alt: "Ornate blue doorway framed by bougainvillea opening onto a sea-view terrace",
     },
     name: "Landmarks",
     tagline: "Discover the neighbourhood",
