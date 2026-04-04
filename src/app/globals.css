@@ -22,6 +22,8 @@
   --muted-text:  #4E6078;
   --divider:     #D5DDE9;
   --cream:       #EDE8DC; /* always-light text for overlays on dark photos */
+  --hero-overlay: rgba(218, 198, 155, 0.15); /* warm tan-gold tint, light mode */
+  --hero-dim:     rgba(0, 0, 0, 0.28);       /* uniform dim layer, light mode only */
 
   /* shadcn compat layer */
   --background:             var(--bg);
@@ -55,6 +57,8 @@
   --text:        #EDE8DC;
   --muted-text:  #8898B0;
   --divider:     #18304E;
+  --hero-overlay: rgba(13, 31, 60, 0.25); /* deep navy tint, dark mode */
+  --hero-dim:     rgba(0, 0, 0, 0.42);    /* stronger dim in dark mode */
 }
 
 @theme inline {
