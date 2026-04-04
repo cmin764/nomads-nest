@@ -23,16 +23,16 @@ export const privacyPolicy: LegalPage = {
     {
       heading: "What Data We Collect",
       body: [
-        "This website does not process payments, does not operate a booking system, and does not use analytics or tracking cookies. Bookings are made directly through Airbnb, Booking.com, or HomeExchange — their privacy policies govern any data you provide on those platforms.",
+        "This website does not process payments, does not operate a booking system, and does not use analytics or tracking cookies. Bookings are made directly through Airbnb, Booking.com, or HomeExchange. Their privacy policies govern any data you provide on those platforms.",
         "This website has no contact form. If you reach out to us via email or WhatsApp using the details on the Contact page, we receive your name, contact details, and message through those channels. That data is handled by our email and messaging providers, not by this website.",
-        "The website stores two values in your browser's localStorage — your theme preference (light/dark/system) and the state of the guest farewell checklist. These are client-side only, never transmitted to any server, and are not cookies.",
+        "The website stores two values in your browser's localStorage: your theme preference (light/dark/system) and the state of the guest farewell checklist. These are client-side only, never transmitted to any server, and are not cookies.",
       ],
     },
     {
       heading: "Legal Basis for Processing",
       body: [
         "We process direct enquiries (email, WhatsApp) on the basis of legitimate interest: responding to enquiries about the property is a reasonable expectation of both parties.",
-        "Where legal obligations apply — for example, tax or regulatory compliance under Cyprus law — processing is carried out on that basis.",
+        "Where legal obligations apply (for example, tax or regulatory compliance under Cyprus law), processing is carried out on that basis.",
       ],
     },
     {
@@ -74,7 +74,7 @@ export const termsAndConditions: LegalPage = {
       heading: "About This Document",
       body: [
         "This website is a brochure for Nomad's Nest, a short-term rental apartment at 63 Tefkrou Anthia, Ayia Napa, Cyprus (Registration License #0009512), operated by Georgiana Harnagea and Cosmin Poieana.",
-        "Bookings are made through third-party platforms — Airbnb, Booking.com, or HomeExchange. The booking contract, payment terms, and cancellation policy for your stay are governed by the platform you book through, not by this website. Please read the relevant platform's terms before booking.",
+        "Bookings are made through third-party platforms: Airbnb, Booking.com, or HomeExchange. The booking contract, payment terms, and cancellation policy for your stay are governed by the platform you book through, not by this website. Please read the relevant platform's terms before booking.",
         "Guests must be at least 18 years of age to book or stay at the property.",
         "By using this website you agree to these terms.",
       ],
@@ -82,7 +82,7 @@ export const termsAndConditions: LegalPage = {
     {
       heading: "House Rules",
       body: [
-        "Quiet hours are 22:00 to 08:00. The property is in a residential area — please be considerate of neighbours.",
+        "Quiet hours are 22:00 to 08:00. The property is in a residential area, so please be considerate of neighbours.",
         "Smoking is permitted on the terrace only. Smoking anywhere inside the apartment will incur a €200 cleaning fee.",
         "No pets are permitted.",
         "No parties or gatherings beyond the registered guest occupancy.",
@@ -96,7 +96,7 @@ export const termsAndConditions: LegalPage = {
       body: [
         "Check-in is from 15:00. Check-out is by 10:00.",
         "The property uses a self-check-in lockbox. The PIN code is shared with guests 24–48 hours before arrival. The host reserves the right to verify guest identity before sharing the lockbox PIN and may withhold it if identity cannot be confirmed.",
-        "Early check-in or late check-out may be possible subject to availability — contact us in advance.",
+        "Early check-in or late check-out may be possible subject to availability. Reach out to us in advance to check.",
         "Two keys are provided (main door and terrace gate). Lost keys incur a replacement fee of €50.",
         "On departure, please follow the farewell checklist on this website: take out rubbish, wash any used dishes and utensils, close and lock all windows and doors, and return both keys to the lockbox.",
       ],
@@ -163,7 +163,7 @@ export const dataProtection: LegalPage = {
       heading: "Cookies and Local Storage",
       body: [
         "This website does not set first-party HTTP cookies for tracking, analytics, or advertising.",
-        "The website uses your browser's localStorage API — a client-side storage mechanism distinct from cookies — to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the guest farewell checklist. This data never leaves your device.",
+        "The website uses your browser's localStorage API (a client-side storage mechanism distinct from cookies) to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the guest farewell checklist. This data never leaves your device.",
         "The Contact page embeds a Google Maps widget. When that page loads, Google may set third-party cookies on your device in accordance with its own privacy policy. This is outside our control. If you prefer to avoid this, you can navigate directly to maps.google.com instead.",
         "Third-party platforms linked from this site (Airbnb, Booking.com, HomeExchange) operate their own cookie policies. When you navigate to those sites you are subject to their respective policies.",
       ],

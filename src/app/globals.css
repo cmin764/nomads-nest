@@ -19,9 +19,11 @@
 
   /* Semantic */
   --text:        #1B2A4A;
-  --muted-text:  #6A7D99;
+  --muted-text:  #4E6078;
   --divider:     #D5DDE9;
   --cream:       #EDE8DC; /* always-light text for overlays on dark photos */
+  --hero-overlay: rgba(218, 198, 155, 0.15); /* warm tan-gold tint, light mode */
+  --hero-dim:     rgba(0, 0, 0, 0.28);       /* uniform dim layer, light mode only */
 
   /* shadcn compat layer */
   --background:             var(--bg);
@@ -53,8 +55,10 @@
   --navy-lt:     #1A3A6A;
   --gold-lt:     #1E1408;
   --text:        #EDE8DC;
-  --muted-text:  #7A8EAA;
+  --muted-text:  #8898B0;
   --divider:     #18304E;
+  --hero-overlay: rgba(13, 31, 60, 0.25); /* deep navy tint, dark mode */
+  --hero-dim:     rgba(0, 0, 0, 0.42);    /* stronger dim in dark mode */
 }
 
 @theme inline {
@@ -77,6 +81,16 @@
   --color-border:                 var(--border);
   --color-input:                  var(--input);
   --color-ring:                   var(--ring);
+  /* NN design-token shortcuts — use these instead of inline style={{ color: "var(--...)" }} */
+  --color-gold:        var(--gold);
+  --color-nn-text:     var(--text);
+  --color-nn-muted:    var(--muted-text);
+  --color-cream:       var(--cream);
+  --color-navy:        var(--navy);
+  --color-surface:     var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-divider:     var(--divider);
+
   --font-sans:    var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-heading-var), Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
@@ -115,6 +129,7 @@ body {
   box-shadow: none !important;
   border-radius: 0;
   padding: 12px 36px;
+  gap: 6px;
   font-size: 11px;
   font-weight: 400;
   letter-spacing: .12em;
@@ -134,9 +149,9 @@ body {
 .logo-link { display: inline-flex; transition: opacity 300ms ease; }
 .logo-img  { transition: filter 300ms ease; }
 
-/* Light mode hover: subtle warm gold tint */
+/* Light mode hover: gold glow around artwork */
 .logo-link:hover .logo-img {
-  filter: sepia(0.5) saturate(1.8) hue-rotate(5deg) brightness(0.92);
+  filter: brightness(1.3) drop-shadow(0 0 6px var(--gold));
 }
 
 /* Dark mode: invert so dark artwork becomes light on dark header */
@@ -144,7 +159,7 @@ body {
   filter: invert(1) brightness(0.9);
 }
 [data-theme="dark"] .logo-link:hover .logo-img {
-  filter: invert(1) sepia(0.5) saturate(1.8) hue-rotate(5deg) brightness(0.95);
+  filter: invert(1) brightness(0.9) drop-shadow(0 0 6px var(--gold));
 }
 
 /* Navy outline pill button — dark mode overrides */

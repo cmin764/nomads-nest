@@ -51,7 +51,7 @@ export default function FarewellChecklist() {
       <FadeIn>
         <h2 className="font-heading font-light text-[30px] text-foreground mb-2 flex items-center gap-3">
           <span>Before you go.</span>
-          <span className="text-[22px] italic" style={{ color: "var(--gold)" }}>✦</span>
+          <span className="text-[22px] italic text-gold">✦</span>
         </h2>
 
         <div>
@@ -68,11 +68,10 @@ export default function FarewellChecklist() {
               >
                 {/* Custom round gold checkbox */}
                 <span
-                  className="shrink-0 mt-[2px] flex items-center justify-center w-[18px] h-[18px] rounded-full border-2 transition-all duration-150"
-                  style={{
-                    borderColor: isChecked ? "var(--gold)" : "var(--divider)",
-                    background: isChecked ? "var(--gold)" : "transparent",
-                  }}
+                  className={cn(
+                    "shrink-0 mt-[2px] flex items-center justify-center w-[18px] h-[18px] rounded-full border-2 transition-all duration-150",
+                    isChecked ? "border-gold bg-gold" : "border-divider bg-transparent"
+                  )}
                 >
                   {isChecked && (
                     <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
@@ -89,9 +88,8 @@ export default function FarewellChecklist() {
                 <span
                   className={cn(
                     "text-[15px] font-light leading-[1.75] transition-colors duration-150",
-                    isChecked ? "line-through" : ""
+                    isChecked ? "line-through text-nn-muted" : "text-nn-text"
                   )}
-                  style={{ color: isChecked ? "var(--muted-text)" : "var(--text)" }}
                 >
                   {item}
                 </span>
@@ -101,21 +99,17 @@ export default function FarewellChecklist() {
         </div>
 
         {allDone ? (
-          <p
-            className="mt-6 font-heading font-light italic text-[17px]"
-            style={{ color: "var(--gold)" }}
-          >
+          <p className="mt-6 font-heading font-light italic text-[17px] text-gold">
             Safe travels. Come back soon. ✦
           </p>
         ) : (
           <div className="mt-6 flex items-center justify-between">
-            <p className="text-[13px]" style={{ color: "var(--muted-text)" }}>
+            <p className="text-[13px] text-nn-muted">
               {mounted ? doneCount : 0} / {farewellChecklistItems.length} complete
             </p>
             <button
               onClick={reset}
-              className="cursor-pointer text-[12px] underline underline-offset-4 transition-colors"
-              style={{ color: "var(--muted-text)" }}
+              className="cursor-pointer text-[12px] underline underline-offset-4 transition-colors text-nn-muted"
             >
               Reset
             </button>

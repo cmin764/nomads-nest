@@ -12,6 +12,7 @@ import {
   mapUrl,
   mapEmbedUrl,
   social,
+  hostBlurb,
   quote,
   contactImage,
 } from "@/data/contact-content";
@@ -32,28 +33,19 @@ export default function ContactPage() {
 
           {/* Left: contact info */}
           <div>
-            <p
-              className="text-[10px] font-normal uppercase tracking-[.20em] mb-6"
-              style={{ color: "var(--gold)" }}
-            >
+            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold">
               Get in Touch
             </p>
 
-            <h1
-              className="font-heading font-light text-[clamp(40px,5.5vw,64px)] leading-[1.05] mb-10"
-              style={{ color: "var(--text)" }}
-            >
+            <h1 className="font-heading font-light text-[clamp(40px,5.5vw,64px)] leading-[1.05] mb-10 text-nn-text">
               We&apos;d love to<br />
               <em className="italic text-primary">hear from you</em>
             </h1>
 
-            <div
-              className="space-y-5 text-[14px] font-light mb-10"
-              style={{ color: "var(--muted-text)" }}
-            >
+            <div className="space-y-5 text-[14px] font-light mb-10 text-nn-muted">
               <div>
-                <p style={{ color: "var(--text)" }}>{host1}</p>
-                <p style={{ color: "var(--text)" }}>{host2}</p>
+                <p className="text-nn-text">{host1}</p>
+                <p className="text-nn-text">{host2}</p>
               </div>
 
               <div>
@@ -134,44 +126,42 @@ export default function ContactPage() {
         </div>
       </FadeIn>
 
+      {/* ── Host blurb ── */}
+      <FadeIn delay={0.03}>
+        <div className="text-center max-w-2xl mx-auto">
+          <span
+            className="block font-heading leading-none select-none -mb-4 text-gold"
+            style={{ opacity: 0.35, fontSize: "clamp(56px,7vw,80px)" }}
+            aria-hidden="true"
+          >
+            &ldquo;
+          </span>
+          <p className="font-heading italic font-light text-[clamp(17px,2vw,22px)] leading-relaxed mb-5 text-nn-text">
+            {hostBlurb.text}
+          </p>
+          <p className="text-[10px] uppercase tracking-[.20em] text-gold">
+            {hostBlurb.attribution}
+          </p>
+        </div>
+      </FadeIn>
+
       {/* ── Full-width image with quote overlay ── */}
       <FadeIn delay={0.05}>
-        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl overflow-hidden">
           <Image
             src={contactImage}
-            alt="Nomad's Nest — Ayia Napa"
+            alt=""
             fill
+            priority
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 1100px"
           />
           {/* Subtle gradient so the overlay has contrast without killing the photo */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-          {/* Photo credit — bottom-right, unobtrusive */}
-          <div className="absolute bottom-3 right-4">
-            <p className="text-[10px] text-white/50 leading-none">
-              Photo by{" "}
-              <a
-                href="https://unsplash.com/@lsdforsociety"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white/80 transition-colors"
-              >
-                George Lemon
-              </a>{" "}
-              on{" "}
-              <a
-                href="https://unsplash.com/photos/aerial-photography-of-seashore-oUi2tvBLInY"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-white/80 transition-colors"
-              >
-                Unsplash
-              </a>
-            </p>
-          </div>
-          <div className="absolute inset-0 flex items-end justify-center pb-10 px-6 pointer-events-none">
+
+          <div className="absolute inset-0 flex items-end justify-center pb-8 px-6 pointer-events-none">
             <div
-              className="rounded-xl px-8 py-6 text-center max-w-lg pointer-events-auto"
+              className="rounded-xl px-5 py-4 sm:px-8 sm:py-6 text-center max-w-[85%] sm:max-w-lg pointer-events-auto"
               style={{
                 backdropFilter: "blur(14px) saturate(1.2)",
                 WebkitBackdropFilter: "blur(14px) saturate(1.2)",
@@ -180,7 +170,7 @@ export default function ContactPage() {
                 boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
               }}
             >
-              <p className="font-heading italic font-light text-[clamp(18px,2.4vw,30px)] leading-snug mb-3 text-white">
+              <p className="font-heading italic font-light text-[clamp(16px,2.4vw,30px)] leading-snug mb-2 sm:mb-3 text-white">
                 &ldquo;{quote.text}&rdquo;
               </p>
               <p className="text-[10px] uppercase tracking-[.20em] text-white/70">

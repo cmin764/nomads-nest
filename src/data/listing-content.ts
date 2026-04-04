@@ -12,7 +12,7 @@ export interface Review {
 
 export const heroImage = {
   src: "/images/listing/CMN01490.JPG",
-  alt: "Nomad's Nest apartment interior",
+  alt: "Blue upholstered bed with folded towels beside desk and blue chair",
 };
 
 export const stats = [
@@ -23,26 +23,26 @@ export const stats = [
 ];
 
 export const propertyIntro = {
-  address: "63 Tefkrou Anthia",
+  title: "Nomad's Nest",
   description:
-    "A blend of contemporary convenience and relaxed island vibes. The perfect place to unwind, explore, or work remotely. With a spacious terrace, high-speed internet, and a fully equipped interior, this is more than just a stay — it's an experience waiting to be lived.",
+    "A blend of contemporary convenience and relaxed island vibes. The perfect place to unwind, explore, or work remotely. With a spacious terrace, high-speed internet, and a fully equipped interior, this is more than just a stay. It's an experience waiting to be lived.",
 };
 
 export const galleryStrip = [
-  { src: "/images/listing/CMN01439.JPG", alt: "Living area" },
-  { src: "/images/gallery/kitchen/D-kitchen-7.JPG", alt: "Kitchen" },
-  { src: "/images/listing/CMN01580.JPG", alt: "Bedroom" },
-  { src: "/images/listing/CMN01874.JPG", alt: "Terrace" },
+  { src: "/images/listing/CMN01439.JPG", alt: "Glass vanity desk with Buddha head sculpture, tabletop mirror, and floor mirror" },
+  { src: "/images/listing/D-kitchen-7.JPG", alt: "Overhead view of black metal shelf with espresso machine, ceramic mugs, and green bottles" },
+  { src: "/images/listing/CMN01580.JPG", alt: "Glass coffee table with bananas and pineapple before yellow chair and kitchenette" },
+  { src: "/images/listing/CMN01874.JPG", alt: "Wine bottle, two stemless glasses, and rope umbrella base on black patio table" },
 ];
 
 export const fullWidthImage = {
-  src: "/images/gallery/terrace/A-terrace-8.JPG",
-  alt: "Terrace with outdoor seating",
+  src: "/images/listing/A-terrace-8.JPG",
+  alt: "Round patio table with laptop stand, ashtray, and shuttered windows",
 };
 
 export const ctaImage = {
   src: "/images/listing/CMN01858.JPG",
-  alt: "Nomad's Nest apartment",
+  alt: "",
 };
 
 export const amenities: AmenityCard[] = [
@@ -79,10 +79,12 @@ export const amenities: AmenityCard[] = [
   {
     room: "Safety",
     slug: "safety",
-    galleryLink: "/gallery/safety",
+    galleryLink: "/safety",
     items: ["CO Detector", "Smoke Detector", "Fire Extinguisher", "Fire Blanket", "First Aid Kit"],
   },
 ];
+
+export const videoTourUrl = "https://www.youtube.com/embed/c3RH-2O--MQ";
 
 export const reviews: Review[] = [
   {

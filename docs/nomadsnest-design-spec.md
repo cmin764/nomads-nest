@@ -36,7 +36,7 @@ Raleway:wght@300;400;500
 
   /* Text */
   --text:        #1B2A4A;   /* same as --navy */
-  --muted:       #6A7D99;   /* secondary text, labels, descriptions */
+  --muted:       #4E6078;   /* secondary text, labels, descriptions */
   --border:      #D5DDE9;   /* dividers, card borders, input borders */
 }
 
@@ -47,7 +47,7 @@ Raleway:wght@300;400;500
   --navy-lt:     #1A3A6A;
   --gold-lt:     #1E1408;
   --text:        #EDE8DC;
-  --muted:       #7A8EAA;
+  --muted:       #8898B0;
   --border:      #18304E;
   /* --navy, --navy-mid, --gold, --gold-dk: unchanged in dark mode */
 }

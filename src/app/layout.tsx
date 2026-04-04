@@ -3,6 +3,7 @@ import { Cormorant, Raleway } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const raleway = Raleway({
   variable: "--font-body",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nomadsnest.live"),
   title: {
     template: "%s | Nomad's Nest",
-    default: "Nomad's Nest — Ayia Napa, Cyprus",
+    default: "Nomad's Nest: Ayia Napa, Cyprus",
   },
   description: "A thoughtfully designed apartment 10 minutes from the city centre and 20 minutes from the beach.",
   openGraph: {
@@ -49,6 +50,7 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

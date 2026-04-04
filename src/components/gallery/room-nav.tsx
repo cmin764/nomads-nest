@@ -16,19 +16,18 @@ export default function RoomNav({ currentSlug }: { currentSlug: string }) {
 
   return (
     <nav
-      className="flex items-center justify-between pt-10 mt-10 border-t"
-      style={{ borderColor: "var(--divider)" }}
+      className="flex items-center justify-between pt-10 mt-10 border-t border-divider"
     >
       <Link
         href={`/gallery/${prevSlug}`}
-        className="flex items-center gap-2 text-[11px] uppercase tracking-[.14em] transition-colors hover:text-[var(--gold)] nn-link"
+        className="flex items-center gap-2 text-[11px] uppercase tracking-[.14em] transition-colors hover:text-gold nn-link"
       >
         <ChevronLeft size={14} />
         {prevRoom.name}
       </Link>
       <Link
         href={`/gallery/${nextSlug}`}
-        className="flex items-center gap-2 text-[11px] uppercase tracking-[.14em] transition-colors hover:text-[var(--gold)] nn-link"
+        className="flex items-center gap-2 text-[11px] uppercase tracking-[.14em] transition-colors hover:text-gold nn-link"
       >
         {nextRoom.name}
         <ChevronRight size={14} />

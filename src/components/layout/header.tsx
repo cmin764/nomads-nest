@@ -28,8 +28,8 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full border-b border-border"
-      style={{ background: "var(--surface)", transition: "background 450ms ease, border-color 450ms ease" }}
+      className="sticky top-0 z-50 w-full border-b border-border bg-surface"
+      style={{ transition: "background 450ms ease, border-color 450ms ease" }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-3 items-center h-[72px]">
@@ -56,7 +56,7 @@ export default function Header() {
             <button
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
-              style={{ color: "var(--text)" }}
+              className="text-nn-text"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -117,15 +117,13 @@ export default function Header() {
             key={link.label}
             href={link.href}
             onClick={() => setMenuOpen(false)}
-            className="font-heading italic text-2xl font-light transition-colors"
-            style={{ color: "var(--text)" }}
+            className="font-heading italic text-2xl font-light transition-colors text-nn-text"
           >
             {link.label}
           </Link>
         ))}
         <div
-          className="w-11 h-px my-2"
-          style={{ background: "var(--divider)" }}
+          className="w-11 h-px my-2 bg-divider"
         />
         <Button variant="gold" asChild>
           <Link href="/book" onClick={() => setMenuOpen(false)}>

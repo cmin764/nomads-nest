@@ -59,21 +59,19 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
               className="flex-[0_0_100%] flex flex-col items-center text-center px-4 py-8 sm:px-16"
             >
               <span
-                className="font-heading text-[96px] leading-none select-none mb-2"
-                style={{ color: "var(--gold)", opacity: 0.2 }}
+                className="font-heading text-[96px] leading-none select-none mb-2 text-gold"
+                style={{ opacity: 0.2 }}
                 aria-hidden="true"
               >
                 &ldquo;
               </span>
               <p
-                className="font-heading italic font-light text-[clamp(16px,2vw,22px)] leading-[1.7] max-w-[640px] mb-8"
-                style={{ color: "var(--text)" }}
+                className="font-heading italic font-light text-[clamp(16px,2vw,22px)] leading-[1.7] max-w-[640px] mb-8 text-nn-text"
               >
                 {review.quote}
               </p>
               <p
-                className="text-[11px] font-normal uppercase tracking-[.16em]"
-                style={{ color: "var(--muted-text)" }}
+                className="text-[11px] font-normal uppercase tracking-[.16em] text-nn-muted"
               >
                 {review.author}
               </p>
@@ -86,8 +84,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
         <button
           onClick={scrollPrev}
           aria-label="Previous review"
-          className="w-10 h-10 rounded-full border text-[var(--muted-text)] flex items-center justify-center transition-colors hover:border-[var(--gold)] hover:text-[var(--gold)]"
-          style={{ borderColor: "var(--divider)" }}
+          className="w-10 h-10 rounded-full border border-divider text-nn-muted flex items-center justify-center transition-colors hover:border-gold hover:text-gold"
         >
           <ChevronLeft size={16} />
         </button>
@@ -111,8 +108,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
         <button
           onClick={scrollNext}
           aria-label="Next review"
-          className="w-10 h-10 rounded-full border text-[var(--muted-text)] flex items-center justify-center transition-colors hover:border-[var(--gold)] hover:text-[var(--gold)]"
-          style={{ borderColor: "var(--divider)" }}
+          className="w-10 h-10 rounded-full border border-divider text-nn-muted flex items-center justify-center transition-colors hover:border-gold hover:text-gold"
         >
           <ChevronRight size={16} />
         </button>

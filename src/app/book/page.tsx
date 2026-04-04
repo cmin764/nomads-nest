@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 import type { Metadata } from "next";
+import { cn } from "@/lib/utils";
 import FadeIn from "@/components/fade-in";
 import BrandIcon from "@/components/ui/brand-icon";
 import DiscountAccordion from "@/components/discount-accordion";
@@ -18,45 +19,30 @@ export default function BookPage() {
         {/* ── Left: pricing ── */}
         <FadeIn>
           <div>
-            <h1
-              className="font-heading font-light text-[clamp(44px,6vw,72px)] leading-[1.05] mb-12"
-              style={{ color: "var(--text)" }}
-            >
+            <h1 className="font-heading font-light text-[clamp(44px,6vw,72px)] leading-[1.05] mb-12 text-nn-text">
               Your Vacay<br />
               <em className="italic text-primary">Awaits</em>
             </h1>
 
-            <p
-              className="text-[10px] font-normal uppercase tracking-[.20em] mb-6"
-              style={{ color: "var(--gold)" }}
-            >
+            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold">
               Pricing
             </p>
 
             {/* Pricing table */}
-            <div
-              className="rounded-2xl border overflow-hidden mb-8"
-              style={{ borderColor: "var(--divider)" }}
-            >
+            <div className="rounded-2xl border border-divider overflow-hidden mb-8">
               {pricingSeasons.map((row, i) => (
                 <div
                   key={row.label}
-                  className="flex items-center justify-between px-6 py-4"
-                  style={{
-                    borderBottom: i < pricingSeasons.length - 1 ? "1px solid var(--divider)" : undefined,
-                    background: i % 2 === 0 ? "var(--surface)" : "transparent",
-                  }}
+                  className={cn(
+                    "flex items-center justify-between px-6 py-4",
+                    i < pricingSeasons.length - 1 && "border-b border-divider",
+                    i % 2 === 0 ? "bg-surface" : ""
+                  )}
                 >
-                  <span
-                    className="text-[13px] font-light"
-                    style={{ color: "var(--muted-text)" }}
-                  >
+                  <span className="text-[13px] font-light text-nn-muted">
                     {row.label}
                   </span>
-                  <span
-                    className="font-heading italic font-light text-[16px]"
-                    style={{ color: row.closed ? "var(--muted-text)" : "var(--text)" }}
-                  >
+                  <span className={cn("font-heading italic font-light text-[16px]", row.closed ? "text-nn-muted" : "text-nn-text")}>
                     {row.price}
                   </span>
                 </div>
@@ -66,15 +52,11 @@ export default function BookPage() {
             {/* Fees — two chips */}
             <div className="flex gap-3 mb-5">
               {fees.map((fee) => (
-                <div
-                  key={fee.label}
-                  className="flex-1 px-4 py-3 rounded-xl"
-                  style={{ background: "var(--surface-alt)" }}
-                >
-                  <p className="text-[10px] uppercase tracking-[.14em] mb-1" style={{ color: "var(--muted-text)" }}>
+                <div key={fee.label} className="flex-1 px-4 py-3 rounded-xl bg-surface-alt">
+                  <p className="text-[10px] uppercase tracking-[.14em] mb-1 text-nn-muted">
                     {fee.label}
                   </p>
-                  <p className="text-[13px] font-light" style={{ color: "var(--text)" }}>
+                  <p className="text-[13px] font-light text-nn-text">
                     {fee.value}
                   </p>
                 </div>
@@ -82,27 +64,21 @@ export default function BookPage() {
             </div>
 
             {/* Discounts — gold percentages */}
-            <div
-              className="flex gap-3 mb-5 px-4 py-3 rounded-xl"
-              style={{ background: "var(--surface-alt)" }}
-            >
+            <div className="flex gap-3 mb-5 px-4 py-3 rounded-xl bg-surface-alt">
               {discounts.map((d, i) => (
-                <div key={d.period} className={`flex-1 flex items-center gap-3 ${i > 0 ? "border-l pl-3" : ""}`} style={{ borderColor: "var(--divider)" }}>
-                  <span className="text-[10px] uppercase tracking-[.14em] flex-1" style={{ color: "var(--muted-text)" }}>
+                <div key={d.period} className={cn("flex-1 flex items-center gap-3", i > 0 && "border-l border-divider pl-3")}>
+                  <span className="text-[10px] uppercase tracking-[.14em] flex-1 text-nn-muted">
                     {d.period}
                   </span>
-                  <span className="font-heading italic text-[18px] font-light" style={{ color: "var(--gold)" }}>
-                    −{d.pct}
+                  <span className="font-heading italic text-[18px] font-light text-gold">
+                    -{d.pct}
                   </span>
                 </div>
               ))}
             </div>
 
             {/* Limits — policy fine print */}
-            <p
-              className="font-heading italic font-light text-[13px] text-center tracking-[.03em]"
-              style={{ color: "var(--muted-text)" }}
-            >
+            <p className="font-heading italic font-light text-[13px] text-center tracking-[.03em] text-nn-muted">
               {limits.join(" · ")}
             </p>
           </div>
@@ -111,10 +87,7 @@ export default function BookPage() {
         {/* ── Right: platforms ── */}
         <FadeIn delay={0.1}>
           <div>
-            <p
-              className="text-[10px] font-normal uppercase tracking-[.20em] mb-8"
-              style={{ color: "var(--muted-text)" }}
-            >
+            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-8 text-nn-muted">
               Book Directly On
             </p>
 
@@ -125,35 +98,25 @@ export default function BookPage() {
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-5 p-6 border transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md ${platform.brand === "airbnb" ? "rounded-t-2xl rounded-b-none border-b-0" : "rounded-2xl"}`}
-                    style={{
-                      borderColor: "var(--divider)",
-                      background: "var(--surface)",
-                    }}
+                    className={cn(
+                      "flex items-center gap-5 p-6 border border-divider bg-surface transition-all duration-300 group hover:-translate-y-0.5 hover:shadow-md",
+                      platform.brand === "airbnb" ? "rounded-t-2xl rounded-b-none border-b-0" : "rounded-2xl"
+                    )}
                   >
-                    <div
-                      className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ background: "var(--surface-alt)", color: "var(--text)" }}
-                    >
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 bg-surface-alt text-nn-text">
                       <BrandIcon brand={platform.brand} size={20} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p
-                        className="font-heading italic font-light text-[18px] mb-0.5"
-                        style={{ color: "var(--text)" }}
-                      >
+                      <p className="font-heading italic font-light text-[18px] mb-0.5 text-nn-text">
                         {platform.name}
                       </p>
-                      <p
-                        className="text-[11px] font-light truncate"
-                        style={{ color: "var(--muted-text)" }}
-                      >
+                      <p className="text-[11px] font-light truncate text-nn-muted">
                         {platform.subtitle}
                       </p>
                     </div>
                     <ArrowUpRight
                       size={16}
-                      className="flex-shrink-0 text-[var(--divider)] transition-colors duration-300 group-hover:text-[var(--gold)]"
+                      className="flex-shrink-0 text-divider transition-colors duration-300 group-hover:text-gold"
                     />
                   </a>
                   {platform.brand === "airbnb" && (
@@ -163,20 +126,14 @@ export default function BookPage() {
               ))}
             </div>
 
-            <div
-              className="pt-8 border-t"
-              style={{ borderColor: "var(--divider)" }}
-            >
-              <p
-                className="font-heading italic font-light text-[17px] mb-4"
-                style={{ color: "var(--text)" }}
-              >
+            <div className="pt-8 border-t border-divider">
+              <p className="font-heading italic font-light text-[17px] mb-4 text-nn-text">
                 Have a question?
               </p>
               <div className="flex flex-col gap-2.5">
                 <a
                   href={`mailto:${contactEmail}`}
-                  className="flex items-center gap-2.5 text-[13px] font-light text-[var(--muted-text)] transition-colors hover:text-[var(--gold)] nn-link"
+                  className="flex items-center gap-2.5 text-[13px] font-light nn-link"
                 >
                   <Mail size={14} className="flex-shrink-0" />
                   {contactEmail}
@@ -185,7 +142,7 @@ export default function BookPage() {
                   href={contactWhatsApp.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-[13px] font-light text-[var(--muted-text)] transition-colors hover:text-[var(--gold)]"
+                  className="flex items-center gap-2.5 text-[13px] font-light nn-link"
                 >
                   <BrandIcon brand="whatsapp" size={14} className="flex-shrink-0" />
                   {contactWhatsApp.display}

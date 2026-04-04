@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DirectionsTabs from "@/components/check-in/directions-tabs";
+import { LINK_CLASS } from "@/lib/render-with-links";
 
 export const metadata: Metadata = {
   title: "Check-in Instructions",
@@ -24,7 +25,7 @@ export default function CheckInPage() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline underline-offset-4 hover:opacity-80 transition-opacity"
+            className={LINK_CLASS}
           >
             Google Maps
           </a>

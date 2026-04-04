@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FadeIn from "@/components/fade-in";
 import { CheckInStep } from "@/data/check-in-steps";
+import { renderWithLinks } from "@/lib/render-with-links";
 
 interface StepCardProps {
   step: CheckInStep;
@@ -23,12 +24,12 @@ export default function StepCard({ step, index, priority }: StepCardProps) {
           />
         </div>
         <div className="flex items-start gap-4 p-[22px_24px]">
-          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-[500] shrink-0 mt-0.5" style={{ background: "var(--gold)", color: "#F5F2EC" }}>
+          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[11px] font-[500] shrink-0 mt-0.5 bg-gold text-cream">
             {index + 1}
           </span>
           <div>
             <h3 className="font-heading font-light text-[19px] text-foreground mb-[7px]">{step.heading}</h3>
-            <p className="text-[13px] font-light text-muted-foreground leading-[1.7]">{step.description}</p>
+            <p className="text-[13px] font-light text-muted-foreground leading-[1.7]">{renderWithLinks(step.description, step.descriptionLinks)}</p>
           </div>
         </div>
       </div>

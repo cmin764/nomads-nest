@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const room = allRooms.find((r) => r.slug === category);
   if (!room) return {};
   return {
-    title: `${room.name} — Gallery`,
+    title: `${room.name}: Gallery`,
     description: `Photos of the ${room.name} at Nomad's Nest, Ayia Napa.`,
   };
 }
@@ -35,18 +35,12 @@ export default async function GalleryCategoryPage({ params }: Props) {
       {/* ── Header ── */}
       <FadeIn>
         <div className="text-center mb-14">
-          <p
-            className="font-heading italic font-light text-[15px] mb-3"
-            style={{ color: "var(--muted-text)" }}
-          >
-            {room.emoji}&ensp;{room.tagline}
-          </p>
-          <h1
-            className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-6"
-            style={{ color: "var(--text)" }}
-          >
+          <h1 className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-3 text-nn-text">
             {room.name}
           </h1>
+          <p className="font-heading italic font-light text-[15px] mb-6 text-nn-muted">
+            {room.tagline}
+          </p>
           <GoldenDivider />
         </div>
       </FadeIn>
