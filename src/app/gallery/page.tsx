@@ -65,15 +65,19 @@ export default function GalleryPage() {
             href={gallerySpecialCards[0].href}
             className="group block rounded-2xl overflow-hidden border border-divider bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            <div
-              className="relative aspect-[4/3] overflow-hidden flex items-center justify-center bg-navy"
-            >
+            <div className="relative aspect-[4/3] overflow-hidden flex items-center justify-center bg-surface-alt">
               <Image
                 src={gallerySpecialCards[0].image.src}
                 alt={gallerySpecialCards[0].image.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, 33vw"
-                className="object-cover opacity-30 transition-transform duration-500 group-hover:scale-105"
+                className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+                style={{ objectPosition: "center 45%" }}
+              />
+              <div className="absolute inset-0" style={{ backgroundColor: "var(--hero-dim)" }} />
+              <div
+                className="absolute inset-0"
+                style={{ background: "radial-gradient(ellipse 55% 65% at center, transparent 0%, var(--hero-overlay) 100%)" }}
               />
               <div className="relative z-10 flex flex-col items-center gap-3">
                 <ShieldCheck size={32} strokeWidth={1} className="text-gold" />
