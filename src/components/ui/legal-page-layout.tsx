@@ -29,6 +29,7 @@ function renderBodyItem(item: string | LegalSegment[], index: number) {
     >
       {item.map((segment, i) => {
         if (typeof segment === "string") return segment;
+        if (typeof segment !== "object" || segment === null) return null;
         if ("code" in segment) {
           return (
             <code key={i} className="font-mono text-[13px] bg-surface-alt px-1 py-0.5 rounded">
