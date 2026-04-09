@@ -1,4 +1,4 @@
-export type LegalSegment = string | { text: string; href: string };
+export type LegalSegment = string | { text: string; href: string } | { code: string };
 
 export interface LegalSection {
   heading: string;
@@ -39,9 +39,13 @@ export const privacyPolicy: LegalPage = {
           ", we receive your name, contact details, and message through those channels. That data is handled by our email and messaging providers, not by this website.",
         ],
         [
-          "The website stores two values in your browser's localStorage: your theme preference (light/dark/system) and the state of the ",
-          { text: "guest farewell checklist", href: "/guide#farewell-checklist" },
-          ". These are client-side only, never transmitted to any server, and are not cookies.",
+          "The website stores two values in your browser's ",
+          { code: "localStorage" },
+          ": your theme preference and the state of the ",
+          { text: "farewell checklist", href: "/guide#farewell-checklist" },
+          ". These never leave your device. See ",
+          { text: "Cookies and Local Storage", href: "/data-protection#cookies-and-local-storage" },
+          " in the Data Protection Notice for details.",
         ],
       ],
     },
@@ -65,7 +69,9 @@ export const privacyPolicy: LegalPage = {
         [
           "The ",
           { text: "Contact page", href: "/contact" },
-          " embeds a Google Maps widget. When that page loads, your browser connects to Google's servers and Google may set cookies or collect data in accordance with its own privacy policy (policies.google.com/privacy). We have no access to any data Google collects through this widget.",
+          " embeds a Google Maps widget. See ",
+          { text: "Cookies and Local Storage", href: "/data-protection#cookies-and-local-storage" },
+          " in the Data Protection Notice for details on what Google may collect when that page loads.",
         ],
         "We do not sell, rent, or share your personal data with any other third party.",
       ],
@@ -189,7 +195,9 @@ export const dataProtection: LegalPage = {
       body: [
         "This website does not set first-party HTTP cookies. The analytics service described below (Vercel Analytics) collects anonymous data without cookies.",
         [
-          "The website uses your browser's localStorage API (a client-side storage mechanism distinct from cookies) to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the ",
+          "The website uses your browser's ",
+          { code: "localStorage" },
+          " API (a client-side storage mechanism distinct from cookies) to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the ",
           { text: "guest farewell checklist", href: "/guide#farewell-checklist" },
           ". This data never leaves your device.",
         ],
