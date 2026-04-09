@@ -1,6 +1,8 @@
+export type LegalSegment = string | { text: string; href: string };
+
 export interface LegalSection {
   heading: string;
-  body: string[];
+  body: (string | LegalSegment[])[];
 }
 
 export interface LegalPage {
@@ -24,9 +26,23 @@ export const privacyPolicy: LegalPage = {
       heading: "What Data We Collect",
       body: [
         "This website does not process payments and does not operate a booking system. Bookings are made directly through Airbnb, Booking.com, or HomeExchange. Their privacy policies govern any data you provide on those platforms.",
-        "This website uses Vercel Analytics to collect anonymous, aggregated page-view and performance data. No cookies are set, no personal data is collected, and the data cannot be used to identify you. See the Analytics and Tracking section of our Data Protection Notice for details.",
-        "This website has no contact form. If you reach out to us via email or WhatsApp using the details on the Contact page, we receive your name, contact details, and message through those channels. That data is handled by our email and messaging providers, not by this website.",
-        "The website stores two values in your browser's localStorage: your theme preference (light/dark/system) and the state of the guest farewell checklist. These are client-side only, never transmitted to any server, and are not cookies.",
+        [
+          "This website uses Vercel Analytics to collect anonymous, aggregated page-view and performance data. No cookies are set, no personal data is collected, and the data cannot be used to identify you. See the ",
+          { text: "Analytics and Tracking", href: "/data-protection#analytics-and-tracking" },
+          " section of our ",
+          { text: "Data Protection Notice", href: "/data-protection" },
+          " for details.",
+        ],
+        [
+          "This website has no contact form. If you reach out to us via email or WhatsApp using the details on the ",
+          { text: "Contact page", href: "/contact" },
+          ", we receive your name, contact details, and message through those channels. That data is handled by our email and messaging providers, not by this website.",
+        ],
+        [
+          "The website stores two values in your browser's localStorage: your theme preference (light/dark/system) and the state of the ",
+          { text: "guest farewell checklist", href: "/guide#farewell-checklist" },
+          ". These are client-side only, never transmitted to any server, and are not cookies.",
+        ],
       ],
     },
     {
@@ -46,7 +62,11 @@ export const privacyPolicy: LegalPage = {
       heading: "Third Parties",
       body: [
         "This website is hosted on Vercel. Vercel may process standard server access logs (IP address, browser type, request path) as part of normal hosting infrastructure. No personal data is shared with Vercel beyond what is inherent in serving web pages.",
-        "The Contact page embeds a Google Maps widget. When that page loads, your browser connects to Google's servers and Google may set cookies or collect data in accordance with its own privacy policy (policies.google.com/privacy). We have no access to any data Google collects through this widget.",
+        [
+          "The ",
+          { text: "Contact page", href: "/contact" },
+          " embeds a Google Maps widget. When that page loads, your browser connects to Google's servers and Google may set cookies or collect data in accordance with its own privacy policy (policies.google.com/privacy). We have no access to any data Google collects through this widget.",
+        ],
         "We do not sell, rent, or share your personal data with any other third party.",
       ],
     },
@@ -99,7 +119,11 @@ export const termsAndConditions: LegalPage = {
         "The property uses a self-check-in lockbox. The PIN code is shared with guests 24–48 hours before arrival. The host reserves the right to verify guest identity before sharing the lockbox PIN and may withhold it if identity cannot be confirmed.",
         "Early check-in or late check-out may be possible subject to availability. Reach out to us in advance to check.",
         "Two keys are provided (main door and terrace gate). Lost keys incur a replacement fee of €50.",
-        "On departure, please follow the farewell checklist on this website: take out rubbish, wash any used dishes and utensils, close and lock all windows and doors, and return both keys to the lockbox.",
+        [
+          "On departure, please follow the ",
+          { text: "farewell checklist", href: "/guide#farewell-checklist" },
+          " on this website: take out rubbish, wash any used dishes and utensils, close and lock all windows and doors, and return both keys to the lockbox.",
+        ],
       ],
     },
     {
@@ -164,8 +188,16 @@ export const dataProtection: LegalPage = {
       heading: "Cookies and Local Storage",
       body: [
         "This website does not set first-party HTTP cookies. The analytics service described below (Vercel Analytics) collects anonymous data without cookies.",
-        "The website uses your browser's localStorage API (a client-side storage mechanism distinct from cookies) to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the guest farewell checklist. This data never leaves your device.",
-        "The Contact page embeds a Google Maps widget. When that page loads, Google may set third-party cookies on your device in accordance with its own privacy policy. This is outside our control. If you prefer to avoid this, you can navigate directly to maps.google.com instead.",
+        [
+          "The website uses your browser's localStorage API (a client-side storage mechanism distinct from cookies) to remember two things: your chosen colour theme (light, dark, or system default) and the completion state of the ",
+          { text: "guest farewell checklist", href: "/guide#farewell-checklist" },
+          ". This data never leaves your device.",
+        ],
+        [
+          "The ",
+          { text: "Contact page", href: "/contact" },
+          " embeds a Google Maps widget. When that page loads, Google may set third-party cookies on your device in accordance with its own privacy policy. This is outside our control. If you prefer to avoid this, you can navigate directly to maps.google.com instead.",
+        ],
         "Third-party platforms linked from this site (Airbnb, Booking.com, HomeExchange) operate their own cookie policies. When you navigate to those sites you are subject to their respective policies.",
       ],
     },
@@ -180,7 +212,11 @@ export const dataProtection: LegalPage = {
     {
       heading: "Data Minimisation",
       body: [
-        "We collect only what is necessary. This website has no contact form and collects no personal data directly. If you contact us via email or WhatsApp, we receive only what you choose to send. See the Privacy Policy for full details.",
+        [
+          "We collect only what is necessary. This website has no contact form and collects no personal data directly. If you contact us via email or WhatsApp, we receive only what you choose to send. See the ",
+          { text: "Privacy Policy", href: "/privacy-policy" },
+          " for full details.",
+        ],
       ],
     },
     {
