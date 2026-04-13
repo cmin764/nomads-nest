@@ -6,6 +6,7 @@ import GoldenDivider from "@/components/ui/golden-divider";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
+  robots: { index: false },
 };
 
 export default function NotFound() {

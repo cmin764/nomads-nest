@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { address, contactEmail, contactWhatsApp } from "@/data/contact-content";
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="mt-20 border-t border-gold">
@@ -68,7 +70,7 @@ export default function Footer() {
           </div>
 
           <p className="mt-10 pt-6 text-xs nn-link border-t border-divider">
-            © {new Date().getFullYear()}{" "}Nomad&apos;s Nest. All rights reserved.
+            © {CURRENT_YEAR}{" "}Nomad&apos;s Nest. All rights reserved.
           </p>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Cormorant, Raleway } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ReducedMotionConfig from "@/components/motion-config";
 import { Analytics } from "@vercel/analytics/next";
 
 const raleway = Raleway({
@@ -47,9 +48,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <ReducedMotionConfig>
+          <Header />
+          <main id="main-content">{children}</main>
+          <Footer />
+        </ReducedMotionConfig>
         <Analytics />
       </body>
     </html>
