@@ -26,7 +26,7 @@
 
 # Claude Code local settings — ignore everything except shared commands
 .claude/*
-!.claude/commands/
+!.claude/skills/
 
 # debug
 npm-debug.log*
