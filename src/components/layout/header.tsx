@@ -56,6 +56,7 @@ export default function Header() {
             <button
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
               className="text-nn-text"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
