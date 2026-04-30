@@ -40,13 +40,23 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 96;
       window.scrollTo({ top, behavior: "smooth" });
+      window.history.pushState(null, "", `#${id}`);
     }
     setCollapsed(true);
   };
 
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash && allIds.includes(hash)) setActiveId(hash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [allIds]);
+
   const items = [
     ...sections.map((s) => ({ id: s.id, label: s.title, emoji: s.emoji })),
-    { id: farewellId, label: "Farewell Checklist", emoji: "✅" },
+    { id: farewellId, label: "Farewell Checklist", emoji: "👋" },
   ];
 
   return (

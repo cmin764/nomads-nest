@@ -49,9 +49,17 @@ export default function FarewellChecklist() {
   return (
     <section id="farewell-checklist" className="scroll-mt-24 mb-12">
       <FadeIn>
-        <h2 className="font-heading font-light text-[30px] text-foreground mb-2 flex items-center gap-3">
-          <span>Before you go.</span>
-          <span className="text-[22px] italic text-gold">✦</span>
+        <h2 className="font-heading font-light text-[30px] text-foreground mb-2">
+          <a
+            href="#farewell-checklist"
+            className="group inline-flex items-center gap-3 no-underline text-inherit hover:opacity-80 transition-opacity"
+          >
+            <span>Farewell Checklist</span>
+            <span className="text-[22px]">👋</span>
+            <span className="opacity-0 group-hover:opacity-40 text-[18px] text-gold transition-opacity select-none" aria-hidden>
+              #
+            </span>
+          </a>
         </h2>
 
         <div>

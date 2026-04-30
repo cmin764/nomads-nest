@@ -14,9 +14,17 @@ export default function GuideSection({ section }: GuideSectionProps) {
     <section id={section.id} className="scroll-mt-24 mb-12">
       <FadeIn>
         {/* Section heading - Cormorant 30px with emoji */}
-        <h2 className="font-heading font-light text-[30px] text-foreground mb-2 flex items-center gap-3">
-          <span>{section.title}</span>
-          <span className="text-[22px]">{section.emoji}</span>
+        <h2 className="font-heading font-light text-[30px] text-foreground mb-2">
+          <a
+            href={`#${section.id}`}
+            className="group inline-flex items-center gap-3 no-underline text-inherit hover:opacity-80 transition-opacity"
+          >
+            <span>{section.title}</span>
+            <span className="text-[22px]">{section.emoji}</span>
+            <span className="opacity-0 group-hover:opacity-40 text-[18px] text-gold transition-opacity select-none" aria-hidden>
+              #
+            </span>
+          </a>
         </h2>
 
         {/* Items rendered as horizontal rule rows */}
