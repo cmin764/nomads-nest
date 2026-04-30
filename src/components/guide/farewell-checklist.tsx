@@ -117,7 +117,8 @@ export default function FarewellChecklist() {
             </p>
             <button
               onClick={reset}
-              className="cursor-pointer text-[12px] underline underline-offset-4 transition-colors text-nn-muted"
+              disabled={doneCount === 0}
+              className="text-[12px] underline underline-offset-4 transition-opacity text-nn-muted disabled:opacity-30 disabled:cursor-default cursor-pointer"
             >
               Reset
             </button>
