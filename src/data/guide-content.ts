@@ -117,13 +117,19 @@ export const guideSections: GuideSection[] = [
   },
 ];
 
-export const farewellChecklistItems: string[] = [
-  "Windows & doors closed",
-  "AC, lights and appliances off",
-  "Water pump and oven wall switches left ON (kitchen)",
-  "Boiler switch left OFF (bathroom entrance)",
-  "Dishes clean",
-  "Trash out",
-  "All keys back in the right lockbox",
-  "Cipher scrambled before you go",
+export interface FarewellChecklistItem {
+  text: string;
+  highlight?: true;
+}
+
+export const farewellChecklistItems: FarewellChecklistItem[] = [
+  { text: "Windows & doors closed" },
+  { text: "AC, lights and appliances off" },
+  { text: "Fridge, cooker and water pump (kitchen wall) stay on. Only the bathroom boiler switch should be off.", highlight: true },
+  { text: "Water pump and oven wall switches left ON (kitchen)" },
+  { text: "Boiler switch left OFF (bathroom entrance)" },
+  { text: "Dishes clean" },
+  { text: "Trash out" },
+  { text: "All keys back in the right lockbox" },
+  { text: "Cipher scrambled before you go" },
 ];

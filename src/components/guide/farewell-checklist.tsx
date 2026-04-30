@@ -7,9 +7,17 @@ import { cn } from "@/lib/utils";
 
 const STORAGE_KEY = "nomads-nest-farewell-checklist";
 
+const checkableItems = farewellChecklistItems.filter((item) => !item.highlight);
+
+function boldOnOff(text: string) {
+  return text.split(/\b(on|off)\b/i).map((part, i) =>
+    /^(on|off)$/i.test(part) ? <strong key={i}>{part}</strong> : part
+  );
+}
+
 export default function FarewellChecklist() {
   const [checked, setChecked] = useState<boolean[]>(() =>
-    new Array(farewellChecklistItems.length).fill(false)
+    new Array(checkableItems.length).fill(false)
   );
   const [mounted, setMounted] = useState(false);
 
@@ -23,8 +31,16 @@ export default function FarewellChecklist() {
     }
   }, []);
 
-  const toggle = (i: number) => {
-    const next = checked.map((v, idx) => (idx === i ? !v : v));
+  // Map each item to its index in the checkable array (-1 for highlights)
+  let checkableIdx = -1;
+  const itemMeta = farewellChecklistItems.map((item) => {
+    if (item.highlight) return { checkableIdx: -1 };
+    checkableIdx++;
+    return { checkableIdx };
+  });
+
+  const toggle = (idx: number) => {
+    const next = checked.map((v, i) => (i === idx ? !v : v));
     setChecked(next);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
@@ -34,7 +50,7 @@ export default function FarewellChecklist() {
   };
 
   const reset = () => {
-    const empty = new Array(farewellChecklistItems.length).fill(false);
+    const empty = new Array(checkableItems.length).fill(false);
     setChecked(empty);
     try {
       localStorage.removeItem(STORAGE_KEY);
@@ -44,7 +60,7 @@ export default function FarewellChecklist() {
   };
 
   const doneCount = checked.filter(Boolean).length;
-  const allDone = mounted && doneCount === farewellChecklistItems.length;
+  const allDone = mounted && doneCount === checkableItems.length;
 
   return (
     <section id="farewell-checklist" className="scroll-mt-24 mb-12">
@@ -65,16 +81,36 @@ export default function FarewellChecklist() {
         <div>
           {farewellChecklistItems.map((item, i) => {
             const isLast = i === farewellChecklistItems.length - 1;
-            const isChecked = mounted && checked[i];
+
+            if (item.highlight) {
+              return (
+                <div
+                  key={i}
+                  className={cn(
+                    "flex gap-[14px] items-start pb-[14px] pl-[32px]",
+                    !isLast && "border-b border-border"
+                  )}
+                >
+                  <span className="shrink-0 mt-[3px] text-[12px] text-[var(--gold-dk)]" aria-hidden>⚠</span>
+                  <span className="text-[14px] font-normal leading-[1.75] text-[var(--gold-dk)]">
+                    {boldOnOff(item.text)}
+                  </span>
+                </div>
+              );
+            }
+
+            const idx = itemMeta[i].checkableIdx;
+            const isChecked = mounted && checked[idx];
+            const nextIsHighlight = farewellChecklistItems[i + 1]?.highlight;
+
             return (
               <label
                 key={i}
                 className={cn(
                   "flex gap-[14px] items-start py-[14px] cursor-pointer group",
-                  !isLast && "border-b border-border"
+                  !isLast && !nextIsHighlight && "border-b border-border"
                 )}
               >
-                {/* Custom round gold checkbox */}
                 <span
                   className={cn(
                     "shrink-0 mt-[2px] flex items-center justify-center w-[18px] h-[18px] rounded-full border-2 transition-all duration-150",
@@ -90,7 +126,7 @@ export default function FarewellChecklist() {
                 <input
                   type="checkbox"
                   checked={isChecked}
-                  onChange={() => toggle(i)}
+                  onChange={() => toggle(idx)}
                   className="sr-only"
                 />
                 <span
@@ -99,7 +135,7 @@ export default function FarewellChecklist() {
                     isChecked ? "line-through text-nn-muted" : "text-nn-text"
                   )}
                 >
-                  {item}
+                  {boldOnOff(item.text)}
                 </span>
               </label>
             );
@@ -113,7 +149,7 @@ export default function FarewellChecklist() {
         ) : (
           <div className="mt-6 flex items-center justify-between">
             <p className="text-[13px] text-nn-muted">
-              {mounted ? doneCount : 0} / {farewellChecklistItems.length} complete
+              {mounted ? doneCount : 0} / {checkableItems.length} complete
             </p>
             <button
               onClick={reset}
