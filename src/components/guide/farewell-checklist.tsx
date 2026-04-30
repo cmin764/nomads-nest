@@ -25,7 +25,14 @@ export default function FarewellChecklist() {
     setMounted(true);
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setChecked(JSON.parse(stored));
+      if (stored) {
+        const parsed: boolean[] = JSON.parse(stored);
+        if (parsed.length === checkableItems.length) {
+          setChecked(parsed);
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
     } catch {
       // ignore
     }
