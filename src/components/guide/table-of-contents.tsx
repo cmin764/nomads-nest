@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GuideSection } from "@/data/guide-content";
+
+// Must match the sticky header height and the scroll-mt-24 (6rem) on section elements.
+const HEADER_OFFSET = 96;
 
 interface TableOfContentsProps {
   sections: GuideSection[];
@@ -11,48 +14,50 @@ interface TableOfContentsProps {
 }
 
 export default function TableOfContents({ sections, farewellId }: TableOfContentsProps) {
-  const [activeId, setActiveId] = useState<string>("");
+  const [activeId, setActiveId] = useState<string>(sections[0]?.id ?? "");
   const [collapsed, setCollapsed] = useState(true);
 
-  const allIds = useMemo(
-    () => [...sections.map((s) => s.id), farewellId],
-    [sections, farewellId]
-  );
-
-  const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY + 120;
-    let current = allIds[0];
-    for (const id of allIds) {
-      const el = document.getElementById(id);
-      if (el && el.offsetTop <= scrollY) current = id;
-    }
-    setActiveId(current);
-  }, [allIds]);
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    const allIds = [...sections.map((s) => s.id), farewellId];
+    const visible = new Set<string>();
+    const headingToId = new Map<Element, string>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = headingToId.get(entry.target);
+          if (!id) continue;
+          if (entry.isIntersecting) visible.add(id);
+          else visible.delete(id);
+        }
+        const first = allIds.find((id) => visible.has(id));
+        if (first) setActiveId(first);
+      },
+      // Band from HEADER_OFFSET below viewport top to 60% down —
+      // h2 headings are short so they give a clean entry/exit signal here.
+      { rootMargin: `-${HEADER_OFFSET}px 0px -60% 0px` }
+    );
+
+    for (const id of allIds) {
+      const heading = document.querySelector<Element>(`#${id} h2`);
+      if (heading) {
+        headingToId.set(heading, id);
+        observer.observe(heading);
+      }
+    }
+
+    return () => observer.disconnect();
+  }, [sections, farewellId]);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
       window.scrollTo({ top, behavior: "smooth" });
       window.history.pushState(null, "", `#${id}`);
     }
     setCollapsed(true);
   };
-
-  useEffect(() => {
-    const onHashChange = () => {
-      const hash = window.location.hash.slice(1);
-      if (hash && allIds.includes(hash)) setActiveId(hash);
-    };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, [allIds]);
 
   const items = [
     ...sections.map((s) => ({ id: s.id, label: s.title, emoji: s.emoji })),
