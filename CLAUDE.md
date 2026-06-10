@@ -30,7 +30,7 @@ Two non-obvious config details in `next.config.ts` — do not simplify either:
 
 ## Project context
 
-Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `nomadsnest.live`.
+Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `www.nomadsnest.live`.
 
 The complete site comprises:
 - **Marketing pages:** Home, Listing (property details + reviews), Gallery (index + per-room sub-pages), Book (links out to Airbnb / Booking.com / HomeExchange — no booking backend), Contact (static: address, email, WhatsApp, map — no form)
@@ -186,4 +186,4 @@ To update (e.g. price change): edit the doc first, reflect in the data file, run
 
 ## Deployment
 
-GitHub repo: `github.com:cmin764/nomads-nest.git`. Vercel is connected to `main` — every push deploys automatically. Domain: `nomadsnest.live` (DNS on Squarespace, A record → `216.198.79.1`, www CNAME → `5fb214831078e66e.vercel-dns-017.com`).
+GitHub repo: `github.com:cmin764/nomads-nest.git`. Vercel is connected to `main` — every push deploys automatically. Domain: `www.nomadsnest.live` (DNS on Squarespace, A record → `216.198.79.1`, www CNAME → `5fb214831078e66e.vercel-dns-017.com`). Vercel is configured to redirect bare `nomadsnest.live` to `www`.
