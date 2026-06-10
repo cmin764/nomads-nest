@@ -49,9 +49,9 @@ export default function GuidePage() {
             <FarewellChecklist />
             <div className="mt-8 pt-8 border-t border-border flex justify-center">
               <Button variant="navy" asChild>
-                <Link href="/check-in">
+                <Link href="/landmarks">
                   <MapPin size={16} />
-                  Check-in Instructions
+                  Local Landmarks
                 </Link>
               </Button>
             </div>
