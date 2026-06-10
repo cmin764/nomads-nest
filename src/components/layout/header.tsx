@@ -65,7 +65,7 @@ export default function Header() {
 
           {/* Center: logo */}
           <div className="flex justify-center">
-            <Link href="/" className="logo-link" aria-label="Nomad's Nest home">
+            <Link href="/" prefetch={false} className="logo-link" aria-label="Nomad's Nest home">
               <Image
                 src="/images/logo-nn-transparent.png"
                 alt="Nomad's Nest"

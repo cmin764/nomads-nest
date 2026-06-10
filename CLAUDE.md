@@ -30,11 +30,11 @@ Two non-obvious config details in `next.config.ts` — do not simplify either:
 
 ## Project context
 
-Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `nomadsnest.live`.
+Nomad's Nest is a short-term rental apartment in Ayia Napa, Cyprus. This site is a migration from Squarespace (150 EUR/year) to Vercel (free), hosted at `www.nomadsnest.live`.
 
 The complete site comprises:
 - **Marketing pages:** Home, Listing (property details + reviews), Gallery (index + per-room sub-pages), Book (links out to Airbnb / Booking.com / HomeExchange — no booking backend), Contact (static: address, email, WhatsApp, map — no form)
-- **Guest pages:** Check-in (step-by-step arrival directions), Guide (in-stay house guide + farewell checklist)
+- **Guest pages:** Check-in (step-by-step arrival directions), Guide (in-stay house guide + farewell checklist), Landmarks (local points of interest + guidebook link), Safety (security measures + emergency info)
 - **Legal pages:** Privacy Policy, Terms & Conditions, Data Protection Notice
 
 There is no CMS, no database, and no server-side logic. All content is typed TypeScript constants in `src/data/`.
@@ -96,18 +96,22 @@ Applied during all development, not just at review time.
 
 ## Architecture
 
-`/` redirects to `/check-in`. The two real pages are `/check-in` and `/guide`.
+`/` is the marketing home page (hero collage, headline, Book Now / About CTAs). Guest pages are `/check-in` and `/guide`.
 
 ### Data layer (`src/data/`)
 
 All page content is typed TypeScript constants — no CMS, no API calls. **Edit content here, not in components.**
 
-- `check-in-steps.ts`: `byCar: CheckInStep[]` (4 steps) and `byFoot: CheckInStep[]` (6 steps), consumed by `DirectionsTabs`.
+- `check-in-steps.ts`: `overviewStep: CheckInStep` (shown above both tabs), `byCar: CheckInStep[]` (4 steps), `byFoot: CheckInStep[]` (6 steps). Both arrays end with two shared `sharedFinalSteps` (Main Entrance + Right Lockbox). Consumed by `DirectionsTabs`.
 - `guide-content.ts`: `guideSections: GuideSection[]` and `farewellChecklistItems: string[]`. `GuideItem` supports four flags: `heading` (h3), `highlight` (gold/bold — rules, warnings, fees), `note` (italic/muted), and `url` (link; external opens in new tab, internal uses Next.js `Link`).
 - `book-content.ts`: `pricingSeasons`, `platformLinks` (Airbnb / Booking.com / HomeExchange), `fees`, `discounts`, `limits`, `contactEmail`.
 - `listing-content.ts`: property stats, intro copy, amenity cards, reviews, and image references for the listing page.
 - `gallery-content.ts`: `allRooms: GalleryRoom[]` keyed by `GalleryCategory` slug, drives both the gallery index and per-room sub-pages.
 - `transport-content.ts`: typed constants for the "Bus Routes" modal on the check-in page. See **Transport data flow** below before editing.
+- `landmarks-content.ts`: `landmarksIntro`, `landmarks: Landmark[]`, `guidebookUrl`. Drives the Landmarks page.
+- `safety-content.ts`: `safetyIntro`, `safetyMeasures: SafetyMeasure[]`, `emergencyNote`. Drives the Safety page.
+- `contact-content.ts`: address, email, WhatsApp, map URLs, host names, quote, and contact image. Drives the Contact page.
+- `legal-content.ts`: `privacyPolicy`, `termsAndConditions`, `dataProtection` — each a `LegalPage` with typed sections. Drives the three legal pages.
 
 ### Theming
 
@@ -122,7 +126,7 @@ Hero `h1` headings use `<em className="italic text-primary">` to render accent w
 These are the only `"use client"` components; everything else is a server component:
 
 - `Header` — hamburger menu toggle state
-- `TableOfContents` — scroll listener for active section tracking; smooth-scrolls with a 96px offset to clear the sticky header
+- `TableOfContents` — `IntersectionObserver` on each section's `h2` for active link tracking; smooth-scrolls with a 96px offset (`HEADER_OFFSET`) to clear the sticky header
 - `FarewellChecklist` — checkbox state persisted to `localStorage` under key `nomads-nest-farewell-checklist`; uses a `mounted` flag to prevent hydration mismatch
 - `DirectionsTabs` — Radix UI Tabs wrapping the check-in step cards
 - `PhotoGrid` — lightbox/zoom interaction on gallery pages
@@ -160,7 +164,7 @@ For every image change, follow this checklist in order:
 - If unavoidable, display credit in the UI
 
 **5. Set alt text at the point of use**
-- Alt text belongs in `src/data/*.ts` or inline in the page component — not in `media.yaml`
+- Alt text belongs in `src/data/*.ts` or inline in the page component
 - Write specific descriptions (`"Terrace dining table with palm tree at dusk"`, not `"terrace"`)
 - Purely decorative/background images with no informational value use `alt=""`
 - Alt text is contextual: the same file in two places may need different descriptions
@@ -184,6 +188,15 @@ To update (e.g. price change): edit the doc first, reflect in the data file, run
 
 `.claude/commands/frontend-review.md` — run `/frontend-review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
 
+## Known console violations
+
+Investigated and accepted. Do not re-investigate unless the underlying library or page structure changes.
+
+- **Non-passive `touchmove` (`/listing`):** Embla carousel requires `passive: false` to call `preventDefault()` during horizontal drag. Cannot be fixed without replacing Embla.
+- **`setTimeout` >50ms (`/listing`):** YouTube embed bootstrap. Not our code.
+- **Images/CSS preloaded but unused (`/listing`):** Next.js prefetches gallery pages linked from amenity cards and emits preload hints for their `priority` images. Disabling prefetch would hurt navigation speed.
+- **Forced reflow ~100ms (`/listing`):** Embla reads all slide widths at mount. Not triggered by our code.
+
 ## Deployment
 
-GitHub repo: `github.com:cmin764/nomads-nest.git`. Vercel is connected to `main` — every push deploys automatically. Domain: `nomadsnest.live` (DNS on Squarespace, A record → `216.198.79.1`, www CNAME → `5fb214831078e66e.vercel-dns-017.com`).
+GitHub repo: `github.com:cmin764/nomads-nest.git`. Vercel is connected to `main` — every push deploys automatically. Domain: `www.nomadsnest.live` (DNS on Squarespace, A record → `216.198.79.1`, www CNAME → `5fb214831078e66e.vercel-dns-017.com`). Vercel is configured to redirect bare `nomadsnest.live` to `www`.
