@@ -184,6 +184,15 @@ To update (e.g. price change): edit the doc first, reflect in the data file, run
 
 `.claude/commands/frontend-review.md` — run `/frontend-review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
 
+## Known console violations
+
+Investigated and accepted. Do not re-investigate unless the underlying library or page structure changes.
+
+- **Non-passive `touchmove` (`/listing`):** Embla carousel requires `passive: false` to call `preventDefault()` during horizontal drag. Cannot be fixed without replacing Embla.
+- **`setTimeout` >50ms (`/listing`):** YouTube embed bootstrap. Not our code.
+- **Images/CSS preloaded but unused (`/listing`):** Next.js prefetches gallery pages linked from amenity cards and emits preload hints for their `priority` images. Disabling prefetch would hurt navigation speed.
+- **Forced reflow ~100ms (`/listing`):** Embla reads all slide widths at mount. Not triggered by our code.
+
 ## Deployment
 
 GitHub repo: `github.com:cmin764/nomads-nest.git`. Vercel is connected to `main` — every push deploys automatically. Domain: `www.nomadsnest.live` (DNS on Squarespace, A record → `216.198.79.1`, www CNAME → `5fb214831078e66e.vercel-dns-017.com`). Vercel is configured to redirect bare `nomadsnest.live` to `www`.
