@@ -1,6 +1,6 @@
 # Nomad's Nest
 
-Website for [Nomad's Nest](https://nomadsnest.live), a self-catering rental apartment in Ayia Napa, Cyprus. Migrated from Squarespace to a self-hosted Next.js site on Vercel.
+Website for [Nomad's Nest](https://www.nomadsnest.live), a self-catering rental apartment in Ayia Napa, Cyprus. Migrated from Squarespace to a self-hosted Next.js site on Vercel.
 
 ## Stack
 
@@ -85,7 +85,7 @@ flowchart LR
 
 ## Deployment
 
-Hosted on Vercel Hobby (free). Pushes to `main` deploy automatically. Domain: `nomadsnest.live`.
+Hosted on Vercel Hobby (free). Pushes to `main` deploy automatically. Domain: `www.nomadsnest.live` (bare domain redirects to www).
 
 ## License
 
