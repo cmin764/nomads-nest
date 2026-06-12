@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-[680px] px-4 sm:px-6 lg:px-8 py-32 text-center">
       <FadeIn>
-        <p className="text-[10px] uppercase tracking-[.20em] mb-6 text-gold">
+        <p className="text-[10px] uppercase tracking-[0.20em] mb-6 text-gold">
           404
         </p>
 
