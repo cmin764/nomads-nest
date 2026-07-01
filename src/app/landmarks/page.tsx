@@ -8,14 +8,16 @@ import {
   landmarksIntro,
   landmarks,
   eateries,
-  gettingAroundRoutes,
-  gettingAroundTitle,
-  gettingAroundFooter,
-  closestStopName,
   gettingAroundTips,
   smartCardTip,
   guidebookUrl,
 } from "@/data/landmarks-content";
+import {
+  localRoutes as gettingAroundRoutes,
+  localRoutesTitle as gettingAroundTitle,
+  localRoutesFooter as gettingAroundFooter,
+  closestStopName,
+} from "@/data/transport-content";
 
 export const metadata: Metadata = {
   title: "Landmarks near Nomad's Nest",

@@ -1,5 +1,3 @@
-import { localRoutes, localRoutesTitle, localRoutesFooter, closestStopName } from "@/data/transport-content";
-
 export type LandmarkCategory = "beach" | "sight" | "day-trip";
 
 export interface Landmark {
@@ -311,13 +309,6 @@ export const smartCardTip = {
   text: "Skip the cash: a Non Personalised Smart Card (€5, rechargeable) works across OSEA, Pame, and InterCity buses islandwide.",
   label: "publictransport.com.cy",
   url: "https://www.publictransport.com.cy/cms/page/travel-cards",
-};
-
-export {
-  localRoutes as gettingAroundRoutes,
-  localRoutesTitle as gettingAroundTitle,
-  localRoutesFooter as gettingAroundFooter,
-  closestStopName,
 };
 
 // External Airbnb guidebook - update URL when available
