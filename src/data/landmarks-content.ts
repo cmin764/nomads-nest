@@ -39,7 +39,7 @@ export const landmarks: Landmark[] = [
   },
   {
     name: "Glyki Nero Beach",
-    description: "A blue-flag sandy beach with crystal-clear water and sea caves you can swim to. Quiet enough to hear the waves, lively enough to spend the whole day. Sunbeds, a beach bar, and the Sculpture Park are all within walking distance.",
+    description: "A blue-flag sandy beach with crystal-clear water and sea caves you can swim to.",
     category: "beach",
     image: { src: base("CMN02655.jpg"), alt: "Teak outdoor sofa with white cushions on cliff-top restaurant terrace above turquoise sea" },
     mapsUrl: "https://maps.app.goo.gl/8dwRPbU6sPHBoeSe7",
