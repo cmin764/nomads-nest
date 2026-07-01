@@ -25,17 +25,7 @@ export const landmarksIntro =
   "Ayia Napa is more than a beach destination. Ancient monasteries, sculptured coastlines, turquoise waters, and the warm Mediterranean light. All within reach from your doorstep.";
 
 export const landmarks: Landmark[] = [
-  // ── Beaches ──
-  {
-    name: "Nissi Beach",
-    description: "Cyprus's most iconic beach: crystal-clear water and a famous sandbar you can walk across.",
-    category: "beach",
-    image: { src: base("nissi-beach.jpg"), alt: "Aerial view of Nissi Beach's turquoise water and small islet, dotted with swimmers" },
-    mapsUrl: "https://maps.app.goo.gl/jEo6MbVe7tNniJFw5",
-    distanceKm: 3.1,
-    byCar: "7 min",
-    onFoot: "38 min",
-  },
+  // ── Beaches (by distance) ──
   {
     name: "Glyki Nero Beach",
     description: "A blue-flag sandy beach with crystal-clear water and sea caves you can swim to.",
@@ -47,13 +37,43 @@ export const landmarks: Landmark[] = [
     onFoot: "29 min",
   },
   {
-    name: "Konnos Beach",
-    description: "Hidden gem in a sheltered turquoise bay between Ayia Napa and Protaras.",
+    name: "Nissi Beach",
+    description: "Cyprus's most iconic beach: crystal-clear water and a famous sandbar you can walk across.",
     category: "beach",
-    image: { src: base("konnos-beach.jpg"), alt: "Aerial view of Konnos Bay's sheltered cove with sunbeds lining the sandy shore" },
-    mapsUrl: "https://maps.app.goo.gl/Eedn5AmB84jfKxkSA",
-    distanceKm: 9.6,
-    byCar: "13 min",
+    image: { src: base("nissi-beach.jpg"), alt: "Aerial view of Nissi Beach's turquoise water and small islet, dotted with swimmers" },
+    mapsUrl: "https://maps.app.goo.gl/jEo6MbVe7tNniJFw5",
+    distanceKm: 3.1,
+    byCar: "7 min",
+    onFoot: "38 min",
+  },
+  {
+    name: "Landa Beach",
+    description: "Popular developed beach with golden sand, sunbeds, umbrella rentals, and calm swimming.",
+    category: "beach",
+    image: { src: base("landa-beach.jpg"), alt: "Curved white sand shoreline and turquoise cove at Landa Beach" },
+    mapsUrl: "https://maps.app.goo.gl/SDHNtXKDNa4PtXcF7",
+    distanceKm: 3.8,
+    byCar: "6 min",
+    onFoot: "47 min",
+  },
+  {
+    name: "Makronissos Beach",
+    description: "Sheltered bay with fine sand and clear water, plus an ancient burial site nearby.",
+    category: "beach",
+    image: { src: base("makronissos-beach.jpg"), alt: "Aerial view of Makronissos Beach's sandy headland between two turquoise coves" },
+    mapsUrl: "https://maps.app.goo.gl/evFZyv7q1k28GmDQ6",
+    distanceKm: 5.7,
+    byCar: "7 min",
+    onFoot: "1h",
+  },
+  {
+    name: "Sea Caves",
+    description: "Dramatic coastal bluffs riddled with sea caves, popular with divers and cliff jumpers.",
+    category: "beach",
+    image: { src: base("sea-caves.jpg"), alt: "View through a sea cave arch out to the limestone cliffs and blue water of Cape Greco" },
+    mapsUrl: "https://maps.app.goo.gl/CXuCSq48dZdcbum19",
+    distanceKm: 7.5,
+    byCar: "12 min",
   },
   {
     name: "Cape Cavo Greco",
@@ -65,13 +85,13 @@ export const landmarks: Landmark[] = [
     byCar: "10 min",
   },
   {
-    name: "Sea Caves",
-    description: "Dramatic coastal bluffs riddled with sea caves, popular with divers and cliff jumpers.",
+    name: "Konnos Beach",
+    description: "Hidden gem in a sheltered turquoise bay between Ayia Napa and Protaras.",
     category: "beach",
-    image: { src: base("sea-caves.jpg"), alt: "View through a sea cave arch out to the limestone cliffs and blue water of Cape Greco" },
-    mapsUrl: "https://maps.app.goo.gl/CXuCSq48dZdcbum19",
-    distanceKm: 7.5,
-    byCar: "12 min",
+    image: { src: base("konnos-beach.jpg"), alt: "Aerial view of Konnos Bay's sheltered cove with sunbeds lining the sandy shore" },
+    mapsUrl: "https://maps.app.goo.gl/Eedn5AmB84jfKxkSA",
+    distanceKm: 9.6,
+    byCar: "13 min",
   },
   {
     name: "Protaras & Fig Tree Bay",
