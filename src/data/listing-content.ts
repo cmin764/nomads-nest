@@ -115,4 +115,9 @@ export const reviews: Review[] = [
       "Everything was just perfect - great location, top-notch service, and the place was super clean and fully equipped, exactly like the photos. Really made my vacation extra special, highly recommended! Honestly, I tried to find something I didn't like - but I couldn't!",
     author: "Yonatan H.K.",
   },
+  {
+    quote:
+      "A wonderful, clean and modern apartment with a large terrace, located about 40 minutes from the airport by car. The apartment has everything needed for a comfortable stay, cooking, and beach trips. We were pleasantly surprised to find a cooler bag and an ice pack for keeping drinks cold. The bed deserves a special mention – it is large, very comfortable, and has an excellent mattress. We slept wonderfully throughout our stay...",
+    author: "Elena T.",
+  },
 ];

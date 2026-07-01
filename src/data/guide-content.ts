@@ -61,7 +61,8 @@ export const guideSections: GuideSection[] = [
     items: [
       { text: "Shower & Towels", heading: true },
       { text: "After showering: open the bathroom window and crack open the bathroom door." },
-      { text: "Body & face towels will be left on the bed. Beach towels are in the bedroom wardrobe, right middle shelf." },
+      { text: "Body & face towels will be left on the bed." },
+      { text: "If an essential item seems to be missing, it's most likely with our cleaner for washing/drying. Just let us know and we'll sort it out.", highlight: true },
 
       { text: "Cleaning Essentials", heading: true },
       { text: "Wash dishes before leaving." },
@@ -74,7 +75,7 @@ export const guideSections: GuideSection[] = [
     emoji: "📜",
     title: "House Rules",
     items: [
-      { text: "Quiet hours: 10 PM – 8 AM 🤫", highlight: true },
+      { text: "Quiet hours: 9 PM – 8 AM 🤫", highlight: true },
       { text: "No parties.", highlight: true },
       { text: "No extra guests.", highlight: true },
       { text: "No pets.", highlight: true },
@@ -113,9 +114,10 @@ export const guideSections: GuideSection[] = [
 
       { text: "Bedroom", heading: true },
       { text: "Extra pillows and blankets: wardrobe's top shelves." },
-      { text: "Beach blankets: the two white ones with gray symbols (rough, thick) are for the beach. Blue or dark gray ones are bed covers — keep them in the house.", highlight: true },
-      { text: "Hair dryer, clothes iron and beach accessories: wardrobe's bottom right shelf." },
-      { text: "Clothes dryer, ironing board, vacuum cleaner and beach bag: behind the door." },
+      { text: "Beach blankets and bag: subject to availability, as items can move around between stays. Use common sense to tell beach blankets apart from bed covers." },
+      { text: "We don't supply beach towels, so please don't take the bathroom towels to the beach. They should stay in the house.", highlight: true },
+      { text: "Hair dryer and clothes iron: wardrobe's bottom right shelf." },
+      { text: "Clothes dryer, ironing board and vacuum cleaner: behind the door." },
     ],
   },
 ];

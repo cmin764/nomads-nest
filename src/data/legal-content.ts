@@ -95,7 +95,7 @@ export const privacyPolicy: LegalPage = {
 
 export const termsAndConditions: LegalPage = {
   title: "Terms & Conditions",
-  lastUpdated: "March 2026",
+  lastUpdated: "July 2026",
   sections: [
     {
       heading: "About This Document",
@@ -109,7 +109,7 @@ export const termsAndConditions: LegalPage = {
     {
       heading: "House Rules",
       body: [
-        "Quiet hours are 22:00 to 08:00. The property is in a residential area, so please be considerate of neighbours.",
+        "Quiet hours are 21:00 to 08:00. The property is in a residential area, so please be considerate of neighbours.",
         "Smoking is permitted on the terrace only. Smoking anywhere inside the apartment will incur a €200 cleaning fee.",
         "No pets are permitted.",
         "No parties or gatherings beyond the registered guest occupancy.",
