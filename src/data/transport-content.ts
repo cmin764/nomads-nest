@@ -32,13 +32,13 @@ export const fromLarnacaAirport: TransportSection = {
   options: [
     {
       label: "Kapnos Airport Shuttle",
-      detail: "Direct to Ayia Napa. Around EUR 10-12 (check kapnosairportshuttle.com for the current fare). Seats fill up in summer, book ahead.",
+      detail: "Direct to Ayia Napa. EUR 12 per adult (check kapnosairportshuttle.com for the current fare). Seats fill up in summer, book ahead.",
       url: "https://kapnosairportshuttle.com/",
     },
     {
       label: "Pame Bus 425 + InterCity",
       detail:
-        "Bus 425 from the airport to Larnaca Central Station (every 20-30 min, early morning to late evening, ~25 min). Walk ~3 min to Nicolaides Building on Archiep. Makariou Ave. (current InterCity stop, as Finikoudes is temporarily under renovation) to catch InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55 min). Total: ~EUR 7.",
+        "Bus 425 from the airport to Larnaca Central Station (every 20-30 min, early morning to late evening, ~25 min). Walk ~3 min to Nicolaides Building on Archiep. Makariou Ave. (current InterCity stop, as Finikoudes is temporarily under renovation) to catch InterCity Line 43 to Ayia Napa Monastery (EUR 5, ~55-65 min). Total: ~EUR 7.",
       detailLinks: [
         { text: "Larnaca Central Station", url: "https://maps.app.goo.gl/J3nJyZ4K11eQdTCL7" },
       ],
@@ -83,9 +83,11 @@ export const fromPaphosAirport: TransportSection = {
 
 // OSEA local routes for moving around Ayia Napa
 export const localRoutes: LocalRoute[] = [
-  { number: "201", description: "West circle: Nissi Beach, Makronissos, Marina" },
+  { number: "201", description: "West circle: Nissi Beach, Makronissos, Marina, Waterpark" },
   { number: "202", description: "East circle: Kryou Nerou, Love Bridge, Marina" },
   { number: "101 / 102", description: "Coastal run: Waterpark, Cape Greco, Protaras, Paralimni" },
+  { number: "501 / 502", description: "Deryneia, Frenaros, Agia Thekla Beach, Ayia Napa Marina, Waterpark, Paralimni" },
+  { number: "706", description: "Xylotympou, Avgorou, Frenaros, Deryneia, Paralimni, Protaras, Konnos" },
   { number: "711", description: "Ayia Napa to Larnaca via coast (two-way)" },
 ];
 

@@ -13,6 +13,7 @@ import {
   gettingAroundFooter,
   closestStopName,
   gettingAroundTips,
+  smartCardTip,
   guidebookUrl,
 } from "@/data/landmarks-content";
 
@@ -52,6 +53,7 @@ export default function LandmarksPage() {
           gettingAroundFooter={gettingAroundFooter}
           closestStopName={closestStopName}
           gettingAroundTips={gettingAroundTips}
+          smartCardTip={smartCardTip}
         />
       </div>
 

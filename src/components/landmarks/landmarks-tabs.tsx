@@ -1,6 +1,6 @@
 "use client";
 
-import { Car, Footprints, MapPin, Users, Bus } from "lucide-react";
+import { Car, Footprints, MapPin, Bus, CreditCard } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import PlaceImage from "@/components/landmarks/place-image";
@@ -15,6 +15,7 @@ interface LandmarksTabsProps {
   gettingAroundFooter: { label: string; url: string };
   closestStopName: string;
   gettingAroundTips: string[];
+  smartCardTip: { text: string; label: string; url: string };
 }
 
 const categoryLabels: Record<LandmarkCategory, string> = {
@@ -47,12 +48,6 @@ function LandmarkCard({ place, priority }: { place: Landmark; priority?: boolean
               {place.onFoot}
             </span>
           )}
-          {place.recommends && (
-            <span className="flex items-center gap-1.5">
-              <Users size={13} className="text-gold" />
-              {place.recommends} locals recommend
-            </span>
-          )}
         </div>
         {place.mapsUrl && (
           <Button variant="navy" size="sm" className="w-auto self-start" asChild>
@@ -74,15 +69,9 @@ function EateryCard({ eatery }: { eatery: Eatery }) {
       <h3 className="font-heading font-light text-[19px] leading-[1.2] mb-2 text-nn-text">
         {eatery.name}
       </h3>
-      <p className="text-[13px] font-light leading-[1.7] mb-2 text-nn-muted flex-1">
+      <p className="text-[13px] font-light leading-[1.7] text-nn-muted">
         {eatery.description}
       </p>
-      {eatery.recommends && (
-        <span className="flex items-center gap-1.5 text-[12px] font-light text-nn-muted">
-          <Users size={13} className="text-gold" />
-          {eatery.recommends} locals recommend
-        </span>
-      )}
     </div>
   );
 }
@@ -95,8 +84,10 @@ export default function LandmarksTabs({
   gettingAroundFooter,
   closestStopName,
   gettingAroundTips,
+  smartCardTip,
 }: LandmarksTabsProps) {
   const groups: LandmarkCategory[] = ["beach", "sight", "day-trip"];
+  const byDistance = (a: Landmark, b: Landmark) => (a.distanceKm ?? Infinity) - (b.distanceKm ?? Infinity);
 
   return (
     <Tabs defaultValue="visit" className="w-full">
@@ -117,7 +108,7 @@ export default function LandmarksTabs({
       <TabsContent value="visit">
         <div className="space-y-16">
           {groups.map((category) => {
-            const places = landmarks.filter((p) => p.category === category);
+            const places = landmarks.filter((p) => p.category === category).sort(byDistance);
             return (
               <div key={category}>
                 <h2 className="font-heading font-light text-[clamp(22px,2.5vw,28px)] mb-6 text-nn-text">
@@ -153,7 +144,7 @@ export default function LandmarksTabs({
                 <li key={route.number} className="flex items-start gap-3 text-[14px] font-light text-nn-muted">
                   <Bus size={15} className="text-gold mt-0.5 shrink-0" />
                   <span>
-                    <span className="text-nn-text font-normal">{route.number}</span> &mdash; {route.description}
+                    <span className="text-nn-text font-normal">{route.number}</span>: {route.description}
                   </span>
                 </li>
               ))}
@@ -166,6 +157,18 @@ export default function LandmarksTabs({
               .
             </p>
           </div>
+
+          <div className="flex items-start gap-3 rounded-2xl px-6 py-5 mb-8 border border-gold/30 bg-[var(--gold-lt)]">
+            <CreditCard size={18} className="text-gold mt-0.5 shrink-0" />
+            <p className="text-[13px] font-light leading-[1.7] text-nn-text">
+              {smartCardTip.text}{" "}
+              <a href={smartCardTip.url} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">
+                {smartCardTip.label}
+              </a>
+              .
+            </p>
+          </div>
+
           <ul className="space-y-3">
             {gettingAroundTips.map((tip) => (
               <li key={tip} className="flex items-start gap-2 text-[13px] font-light leading-[1.7] text-nn-muted">
