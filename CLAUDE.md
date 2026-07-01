@@ -197,6 +197,7 @@ Investigated and accepted. Do not re-investigate unless the underlying library o
 - **Images/CSS preloaded but unused (any page):** the `Header`'s "Gallery" nav link (present sitewide) prefetches `/gallery` on viewport, and `/gallery/page.tsx` marks its first 4 room cover images as `priority` (`A-terrace-4.JPG` among them, since `terrace` is the first room). The preload hint rides along with the route prefetch, so it can surface on any page, not just `/listing`'s amenity cards. Disabling prefetch would hurt navigation speed.
 - **Forced reflow ~100ms (`/listing`):** Embla reads all slide widths at mount. Not triggered by our code.
 - **`setInterval` ~60ms (`/listing`):** `reviews-carousel.tsx`'s autoplay timer calls `emblaApi.scrollNext()` every 5.5s; the slow work is Embla recalculating slide positions, same root cause as the forced-reflow entry above. Once per 5.5s, imperceptible to users.
+- **Non-passive listeners + forced reflow (`/gallery`, `/check-in`):** `yet-another-react-lightbox`'s `Zoom` plugin (`src/hooks/use-lightbox.ts`) needs non-passive touch/wheel listeners for pinch-zoom and pan, and reads layout to compute zoom bounds on mount/interaction. Same shape as the Embla entries above, different library. Cannot be fixed without dropping zoom support.
 
 ## Deployment
 

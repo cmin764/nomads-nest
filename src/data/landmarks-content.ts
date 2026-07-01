@@ -76,15 +76,6 @@ export const landmarks: Landmark[] = [
     byCar: "12 min",
   },
   {
-    name: "Cape Cavo Greco",
-    description: "Stunning national park with sea views, hiking trails, and a hidden turquoise lagoon.",
-    category: "beach",
-    image: { src: base("cape-cavo-greco.jpg"), alt: "Turquoise lagoon and rocky headland at Cape Greco with tour boats anchored offshore" },
-    mapsUrl: "https://maps.app.goo.gl/etxFT9YWc8YgrPnB9",
-    distanceKm: 8.3,
-    byCar: "10 min",
-  },
-  {
     name: "Konnos Beach",
     description: "Hidden gem in a sheltered turquoise bay between Ayia Napa and Protaras.",
     category: "beach",
@@ -92,6 +83,15 @@ export const landmarks: Landmark[] = [
     mapsUrl: "https://maps.app.goo.gl/Eedn5AmB84jfKxkSA",
     distanceKm: 9.6,
     byCar: "13 min",
+  },
+  {
+    name: "Cape Cavo Greco",
+    description: "Stunning national park with sea views, hiking trails, and a hidden turquoise lagoon.",
+    category: "beach",
+    image: { src: base("cape-cavo-greco.jpg"), alt: "Turquoise lagoon and rocky headland at Cape Greco with tour boats anchored offshore" },
+    mapsUrl: "https://maps.app.goo.gl/etxFT9YWc8YgrPnB9",
+    distanceKm: 10.2,
+    byCar: "14 min",
   },
   {
     name: "Protaras & Fig Tree Bay",
