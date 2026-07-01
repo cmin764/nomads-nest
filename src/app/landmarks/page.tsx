@@ -1,16 +1,25 @@
-import Image from "next/image";
 import type { Metadata } from "next";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
-import { cn } from "@/lib/utils";
-import { landmarksIntro, landmarks, guidebookUrl } from "@/data/landmarks-content";
+import LandmarksTabs from "@/components/landmarks/landmarks-tabs";
+import {
+  landmarksIntro,
+  landmarks,
+  eateries,
+  gettingAroundRoutes,
+  gettingAroundTitle,
+  gettingAroundFooter,
+  closestStopName,
+  gettingAroundTips,
+  guidebookUrl,
+} from "@/data/landmarks-content";
 
 export const metadata: Metadata = {
   title: "Landmarks near Nomad's Nest",
   description:
-    "Discover Cyprus: Bridge of Love, Sculpture Park, Salt Lake, Kykkos Monastery, Pano Lefkara, and Lofou Village.",
+    "Discover Cyprus: beaches, sights, day trips, and where to eat around Ayia Napa, from Nissi Beach to Kykkos Monastery.",
 };
 
 export default function LandmarksPage() {
@@ -33,49 +42,17 @@ export default function LandmarksPage() {
         </div>
       </FadeIn>
 
-      {/* ── Landmark cards ── */}
-      <div className="space-y-5 mb-20">
-        {landmarks.map((landmark, i) => {
-          const isEven = i % 2 === 0;
-          return (
-            <FadeIn key={landmark.name} delay={i * 0.06}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 rounded-2xl overflow-hidden border border-divider bg-surface">
-                {/* Image - alternates left/right on desktop */}
-                <div
-                  className={cn(
-                    "relative aspect-[4/3] sm:aspect-auto sm:min-h-[280px] overflow-hidden bg-surface-alt",
-                    isEven ? "sm:order-1" : "sm:order-2",
-                  )}
-                >
-                  <Image
-                    src={landmark.image.src}
-                    alt={landmark.image.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    className="object-cover"
-                    {...(i === 0 && { priority: true })}
-                  />
-                </div>
-
-                {/* Text */}
-                <div className={cn("flex flex-col justify-center px-8 py-8", isEven ? "sm:order-2" : "sm:order-1")}>
-                  <h2 className="font-heading font-light text-[clamp(22px,2.5vw,32px)] leading-[1.2] mb-4 text-nn-text">
-                    {landmark.name}
-                  </h2>
-                  <p className="text-[14px] font-light leading-[1.8] mb-6 text-nn-muted">
-                    {landmark.description}
-                  </p>
-                  <Button variant="gold" size="sm" className="w-auto self-start" asChild>
-                    <a href={landmark.mapsUrl} target="_blank" rel="noopener noreferrer">
-                      Maps
-                      <MapPin size={14} className="ml-1.5" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </FadeIn>
-          );
-        })}
+      {/* ── Tabs: What to Visit / Where to Eat / Getting Around ── */}
+      <div className="mb-20">
+        <LandmarksTabs
+          landmarks={landmarks}
+          eateries={eateries}
+          gettingAroundRoutes={gettingAroundRoutes}
+          gettingAroundTitle={gettingAroundTitle}
+          gettingAroundFooter={gettingAroundFooter}
+          closestStopName={closestStopName}
+          gettingAroundTips={gettingAroundTips}
+        />
       </div>
 
       {/* ── Airbnb guidebook CTA ── */}

@@ -189,6 +189,23 @@ export default function ListingPage() {
         </div>
       </section>
 
+      {/* ── Landmarks CTA ── */}
+      <section className="pb-20 mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="rounded-2xl px-8 py-14 text-center border border-divider bg-surface-alt">
+            <h2 className="font-heading italic font-light text-[clamp(24px,3vw,34px)] leading-[1.2] mb-4 text-nn-text">
+              Explore the Neighbourhood
+            </h2>
+            <p className="text-[14px] font-light leading-[1.8] mb-8 max-w-[480px] mx-auto text-nn-muted">
+              Beaches, sights, day trips, and where to eat, all within reach of your stay.
+            </p>
+            <Button variant="navy" size="default" asChild>
+              <Link href="/landmarks">View Landmarks</Link>
+            </Button>
+          </div>
+        </FadeIn>
+      </section>
+
       {/* ── "Interested?" CTA ── */}
       <PhotoSection
         src={ctaImage.src}
