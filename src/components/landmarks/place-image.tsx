@@ -1,21 +1,11 @@
 import Image from "next/image";
-import { ImageIcon } from "lucide-react";
 
 interface PlaceImageProps {
-  image?: { src: string; alt: string };
+  image: { src: string; alt: string };
   priority?: boolean;
 }
 
 export default function PlaceImage({ image, priority }: PlaceImageProps) {
-  if (!image) {
-    return (
-      <div className="relative aspect-[4/3] overflow-hidden bg-surface-alt flex flex-col items-center justify-center gap-2">
-        <ImageIcon size={22} className="text-nn-muted" strokeWidth={1.5} />
-        <span className="text-[11px] font-light text-nn-muted">Photo coming soon</span>
-      </div>
-    );
-  }
-
   return (
     <div className="relative aspect-[4/3] overflow-hidden bg-surface-alt">
       <Image

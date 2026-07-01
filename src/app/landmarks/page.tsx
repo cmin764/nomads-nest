@@ -3,7 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
-import LandmarksTabs from "@/components/landmarks/landmarks-tabs";
+import TabsShell from "@/components/landmarks/tabs-shell";
+import VisitPanel from "@/components/landmarks/visit-panel";
+import EatPanel from "@/components/landmarks/eat-panel";
+import AroundPanel from "@/components/landmarks/around-panel";
 import {
   landmarksIntro,
   landmarks,
@@ -47,15 +50,19 @@ export default function LandmarksPage() {
 
       {/* ── Tabs: What to Visit / Where to Eat / Getting Around ── */}
       <div className="mb-20">
-        <LandmarksTabs
-          landmarks={landmarks}
-          eateries={eateries}
-          gettingAroundRoutes={gettingAroundRoutes}
-          gettingAroundTitle={gettingAroundTitle}
-          gettingAroundFooter={gettingAroundFooter}
-          closestStopName={closestStopName}
-          gettingAroundTips={gettingAroundTips}
-          smartCardTip={smartCardTip}
+        <TabsShell
+          visit={<VisitPanel landmarks={landmarks} />}
+          eat={<EatPanel eateries={eateries} />}
+          around={
+            <AroundPanel
+              gettingAroundRoutes={gettingAroundRoutes}
+              gettingAroundTitle={gettingAroundTitle}
+              gettingAroundFooter={gettingAroundFooter}
+              closestStopName={closestStopName}
+              gettingAroundTips={gettingAroundTips}
+              smartCardTip={smartCardTip}
+            />
+          }
         />
       </div>
 

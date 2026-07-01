@@ -142,7 +142,8 @@ body {
   box-shadow: none !important;
 }
 .nn-tab:focus-visible {
-  outline: none !important;
+  outline: 2px solid var(--gold) !important;
+  outline-offset: -2px;
 }
 
 /* Logo: transparent PNG, gold tint on hover */

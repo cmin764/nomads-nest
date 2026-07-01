@@ -4,8 +4,8 @@ export interface Landmark {
   name: string;
   description: string;
   category: LandmarkCategory;
-  image?: { src: string; alt: string };
-  mapsUrl?: string;
+  image: { src: string; alt: string };
+  mapsUrl: string;
   distanceKm?: number;
   byCar?: string;
   onFoot?: string;
@@ -16,7 +16,7 @@ export interface Eatery {
   cuisine: string;
   description: string;
   note?: string;
-  mapsUrl?: string;
+  mapsUrl: string;
 }
 
 const base = (filename: string) => `/images/gallery/landmarks/${filename}`;
