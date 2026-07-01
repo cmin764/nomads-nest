@@ -69,9 +69,17 @@ function EateryCard({ eatery }: { eatery: Eatery }) {
       <h3 className="font-heading font-light text-[19px] leading-[1.2] mb-2 text-nn-text">
         {eatery.name}
       </h3>
-      <p className="text-[13px] font-light leading-[1.7] text-nn-muted">
+      <p className="text-[13px] font-light leading-[1.7] mb-4 text-nn-muted flex-1">
         {eatery.description}
       </p>
+      {eatery.mapsUrl && (
+        <Button variant="navy" size="sm" className="w-auto self-start" asChild>
+          <a href={eatery.mapsUrl} target="_blank" rel="noopener noreferrer">
+            Maps
+            <MapPin size={13} className="ml-1.5" />
+          </a>
+        </Button>
+      )}
     </div>
   );
 }
