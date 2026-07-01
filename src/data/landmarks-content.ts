@@ -17,6 +17,7 @@ export interface Eatery {
   name: string;
   cuisine: string;
   description: string;
+  note?: string;
   mapsUrl?: string;
 }
 
@@ -134,6 +135,15 @@ export const landmarks: Landmark[] = [
     onFoot: "24 min",
   },
   {
+    name: "Ayia Napa Marina",
+    description: "Upscale yacht marina with a spa, harbour-view dining, and a lively evening cocktail scene.",
+    category: "sight",
+    image: { src: base("ayia-napa-marina.jpg"), alt: "Aerial dusk view of Ayia Napa Marina's yacht basin and glass-domed building beneath the residential tower" },
+    mapsUrl: "https://maps.app.goo.gl/jWycYDgWtf8sF7pH6",
+    distanceKm: 6.1,
+    byCar: "7 min",
+  },
+  {
     name: "WaterWorld Waterpark",
     description: "One of Europe's largest themed waterparks, fun for all ages.",
     category: "sight",
@@ -220,7 +230,7 @@ export const landmarks: Landmark[] = [
     name: "Salt Lake",
     description: "Larnaca's salt lake, home to flamingos from November to March and the Hala Sultan Tekke shrine.",
     category: "day-trip",
-    image: { src: base("IMG_6334.JPG"), alt: "Flat white salt lake surface under cloudy sky with distant city skyline" },
+    image: { src: base("salt-lake.jpg"), alt: "Flamingos wading in the salt lake with the Hala Sultan Tekke shrine in the background" },
     mapsUrl: "https://maps.app.goo.gl/AzU391LB2ZNUPnLh9",
     distanceKm: 56,
     byCar: "37 min",
@@ -250,7 +260,14 @@ export const eateries: Eatery[] = [
     name: "Hokkaido Restaurant",
     cuisine: "Japanese",
     description: "Teppanyaki shows and fresh sushi, fun interactive dining.",
+    note: "Reservation required for the show.",
     mapsUrl: "https://maps.app.goo.gl/g6yzZpPMaW7PGrvE7",
+  },
+  {
+    name: "Fiji Polynesian Cuisine",
+    cuisine: "Polynesian",
+    description: "Tropical-themed spot known for its cocktails as much as the food.",
+    mapsUrl: "https://maps.app.goo.gl/iJMw7CNDG5rHioVX9",
   },
   {
     name: "Los Mexicanos",

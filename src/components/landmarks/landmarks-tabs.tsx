@@ -72,6 +72,9 @@ function EateryCard({ eatery }: { eatery: Eatery }) {
       <p className="text-[13px] font-light leading-[1.7] mb-4 text-nn-muted flex-1">
         {eatery.description}
       </p>
+      {eatery.note && (
+        <p className="text-[12px] italic font-light leading-[1.5] mb-4 text-nn-muted">{eatery.note}</p>
+      )}
       {eatery.mapsUrl && (
         <Button variant="navy" size="sm" className="w-auto self-start" asChild>
           <a href={eatery.mapsUrl} target="_blank" rel="noopener noreferrer">
