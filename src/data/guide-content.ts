@@ -114,7 +114,7 @@ export const guideSections: GuideSection[] = [
 
       { text: "Bedroom", heading: true },
       { text: "Extra pillows and blankets: wardrobe's top shelves." },
-      { text: "Beach blankets (subject to availability): the two white ones with gray symbols (rough, thick) are for the beach. Blue or dark gray ones are bed covers — keep them in the house.", highlight: true },
+      { text: "Beach blankets (subject to availability): the two white ones with gray symbols (rough, thick) are for the beach. Blue or dark gray ones are bed covers, so keep them in the house.", highlight: true },
       { text: "Hair dryer and clothes iron: wardrobe's bottom right shelf." },
       { text: "Clothes dryer, ironing board and vacuum cleaner: behind the door." },
       { text: "Beach bag and other beach accessories: subject to availability, as items can move around between stays. Let us know if something you need for the beach isn't there.", highlight: true },
