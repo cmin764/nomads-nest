@@ -146,6 +146,15 @@ body {
   outline-offset: -2px;
 }
 
+/* Narrow phones: 3-tab pill lists (e.g. /landmarks) overflow at the desktop padding/font-size */
+@media (max-width: 480px) {
+  .nn-tab {
+    padding: 10px 10px;
+    font-size: 9px;
+    letter-spacing: .04em;
+  }
+}
+
 /* Logo: transparent PNG, gold tint on hover */
 .logo-link { display: inline-flex; transition: opacity 300ms ease; }
 .logo-img  { transition: filter 300ms ease; }

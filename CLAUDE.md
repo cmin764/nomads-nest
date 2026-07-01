@@ -194,8 +194,9 @@ Investigated and accepted. Do not re-investigate unless the underlying library o
 
 - **Non-passive `touchmove` (`/listing`):** Embla carousel requires `passive: false` to call `preventDefault()` during horizontal drag. Cannot be fixed without replacing Embla.
 - **`setTimeout` >50ms (`/listing`):** YouTube embed bootstrap. Not our code.
-- **Images/CSS preloaded but unused (`/listing`):** Next.js prefetches gallery pages linked from amenity cards and emits preload hints for their `priority` images. Disabling prefetch would hurt navigation speed.
+- **Images/CSS preloaded but unused (any page):** the `Header`'s "Gallery" nav link (present sitewide) prefetches `/gallery` on viewport, and `/gallery/page.tsx` marks its first 4 room cover images as `priority` (`A-terrace-4.JPG` among them, since `terrace` is the first room). The preload hint rides along with the route prefetch, so it can surface on any page, not just `/listing`'s amenity cards. Disabling prefetch would hurt navigation speed.
 - **Forced reflow ~100ms (`/listing`):** Embla reads all slide widths at mount. Not triggered by our code.
+- **`setInterval` ~60ms (`/listing`):** `reviews-carousel.tsx`'s autoplay timer calls `emblaApi.scrollNext()` every 5.5s; the slow work is Embla recalculating slide positions, same root cause as the forced-reflow entry above. Once per 5.5s, imperceptible to users.
 
 ## Deployment
 
