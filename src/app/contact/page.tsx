@@ -165,7 +165,7 @@ export default function ContactPage() {
           {/* Subtle gradient so the overlay has contrast without killing the photo */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-          <div className="absolute inset-0 flex items-end justify-center pb-8 px-6 pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none">
             <div
               className="rounded-xl px-5 py-4 sm:px-8 sm:py-6 text-center max-w-[85%] sm:max-w-lg pointer-events-auto"
               style={{
