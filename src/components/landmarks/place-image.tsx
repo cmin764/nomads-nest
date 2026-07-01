@@ -6,7 +6,6 @@ interface PlaceImageProps {
   priority?: boolean;
 }
 
-// ponytail: no photo file for new places yet, owner supplies them later
 export default function PlaceImage({ image, priority }: PlaceImageProps) {
   if (!image) {
     return (
