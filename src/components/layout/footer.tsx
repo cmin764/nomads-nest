@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { address, contactEmail, contactWhatsApp } from "@/data/contact-content";
+import { address, contactEmail, contactWhatsApp, licenseNumber } from "@/data/contact-content";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -23,7 +23,8 @@ export default function Footer() {
             <div>
               <address className="not-italic text-sm leading-relaxed text-nn-muted">
                 {address.street}<br />
-                {address.city}, {address.country} {address.postcode}
+                {address.city}, {address.country} {address.postcode}<br />
+                Reg. No. {licenseNumber}
               </address>
               <a href={contactWhatsApp.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm nn-link">
                 {contactWhatsApp.display}

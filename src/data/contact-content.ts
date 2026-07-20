@@ -14,6 +14,8 @@ export const contactWhatsApp = {
 
 export const hosts = "Georgiana Harnagea & Cosmin Poieana";
 
+export const licenseNumber = "0009512";
+
 export const mapUrl = "https://maps.app.goo.gl/noEqWbkiv1mG7Kry9";
 
 // pb-encoded embed pins the actual "Nomad's Nest - Apartment for rent" place listing

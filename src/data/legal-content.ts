@@ -1,3 +1,5 @@
+import { licenseNumber } from "@/data/contact-content";
+
 export type LegalSegment = string | { text: string; href: string } | { code: string };
 
 export interface LegalSection {
@@ -100,7 +102,7 @@ export const termsAndConditions: LegalPage = {
     {
       heading: "About This Document",
       body: [
-        "This website is a brochure for Nomad's Nest, a short-term rental apartment at 63 Tefkrou Anthia, Ayia Napa, Cyprus (Registration License #0009512), operated by Georgiana Harnagea and Cosmin Poieana.",
+        `This website is a brochure for Nomad's Nest, a short-term rental apartment at 63 Tefkrou Anthia, Ayia Napa, Cyprus (Registration License #${licenseNumber}), operated by Georgiana Harnagea and Cosmin Poieana.`,
         "Bookings are made through third-party platforms: Airbnb, Booking.com, or HomeExchange. The booking contract, payment terms, and cancellation policy for your stay are governed by the platform you book through, not by this website. Please read the relevant platform's terms before booking.",
         "Guests must be at least 18 years of age to book or stay at the property.",
         "By using this website you agree to these terms.",
