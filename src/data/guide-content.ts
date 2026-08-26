@@ -44,8 +44,12 @@ export const guideSections: GuideSection[] = [
       { text: "If the water isn't hot, turn the boiler on 30 minutes before showering (bathroom wall switch). Turn it off after." },
       { text: "Water pump switch: kitchen wall near the stove. Do not turn it off. If pressure feels low, check the switch is ON." },
       { text: "Tap water: great for cooking 🍳. Use bottled water for drinking 💧", highlight: true },
-      { text: "Electricity is precious on the island 💡. Turn off the AC when you're out, and keep windows and doors closed when it's running.", highlight: true },
+      { text: "Electricity is precious on the island 💡. Keep windows and doors closed when the AC is running.", highlight: true },
       { text: "Before going to sleep, turn off the terrace lights and the main entrance light." },
+
+      { text: "Air Conditioning ❄️", heading: true },
+      { text: "If the remote doesn't respond, check the wall power switch just below the AC unit (in each room). Flip it ON, a red light confirms it, then the remote works as usual.", highlight: true },
+      { text: "Turn off the AC when you're out.", highlight: true },
 
       { text: "Connectivity & Entertainment 📺🌐", heading: true },
       { text: "Wi-Fi password: check the intro text on the living area rounded table." },
