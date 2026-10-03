@@ -34,7 +34,7 @@
   --popover:                var(--surface);
   --popover-foreground:     var(--text);
   --primary:                var(--gold);
-  --primary-foreground:     var(--navy);
+  --primary-foreground:     var(--bg);
   --secondary:              var(--navy-lt);
   --secondary-foreground:   var(--navy);
   --muted:                  var(--surface-alt);
