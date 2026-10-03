@@ -102,7 +102,7 @@ Applied during all development, not just at review time.
 
 All page content is typed TypeScript constants — no CMS, no API calls. **Edit content here, not in components.**
 
-- `check-in-steps.ts`: `overviewStep: CheckInStep` (shown above both tabs), `byCar: CheckInStep[]` (4 steps), `byFoot: CheckInStep[]` (6 steps). Both arrays end with two shared `sharedFinalSteps` (Main Entrance + Right Lockbox). Consumed by `DirectionsTabs`.
+- `check-in-steps.ts`: `byCar: CheckInStep[]` (4 steps), `byFoot: CheckInStep[]` (6 steps). Both arrays end with two shared `sharedFinalSteps` (Main Entrance + Right Lockbox). Consumed by `DirectionsTabs`.
 - `guide-content.ts`: `guideSections: GuideSection[]` and `farewellChecklistItems: string[]`. `GuideItem` supports four flags: `heading` (h3), `highlight` (gold/bold — rules, warnings, fees), `note` (italic/muted), and `url` (link; external opens in new tab, internal uses Next.js `Link`).
 - `book-content.ts`: `pricingSeasons`, `platformLinks` (Airbnb / Booking.com / HomeExchange), `fees`, `discounts`, `limits`, `contactEmail`.
 - `listing-content.ts`: property stats, intro copy, amenity cards, reviews, and image references for the listing page.
@@ -128,7 +128,6 @@ These are the only `"use client"` components; everything else is a server compon
 - `Header` — hamburger menu toggle state
 - `TableOfContents` — `IntersectionObserver` on each section's `h2` for active link tracking; smooth-scrolls with a 96px offset (`HEADER_OFFSET`) to clear the sticky header
 - `FarewellChecklist` — checkbox state persisted to `localStorage` under key `nomads-nest-farewell-checklist`; uses a `mounted` flag to prevent hydration mismatch
-- `DirectionsTabs` — Radix UI Tabs wrapping the check-in step cards
 - `PhotoGrid` — lightbox/zoom interaction on gallery pages
 - `ReviewsCarousel` — touch/drag carousel on the listing page
 - `FadeIn` — framer-motion scroll-triggered fade wrapper used across all pages
