@@ -28,7 +28,7 @@ export default function StepCard({ step, index, priority }: StepCardProps) {
             {index + 1}
           </span>
           <div>
-            <h3 className="font-heading font-light text-[19px] text-foreground mb-[7px]">{step.heading}</h3>
+            <h2 className="font-heading font-light text-[19px] text-foreground mb-[7px]">{step.heading}</h2>
             <p className="text-[13px] font-light text-muted-foreground leading-[1.7]">{renderWithLinks(step.description, step.descriptionLinks)}</p>
           </div>
         </div>

@@ -72,12 +72,12 @@ export default function GuideSection({ section }: GuideSectionProps) {
                   !isLast && "border-b border-border"
                 )}
               >
-                <span className="shrink-0 mt-[3px] text-[12px] text-[var(--gold-dk)]" aria-hidden>
+                <span className="shrink-0 mt-[3px] text-[12px] text-gold-text" aria-hidden>
                   {icon}
                 </span>
                 <span
                   className={cn(
-                    item.highlight ? "font-normal text-[var(--gold-dk)]" : item.note ? "italic text-nn-muted" : "text-nn-muted"
+                    item.highlight ? "font-normal text-gold-text" : item.note ? "italic text-nn-muted" : "text-nn-muted"
                   )}
                 >
                   {textNode}

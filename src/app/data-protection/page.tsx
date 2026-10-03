@@ -3,6 +3,7 @@ import LegalPageLayout from "@/components/ui/legal-page-layout";
 import { dataProtection } from "@/data/legal-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/data-protection" },
   title: "Data Protection",
   description: "Nomad's Nest data protection notice covering GDPR compliance, cookies, and your rights.",
 };

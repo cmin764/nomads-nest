@@ -37,8 +37,13 @@ const nextConfig: NextConfig = {
               // va.vercel-scripts.com beacon; maps.googleapis.com for Google Maps widget; vercel.live toolbar WS
               "connect-src 'self' va.vercel-scripts.com vercel.live wss://ws-us3.pusher.com",
               // Google Maps on contact page; YouTube on listing page; vercel.live toolbar on preview deploys
-              "frame-src maps.google.com www.google.com www.youtube.com vercel.live",
+              "frame-src maps.google.com www.google.com www.youtube-nocookie.com vercel.live",
               "frame-ancestors 'none'",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              // dev serves over http (incl. LAN IPs), so upgrading would break local assets
+              ...(isDev ? [] : ["upgrade-insecure-requests"]),
             ].join("; "),
           },
         ],

@@ -7,7 +7,7 @@ export interface InlineLink {
 }
 
 export const LINK_CLASS =
-  "text-primary underline underline-offset-4 hover:opacity-70 transition-opacity";
+  "text-gold-text underline underline-offset-4 hover:opacity-70 transition-opacity";
 
 // Use when surrounding context already sets the text colour.
 export const LINK_CLASS_BARE =

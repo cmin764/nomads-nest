@@ -6,6 +6,7 @@ import GoldenDivider from "@/components/ui/golden-divider";
 import { safetyIntro, safetyMeasures, emergencyNote } from "@/data/safety-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/safety" },
   title: "Safety at Nomad's Nest",
   description:
     "Every safety measure at Nomad's Nest: CO detector, smoke detector, fire extinguisher, first aid kit, and more.",
@@ -16,7 +17,6 @@ export default function SafetyPage() {
     <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20">
 
       {/* ── Header ── */}
-      <FadeIn>
         <div className="text-center max-w-[680px] mx-auto mb-16">
           <div className="flex justify-center mb-6">
             <ShieldCheck size={36} strokeWidth={1} className="text-gold" />
@@ -29,7 +29,6 @@ export default function SafetyPage() {
           </p>
           <GoldenDivider />
         </div>
-      </FadeIn>
 
       {/* ── Safety measures grid ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -76,7 +75,7 @@ export default function SafetyPage() {
                 href={c.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13px] font-light leading-[1.75] hover:underline text-gold"
+                className="text-[13px] font-light leading-[1.75] hover:underline text-gold-text"
               >
                 {c.name}
                 <span className="block text-[12px] text-nn-muted">

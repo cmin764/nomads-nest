@@ -15,7 +15,7 @@ export default function RoomNav({ currentSlug }: { currentSlug: string }) {
   if (!prevRoom || !nextRoom) return null;
 
   return (
-    <nav
+    <nav aria-label="Rooms"
       className="flex items-center justify-between pt-10 mt-10 border-t border-divider"
     >
       <Link

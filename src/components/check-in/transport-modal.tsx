@@ -46,7 +46,7 @@ function Section({ section }: { section: TransportSection }) {
                 {opt.label}
               </a>
             ) : (
-              <span className={`font-medium ${opt.warning ? "text-[var(--gold-dk)]" : "text-foreground"}`}>
+              <span className={`font-medium ${opt.warning ? "text-gold-text" : "text-foreground"}`}>
                 {opt.label}
               </span>
             )}
@@ -105,7 +105,7 @@ export default function TransportModal() {
             <div className="rounded-[10px] bg-muted border border-border px-4 py-3 space-y-1.5">
               {localRoutes.map((r) => (
                 <div key={r.number} className="flex gap-2 text-[13px] leading-[1.6]">
-                  <span className="shrink-0 font-medium text-primary w-16">{r.number}</span>
+                  <span className="shrink-0 font-medium text-gold-text w-16">{r.number}</span>
                   <span className="text-muted-foreground">{r.description}</span>
                 </div>
               ))}

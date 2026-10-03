@@ -23,6 +23,7 @@ import {
 } from "@/data/transport-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/landmarks" },
   title: "Landmarks near Nomad's Nest",
   description:
     "Discover Cyprus: beaches, sights, day trips, and where to eat around Ayia Napa, from Nissi Beach to Kykkos Monastery.",
@@ -33,9 +34,8 @@ export default function LandmarksPage() {
     <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20">
 
       {/* ── Header ── */}
-      <FadeIn>
         <div className="text-center max-w-[680px] mx-auto mb-16">
-          <p className="text-[10px] uppercase tracking-[.20em] mb-6 text-gold">
+          <p className="text-[10px] uppercase tracking-[.20em] mb-6 text-gold-text">
             Ayia Napa, Cyprus
           </p>
           <h1 className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-3 text-nn-text">
@@ -46,7 +46,6 @@ export default function LandmarksPage() {
           </p>
           <GoldenDivider />
         </div>
-      </FadeIn>
 
       {/* ── Tabs: What to Visit / Where to Eat / Getting Around ── */}
       <div className="mb-20">

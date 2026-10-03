@@ -67,7 +67,7 @@ Applied during all development, not just at review time.
 **Styling**
 - When a component accepts a `className` prop or builds class strings conditionally, use `cn()` from `@/lib/utils`. Direct string concatenation silently drops a class when two utilities target the same CSS property.
 - Prefer Tailwind utility classes over `style={{ ... }}` for design tokens. `globals.css` maps these custom tokens to Tailwind utilities via `@theme inline`:
-  - **Text:** `text-gold`, `text-nn-text`, `text-nn-muted`, `text-cream`, `text-divider`, `text-navy`
+  - **Text:** `text-gold`, `text-gold-text`, `text-nn-text`, `text-nn-muted`, `text-cream`, `text-divider`, `text-navy`
   - **Background:** `bg-gold`, `bg-navy`, `bg-surface`, `bg-surface-alt`, `bg-divider`
   - **Border:** `border-gold`, `border-divider`
   - **Hover/conditional:** `hover:text-gold`, `hover:border-gold` etc. work because these map through `--color-*`
@@ -115,11 +115,11 @@ All page content is typed TypeScript constants — no CMS, no API calls. **Edit 
 
 ### Theming
 
-All color tokens are CSS custom properties in `:root` inside `globals.css`, mapped to Tailwind utility classes via `@theme inline`. The palette is warm light (cream `#faf9f6` background, gold `#C9A84C` primary, dark charcoal text). The `gold` button variant is a custom addition to `src/components/ui/button.tsx` — not part of the shadcn default set.
+All color tokens are CSS custom properties in `:root` inside `globals.css`, mapped to Tailwind utility classes via `@theme inline`. The palette is warm light (`--bg` `#F5F2EC`, gold `#B8924A` primary, navy text), with a `[data-theme="dark"]` override block. Gold fails 4.5:1 as small text on light surfaces, so use `text-gold-text` (`--gold-text`) for small gold text and links; `text-gold` is for icons, fills and large display type only. The gold button uses navy text (4.91:1). The `gold` button variant is a custom addition to `src/components/ui/button.tsx` — not part of the shadcn default set.
 
 Font CSS variables (`--font-body` for Raleway, `--font-heading-var` for Cormorant) are injected by `next/font/google` in `layout.tsx` and consumed in `@theme inline` as `--font-sans` and `--font-heading`.
 
-Hero `h1` headings use `<em className="italic text-primary">` to render accent words in gold italic (Cormorant italic at `#C9A84C`). This maps directly to the design spec's `.hero-h em` rule. Example: `Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway!`
+Hero `h1` headings use `<em className="italic text-primary">` to render accent words in gold italic (Cormorant italic in gold). This maps directly to the design spec's `.hero-h em` rule. Example: `Welcome to Your <em className="italic text-primary">Ayia Napa</em> Getaway!`
 
 ### Client components
 
@@ -186,7 +186,7 @@ To update (e.g. price change): edit the doc first, reflect in the data file, run
 
 ### Custom commands
 
-`.claude/commands/frontend-review.md` — run `/frontend-review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
+`.claude/skills/frontend-review/` — run `/frontend-review` before merging any branch. Performs a structured 7-step code review covering React/Next.js App Router patterns, TypeScript, Tailwind v4, caching, Server Actions, security (incl. CVE-2025-29927), accessibility, and project conventions.
 
 ## Known console violations
 

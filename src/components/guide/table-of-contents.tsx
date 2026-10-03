@@ -53,7 +53,7 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
     const el = document.getElementById(id);
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-      window.scrollTo({ top, behavior: "smooth" });
+      window.scrollTo({ top, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       window.history.pushState(null, "", `#${id}`);
     }
     setCollapsed(true);
@@ -65,7 +65,7 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
   ];
 
   return (
-    <nav>
+    <nav aria-label="Guide contents">
       {/* Mobile collapsible header */}
       <button
         className="md:hidden w-full flex items-center justify-between text-sm font-medium text-foreground mb-2 py-2 px-3 rounded-md bg-card border border-border"
@@ -92,7 +92,7 @@ export default function TableOfContents({ sections, farewellId }: TableOfContent
               className={cn(
                 "w-full text-left text-[13px] font-light px-3 py-[7px] transition-colors duration-[150ms] flex items-center gap-2",
                 activeId === item.id
-                  ? "font-normal text-gold"
+                  ? "font-normal text-gold-text"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >

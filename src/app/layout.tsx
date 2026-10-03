@@ -5,6 +5,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import ReducedMotionConfig from "@/components/motion-config";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL } from "@/lib/site";
 
 const raleway = Raleway({
   variable: "--font-body",
@@ -20,7 +21,7 @@ const cormorant = Cormorant({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.nomadsnest.live"),
+  metadataBase: new URL(SITE_URL),
   title: {
     template: "%s | Nomad's Nest",
     default: "Nomad's Nest: Ayia Napa, Cyprus",

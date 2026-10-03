@@ -16,6 +16,7 @@
   --gold:        #B8924A;
   --gold-dk:     #9A7A3C;
   --gold-lt:     #F2E8D0;
+  --gold-text:   #7A5F28; /* text-safe gold: 4.5:1+ on light surfaces */
 
   /* Semantic */
   --text:        #1B2A4A;
@@ -54,6 +55,7 @@
   --surface-alt: #112448;
   --navy-lt:     #1A3A6A;
   --gold-lt:     #1E1408;
+  --gold-text:   #B8924A;
   --text:        #EDE8DC;
   --muted-text:  #8898B0;
   --divider:     #18304E;
@@ -83,6 +85,7 @@
   --color-ring:                   var(--ring);
   /* NN design-token shortcuts - use these instead of inline style={{ color: "var(--...)" }} */
   --color-gold:        var(--gold);
+  --color-gold-text:   var(--gold-text);
   --color-nn-text:     var(--text);
   --color-nn-muted:    var(--muted-text);
   --color-cream:       var(--cream);

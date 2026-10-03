@@ -9,9 +9,13 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const engagedRef = useRef(false);
 
   const startAutoplay = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
+    // Autoplay is moving content: respect the OS motion setting, and stop for good once the
+    // visitor has touched the carousel (hover and focus pause it temporarily).
+    if (engagedRef.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     intervalRef.current = setInterval(() => emblaApi?.scrollNext(), 5500);
   }, [emblaApi]);
 
@@ -33,6 +37,11 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     };
   }, [emblaApi, startAutoplay, stopAutoplay]);
 
+  const engage = useCallback(() => {
+    engagedRef.current = true;
+    stopAutoplay();
+  }, [stopAutoplay]);
+
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
@@ -45,11 +54,19 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     <div
       role="region"
       aria-label="Reviews"
-      className="relative outline-none"
+      className="relative outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background rounded-md"
       tabIndex={0}
-      onKeyDown={handleKeyDown}
+      onKeyDown={(e) => {
+        engage();
+        handleKeyDown(e);
+      }}
+      onPointerDown={engage}
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
+      onFocus={stopAutoplay}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) startAutoplay();
+      }}
     >
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">

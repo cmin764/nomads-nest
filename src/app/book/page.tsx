@@ -7,6 +7,7 @@ import DiscountAccordion from "@/components/discount-accordion";
 import { pricingSeasons, platformLinks, fees, discounts, limits, contactEmail, contactWhatsApp, discountInquiry } from "@/data/book-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/book" },
   title: "Book",
   description: "Book your stay at Nomad's Nest on Airbnb, Booking.com, or HomeExchange.",
 };
@@ -17,14 +18,13 @@ export default function BookPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
 
         {/* ── Left: pricing ── */}
-        <FadeIn>
           <div>
             <h1 className="font-heading font-light text-[clamp(44px,6vw,72px)] leading-[1.05] mb-12 text-nn-text">
               Your Vacay<br />
               <em className="italic text-primary">Awaits</em>
             </h1>
 
-            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold">
+            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold-text">
               Pricing
             </p>
 
@@ -70,7 +70,7 @@ export default function BookPage() {
                   <span className="text-[10px] uppercase tracking-[.14em] flex-1 text-nn-muted">
                     {d.period}
                   </span>
-                  <span className="font-heading italic text-[18px] font-light text-gold">
+                  <span className="font-heading italic text-[18px] font-light text-gold-text">
                     -{d.pct}
                   </span>
                 </div>
@@ -82,7 +82,6 @@ export default function BookPage() {
               {limits.join(" · ")}
             </p>
           </div>
-        </FadeIn>
 
         {/* ── Right: platforms ── */}
         <FadeIn delay={0.1}>

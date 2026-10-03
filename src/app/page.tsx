@@ -6,7 +6,8 @@ import PhotoSection from "@/components/photo-section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nomad's Nest: Ayia Napa, Cyprus",
+  title: { absolute: "Nomad's Nest: Ayia Napa, Cyprus" },
+  alternates: { canonical: "/" },
   description:
     "A thoughtfully designed apartment 10 minutes' walk from the city centre and 20 minutes' walk from the beach.",
 };
