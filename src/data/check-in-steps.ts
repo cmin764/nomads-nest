@@ -8,15 +8,6 @@ export interface CheckInStep {
   descriptionLinks?: InlineLink[];
 }
 
-// Shown once above both tabs - applies to arrivals by car and on foot equally.
-export const overviewStep: CheckInStep = {
-  image: "/images/check-in/self-checkin-0.jpg",
-  alt: "Google Maps aerial screenshot with red dotted CAR and WALKING routes to apartment",
-  heading: "Getting Here: Overview",
-  description:
-    "White arrows mark the route by car; red arrows show the approach on foot. Use the tabs below for step-by-step instructions.",
-};
-
 // Both routes converge at the same physical entrance - shared to avoid duplication.
 const sharedFinalSteps: CheckInStep[] = [
   {
