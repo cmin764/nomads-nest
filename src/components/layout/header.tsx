@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -26,6 +26,15 @@ export default function Header() {
   const { theme, cycle } = useTheme();
   const pathname = usePathname();
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
+
   return (
     <header
       className="sticky top-0 z-50 w-full border-b border-border bg-surface"
@@ -35,7 +44,7 @@ export default function Header() {
         <div className="grid grid-cols-3 items-center h-[72px]">
 
           {/* Left: nav links (desktop) */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
               return (
@@ -57,6 +66,7 @@ export default function Header() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
               className="text-nn-text"
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -65,7 +75,7 @@ export default function Header() {
 
           {/* Center: logo */}
           <div className="flex justify-center">
-            <Link href="/" prefetch={false} className="logo-link" aria-label="Nomad's Nest home">
+            <Link href="/" prefetch={false} className="logo-link" aria-label="Nomad's Nest home" onClick={() => setMenuOpen(false)}>
               <Image
                 src="/images/logo-nn-transparent.png"
                 alt="Nomad's Nest"
@@ -106,7 +116,10 @@ export default function Header() {
       </div>
 
       {/* Mobile overlay */}
-      <div
+      <nav
+        id="mobile-menu"
+        aria-label="Mobile"
+        inert={!menuOpen}
         className={cn(
           "fixed inset-0 top-16 z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 md:hidden",
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -131,7 +144,7 @@ export default function Header() {
             Book Now
           </Link>
         </Button>
-      </div>
+      </nav>
     </header>
   );
 }

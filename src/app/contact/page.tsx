@@ -18,6 +18,7 @@ import {
 } from "@/data/contact-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Get in touch with Nomad's Nest. Address, phone, email, and social links.",
 };
@@ -28,12 +29,11 @@ export default function ContactPage() {
     <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20 space-y-20">
 
       {/* ── Hero: info + map ── */}
-      <FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
 
           {/* Left: contact info */}
           <div>
-            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold">
+            <p className="text-[10px] font-normal uppercase tracking-[.20em] mb-6 text-gold-text">
               Get in Touch
             </p>
 
@@ -130,7 +130,6 @@ export default function ContactPage() {
             />
           </div>
         </div>
-      </FadeIn>
 
       {/* ── Host blurb ── */}
       <FadeIn delay={0.03}>
@@ -145,7 +144,7 @@ export default function ContactPage() {
           <p className="font-heading italic font-light text-[clamp(17px,2vw,22px)] leading-relaxed mb-5 text-nn-text">
             {hostBlurb.text}
           </p>
-          <p className="text-[10px] uppercase tracking-[.20em] text-gold">
+          <p className="text-[10px] uppercase tracking-[.20em] text-gold-text">
             {hostBlurb.attribution}
           </p>
         </div>
@@ -158,7 +157,6 @@ export default function ContactPage() {
             src={contactImage}
             alt=""
             fill
-            priority
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 1100px"
           />

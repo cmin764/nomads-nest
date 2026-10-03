@@ -6,6 +6,7 @@ import DirectionsTabs from "@/components/check-in/directions-tabs";
 import { LINK_CLASS } from "@/lib/render-with-links";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/check-in" },
   title: "Check-in Instructions",
 };
 

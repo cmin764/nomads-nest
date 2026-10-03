@@ -7,6 +7,7 @@ import GoldenDivider from "@/components/ui/golden-divider";
 import { galleryIndexRooms, introQuote, gallerySpecialCards } from "@/data/gallery-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/gallery" },
   title: "Gallery",
   description:
     "Explore every room of Nomad's Nest: terrace, bedroom, bathroom, kitchen, living area, and entrance.",
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20">
+
+      <h1 className="sr-only">Gallery</h1>
 
       {/* ── Intro ── */}
       <FadeIn>

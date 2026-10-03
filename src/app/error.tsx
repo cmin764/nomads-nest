@@ -18,7 +18,7 @@ export default function Error({
 
   return (
     <div className="mx-auto max-w-[680px] px-4 sm:px-6 lg:px-8 py-32 text-center">
-      <p className="text-[10px] uppercase tracking-[.20em] mb-6 text-gold">
+      <p className="text-[10px] uppercase tracking-[.20em] mb-6 text-gold-text">
         Error
       </p>
 

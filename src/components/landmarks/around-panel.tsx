@@ -36,7 +36,7 @@ export default function AroundPanel({
         </ul>
         <p className="mt-4 text-[12px] font-light text-nn-muted">
           Closest stop: {closestStopName}. Full timetables at{" "}
-          <a href={gettingAroundFooter.url} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">
+          <a href={gettingAroundFooter.url} target="_blank" rel="noopener noreferrer" className="text-gold-text hover:underline">
             {gettingAroundFooter.label}
           </a>
           .
@@ -47,7 +47,7 @@ export default function AroundPanel({
         <CreditCard size={18} className="text-gold mt-0.5 shrink-0" />
         <p className="text-[13px] font-light leading-[1.7] text-nn-text">
           {smartCardTip.text}{" "}
-          <a href={smartCardTip.url} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">
+          <a href={smartCardTip.url} target="_blank" rel="noopener noreferrer" className="text-gold-text hover:underline">
             {smartCardTip.label}
           </a>
           .

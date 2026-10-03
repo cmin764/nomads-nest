@@ -19,6 +19,7 @@ import {
 } from "@/data/listing-content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/listing" },
   title: "The Space",
   description:
     "48 sqm apartment with terrace, dedicated workspace, and fiber optic internet in Ayia Napa, Cyprus.",

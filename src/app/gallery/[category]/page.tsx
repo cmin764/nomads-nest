@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${room.name}: Gallery`,
     description: `Photos of the ${room.name} at Nomad's Nest, Ayia Napa.`,
+    alternates: { canonical: `/gallery/${room.slug}` },
   };
 }
 
@@ -33,7 +34,6 @@ export default async function GalleryCategoryPage({ params }: Props) {
     <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8 py-20">
 
       {/* ── Header ── */}
-      <FadeIn>
         <div className="text-center mb-14">
           <h1 className="font-heading font-light text-[clamp(36px,5vw,60px)] leading-[1.1] mb-3 text-nn-text">
             {room.name}
@@ -43,7 +43,6 @@ export default async function GalleryCategoryPage({ params }: Props) {
           </p>
           <GoldenDivider />
         </div>
-      </FadeIn>
 
       {/* ── Photo grid + lightbox ── */}
       <FadeIn delay={0.1}>

@@ -98,8 +98,8 @@ export default function FarewellChecklist() {
                     !isLast && "border-b border-border"
                   )}
                 >
-                  <span className="shrink-0 mt-[3px] text-[12px] text-[var(--gold-dk)]" aria-hidden>⚠</span>
-                  <span className="text-[14px] font-normal leading-[1.75] text-[var(--gold-dk)]">
+                  <span className="shrink-0 mt-[3px] text-[12px] text-gold-text" aria-hidden>⚠</span>
+                  <span className="text-[14px] font-normal leading-[1.75] text-gold-text">
                     {boldOnOff(item.text)}
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export default function FarewellChecklist() {
               >
                 <span
                   className={cn(
-                    "shrink-0 mt-[2px] flex items-center justify-center w-[18px] h-[18px] rounded-full border-2 transition-all duration-150",
+                    "shrink-0 mt-[2px] flex items-center justify-center w-[18px] h-[18px] rounded-full border-2 transition-all duration-150 group-has-[:focus-visible]:ring-2 group-has-[:focus-visible]:ring-ring group-has-[:focus-visible]:ring-offset-2 ring-offset-background",
                     isChecked ? "border-gold bg-gold" : "border-divider bg-transparent"
                   )}
                 >
@@ -150,7 +150,7 @@ export default function FarewellChecklist() {
         </div>
 
         {allDone ? (
-          <p className="mt-6 font-heading font-light italic text-[17px] text-[var(--gold-dk)]">
+          <p className="mt-6 font-heading font-light italic text-[17px] text-gold-text">
             Safe travels. Come back soon. ✦
           </p>
         ) : (

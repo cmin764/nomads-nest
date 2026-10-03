@@ -1,5 +1,4 @@
 import Link from "next/link";
-import FadeIn from "@/components/fade-in";
 import GoldenDivider from "@/components/ui/golden-divider";
 import type { LegalPage, LegalSegment } from "@/data/legal-content";
 
@@ -42,7 +41,7 @@ function renderBodyItem(item: string | LegalSegment[], index: number) {
           <Link
             key={i}
             href={segment.href}
-            className="text-gold underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="text-gold-text underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
             {segment.text}
           </Link>
@@ -52,7 +51,7 @@ function renderBodyItem(item: string | LegalSegment[], index: number) {
             href={segment.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="text-gold-text underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
             {segment.text}
           </a>
@@ -66,7 +65,6 @@ export default function LegalPageLayout({ content }: { content: LegalPage }) {
   const { title, lastUpdated, sections } = content;
   return (
     <div className="mx-auto max-w-[760px] px-4 sm:px-6 py-20">
-      <FadeIn>
         <h1 className="font-heading italic font-light text-[clamp(40px,5vw,56px)] leading-tight mb-3 text-nn-text">
           {title}
         </h1>
@@ -83,7 +81,6 @@ export default function LegalPageLayout({ content }: { content: LegalPage }) {
             {section.body.map((item, i) => renderBodyItem(item, i))}
           </section>
         ))}
-      </FadeIn>
     </div>
   );
 }

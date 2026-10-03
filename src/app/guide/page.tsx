@@ -8,6 +8,7 @@ import FarewellChecklist from "@/components/guide/farewell-checklist";
 import TableOfContents from "@/components/guide/table-of-contents";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/guide" },
   title: "Guest Guide",
 };
 

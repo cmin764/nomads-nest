@@ -5,10 +5,10 @@ import type { Eatery } from "@/data/landmarks-content";
 function EateryCard({ eatery }: { eatery: Eatery }) {
   return (
     <div className="rounded-2xl border border-divider bg-surface p-6 flex flex-col">
-      <p className="text-[10px] uppercase tracking-[.16em] mb-2 text-gold">{eatery.cuisine}</p>
-      <h3 className="font-heading font-light text-[19px] leading-[1.2] mb-2 text-nn-text">
+      <p className="text-[10px] uppercase tracking-[.16em] mb-2 text-gold-text">{eatery.cuisine}</p>
+      <h2 className="font-heading font-light text-[19px] leading-[1.2] mb-2 text-nn-text">
         {eatery.name}
-      </h3>
+      </h2>
       <p className="text-[13px] font-light leading-[1.7] mb-4 text-nn-muted flex-1">
         {eatery.description}
       </p>
