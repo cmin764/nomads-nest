@@ -45,4 +45,3 @@ export default function DirectionsTabs() {
     </Tabs>
   );
 }
-
