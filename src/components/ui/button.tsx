@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "rounded-md hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Pill - gold fill: primary CTAs (Book Now, Reserve)
-        gold: "rounded-full bg-[var(--gold)] text-[var(--navy)] border-0 uppercase tracking-[.14em] text-[11px] font-normal hover:brightness-110 hover:scale-[1.02] active:scale-100",
+        gold: "rounded-full bg-[var(--gold)] text-[var(--cream)] border-0 uppercase tracking-[.14em] text-[11px] font-normal hover:bg-[var(--gold-dk)] hover:scale-[1.02] active:scale-100",
         // Pill - navy outline: secondary CTAs (View Gallery, Get Directions)
         // Dark mode overrides applied via .btn-navy CSS class in globals.css
         navy: "btn-navy rounded-full bg-transparent border border-[var(--navy-mid)] text-[var(--navy-mid)] uppercase tracking-[.14em] text-[11px] font-normal hover:bg-[var(--navy-mid)] hover:text-[var(--cream)]",
