@@ -2,20 +2,20 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Review } from "@/data/listing-content";
 
 export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const pausedRef = useRef(false);
-  const [paused, setPaused] = useState(false);
+  const engagedRef = useRef(false);
 
   const startAutoplay = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-    // Autoplay is moving content: respect the OS motion setting and the visitor's own pause.
-    if (pausedRef.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Autoplay is moving content: respect the OS motion setting, and stop for good once the
+    // visitor has touched the carousel (hover and focus pause it temporarily).
+    if (engagedRef.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     intervalRef.current = setInterval(() => emblaApi?.scrollNext(), 5500);
   }, [emblaApi]);
 
@@ -37,12 +37,10 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     };
   }, [emblaApi, startAutoplay, stopAutoplay]);
 
-  const togglePause = useCallback(() => {
-    pausedRef.current = !pausedRef.current;
-    setPaused(pausedRef.current);
-    if (pausedRef.current) stopAutoplay();
-    else startAutoplay();
-  }, [startAutoplay, stopAutoplay]);
+  const engage = useCallback(() => {
+    engagedRef.current = true;
+    stopAutoplay();
+  }, [stopAutoplay]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -58,7 +56,11 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
       aria-label="Reviews"
       className="relative outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background rounded-md"
       tabIndex={0}
-      onKeyDown={handleKeyDown}
+      onKeyDown={(e) => {
+        engage();
+        handleKeyDown(e);
+      }}
+      onPointerDown={engage}
       onMouseEnter={stopAutoplay}
       onMouseLeave={startAutoplay}
       onFocus={stopAutoplay}
@@ -126,14 +128,6 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           className="w-10 h-10 rounded-full border border-divider text-nn-muted flex items-center justify-center transition-colors hover:border-gold hover:text-gold"
         >
           <ChevronRight size={16} />
-        </button>
-
-        <button
-          onClick={togglePause}
-          aria-label={paused ? "Resume auto-rotation" : "Pause auto-rotation"}
-          className="w-10 h-10 rounded-full border border-divider text-nn-muted flex items-center justify-center transition-colors hover:border-gold hover:text-gold"
-        >
-          {paused ? <Play size={16} /> : <Pause size={16} />}
         </button>
       </div>
     </div>
